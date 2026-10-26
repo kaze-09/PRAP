@@ -1,0 +1,414 @@
+[
+ {
+  "cond": "C1",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 2,
+  "denies": 0,
+  "expires": 0,
+  "commits": 2,
+  "replans": 0,
+  "failed_ops": 0,
+  "tokens": 1495,
+  "tokens_by_agent": {
+   "A": 747,
+   "B": 748
+  },
+  "llm_calls": 2,
+  "verdicts": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": null
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 2
+  },
+  "completed_at": {
+   "A": 3,
+   "B": 4
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C1",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 2,
+  "denies": 0,
+  "expires": 0,
+  "commits": 2,
+  "replans": 0,
+  "failed_ops": 0,
+  "tokens": 1536,
+  "tokens_by_agent": {
+   "A": 678,
+   "B": 858
+  },
+  "llm_calls": 2,
+  "verdicts": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": null
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 2
+  },
+  "completed_at": {
+   "A": 3,
+   "B": 4
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C2",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "commits": 3,
+  "replans": 1,
+  "failed_ops": 2,
+  "tokens": 1909,
+  "tokens_by_agent": {
+   "A": 772,
+   "B": 1137
+  },
+  "llm_calls": 3,
+  "verdicts": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": 8
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C2",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "commits": 3,
+  "replans": 1,
+  "failed_ops": 2,
+  "tokens": 1927,
+  "tokens_by_agent": {
+   "A": 655,
+   "B": 1272
+  },
+  "llm_calls": 3,
+  "verdicts": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": 8
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C3",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 2,
+  "denies": 1,
+  "expires": 1,
+  "commits": 1,
+  "replans": 0,
+  "failed_ops": 0,
+  "tokens": 1353,
+  "tokens_by_agent": {
+   "A": 726,
+   "B": 627
+  },
+  "llm_calls": 2,
+  "verdicts": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 15
+  },
+  "completed_at": {
+   "A": null,
+   "B": 17
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C3",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(0,3)）",
+  "grants": 3,
+  "denies": 1,
+  "expires": 1,
+  "commits": 2,
+  "replans": 1,
+  "failed_ops": 2,
+  "tokens": 1978,
+  "tokens_by_agent": {
+   "A": 657,
+   "B": 1321
+  },
+  "llm_calls": 3,
+  "verdicts": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 15
+  },
+  "completed_at": {
+   "A": null,
+   "B": 20
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C4",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 4,
+  "replans": 2,
+  "failed_ops": 7,
+  "tokens": 2857,
+  "tokens_by_agent": {
+   "A": 725,
+   "B": 2132
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": 11
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "cond": "C4",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 4,
+  "replans": 2,
+  "failed_ops": 9,
+  "tokens": 2853,
+  "tokens_by_agent": {
+   "A": 655,
+   "B": 2198
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": 11
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "cond": "C5",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "commits": 0,
+  "replans": 0,
+  "failed_ops": 2,
+  "tokens": 1390,
+  "tokens_by_agent": {
+   "A": 755,
+   "B": 635
+  },
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "blocked_from": {
+   "A": null,
+   "B": null
+  },
+  "granted_at": {
+   "A": null,
+   "B": null
+  },
+  "completed_at": {
+   "A": null,
+   "B": null
+  },
+  "l4_oracle": {}
+ },
+ {
+  "cond": "C5",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "commits": 0,
+  "replans": 0,
+  "failed_ops": 2,
+  "tokens": 1393,
+  "tokens_by_agent": {
+   "A": 672,
+   "B": 721
+  },
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "blocked_from": {
+   "A": null,
+   "B": null
+  },
+  "granted_at": {
+   "A": null,
+   "B": null
+  },
+  "completed_at": {
+   "A": null,
+   "B": null
+  },
+  "l4_oracle": {}
+ }
+]

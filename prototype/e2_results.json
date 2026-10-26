@@ -1,0 +1,290 @@
+{
+ "e2a": [
+  {
+   "lag": 0,
+   "correct_value": true,
+   "expected": "ok",
+   "got": "ok",
+   "ok": true
+  },
+  {
+   "lag": 0,
+   "correct_value": false,
+   "expected": "deviation",
+   "got": "deviation",
+   "ok": true
+  },
+  {
+   "lag": 1,
+   "correct_value": true,
+   "expected": "stale",
+   "got": "stale",
+   "ok": true
+  },
+  {
+   "lag": 1,
+   "correct_value": false,
+   "expected": "stale",
+   "got": "stale",
+   "ok": true
+  },
+  {
+   "lag": 2,
+   "correct_value": true,
+   "expected": "stale",
+   "got": "stale",
+   "ok": true
+  },
+  {
+   "lag": 2,
+   "correct_value": false,
+   "expected": "stale",
+   "got": "stale",
+   "ok": true
+  },
+  {
+   "lag": 3,
+   "correct_value": true,
+   "expected": "stale",
+   "got": "stale",
+   "ok": true
+  },
+  {
+   "lag": 3,
+   "correct_value": false,
+   "expected": "stale",
+   "got": "stale",
+   "ok": true
+  }
+ ],
+ "e2b": [
+  {
+   "d": 0,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "ok"
+   },
+   "success": true,
+   "failed_ops": 4,
+   "tokens": 3054,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(0,4)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(2,3)",
+     "pos:B": "(4,4)",
+     "hold:B": "none"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   }
+  },
+  {
+   "d": 0,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "ok"
+   },
+   "success": true,
+   "failed_ops": 2,
+   "tokens": 2195,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(0,4)",
+     "pos:B": "(0,4)"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   }
+  },
+  {
+   "d": 1,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": false,
+   "failed_ops": 4,
+   "tokens": 4399,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(3,3)",
+     "pos:B": "(4,4)",
+     "hold:B": "none"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,2)"
+   }
+  },
+  {
+   "d": 1,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 2970,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(3,3)",
+     "pos:B": "(4,4)"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   }
+  },
+  {
+   "d": 2,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": false,
+   "failed_ops": 0,
+   "tokens": 2916,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(4,3)",
+     "pos:B": "(4,4)",
+     "hold:B": "none"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,2)"
+   }
+  },
+  {
+   "d": 2,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 2939,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(4,3)",
+     "pos:B": "(4,4)"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   }
+  },
+  {
+   "d": 3,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 2989,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(4,3)",
+     "pos:B": "(4,4)",
+     "hold:B": "none"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   }
+  },
+  {
+   "d": 3,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 2969,
+   "claimed": {
+    "A": {
+     "item:apple1": "world@(2,3)",
+     "pos:A": "(0,0)"
+    },
+    "B": {
+     "item:apple1": "world@(4,3)",
+     "pos:B": "(4,4)"
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   }
+  }
+ ]
+}

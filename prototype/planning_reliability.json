@@ -1,0 +1,375 @@
+{
+ "tasks": [
+  {
+   "model": "qwen-plus",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B",
+   "cond": "C1",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(first)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(replan)",
+   "cond": "C2",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": false
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "B(takeover)",
+   "cond": "C3",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": false
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": false
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": false
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": true
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": true
+  },
+  {
+   "model": "qwen-plus",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": false
+  },
+  {
+   "model": "deepseek-chat",
+   "role": "A(healthy)",
+   "cond": "C4v02",
+   "success": true
+  }
+ ],
+ "summary": {
+  "deepseek-chat": [
+   30,
+   30
+  ],
+  "qwen-plus": [
+   25,
+   30
+  ]
+ },
+ "fisher_p": 0.052185548617305975
+}
