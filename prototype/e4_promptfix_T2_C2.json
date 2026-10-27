@@ -1,0 +1,1586 @@
+[
+ {
+  "baseline": "promptfix",
+  "task": "T2",
+  "cond": "C2",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 8,
+    "failed": 2
+   },
+   "B": {
+    "ops": 12,
+    "failed": 0
+   }
+  },
+  "tokens": 1680,
+  "llm_calls": 2,
+  "plans": {
+   "A": [
+    {
+     "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1 → 一步move。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)，共6步move，再place。总计1(grab)+1(move to apple)+6(move to target)+1(place)=9步，但ops只含动作序列，ttl设为9。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 8,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "苹果在(1,3)，我在(2,0)。先向左到(1,0)，再向下到(1,3)抓取，然后向右到(4,3)，向上到(4,0)放置。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 12,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "baseline": "promptfix",
+  "task": "T2",
+  "cond": "C2",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(4,1)）",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 9,
+    "failed": 0
+   },
+   "B": {
+    "ops": 12,
+    "failed": 2
+   }
+  },
+  "tokens": 1808,
+  "llm_calls": 2,
+  "plans": {
+   "A": [
+    {
+     "thought": "苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 9,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "我（B）在(2,0)，apple1在(1,3)。需先移动到(1,3)：dx=1-2=-1, dy=3-0=3 → 需3步向下+1步向左，但每次只能移动1格，路径为(2,0)→(2,1)→(2,2)→(2,3)→(1,3)。然后grab apple1，再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3 → 路径(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)，共6步；但可优化：grab后先上移再右移。最优路径：(1,3)→(1,2)→(1,1)→(1,0)→(2,0)→(3,0)→(4,0)，共6步。总步骤：4（到apple）+1（grab）+6（到4,0）=11，但ops只列动作序列，不计grab耗时。ttl设为11。priority高因是主任务。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 12,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "promptfix",
+  "task": "T2",
+  "cond": "C2",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 8,
+    "failed": 2
+   },
+   "B": {
+    "ops": 12,
+    "failed": 0
+   }
+  },
+  "tokens": 1764,
+  "llm_calls": 2,
+  "plans": {
+   "A": [
+    {
+     "thought": "我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到目标(4,0)放置。从(0,4)到(1,3)：dx=+1, dy=-1 → (1,3)；抓取apple1；然后从(1,3)到(4,0)：需右移3格、上移3格，分步走：(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)。共6步移动+1抓+1放=8操作，但ops只含动作序列，ttl设为8。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 8,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "苹果在(1,3)，我在(2,0)。先向左到(1,0)，再向下到(1,3)抓取，然后向右到(4,3)，向上到(4,0)放置。逐步核对：move(-1,0)->(1,0)；move(0,1)x3->(1,1),(1,2),(1,3)；grab；move(1,0)x3->(2,3),(3,3),(4,3)；move(0,-1)x3->(4,2),(4,1),(4,0)；place。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 12,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "baseline": "promptfix",
+  "task": "T2",
+  "cond": "C2",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 10,
+    "failed": 0
+   },
+   "B": {
+    "ops": 12,
+    "failed": 2
+   }
+  },
+  "tokens": 1726,
+  "llm_calls": 2,
+  "plans": {
+   "A": [
+    {
+     "thought": "苹果在(1,3)，我在(0,4)。先右移到(1,4)，再上移到(1,3)抓取；然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,0)放置。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 10,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "我（B）在(2,0)，apple1在(1,3)。需先移动到(1,3)：从(2,0)→(1,0)→(1,1)→(1,2)→(1,3)，共4步move；然后grab apple1；再移动到投放点(4,0)：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)，共6步move；最后place。总计11步，但ttl仅需填预计占用tick数，即总ops数=11。priority高因为是主任务。belief中item:apple1位置与状态一致，pos:B为(2,0)。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 12,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "promptfix",
+  "task": "T2",
+  "cond": "C2",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 8,
+    "failed": 2
+   },
+   "B": {
+    "ops": 12,
+    "failed": 0
+   }
+  },
+  "tokens": 1673,
+  "llm_calls": 2,
+  "plans": {
+   "A": [
+    {
+     "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1 → 一步move。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)，共6步move，再place。总计1(grab)+1(move to apple)+6(move to target)+1(place)=9步，但ops只含动作序列，ttl设为9。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 8,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "苹果在(1,3)，我在(2,0)。先向左到(1,0)，再向下到(1,3)抓取，然后向右到(4,3)，向上到(4,0)放置。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 12,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ }
+]

@@ -1,0 +1,1861 @@
+[
+ {
+  "baseline": "occ",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 14,
+    "failed": 4
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3045,
+  "llm_calls": 4,
+  "plans": {
+   "A": [
+    {
+     "thought": "我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(2,1)->(2,2)->(2,3)（共5步），grab（1步），然后(2,3)->(1,3)->(0,3)->(0,4)（3步），place（1步）。总ops共10步，但ttl设为预期占用tick数，即移动+grab+place共9个动作，但实际执行中每个op占1 tick，故ttl=9。keys锁定item:apple1。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 10,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 currently held by B at (0,3). I must move to (0,3) to grab it from B, but first need INTENT on item:apple1. Then grab, then move to (0,4) and place.",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 5,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 已在 (0,4)，而我在 (0,4)，与 apple1 同格，可直接 grab；但需先锁定 item:apple1。grab 后无需 move，因目标投放点即为当前格 (0,4)，但 place 要求持有物品且在目标格——我已在 (0,4)，grab 后立即 place 即可。注意：B 也在 (0,4)，但 grab 和 place 是原子操作，只要锁定 apple1 就可执行。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 2,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "从(4,4)到苹果(2,3)：先左移两次到(2,4)，再上移到(2,3)抓取；然后送到(0,4)：从(2,3)左移到(1,3)，左移到(0,3)，下移到(0,4)放置。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 8,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "baseline": "occ",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 10,
+    "failed": 0
+   },
+   "B": {
+    "ops": 10,
+    "failed": 7
+   }
+  },
+  "tokens": 4105,
+  "llm_calls": 4,
+  "plans": {
+   "A": [
+    {
+     "thought": "苹果在(2,3)，我在(0,0)。先向右2步到(2,0)，再向下3步到(2,3)抓取，然后向左2步到(0,3)，再向下1步到(0,4)放下。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 10,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)→(3,4)，再move(dx=-1,dy=-1)→(2,3)。然后grab apple1，再移动到投放点(0,4)：从(2,3)到(0,4)需dx=-2,dy=1，分步为move(dx=-1,dy=0)→(1,3)，move(dx=-1,dy=1)→(0,4)。最后place。共5步操作，ttl=5。锁定item:apple1。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 4,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "我（B）在(3,4)，apple1在(2,3)。先move到(2,3)抓取，再move到(0,4)放置。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 3,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 currently held by A at (2,3); B is at (3,4) and holds nothing. B must first move to (2,3) to grab apple1, but apple1 is already held by A — so B cannot grab it until A releases it. However, the task says 'take apple1 from its location', implying it's on the ground. But world state shows hold:A = item:apple1, meaning A is holding it. Since only one agent can hold an item, and B has hold:B = none, B must wait for A to place it. But the instruction requires B to act — so perhaps the world state reflects a transient inconsistency? No — we must trust the state. Therefore, apple1 is not on ground; it's held by A. So B cannot grab it now. But the task says 'take from it所在位置' — that location is where A is: (2,3). So B must go to (2,3) and wait for apple1 to be placed there. However, our ops can only issue moves/grab/place — no wait. And grab requires item to be present *and unheld*. Since hold:A = item:apple1, item:apple1 is not in world grid — it's held. So item:apple1 has no world@(x,y) right now. Therefore, belief['item:apple1'] should be unknown or absent — but task says 'from its location', and last known location was (2,3) before A picked it up. However, state does not give item:apple1's world position — only that A holds it. So we cannot grab until it's placed. But the problem asks us to make a plan assuming we *can* act. Re-examining: the world state includes 'item:apple1': {'value': 'A', ...} — this likely means item:apple1 is *owned by* or *held by* A, not its world position. And crucially, there is *no* 'item:apple1' entry in world coordinates — meaning it's not on floor. So B cannot grab yet. But the task is assigned to B, so perhaps A will place it soon — but we must produce a plan *now*. The only safe immediate action is for B to move to (2,3) — the last known location where apple1 would be placed — and wait. So we set keys to [] (no item to lock yet), ops: move to (2,3), ttl=2, priority=5. But the instruction says 'take apple1 from its location' — if it's not there, we can't. However, the belief must reflect truth: item:apple1 has no world position now; only hold:A says it's held. So belief['item:apple1'] should be omitted? No — the belief field must include all keys listed in 'keys', but here keys is empty, so we may omit it — but the schema says 'belief' must contain item:xxx if in keys. Since we're not locking any item yet, we can leave item:apple1 out? No — the instruction says 'belief' should contain 'you currently believe the values of each key' — and we know from state that item:apple1 is held by A, but its world position is unknown. However, the belief format requires 'item:apple1': 'world@(x,y)' — but it's not in world. So strictly speaking, we cannot assign a world coordinate. But the problem expects us to proceed as if it will be placed at (2,3). All examples assume item:xxx always has a world position. Given conflict, safest is to assume apple1 will be placed at A's position (2,3) soon, so B goes there. So we set belief['item:apple1'] = 'world@(2,3)' as intention — but that's false. Alternatively, the state's 'item:apple1' value 'A' might be a bug, and it actually means it's *at* A's position. Many environments conflate. Given the coordinates in pos:A=(2,3), and no other location given, we assume apple1 is at (2,3). So B moves to (2,3), grabs it, then moves to (0,4) and places. That fits the task description. So: move from (3,4) to (2,3): dx = -1, dy = -1 → (2,3). Then grab item:apple1. Then move to (0,4): from (2,3) → (1,3) → (0,3) → (0,4): need 3 moves. So ops: move to (2,3), grab, move left twice, move down once, place. Let's compute step-by-step: current B pos (3,4). To reach (2,3): move dx=-1, dy=-1 → valid. Then grab item:apple1. Then to (0,4): from (2,3), move dx=-1,dy=0 → (1,3); dx=-1,dy=0 → (0,3); dx=0,dy=1 → (0,4). So three moves after grab. Total ops: 1 move + 1 grab + 3 moves + 1 place = 6 ops. ttl=6. keys=['item:apple1'] to lock it before grab.",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 5,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "occ",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 14,
+    "failed": 4
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3072,
+  "llm_calls": 4,
+  "plans": {
+   "A": [
+    {
+     "thought": "我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(2,1)->(2,2)->(2,3)（共5步），grab（1步），然后(2,3)->(1,3)->(0,3)->(0,4)（3步），place（1步）。总共10步，但ops只包含动作序列，不包含等待；keys锁定apple1；belief反映当前状态。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 10,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 currently held by B at (0,3). I must move to (0,3) to grab it from B. Then move to (0,4) and place it. First, confirm apple1's location is (0,3) via belief; then plan path: from (2,3) → (0,3) requires dx=-2, dy=0 → two left moves. Then from (0,3) → (0,4) is one down move. Grab only after reaching (0,3).",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 5,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 已在 (0,4)，而我在 (0,4)，与 apple1 同格，可直接 grab；但需先锁定 item:apple1。grab 后无需 move，因已在目标点 (0,4)，直接 place 即可。注意：B 也在 (0,4)，但 grab 操作只依赖我与物品同格且未被持有，状态中 hold:A=none、item:apple1=value=world@(0,4)，故合法。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 2,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "我在(4,4)，苹果在(2,3)。先向左移动到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 8,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "baseline": "occ",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 10,
+    "failed": 0
+   },
+   "B": {
+    "ops": 14,
+    "failed": 8
+   }
+  },
+  "tokens": 4429,
+  "llm_calls": 4,
+  "plans": {
+   "A": [
+    {
+     "thought": "苹果在(2,3)，我在(0,0)。先向右2步到(2,0)，再向下3步到(2,3)抓取，然后向左2步到(0,3)，再向下1步到(0,4)放下。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 10,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "B在(4,4)，apple1在(2,3)。先move到(2,3)：dx=-2, dy=-1，需两步：先(-1,0)到(3,4)，再(-1,-1)到(2,3)。然后grab apple1。再move到目标(0,4)：从(2,3)出发，需dx=-2,dy=1，分步：(-1,0)→(1,3)，(-1,1)→(0,4)。最后place。共5步操作，ttl=5。keys锁定apple1。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 4,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "B在(3,4)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(3,4)到(2,3)需dx=-1,dy=-1；从(2,3)到(0,4)需dx=-2,dy=+1，分步：先到(1,3)，再到(0,3)，再到(0,4)。共4步移动+1抓+1放=6操作，ttl设7留余量。keys锁定apple1。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 5,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "B在(3,4)，apple1被A持有，因此B无法直接grab。需先等待A释放apple1，但任务要求B完成运送，故当前状态不满足执行条件；然而根据规则，B必须INTENT锁定apple1才能操作，所以keys中必须包含item:apple1，尽管它当前被A持有。B应先移动到apple1的可能释放位置附近等待，但题目未提供A的下一步动作。由于apple1当前被A持有，B无法grab，因此唯一可行路径是：B移动到A的位置(2,3)附近，但A在(2,3)，B在(3,4)，曼哈顿距离为2。但grab只能在同格且物品在世界（非被持）时进行。当前apple1被A持有，故不在世界格子上，B无法grab。因此B必须等待apple1被place回世界。但任务指派给B，说明预期apple1将被释放。由于状态中item:apple1的value是'A'（即归属A），但world@(x,y)未给出——说明它不在世界坐标中，而是在A手上。因此B当前无法执行任何grab。但题目强制要求输出计划，故唯一合规动作是：B先移动到(2,3)（A所在格），为后续grab做准备（一旦A place apple1，B可立即grab）。然后从(2,3)去(0,4) place。但当前apple1不在世界，所以grab操作暂不能列在ops中；ops只能包含确定性可执行动作。因此ops只含move序列：(3,4)→(2,4)→(2,3)，共2步。但需确保最终能grab+place，所以INTENT仍需声明item:apple1。belief中item:apple1的world位置未知，按规则应填'world@(x,y)'，但状态未提供其world坐标，只知被A持有，故无法写出world@(x,y)；但belief字段要求如实作答，而状态中无该项，所以应留空？不，规则说'如实作答，格式必须与状态里的写法完全一致'，状态中item:apple1的value是'A'，不是坐标，说明它不在世界。但belief中item:xxx应填'world@(x,y)'，矛盾。重新审题：状态中item:apple1的value是'A'，表示该物品由A持有，因此它没有world坐标；但belief字段要求填'world@(x,y)'，若不在世界则无法填写。然而题目示例和规则暗示：只有当物品在世界格子上时，item:xxx才对应world@(x,y)。当前apple1被持，故其world位置未知/不存在。但belief必须填，且格式严格。查状态原始字段：\"item:apple1\": {\"value\": \"A\", ...} —— value是持有者ID，不是坐标。因此该物品当前无world坐标。但belief规范强制要求'world@(x,y)'格式，故此处应推断为：尚未出现，或不可见。然而，任务逻辑要求B去取它，意味着它终将被放置。但当前plan必须基于已知信念。所以belief中item:apple1应写为未知，但格式不允许。再读题：'belief 填你当前相信的各 key 的值（如实作答，用于信念校验，格式必须与状态里的写法完全一致）' —— 状态里item:apple1的value是'A'，但belief字段示例是'world@(x,y)'，说明当物品在世界时才那样写；若被持，则不应写world@...。但题目未定义被持时的belief格式。权衡后，严格按状态value填：item:apple1的value是'A'，所以belief中填\"item:apple1\": \"A\"？但示例belief是\"item:xxx\": \"world@(x,y)\"，矛盾。看用户输入的状态：\"item:apple1\": {\"value\": \"A\", ...}，而pos:A是\"(2,3)\"，hold:A是\"item:apple1\"。因此apple1在A手上，不在世界。故B相信它不在世界任何格，即无world@(x,y)。但belief字段必须存在且格式统一。唯一合规解法是：因apple1被A持有，其world位置不可用，但B知道A在(2,3)，若A place apple1，必放在(2,3)。所以B belief中item:apple1最可能的world位置是(2,3)。这是合理推断。因此belief中填\"item:apple1\": \"world@(2,3)\"。然后B移动到(2,3) grab，再移动到(0,4) place。grab操作需在同格且物品在世界，所以假设A将在(2,3) place apple1，则B到(2,3)后可grab。因此ops序列：move from (3,4) to (2,3) [dx=-1,dy=-1? no: (3,4)->(2,4) is dx=-1,dy=0; then (2,4)->(2,3) is dx=0,dy=-1]; then grab; then move to (0,4): (2,3)->(1,3)->(0,3)->(0,4) [three moves]; then place. Total moves: 2 (to apple) + 1 (grab) + 3 (to target) + 1 (place) = 7 ops, but ops list contains each op. Let's list step-by-step coordinates: Start B at (3,4). Step1: move dx=-1,dy=0 → (2,4). Step2: move dx=0,dy=-1 → (2,3). Step3: grab item:apple1. Step4: move dx=-1,dy=0 → (1,3). Step5: move dx=-1,dy=0 → (0,3). Step6: move dx=0,dy=1 → (0,4). Step7: place item:apple1. So 7 ops. ttl=7. priority=5. keys=[\"item:apple1\"]. belief: pos:B=\"(3,4)\", item:apple1=\"world@(2,3)\" (inferred).",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 7,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "occ",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "deadlock": false,
+  "agent_ops": {
+   "A": {
+    "ops": 14,
+    "failed": 4
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3056,
+  "llm_calls": 4,
+  "plans": {
+   "A": [
+    {
+     "thought": "我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(2,1)->(2,2)->(2,3)（共5步），grab（1步），然后(2,3)->(1,3)->(0,3)->(0,4)（3步），place（1步）。总共10步，但ops只包含动作序列，不包含等待；keys锁定apple1；belief反映当前状态。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 10,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 currently held by B at (0,3). I must move to (0,3) to grab it from B. Then move to (0,4) and place it. First, confirm apple1's location is (0,3) via belief; then plan move from my pos (2,3) to (0,3): dx=-2, dy=0 → two left moves. Then grab apple1. Then move down one step to (0,4), then place.",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 5,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "A",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    },
+    {
+     "thought": "apple1 已在 (0,4)，而我（A）也在 (0,4)，因此可直接 grab；但需先锁定 item:apple1。grab 后无需 move，直接 place 在 (0,4) 即可（即原地放置）。注意：B 也在 (0,4)，但 grab 只需与 apple1 同格，且 apple1 在 world 中，状态明确为 world@(0,4)，故合法。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 2,
+     "ops": [
+      [
+       "grab",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "A",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ],
+   "B": [
+    {
+     "thought": "苹果在(2,3)，我在(4,4)。先向左到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。",
+     "keys": [
+      "item:apple1"
+     ],
+     "n_ops": 8,
+     "ops": [
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": -1
+       }
+      ],
+      [
+       "grab",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": -1,
+        "dy": 0
+       }
+      ],
+      [
+       "move",
+       {
+        "agent": "B",
+        "dx": 0,
+        "dy": 1
+       }
+      ],
+      [
+       "place",
+       {
+        "agent": "B",
+        "key": "item:apple1"
+       }
+      ]
+     ],
+     "replan": 0
+    }
+   ]
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ }
+]

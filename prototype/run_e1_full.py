@@ -171,6 +171,11 @@ def run_trial(cond: str, trial: int, clients: dict, horizon: int,
         "granted_at": {ag.id: ag.report.granted_at for ag in agents},
         "completed_at": {ag.id: ag.report.completed_at for ag in agents},
     }
+    # 逐算子调试数据：LLM 计划全量（ops 文本）+ 仲裁器算子执行序列
+    rec["plans"] = {ag.id: ag.plans for ag in agents if getattr(ag, "plans", None)}
+    rec["op_seq"] = [{"agent": lease_agent.get(e[2], "?"), "op": e[3],
+                      "args": e[4], "ok": e[5]}
+                     for e in arb.log if e[0] == "op"]
     # L4 oracle 评测（仅 C4）
     l4 = {}
     if cond == "C4":

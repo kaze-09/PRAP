@@ -137,11 +137,14 @@ ttl=预计占用 tick 数；priority 0-9（越急越高）。belief 填你当前
 class LLMAgent(ScriptedAgent):
     """goal 用自然语言给出；keys/ops 由 LLM 规划，SDK 负责协议与信念缓存。"""
 
+    SYSTEM_PROMPT_OVERRIDE: Optional[str] = None   # E4 提示词修复基线用
+
     def __init__(self, sim, agent_id: str, client: LLMClient, goal: str,
                  item_keys: list[str], start_pos, max_replans: int = 2,
                  belief_override: Optional[dict[str, str]] = None,
                  stuck: bool = False, think: int = 2,
-                 belief_mode: str = "sdk_cache"):
+                 belief_mode: str = "sdk_cache",
+                 ttl_override: Optional[int] = None):
         # think>0：GRANT 与 COMMIT 之间保留"推理区间"，租约在 LLM 规划期间仍被持有
         #（CoAgent 所说的事务=数分钟推理；虚拟时钟上以 2 tick 代表）
         super().__init__(sim, agent_id, (), [], ttl=5, think=think, stuck=stuck)
@@ -158,6 +161,7 @@ class LLMAgent(ScriptedAgent):
         self.max_replans = max_replans
         self.replans_left = max_replans
         self.belief_override = belief_override or {}
+        self.ttl_override = ttl_override   # E4 悲观锁基线：租约永不过期
         self.plans: list[dict] = []       # LLM 计划记录（供报告）
         self.last_verdict: Optional[str] = None
 
@@ -205,7 +209,8 @@ class LLMAgent(ScriptedAgent):
         user = (f"你的ID: {self.id}\n任务: {self.goal}\n"
                 f"世界状态: {json.dumps(obs, ensure_ascii=False)}\n输出 JSON 计划。")
         plan = None
-        sys_prompt = system_prompt(self.sim.arbiter.width, self.sim.arbiter.height)
+        sys_prompt = self.SYSTEM_PROMPT_OVERRIDE or system_prompt(
+            self.sim.arbiter.width, self.sim.arbiter.height)
         for _ in range(2):   # JSON 解析失败重试一次
             plan = self.client.extract_json(self.client.chat(sys_prompt, user))
             if plan and plan.get("keys") and isinstance(plan.get("ops"), list):
@@ -234,6 +239,7 @@ class LLMAgent(ScriptedAgent):
             })
         self.plans.append({"thought": plan.get("thought", ""), "keys": plan["keys"],
                            "n_ops": len(plan["ops"]),
+                           "ops": plan["ops"],   # 全量算子（供滑差/路径逐算子分析）
                            "replan": self.max_replans - self.replans_left})
         print(f"  [{self.id}/{self.client.name}] 计划: keys={plan['keys']} "
               f"ops={len(plan['ops'])} | {plan.get('thought', '')[:80]}")
@@ -250,6 +256,10 @@ class LLMAgent(ScriptedAgent):
         self.ttl = max(plan["ttl"], floor)
         plan["ttl_requested"] = plan["ttl"]
         plan["ttl_enforced"] = self.ttl
+        if self.ttl_override is not None:
+            # E4 悲观锁基线：TTL = 无穷大（拿到即不放，直到显式 release）
+            self.ttl = self.ttl_override
+            plan["ttl_enforced"] = self.ttl
         self.priority = plan["priority"]
         self.sim.arbiter.submit_intent(self.id, self.keys, ops=self.ops,
                                        ttl=self.ttl, priority=self.priority,
