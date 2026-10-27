@@ -110,24 +110,26 @@ def load_clients(path: Optional[str] = None) -> dict[str, LLMClient]:
 
 # ---------- 提示词 ----------
 
-SYSTEM_PROMPT = """你是 5x5 网格世界中的具身 agent。坐标 (x,y)：x 向右，y 向下，范围 0..4。
+def system_prompt(w: int, h: int) -> str:
+    """系统提示词（按世界尺寸参数化——T4 7x7 等任务需要）。"""
+    return f"""你是 {w}x{h} 网格世界中的具身 agent。坐标 (x,y)：x 向右，y 向下，范围 0..{w - 1}（x）、0..{h - 1}（y）。
 
-状态 key 约定：item:{名字}=物品位置，pos:{你的ID}=你的位置，hold:{你的ID}=你持有的物品。
+状态 key 约定：item:{{名字}}=物品位置，pos:{{你的ID}}=你的位置，hold:{{你的ID}}=你持有的物品。
 可用算子（确定性，由权威仲裁器执行）：
-  ["move", {"dx": ±1 或 0, "dy": ±1 或 0}]   一步移动，越界则失败
-  ["grab", {"key": "item:名字"}]              必须与物品同格，且物品在世界上
-  ["place", {"key": "item:名字"}]             在当前格放下持有的物品
+  ["move", {{"dx": ±1 或 0, "dy": ±1 或 0}}]   一步移动，越界则失败
+  ["grab", {{"key": "item:名字"}}]              必须与物品同格，且物品在世界上
+  ["place", {{"key": "item:名字"}}]             在当前格放下持有的物品
 
 事务规则：对你要操作的物品 key，必须先通过 INTENT 锁定（keys 字段），获得 GRANT
 后你的 ops 才会被执行。若被 DENY，你会停在等待队列，稍后自动获得授权。
 
 只输出一个 JSON 对象，不要任何其他文字：
-{"thought": "简短推理", "keys": ["item:xxx"], "ops": [["move", {...}], ...],
+{{"thought": "简短推理", "keys": ["item:xxx"], "ops": [["move", {{...}}], ...],
  "ttl": 5, "priority": 5,
- "belief": {"item:xxx": "world@(x,y)", "pos:你": "(x,y)"}}
-ops 是从你当前位置到物品、抓取、再到投放点的完整序列；ttl=预计占用 tick 数；
-priority 0-9（越急越高）。belief 填你当前相信的各 key 的值（如实作答，
-用于信念校验，格式必须与状态里的写法完全一致）。"""
+ "belief": {{"item:xxx": "world@(x,y)", "pos:你": "(x,y)"}}}}
+ops 是从你当前位置到物品、抓取、再到投放点的完整序列（仔细核对每一步的坐标算术）；
+ttl=预计占用 tick 数；priority 0-9（越急越高）。belief 填你当前相信的各 key 的值
+（如实作答，用于信念校验，格式必须与状态里的写法完全一致）。"""
 
 
 # ---------- LLM Agent ----------
@@ -203,8 +205,9 @@ class LLMAgent(ScriptedAgent):
         user = (f"你的ID: {self.id}\n任务: {self.goal}\n"
                 f"世界状态: {json.dumps(obs, ensure_ascii=False)}\n输出 JSON 计划。")
         plan = None
+        sys_prompt = system_prompt(self.sim.arbiter.width, self.sim.arbiter.height)
         for _ in range(2):   # JSON 解析失败重试一次
-            plan = self.client.extract_json(self.client.chat(SYSTEM_PROMPT, user))
+            plan = self.client.extract_json(self.client.chat(sys_prompt, user))
             if plan and plan.get("keys") and isinstance(plan.get("ops"), list):
                 break
         if plan is None:

@@ -33,7 +33,9 @@ def op_move(arb: Arbiter, lease, args) -> tuple:
     agent, dx, dy = args["agent"], args["dx"], args["dy"]
     pos = parse_pos(arb.state[f"pos:{agent}"].value)
     nx, ny = pos[0] + dx, pos[1] + dy
-    if not (0 <= nx < W and 0 <= ny < H):
+    w = getattr(arb, "width", W)
+    h = getattr(arb, "height", H)
+    if not (0 <= nx < w and 0 <= ny < h):
         return False, "out_of_bounds"
     arb._write(f"pos:{agent}", fmt_pos((nx, ny)), agent, lease.lease_id)
     return True, fmt_pos((nx, ny))
@@ -66,7 +68,9 @@ def op_place(arb: Arbiter, lease, args) -> tuple:
 OPS_REGISTRY: dict[str, Callable] = {"move": op_move, "grab": op_grab, "place": op_place}
 
 
-def init_world(arb: Arbiter, items: dict, agents: dict) -> None:
+def init_world(arb: Arbiter, items: dict, agents: dict,
+               width: int = W, height: int = H) -> None:
+    arb.width, arb.height = width, height
     for name, (x, y) in items.items():
         arb._write(f"item:{name}", f"world@({x},{y})", "init", None)
     for a, (x, y) in agents.items():
