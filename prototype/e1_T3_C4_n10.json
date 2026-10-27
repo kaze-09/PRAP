@@ -1,0 +1,597 @@
+[
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 24,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3934,
+  "tokens_by_agent": {
+   "A": 1239,
+   "B": 2695
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（world@(4,1)）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 10,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3780,
+  "tokens_by_agent": {
+   "A": 883,
+   "B": 2897
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 24,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3860,
+  "tokens_by_agent": {
+   "A": 1157,
+   "B": 2703
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 24,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 4162,
+  "tokens_by_agent": {
+   "A": 1113,
+   "B": 3049
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 24,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3950,
+  "tokens_by_agent": {
+   "A": 1260,
+   "B": 2690
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（world@(4,1)）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 10,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3634,
+  "tokens_by_agent": {
+   "A": 808,
+   "B": 2826
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 5,
+  "denies": 3,
+  "expires": 0,
+  "commits": 2,
+  "commits_rejected": 3,
+  "replans": 3,
+  "failed_ops": 4,
+  "agent_ops": {
+   "A": {
+    "ops": 28,
+    "failed": 4,
+    "fail_names": [
+     "grab",
+     "place",
+     "grab",
+     "place"
+    ]
+   }
+  },
+  "tokens": 4919,
+  "tokens_by_agent": {
+   "A": 2191,
+   "B": 2728
+  },
+  "llm_calls": 5,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": 4,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 7,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（world@(4,1)）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 10,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3711,
+  "tokens_by_agent": {
+   "A": 807,
+   "B": 2904
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 24,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3929,
+  "tokens_by_agent": {
+   "A": 1214,
+   "B": 2715
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ },
+ {
+  "task": "T3",
+  "cond": "C4",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple2 未送达（A）",
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "commits": 1,
+  "commits_rejected": 3,
+  "replans": 2,
+  "failed_ops": 0,
+  "agent_ops": {
+   "A": {
+    "ops": 24,
+    "failed": 0,
+    "fail_names": []
+   }
+  },
+  "tokens": 3420,
+  "tokens_by_agent": {
+   "A": 1160,
+   "B": 2260
+  },
+  "llm_calls": 4,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "blocked_from": {
+   "A": null,
+   "B": 2
+  },
+  "granted_at": {
+   "A": 1,
+   "B": 3
+  },
+  "completed_at": {
+   "A": 3,
+   "B": null
+  },
+  "l4_oracle": {
+   "B": {
+    "expected": "deviation",
+    "got": "deviation",
+    "correct": true
+   },
+   "A": {
+    "expected": "ok",
+    "got": "ok",
+    "correct": true
+   }
+  }
+ }
+]
