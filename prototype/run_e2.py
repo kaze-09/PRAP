@@ -110,24 +110,30 @@ def run_e2b(clients: dict, trials: int, horizon: int) -> list[dict]:
                                  for ag in agents),
                    "claimed": {ag.id: dict(ag.claimed_belief) for ag in agents},
                    "authority": {ITEM_KEY: arb.state[ITEM_KEY].value},
+                   "belief_checks": {ag.id: list(ag.belief_checks) for ag in agents},
                    }
             records.append(rec)
             print(f"  => verdicts={rec['verdicts']} success={rec['success']} "
                   f"failed_ops={rec['failed_ops']} tokens={rec['tokens']}")
 
-    # 自然误报率：自报 belief 与权威状态不符的频率（分模型，含健康与被注入的运行）
-    print("\n== E2b 附：LLM 自然误报率（自报 belief 与权威状态不符，分模型）==")
-    by_model: dict[str, list[int]] = {}
+    # 自然误报率（v0.2.1 修复口径）：每次规划的"自报值 vs 计划时刻真值"，
+    # 分"健康 agent"（自然噪声）与"被注入 agent"（受控噪声）两桶统计
+    print("\n== E2b 附：LLM 自然误报率（计划时刻真值快照口径）==")
+    buckets: dict[str, dict[str, list[bool]]] = {"健康": {}, "被注入": {}}
     for rec in records:
-        for aid, claims in rec["claimed"].items():
+        for aid, checks in rec["belief_checks"].items():
             model = rec["models"][aid]
-            for k, v in claims.items():
-                if k.startswith("item:"):
-                    truth = rec["authority"].get(k, "?")
-                    by_model.setdefault(model, []).append(int(v != truth))
-    for model, flags in sorted(by_model.items()):
-        if flags:
-            print(f"  {model}: {sum(flags)}/{len(flags)} ({sum(flags) / len(flags):.0%})")
+            for c in checks:
+                name = "被注入" if c["injected"] else "健康"
+                bucket = buckets[name].setdefault(model, [])
+                bucket.append(not c["agree"])   # True = 误报
+    for name in ("健康", "被注入"):
+        for model, flags in sorted(buckets[name].items()):
+            if flags:
+                print(f"  [{name}] {model}: 误报 {sum(flags)}/{len(flags)} "
+                      f"({sum(flags) / len(flags):.0%})")
+        if not buckets[name]:
+            print(f"  [{name}] 无样本")
     return records
 
 

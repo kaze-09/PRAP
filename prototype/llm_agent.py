@@ -146,6 +146,7 @@ class LLMAgent(ScriptedAgent):
         self.client = client
         self.observed: dict[str, tuple[int, str]] = {}   # 信念缓存：key -> (version, digest)
         self.claimed_belief: dict[str, str] = {}         # LLM 自报的信念（llm_claimed 模式用）
+        self.belief_checks: list[dict] = []              # 每次规划的"自报 vs 计划时刻真值"记录
         # belief_mode: sdk_cache = SDK 从观察缓存构造 belief_summary（E1 口径）
         #              llm_claimed = 由 LLM 自报的信念构造（E2 口径：噪声来自 LLM 本身）
         self.belief_mode = belief_mode
@@ -216,6 +217,18 @@ class LLMAgent(ScriptedAgent):
         # LLM 自报信念（E2 llm_claimed 口径的噪声源）：规范化空白，防格式性误报
         self.claimed_belief = {str(k): str(v).replace(" ", "")
                                for k, v in (plan.get("belief") or {}).items()}
+        # 自然误报率指标（v0.2.1 修复口径）：与"计划时刻"的权威真值对比，
+        # 而非终局状态 —— 苹果会中途移动，终局对比会把时序滞后误算成幻觉
+        for k, claimed in self.claimed_belief.items():
+            entry = self.sim.arbiter.state.get(k)
+            if entry is None:
+                continue
+            truth = str(entry.value).replace(" ", "")
+            self.belief_checks.append({
+                "tick": self.sim.now, "key": k, "claimed": claimed,
+                "truth": truth, "agree": claimed == truth,
+                "injected": bool(self.belief_override),
+            })
         self.plans.append({"thought": plan.get("thought", ""), "keys": plan["keys"],
                            "n_ops": len(plan["ops"]),
                            "replan": self.max_replans - self.replans_left})

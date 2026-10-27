@@ -70,21 +70,82 @@
     "B": "ok"
    },
    "success": true,
-   "failed_ops": 4,
-   "tokens": 3054,
+   "failed_ops": 2,
+   "tokens": 2193,
    "claimed": {
     "A": {
-     "item:apple1": "world@(0,4)",
+     "item:apple1": "world@(2,3)",
      "pos:A": "(0,0)"
     },
     "B": {
-     "item:apple1": "world@(2,3)",
-     "pos:B": "(4,4)",
-     "hold:B": "none"
+     "item:apple1": "world@(0,2)",
+     "pos:B": "(0,4)"
     }
    },
    "authority": {
     "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(0,2)",
+      "truth": "world@(0,2)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(0,4)",
+      "truth": "(0,4)",
+      "agree": true,
+      "injected": false
+     }
+    ]
    }
   },
   {
@@ -100,7 +161,7 @@
    },
    "success": true,
    "failed_ops": 2,
-   "tokens": 2195,
+   "tokens": 2588,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
@@ -108,11 +169,65 @@
     },
     "B": {
      "item:apple1": "world@(0,4)",
-     "pos:B": "(0,4)"
+     "pos:B": "(2,4)"
     }
    },
    "authority": {
     "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(0,4)",
+      "truth": "world@(0,4)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(2,4)",
+      "truth": "(2,4)",
+      "agree": true,
+      "injected": false
+     }
+    ]
    }
   },
   {
@@ -127,8 +242,8 @@
     "B": "deviation"
    },
    "success": false,
-   "failed_ops": 4,
-   "tokens": 4399,
+   "failed_ops": 6,
+   "tokens": 4353,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
@@ -141,7 +256,133 @@
     }
    },
    "authority": {
-    "item:apple1": "world@(0,2)"
+    "item:apple1": "world@(2,3)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 4,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 4,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 8,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 8,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     }
+    ]
    }
   },
   {
@@ -157,7 +398,7 @@
    },
    "success": true,
    "failed_ops": 0,
-   "tokens": 2970,
+   "tokens": 3110,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
@@ -170,6 +411,76 @@
    },
    "authority": {
     "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(0,4)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 9,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(0,4)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 9,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     }
+    ]
    }
   },
   {
@@ -184,8 +495,8 @@
     "B": "deviation"
    },
    "success": false,
-   "failed_ops": 0,
-   "tokens": 2916,
+   "failed_ops": 6,
+   "tokens": 4137,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
@@ -198,7 +509,133 @@
     }
    },
    "authority": {
-    "item:apple1": "world@(0,2)"
+    "item:apple1": "world@(2,3)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 4,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 4,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 8,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 8,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     }
+    ]
    }
   },
   {
@@ -214,7 +651,7 @@
    },
    "success": true,
    "failed_ops": 0,
-   "tokens": 2939,
+   "tokens": 3054,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
@@ -227,6 +664,76 @@
    },
    "authority": {
     "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(0,4)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 9,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(0,4)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 9,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     }
+    ]
    }
   },
   {
@@ -240,9 +747,9 @@
     "A": "ok",
     "B": "deviation"
    },
-   "success": true,
-   "failed_ops": 0,
-   "tokens": 2989,
+   "success": false,
+   "failed_ops": 2,
+   "tokens": 3640,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
@@ -255,7 +762,117 @@
     }
    },
    "authority": {
-    "item:apple1": "world@(0,4)"
+    "item:apple1": "world@(0,2)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 4,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 4,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(0,2)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 10,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": true
+     }
+    ]
    }
   },
   {
@@ -271,11 +888,12 @@
    },
    "success": true,
    "failed_ops": 0,
-   "tokens": 2969,
+   "tokens": 2807,
    "claimed": {
     "A": {
      "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
+     "pos:A": "(0,0)",
+     "hold:A": "none"
     },
     "B": {
      "item:apple1": "world@(4,3)",
@@ -284,6 +902,84 @@
    },
    "authority": {
     "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "hold:A",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(0,4)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     },
+     {
+      "tick": 9,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(0,4)",
+      "agree": false,
+      "injected": true
+     },
+     {
+      "tick": 9,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "injected": true
+     }
+    ]
    }
   }
  ]
