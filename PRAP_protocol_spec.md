@@ -2,8 +2,8 @@
 
 **PRAP: Preemption & Resource Arbitration Protocol for Multi-LLM-Agent Systems**
 
-**版本**：v0.2（v0.1 + 信念隔离机制，2026-10-26；对应可行性分析时间线第 1–3 周产出）
-**日期**：2026-10-26
+**版本**：v0.2.2（v0.2 + 隔离授予闸门 / max_hold 上界 / L4 自报校验 / 256-bit 摘要 / 主张分级清单，2026-10-28）
+**日期**：2026-10-28
 **前置文档**：`PRAP_feasibility_novelty_analysis.md`（Gap 分析）、`PRAP_paper_reading_notes.md`（CoAgent/DPBench 精读）
 **状态**：待评审 → 之后进入仲裁器最小实现（下一步）
 
@@ -65,7 +65,7 @@ L5  订阅决策层    Beta-Bernoulli 后验阈值（观察经济学）
 - agent 提交 **INTENT**：声明目标资源 key 集合 + 计划操作类型（读/写）+ 预估持有时长。
 - 仲裁器**原子地**授予或拒绝整个 key 集合（all-or-nothing）→ 从结构上消除 hold-and-wait，死锁不可能（见 §6.2）。
 - 租约携带 `ttl`；到期未续约自动释放，无需 undo、无需协调。**抢占 = 不再续约的等待者按全序接管**。
-- 续约上限：租约可续，但累计持有时间超过 `max_hold` 后优先级随等待时间老化（见 §3.3）。
+- 续约上限（v0.2.2 已实现）：累计持有时间超过 `max_hold`（默认不限，可配置）后 `RENEW` 被拒（`RENEW_REFUSED`），租约按原 TTL 到期释放——任何 agent 不能靠续约无限期占用资源（活性兜底）。老化优先级联动留待 v0.3。
 
 ### 3.3 L2 确定性仲裁
 - 全序：所有授权/拒绝按 `(epoch, seq)` 记录，seq 单调。
@@ -85,6 +85,8 @@ L5  订阅决策层    Beta-Bernoulli 后验阈值（观察经济学）
   - `belief_version >= authority.version 但 digest 不符` 或 `引用了权威状态中不存在的 key` → **偏差型**（agent 幻觉；同步再多也无法修复）。
 - 判定为偏差型时仲裁器返回 `BELIEF_VERDICT(deviation, evidence)`，agent 侧策略：强制重观察 + 计划降级 + 上报置信度。
 - **v0.2 信念隔离（enforcement）**：判为 deviation 的 agent 进入 `suspect` 状态——其后续 COMMIT 一律被拒（`COMMIT_REJECTED`），租约强制收回（资源立即让给健康 agent），直到它以正确信念重新 INTENT（判 ok/stale 即解除）。动机：持续幻觉的 agent 若仍可执行操作，会把过期/错误的世界观写入共享状态；隔离保证"坏信念不产生任何作用"。解除条件使隔离不惩罚可修复故障：时序型（stale）与健康的 agent 不受影响。
+- **v0.2.2 隔离授予闸门**：suspect 状态的 agent 在 `INTENT` 阶段即**不授予、不入等待队列**（`DENY_WITH_STATE` 附 suspect_blocked 证据）——关闭"先拿租约再靠续约架空隔离"的漏洞；其在途租约不强夺（由 TTL 兜底，避免误杀合法在途事务）。解除路径不变：以正确信念重新 INTENT，同一调用内 classify 判 ok/stale 即解除并正常授予。`RENEW` 对 suspect 一律拒绝。
+- **v0.2.2 校验对象修正**：`belief_summary` 的 value 与 version 均由 **LLM 自报**（SDK 不再代填版本号）——L4 的校验对象从"SDK 缓存"改为"模型自身的报告"。LLM 漏报的 key 记 `never_claimed`（版本 -1 → 走 stale 修复路径）。摘要升为 sha256 全长（256-bit，无截断碰撞）。实测（E2b v0.2.2 重跑，n=30 次自报）：健康 agent 值自报误报 0/30、版本自报误报 0/30（版本可从观察原样抄写，自然噪声集中在 value 字段）；注入检出 6/6。
 - **该规则完全基于版本号比较，不依赖 LLM 判断——避免循环论证**；LLM 自由判断的准确率作为对比单独报告（对应可行性分析 §4.3 风险缓解）。
 - 关键实证问题（论文核心实验 ②）：偏差型与时序型在真实 LLM agent 行为分布上是否可分？噪声扫描（对应 h5 的概率化证据）下分类的 ROC 曲线。
 
@@ -112,6 +114,7 @@ L5  订阅决策层    Beta-Bernoulli 后验阈值（观察经济学）
 | `RENEW` | A→R | `lease_id, ttl_ext` | 续约；超时未续 = 释放 |
 | `RELEASE` | A→R | `lease_id` | 主动释放 |
 | `EXPIRED` | R→A | `lease_id` | 通知（异步，权威已释放） |
+| `RENEW_REFUSED` | R→A | `lease_id, verdict{reason}` | v0.2.2：suspect 续约拒绝 / max_hold 超限；租约按原 TTL 到期 |
 | `COMMIT` | A→R | `lease_id, ops[]` | 在租约内提交确定性操作 |
 | `STATE_UPDATE` | R→A | `key, version, digest`（仅订阅者） | L5 订阅推送 |
 | `BELIEF_REPORT` | A→R | `summary[{key, version, digest}]` | L4 校验输入（可与 INTENT 合并） |
@@ -138,7 +141,7 @@ REPLANNING → PROPOSING
 ### 5.2 租约状态机（仲裁器侧，每资源组）
 ```
 FREE → HELD(lease_id, ttl)
-  ├─ RENEW      → HELD(ttl 重置；累计持有 > max_hold 则标记 aged)
+  ├─ RENEW      → HELD(ttl 重置；v0.2.2：suspect 或累计持有 > max_hold → RENEW_REFUSED，原 ttl 不变)
   ├─ RELEASE    → FREE
   ├─ TTL 过期   → FREE（+ 异步 EXPIRED 通知）
   └─ epoch 重启 → FREE（全部失效）
@@ -178,3 +181,19 @@ FREE 上有等待队列时：FREE →(按 §3.3 全序取队首) HELD
 - [ ] 评审本规范，冻结 v0.1 消息集与状态机
 - [ ] 实现仲裁器最小原型（Python，单文件即可起步）+ 网格测试床（1–2 周口径）
 - [ ] E1 最小版：2 agent + 1 卡死故障注入，验证 TTL 释放路径
+
+## 10. 主张分级清单（v0.2.2，2026-10-28）
+
+论文主张："面向非确定性 LLM agent 的租约式仲裁基础设施：可验证的安全性、活性与故障隔离，及其成本与边界。"本清单对每个性质标注证据等级，**禁止把"观察"写成"证明"**。
+
+| 性质 | 等级 | 依据 / 缺口 |
+|---|---|---|
+| 互斥（每 key 至多一个有效租约） | **已证明**（结构论证：授予为仲裁器内单点串行决策 + COMMIT 校验 lease_id） | §6.1；不变量 fuzzer 为 P1 增强项 |
+| 被隔离 agent 零写入 | **已证明**（suspect 不授予/不入队 + COMMIT 校验 suspect，双闸门） | v0.2.2 实现与回归（场景 5/6，31 断言） |
+| 持有者失效后资源有限期释放 | **已证明**（TTL 结构性保证） | §6.2；回归场景 1 |
+| 续约不可无限占用 | **已证明**（max_hold 上界 + suspect 续约拒绝；默认 max_hold=None，论文实验须显式配置） | v0.2.2 实现 |
+| 无死锁 | **仿真条件下观察**（all-or-nothing 授予消除 hold-and-wait + TTL；形式化证明待补） | §6.2 论证提纲已有（P1） |
+| 无饥饿 | **未证明**（老化优先级已实现；等待时间上界 `W ≤ f(...)` 未推导；max_hold-老化联动留待 v0.3） | §6.3 |
+| 确定性重放 | **仿真条件下观察**（脚本 agent 逐字节一致；LLM temperature=0.2 非确定，LLM 侧不可复现——论文不得笼统声称 LLM 实验可复现） | 回归场景 3 |
+| L4 二分类精确性 | **已证明**（oracle 全覆盖 8/8；注入检出 6/6；摘要 256-bit） | 前提：belief 由 LLM 自报（v0.2.2）；自然误报 0/30 为当前设定下的观察值，不可外推 |
+| L5 校准 | **合成仿真下观察**（判据与两种决策模式定型，未接入主实验） | E3；端到端四臂消融为 P1 |

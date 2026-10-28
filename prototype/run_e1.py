@@ -142,9 +142,10 @@ def scenario_5_subscription() -> None:
 
 
 def scenario_6_quarantine() -> None:
-    """v0.2 信念隔离：suspect agent 的 COMMIT 被拒、租约强制收回；
-    以正确信念重新 INTENT 后解除隔离。验证"幻觉 agent 无法破坏他人成果"。"""
-    print("\n== 场景 5（v0.2）：deviation 隔离 ==")
+    """v0.2.2 信念隔离：deviation -> suspect；suspect 期间**不授予、不入等待队列**
+    （关闭"持满 TTL / 续约架空隔离"漏洞）；以正确信念重新 INTENT（同一调用内
+    classify 判 ok）即解除隔离并正常授予。"""
+    print("\n== 场景 5（v0.2.2）：deviation 隔离（不授予/不入队）==")
     sim = Sim()
     init_world(sim.arbiter, {ITEM: ITEM_POS}, {"A": (0, 0), "B": (4, 4)})
     arb = sim.arbiter
@@ -154,11 +155,15 @@ def scenario_6_quarantine() -> None:
     a.start(1)
 
     class Stub:
-        rejects = 0
+        def __init__(self):
+            self.rejects = 0
         def on_msg(self, msg):
             if msg.type == "COMMIT_REJECTED":
-                Stub.rejects += 1
-    sim.agents["B"] = Stub()
+                self.rejects += 1
+    b_stub = Stub()
+    sim.agents["B"] = b_stub
+
+    captured: dict = {}
 
     # B 持错误信念（苹果不在它以为的位置）-> deviation -> suspect
     wrong_belief = [(ITEM_KEY, 1, "deadbeef")]
@@ -166,13 +171,11 @@ def scenario_6_quarantine() -> None:
         "B", (ITEM_KEY,), ops=fetch_ops("B", (4, 4), ITEM_KEY, ITEM_POS, DROP),
         ttl=5, belief=wrong_belief))
 
-    def b_commit():
-        lid = next(l for l, le in arb.leases.items() if le.agent_id == "B")
-        arb.commit(lid, fetch_ops("B", (4, 4), ITEM_KEY, ITEM_POS, DROP))
-    sim.schedule(5, b_commit)          # B 在 t=3 获授后于 t=5 尝试提交
-
-    captured: dict = {}
-    sim.schedule(5, lambda: captured.update(status=arb.agent_status.get("B")))
+    def capture():
+        captured.update(status=arb.agent_status.get("B"),
+                        b_lease=any(le.agent_id == "B" for le in arb.leases.values()),
+                        b_queued=any(p.agent_id == "B" for p in arb.waiting))
+    sim.schedule(5, capture)           # A 已释放（t=3）；若隔离被架空，此刻 B 应已获授
 
     def b_recover():
         e = arb.state[ITEM_KEY]        # B 重新观察：以当前真实状态自报
@@ -185,22 +188,83 @@ def scenario_6_quarantine() -> None:
         lid = next((l for l, le in arb.leases.items() if le.agent_id == "B"), None)
         if lid:
             arb.commit(lid, [("grab", {"agent": "B", "key": ITEM_KEY})])
-    sim.schedule(8, b_commit2)         # 恢复后的第二次提交（验证被接受）
+    sim.schedule(8, b_commit2)         # 恢复后的提交（验证被接受）
     sim.run(HORIZON)
 
     check("B 携错误信念 -> 被标记 suspect", captured.get("status") == "suspect",
           captured.get("status"))
-    check("B 的 COMMIT 被拒且租约强制收回", Stub.rejects == 1
-          and arb.stats["commits_rejected"] == 1,
-          f"rejects={arb.stats['commits_rejected']}")
+    check("suspect 期间未被授予租约（A 释放后也没有）", captured.get("b_lease") is False,
+          f"b_lease={captured.get('b_lease')}")
+    check("suspect 期间未入等待队列", captured.get("b_queued") is False,
+          f"b_queued={captured.get('b_queued')}")
+    check("隔离未被架空：B 从未发生被拒提交（因为根本拿不到租约）",
+          b_stub.rejects == 0, f"rejects={b_stub.rejects}")
+    check("B 以正确信念重新 INTENT -> 解除隔离", arb.agent_status.get("B") == "ok",
+          arb.agent_status.get("B"))
+    check("解除后授予并接受提交（A + B 两次）", arb.stats["commits"] >= 2,
+          f"commits={arb.stats['commits']}")
     check("A 已送达的苹果未被 B 破坏",
           arb.state[ITEM_KEY].value == f"world@{fmt_pos(DROP)}",
           arb.state[ITEM_KEY].value)
-    check("B 以正确信念重新 INTENT -> 解除隔离", arb.agent_status.get("B") == "ok",
-          arb.agent_status.get("B"))
-    check("解除后 B 的提交被接受（无第二次拦截）",
-          Stub.rejects == 1 and arb.stats["commits"] >= 2,
-          f"commits={arb.stats['commits']}")
+
+
+def scenario_7_bypass_closed() -> None:
+    """v0.2.2：隔离绕过关闭 —— suspect 无法靠 RENEW 保住租约，也无法拿到新租约；
+    其在途租约由 TTL 兜底过期后，健康 agent 正常获得资源（活性保持）。"""
+    print("\n== 场景 6（v0.2.2）：隔离绕过关闭（renew 闸门 + TTL 兜底）==")
+    sim = Sim()
+    init_world(sim.arbiter, {ITEM: ITEM_POS, "apple2": (4, 0)}, {"B": (4, 4), "C": (0, 0)})
+    arb = sim.arbiter
+
+    class Stub:
+        def on_msg(self, msg):
+            pass
+    for aid in ("B", "C"):
+        sim.agents.setdefault(aid, Stub())   # 消息投递目标
+
+    captured: dict = {}
+
+    item_v = arb.state[ITEM_KEY].version
+    item_dig = digest(f"world@{fmt_pos(ITEM_POS)}")
+    # t=1: B 以正确信念 INTENT -> 获授 L1（ttl_end = 6）
+    sim.schedule(1, lambda: arb.submit_intent("B", (ITEM_KEY,), ops=[], ttl=5,
+                                              belief=[(ITEM_KEY, item_v, item_dig)]))
+    # t=2: B 对另一 key 报幻觉（版本超前）-> deviation -> suspect（在途 L1 保留，TTL 兜底）
+    sim.schedule(2, lambda: arb.submit_intent("B", ("item:apple2",), ops=[], ttl=5,
+                                              belief=[("item:apple2", 99, "x")]))
+    # t=3: B 试图续约 L1 -> 被拒（若被绕过，ttl_end 会变成 6+10=16）
+    def b_renew():
+        lid = next(l for l, le in arb.leases.items() if le.agent_id == "B")
+        arb.renew(lid, ext=10)
+    sim.schedule(3, b_renew)
+    # t=4: B 无信念 INTENT apple2 -> 仍被隔离闸门挡下
+    sim.schedule(4, lambda: arb.submit_intent("B", ("item:apple2",), ops=[], ttl=5))
+    # t=5: 捕获 B 租约的 ttl_end（应仍为 6）
+    def capture():
+        le = next((le for le in arb.leases.values() if le.agent_id == "B"), None)
+        captured.update(b_ttl=le.ttl_end if le else None,
+                        b_queued=any(p.agent_id == "B" for p in arb.waiting))
+    sim.schedule(5, capture)
+    # t=7: L1 已于 t=6 过期，健康 C 获得资源（活性保持）
+    cv = arb.state[ITEM_KEY]
+    sim.schedule(7, lambda: arb.submit_intent("C", (ITEM_KEY,), ops=[], ttl=5,
+                                              belief=[(ITEM_KEY, cv.version, digest(cv.value))]))
+    sim.run(HORIZON)
+
+    check("suspect 的续约被拒（ttl_end 保持 6，未被续成 16）",
+          any(e[0] == "renew_refused_suspect" for e in arb.log)
+          and captured.get("b_ttl") == 6,
+          f"ttl={captured.get('b_ttl')}")
+    check("suspect 的新 INTENT 不授予、不入队",
+          captured.get("b_queued") is False
+          and not any(le.agent_id == "B" for le in arb.leases.values()),
+          f"queued={captured.get('b_queued')}")
+    check("TTL 兜底：B 的在途租约 t=6 过期", any(e[0] == "expire" for e in arb.log),
+          f"expires={arb.stats['expires']}")
+    check("健康 C 在过期后正常获得资源（活性保持）",
+          any(e[0] == "grant" and e[3] == "C" for e in arb.log))
+    check("C 信念正确 -> ok（隔离不误伤他人）", arb.agent_status.get("C") == "ok",
+          arb.agent_status.get("C"))
 
 
 def main() -> int:
@@ -211,6 +275,7 @@ def main() -> int:
     scenario_3_determinism()
     scenario_5_subscription()
     scenario_6_quarantine()
+    scenario_7_bypass_closed()
 
     failed = [r for r in results if not r[1]]
     print(f"\n结果：{len(results) - len(failed)}/{len(results)} 通过")

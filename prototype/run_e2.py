@@ -134,6 +134,23 @@ def run_e2b(clients: dict, trials: int, horizon: int) -> list[dict]:
                       f"({sum(flags) / len(flags):.0%})")
         if not buckets[name]:
             print(f"  [{name}] 无样本")
+
+    # v0.2.2 新增：版本自报保真率（LLM 对 version 的转抄保真度）
+    print("\n== E2b 附：LLM 版本自报保真率（v0.2.2 新口径）==")
+    vbuckets: dict[str, dict[str, list[bool]]] = {"健康": {}, "被注入": {}}
+    for rec in records:
+        for aid, checks in rec["belief_checks"].items():
+            model = rec["models"][aid]
+            for c in checks:
+                name = "被注入" if c["injected"] else "健康"
+                vbuckets[name].setdefault(model, []).append(not c["version_agree"])
+    for name in ("健康", "被注入"):
+        for model, flags in sorted(vbuckets[name].items()):
+            if flags:
+                print(f"  [{name}] {model}: 版本误报 {sum(flags)}/{len(flags)} "
+                      f"({sum(flags) / len(flags):.0%})")
+        if not vbuckets[name]:
+            print(f"  [{name}] 无样本")
     return records
 
 

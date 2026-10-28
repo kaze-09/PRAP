@@ -126,10 +126,13 @@ def system_prompt(w: int, h: int) -> str:
 只输出一个 JSON 对象，不要任何其他文字：
 {{"thought": "简短推理", "keys": ["item:xxx"], "ops": [["move", {{...}}], ...],
  "ttl": 5, "priority": 5,
- "belief": {{"item:xxx": "world@(x,y)", "pos:你": "(x,y)"}}}}
+ "belief": {{"item:xxx": {{"value": "world@(x,y)", "version": 3}},
+             "pos:你": {{"value": "(x,y)", "version": 2}}}}}}
 ops 是从你当前位置到物品、抓取、再到投放点的完整序列（仔细核对每一步的坐标算术）；
-ttl=预计占用 tick 数；priority 0-9（越急越高）。belief 填你当前相信的各 key 的值
-（如实作答，用于信念校验，格式必须与状态里的写法完全一致）。"""
+ttl=预计占用 tick 数；priority 0-9（越急越高）。belief 的 value 填你当前相信的各
+key 的值（如实作答，格式必须与状态里的写法完全一致），version **原样抄写**状态里
+该 key 的 version 数字——value 与 version 都由你自报，协议将据此校验你的信念：
+版本落后判"滞后"（补课即可），版本不落后但值错误判"偏差"（触发隔离）。"""
 
 
 # ---------- LLM Agent ----------
@@ -187,14 +190,18 @@ class LLMAgent(ScriptedAgent):
         """构造 belief_summary（版本 = 最近一次观察时点，值 = 相信的内容）。
 
         sdk_cache 模式：值取自观察缓存（E1 口径，噪声仅在注入的观察里）。
-        llm_claimed 模式：值取自 LLM 自报（E2 口径）——LLM 看对了世界也可能
-        报错，这使 L4 面对的是真实的 LLM 侧噪声而非受控注入。
+        llm_claimed 模式（v0.2.2）：值**与版本号**都取自 LLM 自报——L4 的校验
+        对象是模型自身的报告而非 SDK 缓存；LLM 漏报的 key 记 never_claimed
+        （版本 -1 < 权威版本 -> 走 stale 修复路径）。
         """
         belief = []
         for k in self.keys:
-            ver = self.observed[k][0] if k in self.observed else -1
-            if self.belief_mode == "llm_claimed" and k in self.claimed_belief:
-                belief.append((k, ver, digest(self.claimed_belief[k])))
+            if self.belief_mode == "llm_claimed":
+                if k in self.claimed_belief:
+                    cb = self.claimed_belief[k]
+                    belief.append((k, cb["version"], digest(cb["value"])))
+                else:
+                    belief.append((k, -1, "never_claimed"))
             elif k in self.observed:
                 v, d = self.observed[k]
                 belief.append((k, v, d))
@@ -222,19 +229,33 @@ class LLMAgent(ScriptedAgent):
         plan["ops"] = self._sanitize_ops(plan["ops"])[:MAX_OPS]
         plan["ttl"] = max(int(plan.get("ttl", 5)), 2)
         plan["priority"] = max(0, min(int(plan.get("priority", 5)), 9))
-        # LLM 自报信念（E2 llm_claimed 口径的噪声源）：规范化空白，防格式性误报
-        self.claimed_belief = {str(k): str(v).replace(" ", "")
-                               for k, v in (plan.get("belief") or {}).items()}
+        # LLM 自报信念（v0.2.2：value 与 version 都由 LLM 自报——L4 的校验对象
+        # 从 SDK 缓存改为模型自身的报告；规范化空白防格式性误报）
+        claimed: dict[str, dict] = {}
+        for k, v in (plan.get("belief") or {}).items():
+            if isinstance(v, dict) and "value" in v:
+                try:
+                    ver = int(v.get("version", -1))
+                except (TypeError, ValueError):
+                    ver = -1
+                claimed[str(k)] = {"value": str(v["value"]).replace(" ", ""),
+                                   "version": ver}
+            else:   # 兼容旧平面格式：version 视为未自报（-1 -> 走 stale 修复路径）
+                claimed[str(k)] = {"value": str(v).replace(" ", ""), "version": -1}
+        self.claimed_belief = claimed
         # 自然误报率指标（v0.2.1 修复口径）：与"计划时刻"的权威真值对比，
         # 而非终局状态 —— 苹果会中途移动，终局对比会把时序滞后误算成幻觉
-        for k, claimed in self.claimed_belief.items():
+        for k, cb in self.claimed_belief.items():
             entry = self.sim.arbiter.state.get(k)
             if entry is None:
                 continue
             truth = str(entry.value).replace(" ", "")
             self.belief_checks.append({
-                "tick": self.sim.now, "key": k, "claimed": claimed,
-                "truth": truth, "agree": claimed == truth,
+                "tick": self.sim.now, "key": k,
+                "claimed": cb["value"], "truth": truth,
+                "agree": cb["value"] == truth,
+                "claimed_version": cb["version"], "truth_version": entry.version,
+                "version_agree": cb["version"] == entry.version,
                 "injected": bool(self.belief_override),
             })
         self.plans.append({"thought": plan.get("thought", ""), "keys": plan["keys"],

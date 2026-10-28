@@ -24,8 +24,8 @@ PRIORITY_CAP = 9
 
 
 def digest(value: Any) -> str:
-    """状态值摘要（截断 8 hex，仅用于比较，非安全用途）。"""
-    return hashlib.sha256(repr(value).encode("utf-8")).hexdigest()[:8]
+    """状态值摘要（sha256 全长 64 hex = 256 bit，消除截断碰撞——L4 分类正确性依赖它）。"""
+    return hashlib.sha256(repr(value).encode("utf-8")).hexdigest()
 
 
 @dataclass
@@ -94,6 +94,7 @@ class Arbiter:
         self.outbox: list[tuple[int, int, Msg]] = []  # (deliver_at, seq, msg)
         self.ops_registry = ops_registry
         self._lease_counter = 0
+        self.max_hold: Optional[int] = None   # v0.2.2：累计持有时长上界（tick），None = 不限
         # v0.2：信念隔离。agent -> "ok" | "suspect"（曾报 deviation 且未以正确信念清除）
         self.agent_status: dict[str, str] = {}
         self.stats: dict[str, Any] = {"grants": 0, "denies": 0, "expires": 0,
@@ -144,7 +145,12 @@ class Arbiter:
 
     def submit_intent(self, agent_id: str, keys, ops=(), ttl: int = 5,
                       priority: int = 5, belief: Optional[list] = None) -> None:
-        """INTENT：原子授予 keys（all-or-nothing，§3.2 消除 hold-and-wait）。"""
+        """INTENT：原子授予 keys（all-or-nothing，§3.2 消除 hold-and-wait）。
+
+        v0.2.2 信念隔离强化：suspect 状态的 agent **不授予、不入等待队列**
+        （否则它可持满一个 TTL 甚至靠续约架空隔离）。解除路径不变：重新
+        观察，以正确信念 INTENT（本调用内 classify 判 ok/stale 即解除并正常授予）。
+        """
         keys = tuple(keys)
         ttl = max(int(ttl), TTL_MIN)
         iseq = self._next_seq()
@@ -152,6 +158,16 @@ class Arbiter:
         verdict = self._classify(belief) if belief else None
         if verdict:
             self._set_status(agent_id, verdict["class"])   # v0.2：信念隔离判定
+        if self.agent_status.get(agent_id) == "suspect":
+            # 隔离期间：不授予、不入队（解除后须重新 INTENT）
+            self.stats["denies"] += 1
+            self.log.append(("intent_suspect_blocked", iseq, agent_id, keys))
+            self._send(Msg("DENY_WITH_STATE", agent_id, iseq, keys=keys,
+                           state_diff=self.state_diff(keys),
+                           verdict={"class": "deviation",
+                                    "evidence": [("suspect_blocked",
+                                                  "reobserve_and_reintent_with_belief")]}))
+            return
         if all(k not in self.key_holder for k in keys):
             self._grant(agent_id, keys, tuple(ops), ttl, priority, verdict, iseq)
             return
@@ -178,11 +194,32 @@ class Arbiter:
         self._send(msg)
 
     def renew(self, lease_id: str, ext: int) -> None:
-        """RENEW：续约；对已过期租约无效（返回 EXPIRED）。"""
+        """RENEW：续约；对已过期租约无效（返回 EXPIRED）。
+
+        v0.2.2 两道闸门：
+          1. suspect agent 拒绝续约（关闭"隔离被续约架空"漏洞；
+             其在途租约由 TTL 兜底，不强夺——避免误杀合法在途事务）；
+          2. max_hold 累计持有时长上界（None = 不限），超限拒绝续约
+             ——活性兜底：任何 agent 不能靠续约无限期占用资源。
+        """
         lease = self.leases.get(lease_id)
         if lease is None or lease.ttl_end <= self.now:
             self._send(Msg("EXPIRED", lease.agent_id if lease else "?",
                            self._next_seq(), lease_id=lease_id))
+            return
+        if self.agent_status.get(lease.agent_id) == "suspect":
+            self.log.append(("renew_refused_suspect", self._next_seq(), lease_id,
+                             lease.agent_id))
+            self._send(Msg("RENEW_REFUSED", lease.agent_id, self._next_seq(),
+                           lease_id=lease_id,
+                           verdict={"reason": "suspect_agent"}))
+            return
+        if self.max_hold is not None and lease.hold_total + ext > self.max_hold:
+            self.log.append(("renew_refused_maxhold", self._next_seq(), lease_id,
+                             lease.hold_total + ext))
+            self._send(Msg("RENEW_REFUSED", lease.agent_id, self._next_seq(),
+                           lease_id=lease_id,
+                           verdict={"reason": "max_hold_exceeded"}))
             return
         lease.ttl_end += ext
         lease.hold_total += ext
@@ -264,6 +301,9 @@ class Arbiter:
         self.waiting.sort(key=PendingIntent.sort_key)
         remaining = []
         for p in self.waiting:
+            if self.agent_status.get(p.agent_id) == "suspect":
+                remaining.append(p)   # v0.2.2：隔离者不授予（留在队列，解除后可复活）
+                continue
             if all(k not in self.key_holder for k in p.keys):
                 self._grant(p.agent_id, p.keys, p.ops, p.ttl, p.priority, None, p.intent_seq)
             else:

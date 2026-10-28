@@ -71,15 +71,31 @@
    },
    "success": true,
    "failed_ops": 2,
-   "tokens": 2193,
+   "tokens": 2499,
    "claimed": {
     "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     }
     },
     "B": {
-     "item:apple1": "world@(0,2)",
-     "pos:B": "(0,4)"
+     "item:apple1": {
+      "value": "world@(0,4)",
+      "version": 3
+     },
+     "pos:B": {
+      "value": "(0,4)",
+      "version": 7
+     },
+     "hold:B": {
+      "value": "none",
+      "version": 1
+     }
     }
    },
    "authority": {
@@ -93,6 +109,9 @@
       "claimed": "world@(2,3)",
       "truth": "world@(2,3)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      },
      {
@@ -101,6 +120,9 @@
       "claimed": "(0,0)",
       "truth": "(0,0)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      }
     ],
@@ -111,6 +133,9 @@
       "claimed": "world@(2,3)",
       "truth": "world@(2,3)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      },
      {
@@ -119,6 +144,9 @@
       "claimed": "(4,4)",
       "truth": "(4,4)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      },
      {
@@ -127,14 +155,20 @@
       "claimed": "none",
       "truth": "none",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      },
      {
       "tick": 6,
       "key": "item:apple1",
-      "claimed": "world@(0,2)",
-      "truth": "world@(0,2)",
+      "claimed": "world@(0,4)",
+      "truth": "world@(0,4)",
       "agree": true,
+      "claimed_version": 3,
+      "truth_version": 3,
+      "version_agree": true,
       "injected": false
      },
      {
@@ -143,6 +177,20 @@
       "claimed": "(0,4)",
       "truth": "(0,4)",
       "agree": true,
+      "claimed_version": 7,
+      "truth_version": 7,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      }
     ]
@@ -161,15 +209,31 @@
    },
    "success": true,
    "failed_ops": 2,
-   "tokens": 2588,
+   "tokens": 2617,
    "claimed": {
     "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     },
+     "hold:A": {
+      "value": "none",
+      "version": 1
+     }
     },
     "B": {
-     "item:apple1": "world@(0,4)",
-     "pos:B": "(2,4)"
+     "item:apple1": {
+      "value": "world@(0,4)",
+      "version": 3
+     },
+     "pos:B": {
+      "value": "(2,4)",
+      "version": 3
+     }
     }
    },
    "authority": {
@@ -183,6 +247,9 @@
       "claimed": "world@(2,3)",
       "truth": "world@(2,3)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      },
      {
@@ -191,734 +258,9 @@
       "claimed": "(0,0)",
       "truth": "(0,0)",
       "agree": true,
-      "injected": false
-     }
-    ],
-    "B": [
-     {
-      "tick": 2,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 2,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 6,
-      "key": "item:apple1",
-      "claimed": "world@(0,4)",
-      "truth": "world@(0,4)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 6,
-      "key": "pos:B",
-      "claimed": "(2,4)",
-      "truth": "(2,4)",
-      "agree": true,
-      "injected": false
-     }
-    ]
-   }
-  },
-  {
-   "d": 1,
-   "trial": 0,
-   "models": {
-    "A": "qwen-plus",
-    "B": "deepseek-chat"
-   },
-   "verdicts": {
-    "A": "ok",
-    "B": "deviation"
-   },
-   "success": false,
-   "failed_ops": 6,
-   "tokens": 4353,
-   "claimed": {
-    "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
-    },
-    "B": {
-     "item:apple1": "world@(3,3)",
-     "pos:B": "(4,4)",
-     "hold:B": "none"
-    }
-   },
-   "authority": {
-    "item:apple1": "world@(2,3)"
-   },
-   "belief_checks": {
-    "A": [
-     {
-      "tick": 1,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 1,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 4,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 4,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 8,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 8,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     }
-    ],
-    "B": [
-     {
-      "tick": 2,
-      "key": "item:apple1",
-      "claimed": "world@(3,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "item:apple1",
-      "claimed": "world@(3,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "item:apple1",
-      "claimed": "world@(3,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     }
-    ]
-   }
-  },
-  {
-   "d": 1,
-   "trial": 1,
-   "models": {
-    "A": "deepseek-chat",
-    "B": "qwen-plus"
-   },
-   "verdicts": {
-    "A": "ok",
-    "B": "deviation"
-   },
-   "success": true,
-   "failed_ops": 0,
-   "tokens": 3110,
-   "claimed": {
-    "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
-    },
-    "B": {
-     "item:apple1": "world@(3,3)",
-     "pos:B": "(4,4)"
-    }
-   },
-   "authority": {
-    "item:apple1": "world@(0,4)"
-   },
-   "belief_checks": {
-    "A": [
-     {
-      "tick": 1,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 1,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     }
-    ],
-    "B": [
-     {
-      "tick": 2,
-      "key": "item:apple1",
-      "claimed": "world@(3,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "item:apple1",
-      "claimed": "world@(3,3)",
-      "truth": "world@(0,4)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 9,
-      "key": "item:apple1",
-      "claimed": "world@(3,3)",
-      "truth": "world@(0,4)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 9,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     }
-    ]
-   }
-  },
-  {
-   "d": 2,
-   "trial": 0,
-   "models": {
-    "A": "qwen-plus",
-    "B": "deepseek-chat"
-   },
-   "verdicts": {
-    "A": "ok",
-    "B": "deviation"
-   },
-   "success": false,
-   "failed_ops": 6,
-   "tokens": 4137,
-   "claimed": {
-    "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
-    },
-    "B": {
-     "item:apple1": "world@(4,3)",
-     "pos:B": "(4,4)",
-     "hold:B": "none"
-    }
-   },
-   "authority": {
-    "item:apple1": "world@(2,3)"
-   },
-   "belief_checks": {
-    "A": [
-     {
-      "tick": 1,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 1,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 4,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 4,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 8,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 8,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     }
-    ],
-    "B": [
-     {
-      "tick": 2,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     }
-    ]
-   }
-  },
-  {
-   "d": 2,
-   "trial": 1,
-   "models": {
-    "A": "deepseek-chat",
-    "B": "qwen-plus"
-   },
-   "verdicts": {
-    "A": "ok",
-    "B": "deviation"
-   },
-   "success": true,
-   "failed_ops": 0,
-   "tokens": 3054,
-   "claimed": {
-    "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
-    },
-    "B": {
-     "item:apple1": "world@(4,3)",
-     "pos:B": "(4,4)"
-    }
-   },
-   "authority": {
-    "item:apple1": "world@(0,4)"
-   },
-   "belief_checks": {
-    "A": [
-     {
-      "tick": 1,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 1,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     }
-    ],
-    "B": [
-     {
-      "tick": 2,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(0,4)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 9,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(0,4)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 9,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     }
-    ]
-   }
-  },
-  {
-   "d": 3,
-   "trial": 0,
-   "models": {
-    "A": "qwen-plus",
-    "B": "deepseek-chat"
-   },
-   "verdicts": {
-    "A": "ok",
-    "B": "deviation"
-   },
-   "success": false,
-   "failed_ops": 2,
-   "tokens": 3640,
-   "claimed": {
-    "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)"
-    },
-    "B": {
-     "item:apple1": "world@(4,3)",
-     "pos:B": "(4,4)",
-     "hold:B": "none"
-    }
-   },
-   "authority": {
-    "item:apple1": "world@(0,2)"
-   },
-   "belief_checks": {
-    "A": [
-     {
-      "tick": 1,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 1,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 4,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 4,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
-      "injected": false
-     }
-    ],
-    "B": [
-     {
-      "tick": 2,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 2,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(2,3)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 6,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "item:apple1",
-      "claimed": "world@(4,3)",
-      "truth": "world@(0,2)",
-      "agree": false,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "pos:B",
-      "claimed": "(4,4)",
-      "truth": "(4,4)",
-      "agree": true,
-      "injected": true
-     },
-     {
-      "tick": 10,
-      "key": "hold:B",
-      "claimed": "none",
-      "truth": "none",
-      "agree": true,
-      "injected": true
-     }
-    ]
-   }
-  },
-  {
-   "d": 3,
-   "trial": 1,
-   "models": {
-    "A": "deepseek-chat",
-    "B": "qwen-plus"
-   },
-   "verdicts": {
-    "A": "ok",
-    "B": "deviation"
-   },
-   "success": true,
-   "failed_ops": 0,
-   "tokens": 2807,
-   "claimed": {
-    "A": {
-     "item:apple1": "world@(2,3)",
-     "pos:A": "(0,0)",
-     "hold:A": "none"
-    },
-    "B": {
-     "item:apple1": "world@(4,3)",
-     "pos:B": "(4,4)"
-    }
-   },
-   "authority": {
-    "item:apple1": "world@(0,4)"
-   },
-   "belief_checks": {
-    "A": [
-     {
-      "tick": 1,
-      "key": "item:apple1",
-      "claimed": "world@(2,3)",
-      "truth": "world@(2,3)",
-      "agree": true,
-      "injected": false
-     },
-     {
-      "tick": 1,
-      "key": "pos:A",
-      "claimed": "(0,0)",
-      "truth": "(0,0)",
-      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      },
      {
@@ -927,6 +269,335 @@
       "claimed": "none",
       "truth": "none",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "item:apple1",
+      "claimed": "world@(0,4)",
+      "truth": "world@(0,4)",
+      "agree": true,
+      "claimed_version": 3,
+      "truth_version": 3,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 6,
+      "key": "pos:B",
+      "claimed": "(2,4)",
+      "truth": "(2,4)",
+      "agree": true,
+      "claimed_version": 3,
+      "truth_version": 3,
+      "version_agree": true,
+      "injected": false
+     }
+    ]
+   }
+  },
+  {
+   "d": 1,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 1817,
+   "claimed": {
+    "A": {
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     }
+    },
+    "B": {
+     "item:apple1": {
+      "value": "world@(3,3)",
+      "version": 1
+     },
+     "pos:B": {
+      "value": "(4,4)",
+      "version": 1
+     },
+     "hold:B": {
+      "value": "none",
+      "version": 1
+     }
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     }
+    ]
+   }
+  },
+  {
+   "d": 1,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 1802,
+   "claimed": {
+    "A": {
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     },
+     "hold:A": {
+      "value": "none",
+      "version": 1
+     }
+    },
+    "B": {
+     "item:apple1": {
+      "value": "world@(3,3)",
+      "version": 1
+     },
+     "pos:B": {
+      "value": "(4,4)",
+      "version": 1
+     }
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "hold:A",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(3,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     }
+    ]
+   }
+  },
+  {
+   "d": 2,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 1820,
+   "claimed": {
+    "A": {
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     }
+    },
+    "B": {
+     "item:apple1": {
+      "value": "world@(4,3)",
+      "version": 1
+     },
+     "pos:B": {
+      "value": "(4,4)",
+      "version": 1
+     },
+     "hold:B": {
+      "value": "none",
+      "version": 1
+     }
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": false
      }
     ],
@@ -937,6 +608,9 @@
       "claimed": "world@(4,3)",
       "truth": "world@(2,3)",
       "agree": false,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": true
      },
      {
@@ -945,38 +619,335 @@
       "claimed": "(4,4)",
       "truth": "(4,4)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": true
      },
      {
-      "tick": 6,
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     }
+    ]
+   }
+  },
+  {
+   "d": 2,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 1812,
+   "claimed": {
+    "A": {
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     },
+     "hold:A": {
+      "value": "none",
+      "version": 1
+     }
+    },
+    "B": {
+     "item:apple1": {
+      "value": "world@(4,3)",
+      "version": 1
+     },
+     "pos:B": {
+      "value": "(4,4)",
+      "version": 1
+     }
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "hold:A",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
       "key": "item:apple1",
       "claimed": "world@(4,3)",
-      "truth": "world@(0,4)",
+      "truth": "world@(2,3)",
       "agree": false,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": true
      },
      {
-      "tick": 6,
+      "tick": 2,
       "key": "pos:B",
       "claimed": "(4,4)",
       "truth": "(4,4)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": true
+     }
+    ]
+   }
+  },
+  {
+   "d": 3,
+   "trial": 0,
+   "models": {
+    "A": "qwen-plus",
+    "B": "deepseek-chat"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 1783,
+   "claimed": {
+    "A": {
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     }
+    },
+    "B": {
+     "item:apple1": {
+      "value": "world@(4,3)",
+      "version": 1
+     },
+     "pos:B": {
+      "value": "(4,4)",
+      "version": 1
+     },
+     "hold:B": {
+      "value": "none",
+      "version": 1
+     }
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
      },
      {
-      "tick": 9,
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
       "key": "item:apple1",
       "claimed": "world@(4,3)",
-      "truth": "world@(0,4)",
+      "truth": "world@(2,3)",
       "agree": false,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": true
      },
      {
-      "tick": 9,
+      "tick": 2,
       "key": "pos:B",
       "claimed": "(4,4)",
       "truth": "(4,4)",
       "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "hold:B",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     }
+    ]
+   }
+  },
+  {
+   "d": 3,
+   "trial": 1,
+   "models": {
+    "A": "deepseek-chat",
+    "B": "qwen-plus"
+   },
+   "verdicts": {
+    "A": "ok",
+    "B": "deviation"
+   },
+   "success": true,
+   "failed_ops": 0,
+   "tokens": 1734,
+   "claimed": {
+    "A": {
+     "item:apple1": {
+      "value": "world@(2,3)",
+      "version": 1
+     },
+     "pos:A": {
+      "value": "(0,0)",
+      "version": 1
+     },
+     "hold:A": {
+      "value": "none",
+      "version": 1
+     }
+    },
+    "B": {
+     "item:apple1": {
+      "value": "world@(4,3)",
+      "version": 1
+     },
+     "pos:B": {
+      "value": "(4,4)",
+      "version": 1
+     }
+    }
+   },
+   "authority": {
+    "item:apple1": "world@(0,4)"
+   },
+   "belief_checks": {
+    "A": [
+     {
+      "tick": 1,
+      "key": "item:apple1",
+      "claimed": "world@(2,3)",
+      "truth": "world@(2,3)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "pos:A",
+      "claimed": "(0,0)",
+      "truth": "(0,0)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     },
+     {
+      "tick": 1,
+      "key": "hold:A",
+      "claimed": "none",
+      "truth": "none",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": false
+     }
+    ],
+    "B": [
+     {
+      "tick": 2,
+      "key": "item:apple1",
+      "claimed": "world@(4,3)",
+      "truth": "world@(2,3)",
+      "agree": false,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
+      "injected": true
+     },
+     {
+      "tick": 2,
+      "key": "pos:B",
+      "claimed": "(4,4)",
+      "truth": "(4,4)",
+      "agree": true,
+      "claimed_version": 1,
+      "truth_version": 1,
+      "version_agree": true,
       "injected": true
      }
     ]

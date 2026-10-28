@@ -133,8 +133,11 @@ def mutex_and_l4():
           else arb.agent_status.get("B") == "suspect",
           f"status={arb.agent_status.get('B')}")
     check("B 被隔离（suspect）", arb.agent_status.get("B") == "suspect")
-    cr = [e for e in arb.log if e[0] == "commit_rejected"]
-    check("B 的 COMMIT 被 v0.2 拦截", len(cr) >= 1, f"commit_rejected={len(cr)}")
+    # v0.2.2：suspect 不授予/不入队 —— 隔离无法被"拿到租约再续约"架空
+    check("suspect 期间零授予（B 从未获得租约，提交无从发生）",
+          b.report.granted_at is None
+          and not any(e[0] == "grant" and e[3] == "B" for e in arb.log),
+          f"granted_at={b.report.granted_at}")
     ok, why = oc_success(arb)
     check("A 的交付不受 B 干扰", ok, why)
 
