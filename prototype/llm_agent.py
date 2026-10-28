@@ -147,7 +147,8 @@ class LLMAgent(ScriptedAgent):
                  belief_override: Optional[dict[str, str]] = None,
                  stuck: bool = False, think: int = 2,
                  belief_mode: str = "sdk_cache",
-                 ttl_override: Optional[int] = None):
+                 ttl_override: Optional[int] = None,
+                 sub_policy: Optional[str] = None):
         # think>0：GRANT 与 COMMIT 之间保留"推理区间"，租约在 LLM 规划期间仍被持有
         #（CoAgent 所说的事务=数分钟推理；虚拟时钟上以 2 tick 代表）
         super().__init__(sim, agent_id, (), [], ttl=5, think=think, stuck=stuck)
@@ -167,6 +168,16 @@ class LLMAgent(ScriptedAgent):
         self.ttl_override = ttl_override   # E4 悲观锁基线：租约永不过期
         self.plans: list[dict] = []       # LLM 计划记录（供报告）
         self.last_verdict: Optional[str] = None
+        # ---- L5 端到端消融（P1-3）：订阅策略 ----
+        self.sub_policy: Optional[str] = sub_policy   # None/never/always/threshold/oracle
+        self.subscribed = False
+        self.updates_recv = 0                    # 收到的 STATE_UPDATE 数
+        self.post_n = 0                          # 伯努利证据：授予次数
+        self.post_k = 0                          # 其中计划已过期（stale）的次数
+        self.proactive_refresh = 0               # 提交前主动刷新（省掉失败算子）
+        self.reactive_replans = 0                # 失败后被动重规划（L3 路径）
+        self.plan_digests: dict = {}             # 计划时刻快照 {key: (version, digest)}
+        self.p_star = 1 / 3.5                    # E3 口径：C_sub=1, L_miss=4, C_recheck=0.5
 
     # -- 观察 -> 信念缓存 --
 
@@ -262,6 +273,10 @@ class LLMAgent(ScriptedAgent):
                            "n_ops": len(plan["ops"]),
                            "ops": plan["ops"],   # 全量算子（供滑差/路径逐算子分析）
                            "replan": self.max_replans - self.replans_left})
+        # L5：计划时刻快照（提交前过期检测的基准——对比权威状态即可判定计划是否失效）
+        self.plan_digests = {k: (self.sim.arbiter.state[k].version,
+                                 digest(self.sim.arbiter.state[k].value))
+                             for k in plan["keys"] if k in self.sim.arbiter.state}
         print(f"  [{self.id}/{self.client.name}] 计划: keys={plan['keys']} "
               f"ops={len(plan['ops'])} | {plan.get('thought', '')[:80]}")
         return plan
@@ -324,8 +339,25 @@ class LLMAgent(ScriptedAgent):
                 self._cache(key, ver, dig)
             if msg.verdict:
                 self.last_verdict = msg.verdict["class"]
+            # L5（P1-3）：被拒后按策略订阅目标 key——订阅期间 STATE_UPDATE
+            # 免费推送（协议消息，无 LLM 开销），用于提交前过期检测。
+            # oracle 不订阅（"全知"上界：无需消息即知过期）。
+            if self.sub_policy in ("always", "threshold"):
+                self.sim.arbiter.subscribe(self.id, self.keys,
+                                           decision={"policy": self.sub_policy})
+                self.subscribed = True
         elif msg.type == "GRANT" and msg.verdict:
             self.last_verdict = msg.verdict["class"]
+        elif msg.type == "STATE_UPDATE":
+            self.updates_recv += 1
+
+    def _plan_stale(self) -> bool:
+        """计划时刻快照 vs 权威现状：任一目标 key 已变化即为过期。"""
+        for k, (v, d) in self.plan_digests.items():
+            e = self.sim.arbiter.state.get(k)
+            if e is None or (e.version, digest(e.value)) != (v, d):
+                return True
+        return False
 
     # -- 接入点 3：提交后失败检测 -> L3 重规划路径 --
 
@@ -344,6 +376,22 @@ class LLMAgent(ScriptedAgent):
                 self.replans_left -= 1
                 self.sim.schedule(self.sim.now + 1, self._submit)
             return
+        # L5（P1-3）：提交前过期检测 —— 订阅策略决定"主动刷新"还是"提交后失败"
+        #   always/oracle：检测到过期即刷新（省掉失败算子，代价一次 LLM 重规划）
+        #   threshold：仅订阅期间刷新（退订后退化为 never 的被动路径）
+        #   never：无此路径 —— 过期计划直接提交，靠失败算子触发 L3 被动重规划
+        stale_at_commit = self._plan_stale() if self.sub_policy else False
+        if (self.sub_policy in ("always", "threshold", "oracle")
+                and stale_at_commit and self.replans_left > 0
+                and (self.sub_policy in ("always", "oracle") or self.subscribed)):
+            self.replans_left -= 1
+            self.proactive_refresh += 1
+            print(f"  [{self.id}] L5 提交前过期检测：计划已失效 -> 主动刷新"
+                  f"（剩 {self.replans_left}）")
+            arb.release(self.lease_id)
+            self.lease_id = None
+            self.sim.schedule(self.sim.now + 1, self._submit)
+            return
         self._committed = True
         arb.commit(self.lease_id, self.ops)
         if self.lease_id not in arb.leases:
@@ -360,7 +408,19 @@ class LLMAgent(ScriptedAgent):
         failed = [e for e in arb.log if e[0] == "op" and e[2] == self.lease_id and not e[5]]
         arb.release(self.lease_id)
         self.report.completed_at = self.sim.now
+        # L5 伯努利证据：本次授予的计划是否过期（供 threshold 判据更新后验）
+        self.post_n += 1
+        if stale_at_commit:
+            self.post_k += 1
+        if self.sub_policy == "threshold" and self.post_n >= 3:
+            p_hat = (self.post_k + 1) / (self.post_n + 2)
+            if p_hat < self.p_star:
+                self.sub_policy = "never"
+                self.subscribed = False
+                print(f"  [{self.id}] L5 阈值判据：p_hat={p_hat:.2f} < "
+                      f"p*={self.p_star:.2f} -> 退订（低波动 key 不值得订阅）")
         if failed:
+            self.reactive_replans += 1
             print(f"  [{self.id}] {len(failed)} 个算子失败: {[f[3] for f in failed]}"
                   f" -> {'重规划' if self.replans_left > 0 else '重规划余额耗尽'}")
             if self.replans_left > 0:

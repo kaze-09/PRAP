@@ -1,0 +1,94 @@
+{
+ "single": {
+  "never": {
+   "n": 10,
+   "success_rate": 0.9,
+   "b_tokens": 2402.7,
+   "b_llm_calls": 2.6,
+   "proactive_refresh": 0,
+   "reactive_replans": 1.6,
+   "updates_recv": 0,
+   "wasted_ops": 4.5,
+   "completion_tick": 9.8
+  },
+  "always": {
+   "n": 10,
+   "success_rate": 0.6,
+   "b_tokens": 2260.5,
+   "b_llm_calls": 2.5,
+   "proactive_refresh": 1,
+   "reactive_replans": 0.9,
+   "updates_recv": 2,
+   "wasted_ops": 2.4,
+   "completion_tick": 9.5
+  },
+  "threshold": {
+   "n": 10,
+   "success_rate": 0.8,
+   "b_tokens": 2385,
+   "b_llm_calls": 2.6,
+   "proactive_refresh": 1,
+   "reactive_replans": 0.8,
+   "updates_recv": 2,
+   "wasted_ops": 2.4,
+   "completion_tick": 9.8
+  },
+  "oracle": {
+   "n": 10,
+   "success_rate": 0.6,
+   "b_tokens": 2327.2,
+   "b_llm_calls": 2.5,
+   "proactive_refresh": 1,
+   "reactive_replans": 0.9,
+   "updates_recv": 0,
+   "wasted_ops": 2.2,
+   "completion_tick": 9.5
+  }
+ },
+ "multi": {
+  "never": {
+   "n": 10,
+   "success_rate": 1.0,
+   "b_tokens": 2176.3,
+   "b_llm_calls": 2.4,
+   "proactive_refresh": 0,
+   "reactive_replans": 1.4,
+   "updates_recv": 0,
+   "wasted_ops": 3.6,
+   "completion_tick": 9.2
+  },
+  "always": {
+   "n": 10,
+   "success_rate": 0.5,
+   "b_tokens": 2302.1,
+   "b_llm_calls": 2.5,
+   "proactive_refresh": 1,
+   "reactive_replans": 1,
+   "updates_recv": 6,
+   "wasted_ops": 2.5,
+   "completion_tick": 9.5
+  },
+  "threshold": {
+   "n": 10,
+   "success_rate": 0.6,
+   "b_tokens": 2271.7,
+   "b_llm_calls": 2.5,
+   "proactive_refresh": 1,
+   "reactive_replans": 0.9,
+   "updates_recv": 6,
+   "wasted_ops": 2.5,
+   "completion_tick": 9.5
+  },
+  "oracle": {
+   "n": 10,
+   "success_rate": 0.5,
+   "b_tokens": 2277.6,
+   "b_llm_calls": 2.5,
+   "proactive_refresh": 1,
+   "reactive_replans": 1,
+   "updates_recv": 0,
+   "wasted_ops": 2.8,
+   "completion_tick": 9.5
+  }
+ }
+}
