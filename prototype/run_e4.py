@@ -28,7 +28,7 @@ import statistics
 import sys
 
 from llm_agent import LLMAgent, NoProtocolAgent, load_clients
-from prap_core import Lease
+from prap_core import Lease, digest
 from run_e1_full import TASKS, check_success
 from testbed import Sim, fmt_pos, init_world
 
@@ -78,6 +78,63 @@ class OCCAgent(NoProtocolAgent):
             self.sim.schedule(self.sim.now + 1, self._submit)
 
 
+class OCCTrueAgent(NoProtocolAgent):
+    """真 OCC 基线（E4b 新增）：执行前验证（validate），冲突即整体中止（abort）。
+
+    与 OCCAgent 的区别：冲突不是"算子失败后才显现"（此时已执行了部分移动、
+    浪费了算子），而是在**首个算子执行前**比对计划时刻快照——目标 key 的
+    (version, digest) 任一变化即整体中止，零部分执行。这是数据库 OCC 的
+    validate-then-execute 语义（带 abort 重试预算，无回滚——不可逆算子不执行）。"""
+
+    MAX_RETRIES = 2
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.retries_left = self.MAX_RETRIES
+        self._aborted = False
+        self._first = True
+        self._validate_set: dict = {}
+        self.aborts = 0
+
+    def _submit(self) -> None:
+        self._aborted = False
+        plan = self._plan(self._observe())
+        self.ops = plan["ops"]
+        self.keys = plan["keys"]
+        arb = self.sim.arbiter
+        self._validate_set = {k: (arb.state[k].version, digest(arb.state[k].value))
+                              for k in self.keys if k in arb.state}
+        self._first = True
+        for i, op in enumerate(self.ops):
+            self.sim.schedule(self.sim.now + 2 + i, lambda op=op: self._exec_op(op))
+
+    def _exec_op(self, op: tuple) -> None:
+        if self._aborted:
+            return
+        arb = self.sim.arbiter
+        if self._first:
+            self._first = False
+            for k, (v, d) in self._validate_set.items():
+                e = arb.state.get(k)
+                if e is None or (e.version, digest(e.value)) != (v, d):
+                    self._aborted = True
+                    self.aborts += 1
+                    print(f"  [{self.id}] OCC 验证失败（{k} 已变化）-> 整体中止，重规划")
+                    if self.retries_left > 0:
+                        self.retries_left -= 1
+                        self.sim.schedule(self.sim.now + 1, self._submit)
+                    return
+        lease = Lease("free", self.id, (), 10 ** 9, 0, 0)
+        handler = arb.ops_registry[op[0]]
+        ok, detail = handler(arb, lease, op[1])
+        arb.log.append(("op_free", arb._next_seq(), "free", op[0], op[1], ok, detail))
+        if not ok and self.retries_left > 0:
+            self._aborted = True
+            self.retries_left -= 1
+            print(f"  [{self.id}] OCC 算子失败（{op[0]}）-> 中止剩余算子，重规划")
+            self.sim.schedule(self.sim.now + 1, self._submit)
+
+
 FIX_PROMPT_HEAD = """你是 5x5 网格世界中的具身 agent，与另一个 agent 协作。坐标 (x,y)：x 向右，y 向下，范围 0..4。
 状态 key 约定：item:{名字}=物品位置，pos:{你的ID}=你的位置，hold:{你的ID}=你持有的物品。
 注意：另一个 agent 也在执行类似任务，它可能移动、抓取你看到的物品——你的观察可能过时，
@@ -100,6 +157,27 @@ class PromptFixAgent(NoProtocolAgent):
     """提示词修复基线：机制同无协议，仅强化提示词（协调感知 + 自检要求）。"""
 
     SYSTEM_PROMPT_OVERRIDE = FIX_PROMPT_HEAD
+
+
+FIX_PROMPT_B = """你是 5x5 网格世界中的具身 agent，与另一个 agent 协作。坐标 (x,y)：x 向右，y 向下，范围 0..4。
+状态 key 约定：item:{名字}=物品位置，pos:{你的ID}=你的位置，hold:{你的ID}=你持有的物品。
+规则：1) move 的 dx/dy 只能是 ±1 或 0，且同一算子内不允许同时非零（斜向移动不存在，
+需要先横后竖拆成多个 move）；2) 逐格核对你的移动路径（每一步写出预计到达的坐标）；
+3) grab 必须与物品同格；4) 另一个 agent 可能在移动或抓取同一物品，规划时以状态为准。
+只输出一个 JSON 对象，不要任何其他文字：
+{"thought": "简短推理，含每步预计坐标", "keys": ["item:xxx"],
+ "ops": [["move", {...}], ..., ["grab", {"key": "item:xxx"}], ..., ["place", {"key": "item:xxx"}]],
+ "ttl": 5, "priority": 5,
+ "belief": {"item:xxx": {"value": "world@(x,y)", "version": 3}}}
+注意：ops 必须是**完整事务**——先全部 move 到物品所在格，然后 grab，再全部 move 到
+投放点，最后 place。缺 grab 或 place 的计划视为无效。"""
+
+
+class PromptVarBAgent(NoProtocolAgent):
+    """提示词变体 B（E4b 新增）：格式约束型强化（显式禁止斜向、要求逐步坐标
+    核对），与协调感知型（PromptFixAgent）对比——检验提示词基线对措辞的敏感性。"""
+
+    SYSTEM_PROMPT_OVERRIDE = FIX_PROMPT_B
 
 
 # ---------- 场景构建（复制 run_e1_full.build_sim，注入基线 cls）----------
@@ -142,7 +220,9 @@ def build_sim(baseline: str, cond: str, clients: dict, trial: int,
 
     cls = {"pessim": PessimisticLockAgent,
            "occ": OCCAgent,
-           "promptfix": PromptFixAgent}[baseline]
+           "occ_true": OCCTrueAgent,
+           "promptfix": PromptFixAgent,
+           "promptvarb": PromptVarBAgent}[baseline]
 
     def keys_for(aid: str) -> list:
         if cond == "C1" and "c1_extra" in spec:
@@ -237,7 +317,7 @@ def aggregate(records: list[dict]) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--baseline", required=True,
-                    choices=["pessim", "occ", "promptfix"])
+                    choices=["pessim", "occ", "occ_true", "promptfix", "promptvarb"])
     ap.add_argument("--trials", type=int, default=5)
     ap.add_argument("--cond", type=str, default="C2")
     ap.add_argument("--task", type=str, default="T1", choices=list(TASKS))

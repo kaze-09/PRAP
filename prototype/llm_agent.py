@@ -316,7 +316,16 @@ class LLMAgent(ScriptedAgent):
                 if dx == 0 and dy == 0:
                     continue
                 if dx != 0 and dy != 0:
-                    continue          # 斜向移动：算子集不支持，拒绝
+                    # v0.2.3：斜向意图展开为两步同轴移动（此前直接丢弃 ->
+                    # 计划静默缺步 -> grab 级联失败，L5 消融逐算子捕获的
+                    # qwen 特异性病理的根源）。展开保持模型意图，算子集不变。
+                    for _ in range(abs(dx)):
+                        clean.append(("move", {"agent": self.id,
+                                               "dx": 1 if dx > 0 else -1, "dy": 0}))
+                    for _ in range(abs(dy)):
+                        clean.append(("move", {"agent": self.id,
+                                               "dx": 0, "dy": 1 if dy > 0 else -1}))
+                    continue
                 # 多步压缩移动（qwen 常见，如 dx=2）确定性展开为单步序列，
                 # 避免对输出风格不同的模型产生系统性偏置
                 sx = (1 if dx > 0 else -1) if dx else 0
