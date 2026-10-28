@@ -1,0 +1,150 @@
+{
+ "e5a": [
+  {
+   "variant": "规范格式",
+   "verdict": "ok"
+  },
+  {
+   "variant": "带空格",
+   "verdict": "deviation"
+  },
+  {
+   "variant": "缺world@前缀",
+   "verdict": "deviation"
+  },
+  {
+   "variant": "字典结构",
+   "verdict": "deviation"
+  },
+  {
+   "variant": "候选列表",
+   "verdict": "deviation"
+  },
+  {
+   "variant": "自然语言",
+   "verdict": "deviation"
+  },
+  {
+   "variant": "版本滞后+值碰巧正确",
+   "verdict": "stale"
+  }
+ ],
+ "e5b": {
+  "conditions": {
+   "fresh_v1": {
+    "trials": 5,
+    "fabrication_rate": 1.0,
+    "deviation_verdicts": 0,
+    "stale_verdicts": 5,
+    "runs": [
+     {
+      "trial": 0,
+      "model": "qwen-plus",
+      "verdict": "stale",
+      "checks": []
+     },
+     {
+      "trial": 1,
+      "model": "deepseek-chat",
+      "verdict": "stale",
+      "checks": [
+       {
+        "tick": 1,
+        "key": "item:apple1",
+        "claimed": "unknown",
+        "truth": "world@(2,3)",
+        "agree": false,
+        "claimed_version": 0,
+        "truth_version": 1,
+        "version_agree": false,
+        "injected": false,
+        "partial": true
+       },
+       {
+        "tick": 4,
+        "key": "item:apple1",
+        "claimed": "unknown",
+        "truth": "world@(2,3)",
+        "agree": false,
+        "claimed_version": 0,
+        "truth_version": 1,
+        "version_agree": false,
+        "injected": false,
+        "partial": true
+       }
+      ]
+     },
+     {
+      "trial": 2,
+      "model": "qwen-plus",
+      "verdict": "stale",
+      "checks": []
+     },
+     {
+      "trial": 3,
+      "model": "deepseek-chat",
+      "verdict": "stale",
+      "checks": []
+     },
+     {
+      "trial": 4,
+      "model": "qwen-plus",
+      "verdict": "stale",
+      "checks": []
+     }
+    ]
+   },
+   "bumped_v4": {
+    "trials": 5,
+    "fabrication_rate": 1.0,
+    "deviation_verdicts": 0,
+    "stale_verdicts": 5,
+    "runs": [
+     {
+      "trial": 0,
+      "model": "qwen-plus",
+      "verdict": "stale",
+      "checks": []
+     },
+     {
+      "trial": 1,
+      "model": "deepseek-chat",
+      "verdict": "stale",
+      "checks": [
+       {
+        "tick": 4,
+        "key": "item:apple1",
+        "claimed": "unknown",
+        "truth": "world@(2,3)",
+        "agree": false,
+        "claimed_version": 0,
+        "truth_version": 4,
+        "version_agree": false,
+        "injected": false,
+        "partial": true
+       }
+      ]
+     },
+     {
+      "trial": 2,
+      "model": "qwen-plus",
+      "verdict": "stale",
+      "checks": []
+     },
+     {
+      "trial": 3,
+      "model": "deepseek-chat",
+      "verdict": "stale",
+      "checks": []
+     },
+     {
+      "trial": 4,
+      "model": "qwen-plus",
+      "verdict": "stale",
+      "checks": []
+     }
+    ]
+   }
+  }
+ }
+}

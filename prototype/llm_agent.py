@@ -148,7 +148,8 @@ class LLMAgent(ScriptedAgent):
                  stuck: bool = False, think: int = 2,
                  belief_mode: str = "sdk_cache",
                  ttl_override: Optional[int] = None,
-                 sub_policy: Optional[str] = None):
+                 sub_policy: Optional[str] = None,
+                 visible_keys: Optional[set] = None):
         # think>0：GRANT 与 COMMIT 之间保留"推理区间"，租约在 LLM 规划期间仍被持有
         #（CoAgent 所说的事务=数分钟推理；虚拟时钟上以 2 tick 代表）
         super().__init__(sim, agent_id, (), [], ttl=5, think=think, stuck=stuck)
@@ -178,6 +179,7 @@ class LLMAgent(ScriptedAgent):
         self.reactive_replans = 0                # 失败后被动重规划（L3 路径）
         self.plan_digests: dict = {}             # 计划时刻快照 {key: (version, digest)}
         self.p_star = 1 / 3.5                    # E3 口径：C_sub=1, L_miss=4, C_recheck=0.5
+        self.visible_keys = visible_keys         # E5：部分观察（None = 全量；P1-5）
 
     # -- 观察 -> 信念缓存 --
 
@@ -189,6 +191,8 @@ class LLMAgent(ScriptedAgent):
         """
         obs = {}
         for key, entry in self.sim.arbiter.state.items():
+            if self.visible_keys is not None and key not in self.visible_keys:
+                continue   # E5 部分观察：可见集之外的 key 对 agent 不可见
             val = self.belief_override.get(key, entry.value)
             obs[key] = {"value": val, "version": entry.version}
             self._cache(key, entry.version, digest(val))
@@ -268,6 +272,7 @@ class LLMAgent(ScriptedAgent):
                 "claimed_version": cb["version"], "truth_version": entry.version,
                 "version_agree": cb["version"] == entry.version,
                 "injected": bool(self.belief_override),
+                "partial": self.visible_keys is not None,
             })
         self.plans.append({"thought": plan.get("thought", ""), "keys": plan["keys"],
                            "n_ops": len(plan["ops"]),
