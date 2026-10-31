@@ -1,0 +1,27 @@
+
+===== [1/5] run_comparison.py --baseline coagent --task T2 --cond C4 --trials 30 =====
+================== E6 ��Ʒ�ԱȻ��� ==================
+����/����/����              n    �ɹ���     �˷�����  tokens   LLM����
+coagent/T2/C4        30   50%      9.0    4248     4.4
+
+===== [2/5] run_comparison.py --baseline orch --task T2 --cond C4 --trials 30 =====
+================== E6 ��Ʒ�ԱȻ��� ==================
+����/����/����              n    �ɹ���     �˷�����  tokens   LLM����
+orch/T2/C4           30   90%      1.4    2667     3.4
+
+===== [3/5] run_comparison.py --baseline cnp --task T2 --cond C4 --trials 30 =====
+================== E6 ��Ʒ�ԱȻ��� ==================
+����/����/����              n    �ɹ���     �˷�����  tokens   LLM����
+cnp/T2/C4            30   60%      0.0     940     1.0
+
+===== [4/5] run_comparison.py --baseline groupchat --task T2 --cond C4 --trials 30 =====
+================== E6 ��Ʒ�ԱȻ��� ==================
+����/����/����              n    �ɹ���     �˷�����  tokens   LLM����
+groupchat/T2/C4      30   57%      1.3    4271     6.3
+
+===== [5/5] run_e1_full.py --task T2 --conds C4 --trials 30 --out e1_T2_C4_n30_v023.json =====
+δ�ɹ�: T2/C4/t29 - item:apple1 δ�ʹworld@(4,1)��
+
+ԭʼ��¼�Ѵ� D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\e1_T2_C4_n30_v023.json
+
+===== 扩样批次全部完成 =====

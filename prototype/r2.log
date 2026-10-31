@@ -1,0 +1,32 @@
+
+===== [1/6] scale_campaign.py --arms prap --scales 8 --faults 30 --trials 30 =====
+  => 小计: 80% (30 局)
+
+全部格完成。
+
+===== [2/6] scale_campaign.py --arms noproto --scales 8 --faults 30 --trials 30 =====
+  => 小计: 63% (30 局)
+
+全部格完成。
+
+===== [3/6] scale_campaign.py --arms promptfix --scales 8 --faults 30 --trials 30 =====
+  => 小计: 73% (30 局)
+
+全部格完成。
+
+===== [4/6] run_scale_orch.py --scales 8 --faults 30 --trials 30 =====
+  => 小计: 63% (30 局)
+
+orch 臂全部格完成。
+
+===== [5/6] scale_campaign.py --arms leaseonly --scales 8 --faults 30 --trials 30 =====
+  => 小计: 50% (30 局)
+
+全部格完成。
+
+===== [6/6] run_leaseonly_t1c4.py =====
+--------------------------------------------
+
+原始记录已存 D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\e1_T1_C4_leaseonly_n10.json
+
+===== R2+R5 批次全部完成 =====

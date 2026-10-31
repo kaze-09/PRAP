@@ -1,0 +1,463 @@
+
+--- R3[prap] trial 0 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我在(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：上移到(4,3)，左移到(3,3)，左移到(2,3)取苹果；
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1698
+
+--- R3[prap] trial 1 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我在(0,0)，苹果在(2,3)，交付点在(0,4)。先向右2步、向下3步到苹果处取起，再送到(0,4)消耗。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1647
+
+--- R3[prap] trial 2 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：上移到(4,3)，左移到(3,3)，左移到(2,3)取苹果；
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1699
+
+--- R3[prap] trial 3 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=4505
+
+--- R3[prap] trial 4 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=3104
+
+--- R3[prap] trial 5 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。从(4,
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1789
+
+--- R3[prap] trial 6 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：上移到(4,3)，左移到(3,3)，左移到(2,3)取苹果；
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1708
+
+--- R3[prap] trial 7 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=4300
+
+--- R3[prap] trial 8 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到(0,3)消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1668
+
+--- R3[prap] trial 9 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=4437
+
+--- R3[prap] trial 10 ---
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(0,0)，apple1在(2,3)，drop:good在(0,4)。需先移动到(2,3)grab苹果，再移动到(0,4)consume。路径：(0,0)→
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：从(4,4)向左到(2,4)，向上到(2,3)取苹果；然后向
+  => 成功=False 终态=A 隔离=1 tokens=4506
+
+--- R3[prap] trial 11 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1817
+
+--- R3[prap] trial 12 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4)消耗。路径：(0,0)→(1,0)→(2,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2上1到(2,3)，取苹果；再左2到(0,3)，消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=5122
+
+--- R3[prap] trial 13 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我在(0,0)。先向右2步、向下3步到(2,3)抓取，再向左2步、向下1步到(0,4)消耗。
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=6315
+
+--- R3[prap] trial 14 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4)消耗。路径：(0,0)→(1,0)→(2,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到(0,3)消耗。路径：上移到(4,3)，左移到(3,3)，左移到(2,3)抓取
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=3903
+
+--- R3[prap] trial 15 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1659
+
+--- R3[prap] trial 16 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2上1到(2,3)，取苹果；再左2到(0,3)，消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1682
+
+--- R3[prap] trial 17 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=6103
+
+--- R3[prap] trial 18 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到(0,3)消耗。路径：向左2步到(2,4)，向上1步到(2,3)取苹果；然后向
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=4277
+
+--- R3[prap] trial 19 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=3316
+
+--- R3[prap] trial 20 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=5092
+
+--- R3[prap] trial 21 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=3513
+
+--- R3[prap] trial 22 ---
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：上移到(4,3)，左移到(3,3)，左移到(2,3)取苹果；
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1699
+
+--- R3[prap] trial 23 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。从(4,
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1718
+
+--- R3[prap] trial 24 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)再向上到(2,3)取苹果，然后向左到(0,3)交付。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1672
+
+--- R3[prap] trial 25 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1809
+
+--- R3[prap] trial 26 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左走到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1673
+
+--- R3[prap] trial 27 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我在(0,0)。先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=4066
+
+--- R3[prap] trial 28 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1673
+
+--- R3[prap] trial 29 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，我在(0,0)，交付点在(0,4)。先向右2步、向下3步到(2,3)抓取，再向左2步、向下1步到(0,4)消耗。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  => 成功=True 终态=consumed@(0,4) 隔离=1 tokens=1631
+
+[R3/prap] 30 局 成功率 97% 不可逆错位消耗 0 局 -> D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\r3_prap.json
+
+--- R3[coagent] trial 0 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4)消耗。路径：(0,0)→(1,0)→(2,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到(0,3)消耗。路径：左移两次到(2,4)，上移到(2,3)抓取；然后左移到(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=3 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但根据任务定义，需交付该物品，而它已不存在。因此无可行操作序列。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3906
+
+--- R3[coagent] trial 1 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab apple1，再移动到(0,3)consume。路
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=6 | 苹果已被 B 持有，B 在 (0,3)，交付点在 (0,4)。我无法直接 grab 苹果，需先移动到 B 附近等待其放下或交接；但当前只能规划自身移动。先移动到
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），无法再取起或交付，任务已不可完成。无需移动，避免越界。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=7203
+
+--- R3[coagent] trial 2 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我在(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,0
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗交付。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=5 | item:apple1 当前被 agent B 持有（hold:B=item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放或 dro
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成。但根据任务定义，需交付该物品；当前状态表明它已不存在，故无可行操作。然而系统要求
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=5431
+
+--- R3[coagent] trial 3 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步到(2,0)，再向下3步到(2,3)取苹果，然后向左2步到(0,3)，再向下1步到(0,4)
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab apple1，再移动到(0,3)consume。路
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(1,3)），世界中不再有该物品，无法 grab 或 consume。任务已无法由我完成，只能报告无可行算子
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(1,3)），无法再取起或交付，任务已不可完成；无有效算子可执行，输出空计划。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(1,3) 隔离=0 tokens=3049
+
+--- R3[coagent] trial 4 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法直接 grab。需先等待或促使 B 释放
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但系统仍要求规划，需确认状态：当前 item:apple1 不在世界中，不可 g
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3698
+
+--- R3[coagent] trial 5 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果，需移动到交付点附近等待 B 交付；但任务要求我完成 consume。先移
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | 物品已被消耗（consumed@(0,3)），任务实际已完成，无需再移动或抓取。保持原地即可。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3275
+
+--- R3[coagent] trial 6 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2上1到(2,3)取苹果，再左2到(0,3)消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但根据任务定义，需交付该物品，而它已不存在。因此无可行操作序列。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=8691
+
+--- R3[coagent] trial 7 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)抓取，再向左2步、向下1步到(0,4)消耗。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=6 | 苹果已被 B 持有，B 在 (0,3)，交付点在 (0,4)。我无法直接 grab 苹果，需先到交付点附近等待 B 交付；但任务要求我完成 consume。最稳
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），无法再取起或交付，任务已不可完成；无需移动，避免越界。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=6282
+
+--- R3[coagent] trial 8 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我在(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,0
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法直接 grab。需先等待或促使 B 释放
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被 consumed@(0,3)，说明已被 agent B 消耗，任务已完成。但系统仍要求我执行交付，需确认状态：item:apple
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 1 算子（6 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=9957
+
+--- R3[coagent] trial 9 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab apple1，再移动到(0,3)consume。路
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(1,3)），世界中没有可取的苹果，grab 必然失败；任务无法通过取起该物品完成，因此不执行任何会失败的算
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(1,3)），无法再取起或交付，任务已不可完成。我位于(0,0)，持有为空。无需移动，直接报告空计划。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(1,3) 隔离=0 tokens=3050
+
+--- R3[coagent] trial 10 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到(0,3)消耗。路径：左移到(3,4)，左移到(2,4)，上移到(2,3)抓取
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 放下 ap
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付该物品，而它已不存在。需确认是否任务失败或状态异常。根据规则，co
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=6951
+
+--- R3[coagent] trial 11 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被B持有，B在(0,3)，交付点(0,4)。我无法直接grab苹果，需移动到交付点附近等待B交付。先移动到(0,4)交付点。
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | 物品已被消耗（consumed@(0,3)），任务实际已完成，无需再移动或抓取。保持原地，不执行不可逆操作。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=6741
+
+--- R3[coagent] trial 12 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2步到(2,4)，上1步到(2,3)取苹果；然后左2步到(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被 consumed@(0,3)，说明已被 agent B 消耗，任务已失败；但系统仍要求完成交付，需确认状态。当前 item:app
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=4299
+
+--- R3[coagent] trial 13 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果，需移动到交付点附近等待 B 交付；但任务要求我 consume，需持有物
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），无法再取起或交付，任务已不可完成；无有效算子可执行，故给出空计划。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3142
+
+--- R3[coagent] trial 14 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)交付并consume。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B=item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（drop
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=5 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付该物品，而它已不存在。需确认是否任务失败，但根据规则必须输出计划。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=4271
+
+--- R3[coagent] trial 15 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果，需前往交付点附近等待/协作。先移动到 (0,4) 附近，但 consum
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | 苹果已被消耗（consumed@(0,3)），任务实际已完成，无需再移动或抓取。保持原地，不执行任何会越界或无效的算子。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3265
+
+--- R3[coagent] trial 16 ---
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2上1到(2,3)，取苹果；再左2到(0,3)，消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=5 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付该物品，而它已不存在。需确认是否任务失败，但根据规则必须输出计划。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=8229
+
+--- R3[coagent] trial 17 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab apple1，再移动到(0,3)consume。路
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=5 | item:apple1 已被消耗（consumed@(1,3)），世界中已不存在该物品，无法再 grab。任务目标已无法通过取起该物品完成；但按约定仍需输出计划
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | 物品已被消耗（consumed@(1,3)），任务实际已由B完成或物品不存在，无法再grab/consume。我位于(0,0)，drop在(0,4)。由于ite
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(1,3) 隔离=0 tokens=3202
+
+--- R3[coagent] trial 18 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我在(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2步到(2,4)，上1步到(2,3)取苹果；然后左2步到(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但系统仍要求规划，需确认状态：当前 item:apple1 不在世界中，无法 g
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=4072
+
+--- R3[coagent] trial 19 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab apple1，再移动到(0,3)consume。路
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(1,3)），世界中没有可取的苹果，grab 必然失败。任务无法通过取起该物品完成；但按约定仍需输出计划。由
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(1,3)），任务实际已由 B 完成或物品不存在，无法再 grab/consume。我位于 (0,0)，dr
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(1,3) 隔离=0 tokens=3156
+
+--- R3[coagent] trial 20 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法直接 grab。需先等待或促使 B 释放
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被 consumed@(0,3)，说明已被 agent B 拿走并交付；当前任务无法再执行，因为物品已不存在。但任务要求是‘把 ite
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=7347
+
+--- R3[coagent] trial 21 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab apple1，再移动到(0,3)consume。路
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被B持有，B在(0,3)，交付点(0,4)。我无法直接取苹果，需移动到交付点附近等待B交付；但任务要求我取起并consume。当前苹果在B手中，我应前往交
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），无法再取起或交付，任务已不可完成。无需执行任何算子。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3117
+
+--- R3[coagent] trial 22 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗交付。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=5 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法直接 grab。需先等待或促使 B 释放
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=5 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付该物品，而它已不存在。需确认是否任务失败，但根据规则必须输出计划。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=5393
+
+--- R3[coagent] trial 23 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我(0,0)需先到(2,3)取苹果，再送到(0,4)消耗。路径：向右2步、向下3步到(2,3)，grab后向左2步、向下1
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=6 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果，需前往交付点附近等待 B 交付；但计划只能控制自己。先移动到 (0,4)
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | 物品已被消耗（consumed@(0,3)），任务实际已完成，无需再取送。但按格式仍需给出计划；由于物品不存在，无法 grab/consume，故仅保持原地。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3352
+
+--- R3[coagent] trial 24 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先移动到苹果处取起，再移动到交付点消耗。路径：左2上1到(2,3)，取苹果；再左2到(0,3)，消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=6 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付该物品，而它已不存在。需确认是否任务失败或状态异常。根据当前状态，
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3600
+
+--- R3[coagent] trial 25 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取apple1，再移动到(0,3)consume。路径：(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果，需移动到交付点附近等待 B 交付；但任务要求我完成 consume。先移
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），无法再取起或交付，任务已无可行操作。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3131
+
+--- R3[coagent] trial 26 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)grab，再移动到drop:good(0,4)consume。路径：(0,0)→(1,0)→(2
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=1 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付 item:apple1，而它已不存在。根据状态，drop:goo
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=7819
+
+--- R3[coagent] trial 27 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我(0,0)需先到(2,3)取苹果，再送到(0,4)消耗。路径：右2下3到(2,3)，grab，然后左2下1到(0,4)，
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)grab苹果，再移动到(0,3)consume。路径：(4,
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果；需移动到交付点附近等待 B 交付。我先前往 (0,4) 附近（(0,3)
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | 物品已被消耗（consumed@(0,3)），任务实际已完成，无需再移动或抓取。保持原地即可。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3138
+
+--- R3[coagent] trial 28 ---
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取；再移动到drop:good(0,4) consume。路径：(0,0)→(1,0)→(2,
+  [B/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我在(4,4)，苹果在(2,3)，交付点在(0,3)。先向左移动到(2,4)，再向上到(2,3)抓取苹果，然后向左到(0,3)消耗交付。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=4 | item:apple1 当前被 agent B 持有（hold:B = item:apple1），不在世界中，因此我无法 grab 它。必须先让 B 释放（dr
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），任务无法完成；但任务要求交付该物品，而它已不存在。需确认是否任务失败或状态异常。根据当前状态，
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=4123
+
+--- R3[coagent] trial 29 ---
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=10 | 苹果在(2,3)，交付点在(0,4)。我从(0,0)出发，先向右2步、向下3步到(2,3)取苹果，再向左2步、向下1步到(0,4)交付。
+  [qwen] 调用失败(第1次): The read operation timed out -> 2s 后重试
+  [B/qwen] 计划: keys=('item:apple1', 'drop:good') ops=7 | 我（B）在(4,4)，apple1在(2,3)，drop:good在(0,3)。需先移动到(2,3)抓取苹果，再移动到(0,3)消耗。从(4,4)→(2,3)：
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=4 | 苹果已被 B 持有，B 在 (0,3)，交付点 (0,4)。我无法直接 grab 苹果，需移动到交付点附近等待/协作。先移动到 (0,4) 交付点。
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1', 'drop:good') ops=0 | item:apple1 已被消耗（consumed@(0,3)），无法再取起或交付，任务已不可完成。无需执行任何算子，仅报告当前信念。
+  [A] CoAgent 冲突（consume 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=False 终态=consumed@(0,3) 隔离=0 tokens=3254
+
+[R3/coagent] 30 局 成功率 0% 不可逆错位消耗 30 局 -> D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\r3_coagent.json

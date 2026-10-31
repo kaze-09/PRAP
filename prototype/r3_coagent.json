@@ -1,0 +1,422 @@
+[
+ {
+  "arm": "coagent",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3906,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 7203,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 5431,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(1,3)）",
+  "final_state": "consumed@(1,3)",
+  "n_quarantined": 0,
+  "tokens": 3049,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3698,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3275,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 8691,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 6282,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 9957,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(1,3)）",
+  "final_state": "consumed@(1,3)",
+  "n_quarantined": 0,
+  "tokens": 3050,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 10,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 6951,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 11,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 6741,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 12,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 4299,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 13,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3142,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 14,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 4271,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 15,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3265,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 16,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 8229,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 17,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(1,3)）",
+  "final_state": "consumed@(1,3)",
+  "n_quarantined": 0,
+  "tokens": 3202,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 18,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 4072,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 19,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(1,3)）",
+  "final_state": "consumed@(1,3)",
+  "n_quarantined": 0,
+  "tokens": 3156,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 20,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 7347,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 21,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3117,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 22,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 5393,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 23,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3352,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 24,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3600,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 25,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3131,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 26,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 7819,
+  "llm_calls": 5
+ },
+ {
+  "arm": "coagent",
+  "trial": 27,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3138,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 28,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 4123,
+  "llm_calls": 4
+ },
+ {
+  "arm": "coagent",
+  "trial": 29,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "不可逆消耗在错误位置（consumed@(0,3)）",
+  "final_state": "consumed@(0,3)",
+  "n_quarantined": 0,
+  "tokens": 3254,
+  "llm_calls": 4
+ }
+]

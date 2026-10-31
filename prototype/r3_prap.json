@@ -1,0 +1,422 @@
+[
+ {
+  "arm": "prap",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1698,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1647,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1699,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 4505,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 3104,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1789,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1708,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 4300,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1668,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 4437,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 10,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "apple1 被持有（A）",
+  "final_state": "A",
+  "n_quarantined": 1,
+  "tokens": 4506,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 11,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1817,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 12,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 5122,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 13,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 6315,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 14,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 3903,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 15,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1659,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 16,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1682,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 17,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 6103,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 18,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 4277,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 19,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 3316,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 20,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 5092,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 21,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 3513,
+  "llm_calls": 3
+ },
+ {
+  "arm": "prap",
+  "trial": 22,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1699,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 23,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1718,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 24,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1672,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 25,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1809,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 26,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1673,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 27,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 4066,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 28,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1673,
+  "llm_calls": 2
+ },
+ {
+  "arm": "prap",
+  "trial": 29,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "final_state": "consumed@(0,4)",
+  "n_quarantined": 1,
+  "tokens": 1631,
+  "llm_calls": 2
+ }
+]

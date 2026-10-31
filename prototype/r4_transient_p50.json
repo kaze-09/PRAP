@@ -1,0 +1,514 @@
+[
+ {
+  "trial": 0,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 3473,
+  "llm_calls": 4
+ },
+ {
+  "trial": 1,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2718,
+  "llm_calls": 3
+ },
+ {
+  "trial": 2,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 3,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 4355,
+  "llm_calls": 5
+ },
+ {
+  "trial": 3,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2652,
+  "llm_calls": 3
+ },
+ {
+  "trial": 4,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2608,
+  "llm_calls": 3
+ },
+ {
+  "trial": 5,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2612,
+  "llm_calls": 3
+ },
+ {
+  "trial": 6,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2729,
+  "llm_calls": 3
+ },
+ {
+  "trial": 7,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2650,
+  "llm_calls": 3
+ },
+ {
+  "trial": 8,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2603,
+  "llm_calls": 3
+ },
+ {
+  "trial": 9,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2685,
+  "llm_calls": 3
+ },
+ {
+  "trial": 10,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2498,
+  "llm_calls": 3
+ },
+ {
+  "trial": 11,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 3618,
+  "llm_calls": 4
+ },
+ {
+  "trial": 12,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2498,
+  "llm_calls": 3
+ },
+ {
+  "trial": 13,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2600,
+  "llm_calls": 3
+ },
+ {
+  "trial": 14,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2627,
+  "llm_calls": 3
+ },
+ {
+  "trial": 15,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 3607,
+  "llm_calls": 4
+ },
+ {
+  "trial": 16,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 3,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 5163,
+  "llm_calls": 6
+ },
+ {
+  "trial": 17,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2595,
+  "llm_calls": 3
+ },
+ {
+  "trial": 18,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2518,
+  "llm_calls": 3
+ },
+ {
+  "trial": 19,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 3784,
+  "llm_calls": 4
+ },
+ {
+  "trial": 20,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 3468,
+  "llm_calls": 4
+ },
+ {
+  "trial": 21,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2590,
+  "llm_calls": 3
+ },
+ {
+  "trial": 22,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 3490,
+  "llm_calls": 4
+ },
+ {
+  "trial": 23,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2716,
+  "llm_calls": 3
+ },
+ {
+  "trial": 24,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 1,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 2609,
+  "llm_calls": 3
+ },
+ {
+  "trial": 25,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 3625,
+  "llm_calls": 4
+ },
+ {
+  "trial": 26,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {},
+  "tokens": 3479,
+  "llm_calls": 4
+ },
+ {
+  "trial": 27,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 4702,
+  "llm_calls": 5
+ },
+ {
+  "trial": 28,
+  "prob": 0.5,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 0,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 2498,
+  "llm_calls": 3
+ },
+ {
+  "trial": 29,
+  "prob": 0.5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "n_quarantined_final": 0,
+  "blocked_intents": 2,
+  "commits_rejected": 0,
+  "failed_ops": {
+   "B": 2
+  },
+  "tokens": 4691,
+  "llm_calls": 5
+ }
+]

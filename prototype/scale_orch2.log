@@ -1,0 +1,941 @@
+
+== 格 1/6: scale4_f0_orch ==
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先move到(1,3)（dx=1,dy=1），grab apple1，再move到目标(0,4)（从(1,3
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先移动到 (2,3)：左移两次到 (2,2)，再下移到 (2,3)。抓取后送到 (0,4)：从 (2,3) 左移
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t0] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2376
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 位于 (1,3)，A2 在 (0,2) 比 A0 在 (0,0) 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 苹果在(1,3)，我在(0,2)。先向右到(1,2)，再向下到(1,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1 → 分两步：先move(dx=-1,dy=0)到(3,2)，再mo
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t1] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2412
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先move到(1,3)（dx=1,dy=1），grab apple1，再move到目标(0,4)（从(1,3
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t2] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2356
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 分给 A2（位于 (0,2)，比 A0 更靠近 (1,3)）；ap
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先右移到(1,2)，再下移到(1,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A3）在(4,2)，apple2在(2,3)。先move到(2,3)：dx=-2, dy=+1 → 需两步：先(-1,0)到(3,2)，再(-1,+1)到(
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t3] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2397
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=1 → move to (1,3)；grab apple1；再移动到目
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先移动到 (2,3)：左移两次、下移一次。抓取后送到 (0,4)：从 (2,3) 左移两次到 (0,3)，再下移
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t4] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2382
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 位于 (0,2)，比 A0 更靠近 apple1 (1,3)；A3 位于 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先右移到(1,2)，再下移到(1,3)抓取，然后左移到(0,3)，再下移到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1，分两步（先左到(3,2)，再左下到(2,3)）；然后grab ap
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t5] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2404
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先move到(1,3)（dx=1,dy=1），grab apple1，再move到目标(0,4)（从(1,3
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先移动到 (2,3)：左移两次、下移一次。抓取后送到 (0,4)：左移两次、下移一次，然后 place。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t6] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2351
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 的候选是 A0、A2，apple2 的候选是 A1、A3；把 ap
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先向右到(1,2)，再向下到(1,3)抓取，然后送到(0,4)：从(1,3)向左到(0,3)，再向下到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A3）在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1 → 分两步：先move(dx=-1,dy=0)到(3,2)，再
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t7] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2449
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先move到(1,3)（dx=1,dy=1），grab apple1，再move到目标(0,4)（从(1,3
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t8] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2353
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 位于 (0,2)，比 A0 的 (0,0) 更接近 apple1 的 (1
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | apple1 在 (1,3)，我在 (0,2)。先向右到 (1,2)，再向下到 (1,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：左2步(dx=-2)，下1步(dy=1)，但每次move只能±1，所以分步：先move(dx
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f0_orch t9] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2460
+  => 小计: 100% (10 局)
+
+== 格 2/6: scale4_f10_orch ==
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先move到(1,3)抓取，再move到(0,4)放置。路径：(0,2)->(1,3)需dx=1,dy=1；
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,2)，苹果2在(3,3)。先向左到(3,2)，再向下到(3,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，所以先grab，再移动到(0,4)并place。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | 苹果2在(3,3)，我在(1,3)。先向右走两步到(3,3)，抓取，再向左走3步到(0,3)，向下走1步到(0,4)，然后放置。注意(0,4)已有apple1，
+  [A3] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A3] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A3）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 从(4,4)到(3,3)取苹果2，再送到(0,4)。路径：上1到(4,3)，左1到(3,3)，抓取；然后左3到(0,3)，下1到(0,4)，放下。
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，直接抓取后送到(0,4)。路径：先抓取，再向左3步到(0,3)，再向下1步到(0,4)，然后放置。
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (1,3)。先向右走两步到 (3,3)，抓取，再向左走三步到 (0,3)，向下走到 (0,4)，然后放下。
+  [A1] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A1] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2: 两个争用者均失败过 -> 放弃该 item
+  [scale4_f10_orch t0] 成功=0 送达 1/2 浪费=6 重分配=1 tokens=7151
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 在 (0,2)，离 apple1 (1,3) 最近；A3 在 (4,2)，
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先右移到(1,2)，再下移到(1,3)抓取，然后送到(0,4)：从(1,3)左移到(0,3)，再下移到(0,4)放置。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我位于(4,2)，apple2在(3,3)。先移动到(3,3)：dx=-1, dy=+1。然后grab apple2。再移动到目标(0,4)：从(3,3)到(0
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A3/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A3）当前在(3,3)，apple2也在(3,3)，所以可直接grab；grab后需移动到(0,4)place。注意：place必须在(0,4)，而A2当前
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(1,3)，apple2在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：左3步到(0,3)，再下1
+  [A3] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A3] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A3）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）当前在(4,4)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=-1 → 分两步：先move(dx=-1,dy=0)到(3,4)
+  [scale4_f10_orch t1] 成功=1 送达 2/2 浪费=3 重分配=1 tokens=5448
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=1 → move to (1,3)；然后grab apple1；再移动
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先移动到 (2,3)：左移两次、下移一次。抓取后送到 (0,4)：左移两次、下移一次，然后 place。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f10_orch t2] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2361
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 在 (0,2)，比 A0 在 (0,0) 更接近 apple1 在 (1,
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先向右到(1,2)，再向下到(1,3)抓取，然后送到(0,4)：从(1,3)向左到(0,3)，再向下到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：左2步(dx=-2)，下1步(dy=1)，但每次move只能±1，所以分步：先move(dx
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f10_orch t3] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2473
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | A2在(0,2)，apple1在(1,3)。需先移动到(1,3)：dx=1,dy=1；然后grab；再移动到目标(0,4)：从(1,3)到(0,4)需dx=-1
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后送到 (0,4)：从 (2,3) 向左到 (0,3)，再向
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f10_orch t4] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2364
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 分给 A2（位于 (0,2)，比 A0 的 (0,0) 更接近 (
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先移动到(1,3)抓取，再送到(0,4)。路径：下到(0,3)，右到(1,3)抓取，然后左到(0,3)，下到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：左2步(dx=-2)，下1步(dy=1)，但每次move只能±1，所以分步：先move(dx
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f10_orch t5] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2478
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=8 | 我位于(0,2)，apple1在(2,3)。需先移动到(2,3)：右移2步(dx=2,dy=0)→(2,2)，再下移1步(dx=0,dy=1)→(2,3)。然后
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后送到 (0,4)：从 (2,3) 向左到 (0,3)，再向
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=5 | 我（A2）当前在(2,3)，apple1也在(2,3)，所以可直接grab；grab后需move到(0,4)再place。注意：grab前必须INTENT锁定i
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=7 | 当前我在(1,4)，apple1在(2,3)。需先move到(2,3)（dx=1,dy=-1），grab apple1，再move到目标(0,4)（从(2,3)
+  [A2] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1 失败（A2）-> 重分配给 A0
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(0,0)，apple1在(1,3)。需先移动到(1,3)：dx=1,dy=3 → 分步：(0,0)→(1,0)→(1,1)→(1,2)→(1,3)共4
+  [scale4_f10_orch t6] 成功=1 送达 2/2 浪费=3 重分配=1 tokens=5642
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 位于 (0,2)，比 A0 位于 (0,0) 更接近 apple1 位于 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | apple1 在 (1,3)，我在 (0,2)。先向右到 (1,2)，再向下到 (1,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1 → 分两步：先左移至(3,2)，再左下移至(2,3)；然后grab
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f10_orch t7] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2392
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先move到(1,3)（dx=1,dy=1），grab apple1，再move到目标(0,4)（从(1,3
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (4,2)。先向左到 (3,2)，再向下到 (3,3) 抓取，然后送到 (0,4)：从 (3,3) 向左 3 步到 (0,3
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，所以先grab，再移动到(0,4)并place。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(1,3)，apple2在(3,3)。先向右移动到(3,3)抓取，再送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步到(0,4)，然后place
+  [A3] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A3] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A3）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (4,4)。先移动到 (3,3) 抓取，再移动到 (0,4) 放下。路径：(4,4)->(3,4)->(3,3) 抓取，然后
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，所以先grab，再移动到(0,4)并place。路径：(3,3)->(2,3)->(1,3)->(0,3)->(0,
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (1,3)。先向右走两步到 (3,3)，抓取，再向左走三步到 (0,3)，向下走一步到 (0,4)，然后放置。
+  [A1] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A1] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2: 两个争用者均失败过 -> 放弃该 item
+  [scale4_f10_orch t8] 成功=0 送达 1/2 浪费=6 重分配=1 tokens=7170
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 分给 A2（位于 (0,2)，比 A0 更靠近 apple1 的 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 从(0,2)到苹果(1,3)：先右移再下移，抓取后送到(0,4)：左移1、下移1。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：左2步(dx=-2)，下1步(dy=1)，但每次move只能±1，所以分步：先move(dx
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f10_orch t9] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2449
+  => 小计: 80% (10 局)
+
+== 格 3/6: scale4_f30_orch ==
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (2,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | A2在(0,2)，apple1在(1,3)。需先移动到(1,3)：dx=1,dy=1；然后grab；再移动到目标(0,4)：从(1,3)到(0,4)需dx=-1
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f30_orch t0] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2350
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 位于 (0,2)，比 A0 位于 (0,0) 更接近 apple1 位于 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 从(0,2)到苹果(1,3)：先右移到(1,2)，再下移到(1,3)抓取；然后送到(0,4)：左移到(0,3)，再下移到(0,4)放置。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A3）在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1 → 分两步：先move(dx=-1,dy=0)到(3,2)，再
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f30_orch t1] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2450
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2在(0,2)离apple1所在(2,3)更近（距离√5） than A0在(
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A2）在(0,2)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=1 → 两步：先(1,2)，再(2,3)。然后grab apple1，
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后送到 (0,4)：从 (2,3) 向左到 (0,3)，再向
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=5 | 我（A2）当前在(2,3)，apple1也在(2,3)，所以可直接grab；grab后需move到(0,4)再place。注意：grab前必须INTENT锁定i
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=7 | 当前我在(1,4)，apple1在(2,3)。需先移动到(2,3)（dx=1, dy=-1），grab apple1，再移动到目标点(0,4)：从(2,3)→(
+  [A2] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1 失败（A2）-> 重分配给 A0
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | 当前我在(0,0)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=3，分步走：(0,0)→(1,0)→(2,0)→(2,1)→(2,2)→(
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=5 | 我当前在(2,3)，apple1也在(2,3)，可直接grab；grab后需移动到(0,4)place。注意(0,4)已有apple2和A2、A3，但place
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=7 | 当前我在(1,4)，apple1在(2,3)。需先移动到(2,3)：dx=1, dy=-1 → (2,3)。然后grab apple1。再移动到目标(0,4)：
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1: 两个争用者均失败过 -> 放弃该 item
+  [scale4_f30_orch t2] 成功=0 送达 1/2 浪费=6 重分配=1 tokens=7599
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 分给 A2（位于 (0,2)，比 A0 更靠近 (2,3)），ap
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(0,2)，苹果在(1,3)。先右移到(1,2)，再下移到(1,3)抓取，然后左移到(0,3)，再下移到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我位于(4,2)，apple2在(3,3)。先向左1步到(3,2)，再向下1步到(3,3)抓取apple2；然后前往投放点(0,4)：从(3,3)向左3步到(0
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A3/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A3）当前在(3,3)，item:apple2也在(3,3)，所以可直接grab；之后需move到(0,4)并place。从(3,3)到(0,4)：先向左3
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(1,3)，apple2在(3,3)，需先向右移动2步到(3,3)抓取；然后移动到目标(0,4)：从(3,3)→(2,3)→(1,3)→(0,3)→(0
+  [A3] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A3] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A3）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）在(4,4)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分两步：先move(dx=-1,dy=0)到(3,4)，再mo
+  [scale4_f30_orch t3] 成功=1 送达 2/2 浪费=3 重分配=1 tokens=5542
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2在(0,2)离apple1所在(2,3)更近（距离√5） than A0在(
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A2）在(0,2)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=1 → 一步到位。然后grab apple1，再移动到目标(0,4)：
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先左移到 (3,2)，再下移到 (3,3)，再左移到 (2,3) 抓取。然后送到 (0,4)：从 (2,3) 左
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f30_orch t4] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=3008
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 位于 (0,2)，比 A0 位于 (0,0) 更接近 apple1 位于 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | apple1 在 (1,3)，我在 (0,2)。先向右到 (1,2)，再向下到 (1,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我位于(4,2)，apple2在(3,3)。先向左1步到(3,2)，再向下1步到(3,3)抓取apple2；然后前往投放点(0,4)：从(3,3)向左3步到(0
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A3/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A3）当前在(3,3)，item:apple2也在(3,3)，可直接grab；grab后需移动到目标点(0,4)再place。从(3,3)到(0,4)需左移
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A3] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(1,3)，apple2在(3,3)，需先向右移动2步到(3,3)抓取；然后移动到目标(0,4)：从(3,3)→(2,3)→(1,3)→(0,3)→(0
+  [A3] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A3] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A3）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）当前在(4,4)，apple2在(2,3)。需先移动到(2,3)：dx = -2, dy = -1 → 分两步：先 move(dx:-1,dy:0)到
+  [scale4_f30_orch t5] 成功=1 送达 2/2 浪费=3 重分配=1 tokens=5597
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (1,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A2）在(0,2)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=1 → 两步：先(1,2)，再(2,3)。然后grab apple1，
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。先向左到 (2,2)，再向下到 (2,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=5 | 当前我在(2,3)，apple1也在(2,3)，可直接grab；grab后需move到(0,4)再place。注意：grab前必须INTENT锁定item:ap
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=6 | 当前我在(1,4)，apple1在(2,3)。需先移动到(2,3)（dx=1,dy=-1），grab apple1，再移动到目标点(0,4)（从(2,3)→(1
+  [A2] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1 失败（A2）-> 重分配给 A0
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1→(1,0)，下3→(1,3)；共4步。然后grab apple1；再移动到目标(0,4
+  [scale4_f30_orch t6] 成功=1 送达 2/2 浪费=3 重分配=1 tokens=5824
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 分给 A2（位于 (0,2)，比 A0 更靠近 apple1 的 
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=6 | apple1 在 (1,3)，我在 (0,2)。先向右到 (1,2)，再向下到 (1,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我当前在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1，分两步（先左到(3,2)，再左下到(2,3)）；然后grab ap
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale4_f30_orch t7] 成功=1 送达 2/2 浪费=0 重分配=0 tokens=2427
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | A2 at (0,2) is closer to apple1 at (2,3)
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/qwen] 计划: keys=('item:apple1',) ops=8 | 我位于(0,2)，apple1在(2,3)。需先移动到(2,3)：右2步(dx=2,dy=0)需两步，但move只允许dx/dy为±1或0，因此分两步：先mov
+  [A3/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,2)。路径：左移到 (3,2)，左移到 (2,2)，下移到 (2,3) 抓取，然后送到 (0,4)：左移到 (1,3)
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=5 | 当前我在(2,3)，apple1也在(2,3)，可直接grab；grab后需move到(0,4)再place。注意：grab前必须INTENT锁定item:ap
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple1',) ops=7 | 当前我在(1,4)，apple1在(2,3)。需先移动到(2,3)（dx=1,dy=-1），再grab，然后移动到目标(0,4)（需左移2格，y不变），最后pl
+  [A2] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1 失败（A2）-> 重分配给 A0
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | 当前我在(0,0)，apple1在(2,3)。需先移动到(2,3)：右2步、下3步 → (2,0)→(2,1)→(2,2)→(2,3)；然后grab apple
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=5 | 我当前在(2,3)，apple1也在(2,3)，可直接grab；grab后需移动到(0,4)place。注意(0,4)已有apple2和A2、A3，但place
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=7 | 当前我在(1,4)，apple1在(2,3)。需先移动到(2,3)：dx=1, dy=-1 → (2,3)。然后grab apple1。再移动到目标(0,4)：
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1: 两个争用者均失败过 -> 放弃该 item
+  [scale4_f30_orch t8] 成功=0 送达 1/2 浪费=6 重分配=1 tokens=7850
+  [orch] 分配: {'item:apple1': 'A2', 'item:apple2': 'A3'} | apple1 分给 A2（位于 (0,2)，比 A0 更靠近 (2,3)），ap
+  [A2] 收到编排分配: ['item:apple1']
+  [A3] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(2,3)，我在(0,2)。先向右2步到(2,2)，再向下1步到(2,3)抓取，然后送到(0,4)：从(2,3)向左2步到(0,3)，再向下1步到(0,4
+  [A3/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A3）在(4,2)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=+1 → 分两步：先左移1到(3,2)，再左移1且下移1到(2,3)
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=5 | 我在(2,3)，苹果在(2,3)，同格，直接抓取，然后移动到(0,4)放下。路径：grab，然后向左2步到(0,3)，再向下1步到(0,4)，place。
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2/deepseek] 计划: keys=('item:apple1',) ops=7 | 苹果在(2,3)，我在(1,4)。先上移到(1,3)，再右移到(2,3)抓取，然后送到(0,4)：从(2,3)左移到(1,3)、(0,3)，再下移到(0,4)放
+  [A2] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1 失败（A2）-> 重分配给 A0
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到(2,3)取苹果，再送到(0,4)。路径：右2步、下3步到(2,3)，抓取，然后左2步、下1步到(0,4)，放下。注意(0,4)已有apple2，
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=5 | 我在 (2,3)，苹果在 (2,3)，所以先抓取，再移动到 (0,4) 并放下。路径：从 (2,3) 向左两次到 (0,3)，再向下一次到 (0,4)。
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=7 | 苹果在(2,3)，我在(1,4)。先向右到(2,4)，再向上到(2,3)抓取，然后向下到(2,4)、向左到(1,4)、向左到(0,4)放置。
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1: 两个争用者均失败过 -> 放弃该 item
+  [scale4_f30_orch t9] 成功=0 送达 1/2 浪费=6 重分配=1 tokens=7196
+  => 小计: 70% (10 局)
+
+== 格 4/6: scale8_f0_orch ==
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1在(1,3)，我在(0,0)。需先移动到(1,3)：右1下3步；然后grab；再移动到目标(0,4)：左1上1步；最后place。共需7步操作，tt
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步 → (1,2)→(2,2)→(3,2)→(3,3)；然后grab app
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，再送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)后放置。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，苹果2在(2,3)，先上移一格抓取，再左移2格、下移4格到(0,4)放下。路径：(2,4)->(2,3)抓取->(1,3)->(0,3)->(0
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t0] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5421
+  [orch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品都分给距离更近的候选者：apple1 在 (1,3)，A4 在 (2,0
+  [A4] 收到编排分配: ['item:apple1']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A7] 收到编排分配: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)：从(1,3)下到(1,4)再左到(0,4)放置。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(2,4)到(2,3)是dy=-1；从(2,3)到(0,4
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，放置。
+  [A7/qwen] 计划: keys=('item:apple4',) ops=9 | 我（A7）在(4,1)，apple4在(4,3)，需先向下移动2步到(4,3)抓取，再向左移动4步到(0,3)，再向下1步到(0,4)放置。注意：y向下为正，所
+  [A3] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t1] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5628
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5比A1更近apple2（dist
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，再下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步 → (0,2)→(1,2)→(2,2)→(3,2)→(3,3)；然后gr
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，apple4在(4,3)，向下走一步抓取，再送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再下移到(2,4)，左移到(1,4)，左移到(0,4)放置。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t2] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5463
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：apple1(1,3)给A0(0,0)与A4(2,0)距离相近，
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取，然后到(0,4)：左移到(0,3)，下移到(0,4)，放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：向左3步到(0,3)，再向下1步到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，需先向下移动1格到(4,3)抓取，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6步：mov
+  [A5/qwen] 计划: keys=('item:apple2',) ops=5 | 我（A5）在(2,4)，apple2在(2,3)，紧邻下方，可直接grab。然后需移动到(0,4)place：从(2,3)→(1,4)→(0,4)或(2,3)→
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (2,4))）-> 重规划
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 当前我在(2,4)，apple2在(2,3)，需先向下移动到(2,3)（dy=-1），再grab；然后移动到目标(0,4)：从(2,3)→(1,3)→(0,3)
+  [A5] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先向下移动到(2,3)抓取，再向左上移动至目标(0,4)。注意：(2,4)->(2,3)是dy=-1；抓取后
+  [A5] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A5] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A5）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）在(4,4)，apple2在(2,3)。需先移动到(2,3)：dx=-2, dy=-1 → 分两步：先move(dx=-1,dy=0)到(3,4)，再
+  [scale8_f0_orch t3] 成功=1 送达 4/4 浪费=3 重分配=1 tokens=9419
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1 在 (1,3)，我当前在 (0,0)。需先移动到 (1,3)：右1下3 → move(dx:1,dy:0), move(dx:0,dy:1), m
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步（x+1三次），下1步（y+1）。然后grab apple3，再移动到目标(0,4
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，再送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先向上移动到 (2,3) 抓取，再向左到 (0,3)，再向下到 (0,4) 放下。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t4] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5618
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A1', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 每件物品的候选者互不重叠，因此不存在争抢；按候选顺序分配，使每个 worker 
+  [A1] 收到编排分配: ['item:apple2']
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我(A1)在(4,4)，apple2在(2,3)。需先移动到(2,3)：从(4,4)→(3,4)→(2,4)→(2,3)共3步；然后grab apple2；再移
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移3步到(1,3)，抓取后左移到(0,3)，再下移到(0,4)放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)，抓取，然后送到(0,4)：左3步到(0,3)，下1步到(0,4)，放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）当前在(4,2)，apple4在(4,3)。先向下移动1步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)，最后p
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A5] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t5] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5535
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1→(1,0)，下3→(1,3)；然后grab apple1；再移动到目标(0,4)：左1
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步；再grab；再移动到投放点(0,4)：左3步、下1步；最后place。共
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，apple4在(4,3)，向下移动一步抓取，然后送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，最后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，苹果2在(2,3)，先上移一格到(2,3)抓取，再送到(0,4)：从(2,3)需左移2格到(0,3)，再下移1格到(0,4)放置。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t6] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5490
+  [orch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品的候选对互不重叠，按就近原则分配：A4(2,0)取apple1(1,3)
+  [A4] 收到编排分配: ['item:apple1']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A7] 收到编排分配: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)：从(1,3)下到(1,4)，左到(0,4)放置。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，先move上1格到(2,3)抓取，再move到目标(0,4)：从(2,3)→(1,3)→(0,3)→(0,4)
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，放置。
+  [A7/qwen] 计划: keys=('item:apple4',) ops=9 | 我（A7）在(4,1)，apple4在(4,3)。先向上移动2步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下1步到(0,4)，最后place
+  [A3] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t7] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5427
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5比A1更近apple2（dist
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1在(1,3)，我在(0,0)。需先移动到(1,3)：右1下3步；然后grab；再移动到目标(0,4)：左1上1步；最后place。共需7步操作，tt
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | A2在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步 → (0,2)→(1,2)→(2,2)→(3,2)→(3,3)。然后grab 
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，apple4在(4,3)，向下走一步抓取，然后送到(0,4)：需从(4,3)到(0,4)，先左移4步到(0,3)，再下移1步到(0,4)，然后p
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再下移回(2,4)，然后左移两次到(0,4)放下。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t8] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5401
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A1', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 每件物品的候选对互不重叠，因此不存在争抢；按候选顺序取第一个，使各 worker
+  [A1] 收到编排分配: ['item:apple2']
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）在(4,4)，apple2在(2,3)。需先移动到(2,3)：从(4,4)左移2步(dx=-1两次)，上移1步(dy=-1)；然后grab apple
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取，然后到(0,4)：左移到(0,3)，下移到(0,4)，放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)，抓取，再左3步到(0,3)，下1步到(0,4)，放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=7 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共需6
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A5] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [scale8_f0_orch t9] 成功=0 送达 3/4 浪费=0 重分配=0 tokens=5859
+  => 小计: 90% (10 局)
+
+== 格 5/6: scale8_f10_orch ==
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√13）；A5比A1更近apple2（dist
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要先移动到apple1位置(2,3)，grab它，再移动到目标点(0,4)place。当前我在(0,0)，需先向右2步、向下3步到(2,3)；grab后，再
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | apple4 在 (4,3)，我在 (4,2)，向下走一步即可抓取，然后送到 (0,4)：先向左 4 步到 (0,3)，再向下 1 步到 (0,4)，最后 pl
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，苹果2在(2,3)，先上移一格到(2,3)抓取，再下移到(2,4)，然后左移到(0,4)放下。路径：(2,4)->(2,3) grab ->(2
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我（A6）在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再向左移动3步到(0,3)，再向下1步到(0,4)，pl
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=5 | 当前我在(2,3)，apple1也在(2,3)，可直接grab；grab后需移动到(0,4)再place。从(2,3)→(0,4)需左移2格、下移1格：先mov
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,2))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=7 | apple1 在 (2,3)，我在 (1,2)。需先移动到 (2,3)（dx=1, dy=1），grab apple1，再移动到目标 (0,4)：从 (2,3)
+  [A0] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [orch] item:apple1 失败（A0）-> 重分配给 A4
+  [A4] 收到编排分配: ['item:apple1']
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A4）在(2,0)，apple1在(2,3)。需先向下移动3步到(2,3)抓取apple1，再向左2步、向下1步到(0,4)放置。注意(0,4)已有appl
+  [A4] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A4/qwen] 计划: keys=('item:apple1',) ops=5 | 我（A4）当前在(2,3)，apple1也在(2,3)，可直接grab；grab后需move到(0,4)再place。注意(0,4)已有apple2/3/4，但
+  [A4] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A4/qwen] 计划: keys=('item:apple1',) ops=7 | apple1 在 (2,3)，我在 (1,4)。需先移动到 (2,3)（dx=1, dy=-1），再 grab，再移动到 (0,4)（dx=-2, dy=1），
+  [A4] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A4] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1: 两个争用者均失败过 -> 放弃该 item
+  [scale8_f10_orch t0] 成功=0 送达 3/4 浪费=6 重分配=1 tokens=11263
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：apple1(1,3)给A0(0,0)与A4(2,0)距离相近，
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | apple1 在 (1,3)，我在 (0,0)。先向右到 (1,0)，再向下到 (1,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)，抓取，然后到(0,4)：左3步到(0,3)，下1步到(0,4)，放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先向上移动1格到(2,3)抓取，再向下/向左移动到目标(0,4)。但(2,4)->(2,3)是dy=-1，然
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t1] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5520
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1在(1,3)，我在(0,0)。需先移动到(1,3)：右1→下3（共4步）。然后grab apple1，再移动到投放点(0,4)：左1→下1（共2步）
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | A2在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步 → (3,2)→(3,3)；然后grab；再移动到投放点(0,4)：左3步、下
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，然后送到(0,4)：需从(4,3)到(0,4)，先左移4步到(0,3)，再下移1步到(0,4)，然后plac
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再下移一格回(2,4)，然后左移两格到(0,4)放下。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t2] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5414
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近分配：apple1 给 A0（(0,0) 距 (1,3) 较近），appl
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | apple1 在 (1,3)，我在 (0,0)。路径：右1到(1,0)，下3到(1,3)，抓取，再左1到(0,3)，下1到(0,4)，放置。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)抓取，再左3步到(0,3)，下1步到(0,4)放置。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=7 | 我（A3）在(4,2)，apple4在(4,3)，需先向下移动1格到(4,3)抓取，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6步：mov
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先向上移动1格到(2,3)抓取，再向下/向左移动到目标(0,4)。但(2,4)->(2,3)是dy=-1，然
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t3] 成功=0 送达 3/4 浪费=0 重分配=0 tokens=5503
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5距apple2为1，优于A1（d
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1 在 (1,3)，我当前在 (0,0)。需先移动到 (1,3)：右1下3；然后 grab apple1；再移动到目标 (0,4)：左1上1；最后 p
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | apple4 在 (4,3)，我在 (4,2)，向下走一步到 (4,3) 抓取，再向左走 4 步到 (0,3)，再向下走一步到 (0,4) 放下。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再下移一格到(2,4)，然后左移两格到(0,4)放下。
+  [A6/qwen] 计划: keys=('item:apple3',) ops=11 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,3)，再向下1步到(0,4)，pl
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A6] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A6/qwen] 计划: keys=('item:apple3',) ops=7 | 我（A6）当前在(4,3)，apple3也在(4,3)，可直接grab；然后需移动到(0,4)place。从(4,3)到(0,4)：先向左4步到(0,3)，再向
+  [A6] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 当前我在(2,3)，apple3在(4,3)，需先向右移动2步到(4,3)抓取；然后移动到目标(0,4)：从(4,3)→(3,3)→(2,3)→(1,3)→(0
+  [A6] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A6] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A6）-> 重分配给 A2
+  [A2] 收到编排分配: ['item:apple3']
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步，即move(dx=1,dy=0)三次到(3,2)，再move(dx=0,
+  [scale8_f10_orch t4] 成功=1 送达 4/4 浪费=3 重分配=1 tokens=9231
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A1', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 每件物品的候选者互不重叠，按编号就近配对：A0(0,0)取apple1(1,3)
+  [A1] 收到编排分配: ['item:apple2']
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我(A1)在(4,4)，apple2在(2,3)。需先移动到(2,3)：从(4,4)→(3,4)→(2,4)→(2,3)共3步；然后grab apple2；再移
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移3步到(1,3)，抓取，然后到(0,4)：左移到(0,3)，下移到(0,4)，放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)，抓取，再送到(0,4)：左3步到(0,3)，下1步到(0,4)，放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=7 | 我（A3）在(4,2)，apple4在(4,3)，需先向下移动1步到(4,3)抓取，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共6步操作：mo
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A5] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t5] 成功=0 送达 3/4 浪费=0 重分配=0 tokens=5401
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5距apple2为1，优于A1（d
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，再下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，再送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)后放置。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，苹果2在(2,3)，先上移一格到(2,3)抓取，再移动到(0,4)：从(2,3)需左移2格到(0,3)，再下移1格到(0,4)，然后place。
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我（A6）在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再移动到目标(0,4)：从(3,3)左移3步到(0,3)
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t6] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5480
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：apple1(2,3)给A0(0,0)与A4(2,0)中较近的A
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到(2,3)取apple1，再送到(0,4)。路径：右2下3到(2,3)，抓取，然后左2下1到(0,4)，放下。共约8步。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。先向右 4 步到 (4,2)，再向下 1 步到 (4,3) 抓取，然后送到 (0,4)：向左 4 步到 (0,3
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，先move上1格到(2,3)抓取，再move到(0,4)放置。从(2,3)到(0,4)需左2格、下1格：先左到
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=5 | 我在(2,3)，苹果1也在(2,3)，直接抓取，然后送到(0,4)：先向左2步到(0,3)，再向下1步到(0,4)，然后放下。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=7 | 我在(4,3)，apple3也在(4,3)，先grab再送到(0,4)。路径：grab后向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=7 | 苹果在(2,3)，我在(1,4)。先右移到(2,4)，再上移到(2,3)抓取，然后送到(0,4)：从(2,3)左移到(1,3)、(0,3)，再下移到(0,4)放
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=9 | apple3 在 (4,3)，我在 (2,3)。先向右走到 (4,3) 抓取，再送到 (0,4)：从 (4,3) 向左 4 步到 (0,3)，再向下 1 步到 
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1 失败（A0）-> 重分配给 A4
+  [A4] 收到编排分配: ['item:apple1']
+  [A2] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A2）-> 重分配给 A6
+  [A6] 收到编排分配: ['item:apple3']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(2,0)到(1,3)取苹果：先左移到x=1，再下移3步到y=3，抓取后到(0,4)：左移到x=0，下移到y=4，然后放置。
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，然后放置。
+  [scale8_f10_orch t7] 成功=1 送达 4/4 浪费=6 重分配=2 tokens=12796
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)：
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | A2在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步(x+1三次)，下1步(y+1)；然后grab；再移动到目标(0,4)：左3步(x-1三
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，再送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先向上移动到 (2,3) 抓取，再向左到 (0,3)，再向下到 (0,4) 放下。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t8] 成功=0 送达 3/4 浪费=0 重分配=0 tokens=5367
+  [orch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：A4(2,0)取apple1(1,3)、A5(2,4)取appl
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A4] 收到编排分配: ['item:apple1']
+  [A5] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | apple3 在 (3,3)，我在 (0,2)。先向右 3 步到 (3,2)，再向下 1 步到 (3,3) 抓取，然后送到 (0,4)：从 (3,3) 向左 3
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。先左移到(1,0)，再下移到(1,3)抓取，然后左移到(0,3)，再下移到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，先向下移动到(2,3)抓取apple2，再向上移动到(0,4)放置。注意：从(2,4)到(2,3)是dy=-1
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [scale8_f10_orch t9] 成功=1 送达 4/4 浪费=0 重分配=0 tokens=5498
+  => 小计: 60% (10 局)
+
+== 格 6/6: scale8_f30_orch ==
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5比A1更近apple2（dist
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要先移动到 apple1 所在位置 (1,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (0,0)，需先向右1步到 (1
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步；再grab；再移动到投放点(0,4)：左3步、下1步；最后place。共
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，然后送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)后放置。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先向右到 (3,4)，再向上到 (3,3) 抓取，然后向左到 (0,3) 再向下到 (0,4) 放下。
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，直接抓取，然后移动到(0,4)放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(1,3)，apple2在(3,3)。先向右走2步到(3,3)，抓取，再送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步到(0,4)，然后pla
+  [A5] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A5] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A5）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (4,4)。先移动到 (3,3)（左1、上1），抓取，再送到 (0,4)：从 (3,3) 到 (0,4) 需左3、下1。
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，直接抓取后送到(0,4)。路径：先抓，再向左3步到(0,3)，再向下1步到(0,4)，然后放置。
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (1,3)。先向右移动两次到 (3,3)，抓取，再向左两次到 (1,3)，再向左到 (0,3)，再向下到 (0,4)，然后放
+  [A1] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A1] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2: 两个争用者均失败过 -> 放弃该 item
+  [scale8_f30_orch t0] 成功=0 送达 3/4 浪费=6 重分配=1 tokens=11331
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近分配：apple1(2,3) 给 A0(0,0) 与 A4(2,0) 中较
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (0,0)。先向右2步、向下3步到 (2,3)，抓取后向左2步、向下1步到 (0,4) 放置。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 从(0,2)到apple3(3,3)：先右3步到(3,2)，再下1步到(3,3)抓取；然后送到(0,4)：左3步到(0,3)，下1步到(0,4)放置。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，需先向下移动1格到(4,3)抓取，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。注意：move 
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）当前在(2,4)，apple2在(2,3)，紧邻正上方一格。先move到(2,3)抓取apple2，再move到目标(0,4)放置。从(2,3)到(0
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=5 | 我在(2,3)，apple1也在(2,3)，直接grab后移动到(0,4)并place。路径：grab，然后左移2步到(0,3)，再下移1步到(0,4)，pla
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=7 | 苹果在(2,3)，我在(1,4)。先移动到(2,3)：需右移1、上移1。路径：(1,4)->(2,4)->(2,3)，然后抓取，再送到(0,4)：从(2,3)左
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1 失败（A0）-> 重分配给 A4
+  [A4] 收到编排分配: ['item:apple1']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。先向左到(1,0)，再向下到(1,3)抓取，然后送到(0,4)：从(1,3)向左到(0,3)，再向下到(0,4)放置。
+  [scale8_f30_orch t1] 成功=1 送达 4/4 浪费=3 重分配=1 tokens=9236
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(0,0)，apple1在(1,3)。需先移动到(1,3)：dx=1,dy=3 → 三步：(0,0)→(1,0)→(1,1)→(1,2)→(1,3)。但
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | A2在(0,2)，apple3在(4,3)。需先移动到(4,3)：右移4步(x:0→4)，下移1步(y:2→3)，共5步；然后grab apple3；再移动到投
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，然后送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，苹果2在(2,3)，先上移一格到(2,3)抓取，再下移回(2,4)，然后左移到(0,4)放下。路径：(2,4)->(2,3) grab ->(2
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2/qwen] 计划: keys=('item:apple3',) ops=7 | 我（A2）当前在(4,3)，apple3也在(4,3)，所以可直接grab。然后需移动到(0,4)放置：从(4,3)→(0,4)需左移4步、下移1步，但y=3到
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple3',) ops=9 | 当前我在(2,3)，apple3在(4,3)，需先向右移动2步到(4,3)抓取；然后移动到目标(0,4)：从(4,3)→(3,3)→(2,3)→(1,3)→(0
+  [A2] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A2）-> 重分配给 A6
+  [A6] 收到编排分配: ['item:apple3']
+  [A6/qwen] 计划: keys=('item:apple3',) ops=8 | 我（A6）在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再向左移动3步到(0,4) place。注意(0,4)已
+  [scale8_f30_orch t2] 成功=0 送达 3/4 浪费=3 重分配=1 tokens=9299
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：apple1(2,3)给A0(0,0)与A4(2,0)中较近的A
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (0,0)。先向右2步、向下3步到 (2,3)，抓取，再向左2步、向下1步到 (0,4) 放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步到(0,
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）当前在(4,2)，apple4在(4,3)，需先向下移动1格到(4,3)抓取，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。注意：mov
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）在(2,4)，apple2在(3,3)。需先移动到(3,3)：dx=1, dy=-1 → (3,3)。然后grab apple2，再移动到目标(0,4
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=5 | 我在(2,3)，apple1也在(2,3)，直接抓取后送到(0,4)：先grab，再向左2步、向下1步到(0,4)，然后place。
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）当前在(3,3)，item:apple2也在(3,3)，可直接grab；之后需移动到(0,4) place。从(3,3)到(0,4)：先向左3步到(0
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=7 | 苹果在(2,3)，我在(1,4)。先移动到(2,3)抓取，再送到(0,4)放下。路径：(1,4)->(2,4)->(2,3)抓取，然后(2,3)->(1,3)-
+  [A5/qwen] 计划: keys=('item:apple2',) ops=7 | 我（A5）当前在(1,3)，而apple2在(3,3)，需先向右移动2步到(3,3)；然后grab apple2；再移动到目标点(0,4)：从(3,3)→(2,
+  [A5] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A5] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A5）-> 重分配给 A1
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1 失败（A0）-> 重分配给 A4
+  [A1] 收到编排分配: ['item:apple2']
+  [A4] 收到编排分配: ['item:apple1']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我（A1）在 (4,4)。需先移动到 (2,3)：dx=-2, dy=-1 → 分两步：先 move(dx=-1,dy=0) 到 
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。先左移到x=1，再下移3步到(1,3)抓取，然后左移到(0,3)，再下移到(0,4)放置。
+  [scale8_f30_orch t3] 成功=1 送达 4/4 浪费=6 重分配=2 tokens=12741
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5(2,4)比A1(4,4)更近a
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)：
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我（A2）在(0,2)，apple3在(4,3)。需先移动到(4,3)：dx=4, dy=1 → 需4步右移+1步下移，路径为(0,2)→(1,2)→(2,2)
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | apple4 在 (4,3)，我在 (4,2)，向下走一步即可抓取，然后送到 (0,4)：先向左 4 步到 (0,3)，再向下 1 步到 (0,4)，最后 pl
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先向右到 (3,4)，再向上到 (3,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2/qwen] 计划: keys=('item:apple3',) ops=7 | 我（A2）当前在(4,3)，apple3也在(4,3)，所以可直接grab；然后需移动到(0,4) place。从(4,3)到(0,4)需左移4步（x:4→0）
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，先grab再移动到(0,4)并place。路径：向左3步到(0,3)，再向下1步到(0,4)。
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple3',) ops=8 | 当前我在(2,3)，apple3在(4,3)，需先向右移动2步到(4,3)抓取；然后移动到目标(0,4)：从(4,3)→(3,3)→(2,3)→(1,3)→(0
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (1,3)。先向右走到 (3,3)，抓取，再送到 (0,4)：从 (3,3) 向左到 (0,3)，再向下到 (0,4)，然后
+  [A5] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A5] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A5）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A2] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A2）-> 重分配给 A6
+  [A6] 收到编排分配: ['item:apple3']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，apple2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取，然后(3,3)->(2
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我当前在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再移动到目标(0,4)：从(3,3)→(2,3)→(1,3)
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(3,3)，apple2也在(3,3)，直接抓取，然后移动到(0,4)放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [A1] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (1,3)。先向右走两步到 (3,3)，抓取，再向左走三步到 (0,3)，向下走一步到 (0,4)，然后放下。
+  [A1] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A1] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2: 两个争用者均失败过 -> 放弃该 item
+  [scale8_f30_orch t4] 成功=0 送达 3/4 浪费=9 重分配=2 tokens=15080
+  [orch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 每件物品分给距离更近的候选者：apple1(1,3) 距 A4(2,0) 比 A
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A4] 收到编排分配: ['item:apple1']
+  [A5] 收到编排分配: ['item:apple2']
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。先向右 4 步到 (4,2)，再向下 1 步到 (4,3) 抓取，然后送到 (0,4)：需从 (4,3) 向左 
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果1在(2,3)。向下走3步到(2,3)抓取，再向左2步、向下1步到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先向上移动1格到(2,3)抓取，再向下/向左移动到(0,4)放置。从(2,3)到(0,4)：先向左2格到(0
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A4] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=7 | 我在(4,3)，apple3也在(4,3)，先grab，再向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=5 | 我在(2,3)，苹果apple1也在(2,3)，直接抓取，然后移动到(0,4)放下。路径：grab，然后向左2步到(0,3)，再向下1步到(0,4)，place
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A4] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=9 | apple3 在 (4,3)，我在 (2,3)。先向右走两步到 (4,3)，抓取，再向左走四步到 (0,3)，再向下到 (0,4) 放置。
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=7 | 我在(1,4)，苹果在(2,3)。需先移动到(2,3)抓取，再送到(0,4)放下。路径：(1,4)->(2,4)->(2,3)抓取，然后(2,3)->(1,3)
+  [A2] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A2）-> 重分配给 A6
+  [A6] 收到编排分配: ['item:apple3']
+  [A4] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A4] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1 失败（A4）-> 重分配给 A0
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，然后放置。
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取，然后移到(0,4)投放。路径：(1,3)->(1,4)->(0,4)。
+  [scale8_f30_orch t5] 成功=1 送达 4/4 浪费=6 重分配=2 tokens=12313
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1→(1,0)，下3→(1,3)；然后grab apple1；再移动到目标(0,4)：左1→
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我（A2）在(0,2)，apple3在(4,3)。需先移动到(4,3)：向右4步，向下1步；然后grab apple3；再移动到目标(0,4)：向左4步，向上1
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，然后送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，最后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，苹果2在(2,3)，先向上移动到(2,3)抓取，再向下到(2,4)，再向左两次到(0,4)放下。
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A2/qwen] 计划: keys=('item:apple3',) ops=7 | 当前我在(4,3)，apple3也在(4,3)，所以可直接grab；然后需移动到(0,4) place。从(4,3)到(0,4)需左移4步、下移1步，但注意y向
+  [A2] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A2/qwen] 计划: keys=('item:apple3',) ops=9 | 当前我在(2,3)，apple3在(4,3)，需先向右移动2步到(4,3)抓取；然后移动到目标(0,4)：从(4,3)→(3,3)→(2,3)→(1,3)→(0
+  [A2] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A2] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A2）-> 重分配给 A6
+  [A6] 收到编排分配: ['item:apple3']
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我当前在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再向左移动3步到(0,3)，再向下移动1步到(0,4)，pl
+  [scale8_f30_orch t6] 成功=1 送达 4/4 浪费=3 重分配=1 tokens=9121
+  [orch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品的候选者互不重叠，因此不存在争抢；把每件物品分给距离更近的候选者（A4 
+  [A4] 收到编排分配: ['item:apple1']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A7] 收到编排分配: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。先左移到(1,0)，下移到(1,3)抓取，再左移到(0,3)，下移到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）在(2,4)，apple2在(3,3)。先move到(3,3)：dx=1, dy=-1。然后grab apple2。再move到目标(0,4)：从(3
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，apple3在(4,3)。向右移动4步到(4,3)，抓取，再向左移动4步到(0,3)，向下1步到(0,4)，放置。
+  [A7/qwen] 计划: keys=('item:apple4',) ops=9 | 我（A7）在(4,1)，apple4在(4,3)。先向下移动2步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共需7
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A3] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 当前我在(3,3)，apple2也在(3,3)，可直接grab；grab后需移动到(0,4)再place。注意：grab前必须INTENT锁定item:appl
+  [A6] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=7 | 我在(4,3)，apple3也在(4,3)，所以先grab，再移动到(0,4)并place。路径：从(4,3)向左4步到(0,3)，再向下1步到(0,4)。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 当前我在(1,3)，apple2在(3,3)，需先向右移动2步到(3,3)，grab apple2，再移动到目标(0,4)：从(3,3)→(2,3)→(1,3)
+  [A5] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A5] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A5）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A6] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我需要先移动到 apple2 所在位置 (2,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (4,4)，需左移 2 步（dx
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | apple3 在 (4,3)，我在 (2,3)。先向右走到 (4,3) 抓取，再送到 (0,4)。路径：(2,3)->(3,3)->(4,3) 抓取，然后向左到
+  [A6] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A6] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A6）-> 重分配给 A2
+  [A2] 收到编排分配: ['item:apple3']
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,2)，苹果3在(3,3)。路径：(0,2)->(1,2)->(2,2)->(3,2)->(3,3)抓取，再送到(0,4)：(3,3)->(2,3)->
+  [A2] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=1 | 我已持有 item:apple3，且当前就在 (0,4)，即目标格。只需 place 即可。
+  [scale8_f30_orch t7] 成功=1 送达 4/4 浪费=7 重分配=2 tokens=14088
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√13）；A5比A1更近apple2（dist
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A6] 收到编排分配: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | A0在(0,0)，apple1在(2,3)。需先移动到(2,3)：右2步、下3步，即move(dx=2,dy=3)需分步（因每次dx/dy最多±1）。路径：(0
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | apple4 在 (4,3)，我在 (4,2)。先向下移动到 (4,3) 抓取，再向左移动到 (0,3) 后向下到 (0,4) 放下。路径：move(0,1) 
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再下移一格到(2,4)，然后左移两格到(0,4)放下。
+  [A6/qwen] 计划: keys=('item:apple3',) ops=11 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,4)（注意y=4是目标行），但当前
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=5 | 当前我在(2,3)，apple1也在(2,3)，可直接grab；然后需移动到(0,4)place。从(2,3)→(0,4)需左移2步、下移1步：先move(dx
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A2] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A0] orch worker 算子失败（grab: agent_not_at_item((1,3) != (1,4))）-> 重规划
+  [A6] orch worker 算子失败（grab: agent_not_at_item((3,3) != (4,3))）-> 重规划
+  [A0/qwen] 计划: keys=('item:apple1',) ops=7 | 当前我在(1,4)，apple1在(2,3)。需先移动到(2,3)（dx=1, dy=-1），grab apple1，再移动到目标(0,4)（从(2,3)→(1
+  [A6/qwen] 计划: keys=('item:apple3',) ops=6 | 我（A6）当前在(4,3)，而apple3也在(4,3)，所以已就位可grab；grab后需移动到目标点(0,4)place。从(4,3)到(0,4)需左移4步
+  [A0] orch worker 算子失败（move: out_of_bounds）-> 重规划
+  [orch] item:apple1 失败（A0）-> 重分配给 A4
+  [A4] 收到编排分配: ['item:apple1']
+  [A6] orch worker 算子失败（grab: agent_not_at_item((3,3) != (2,3))）-> 重规划
+  [A4/qwen] 计划: keys=('item:apple1',) ops=7 | 我需要先移动到 apple1 所在位置 (2,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (2,0)，需向下走 3 步到 
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我（A6）当前在(2,3)，apple3在(4,3)。需先向右移动2步到(4,3)，grab apple3，再移动到目标(0,4)：从(4,3)→(3,3)→(
+  [A6] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A6] 重试耗尽 -> 上报编排者 A0（item:apple3）
+  [orch] item:apple3 失败（A6）-> 重分配给 A2
+  [A2] 收到编排分配: ['item:apple3']
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步 → (3,2)→(3,3)；然后grab apple3；再移动到目标(0
+  [A4] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [A4/qwen] 计划: keys=('item:apple1',) ops=5 | 我（A4）当前在(2,3)，apple1也在(2,3)，已同格，可直接grab；grab后需移动到目标点(0,4)再place。注意：(0,4)已有apple2
+  [A4] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A4/qwen] 计划: keys=('item:apple1',) ops=6 | 我（A4）在(1,3)，apple1在(2,3)，需先向右移动到(2,3)抓取；然后移动到目标(0,4)放置。注意(0,4)已有apple2和apple4，但p
+  [A4] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A4] 重试耗尽 -> 上报编排者 A0（item:apple1）
+  [orch] item:apple1: 两个争用者均失败过 -> 放弃该 item
+  [scale8_f30_orch t8] 成功=0 送达 3/4 浪费=9 重分配=2 tokens=15614
+  [orch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：apple1 给 A0（(0,0) 距 (1,3) 较近），ap
+  [A2] 收到编排分配: ['item:apple3']
+  [A3] 收到编排分配: ['item:apple4']
+  [A5] 收到编排分配: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取，然后到(0,4)：左移到(0,3)，下移到(0,4)，放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | apple3 在 (3,3)，我在 (0,2)。先向右 3 步到 (3,2)，再向下 1 步到 (3,3) 抓取，然后送到 (0,4)：从 (3,3) 向左 3
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）在(2,4)，apple2在(3,3)。先移动到(3,3)：dx=1, dy=-1。然后grab apple2。再移动到投放点(0,4)：从(3,3)
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [A7] 编排等待超时且未分到任务 -> 待命
+  [A6] 编排等待超时且未分到任务 -> 待命
+  [A4] 编排等待超时且未分到任务 -> 待命
+  [A1] 编排等待超时且未分到任务 -> 待命
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）当前在(3,3)，apple2也在(3,3)，可直接grab；然后需移动到(0,4)place。从(3,3)到(0,4)：先向左3步到(0,3)，再向
+  [A5] orch worker 算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [A5/qwen] 计划: keys=('item:apple2',) ops=7 | 我（A5）当前在(1,3)，apple2在(3,3)，需先向右移动2步到(3,3)抓取；然后移动到目标(0,4)：从(3,3)→(2,3)→(1,3)→(0,3
+  [A5] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [A5] 重试耗尽 -> 上报编排者 A0（item:apple2）
+  [orch] item:apple2 失败（A5）-> 重分配给 A1
+  [A1] 收到编排分配: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我需要先移动到 apple2 所在位置 (2,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (4,4)，需左移 2 步到 x
+  [scale8_f30_orch t9] 成功=1 送达 4/4 浪费=3 重分配=1 tokens=9179
+  => 小计: 60% (10 局)
+
+orch 臂全部格完成。

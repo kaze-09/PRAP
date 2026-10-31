@@ -65,7 +65,20 @@ def op_place(arb: Arbiter, lease, args) -> tuple:
     return True, f"placed@{pos}"
 
 
-OPS_REGISTRY: dict[str, Callable] = {"move": op_move, "grab": op_grab, "place": op_place}
+def op_consume(arb: Arbiter, lease, args) -> tuple:
+    """R3 不可逆算子：消耗持有的物品（物品从世界消失，不可恢复）。"""
+    agent, key = args["agent"], args["key"]
+    hold = arb.state[f"hold:{agent}"].value
+    if hold != key:
+        return False, f"not_holding({hold})"
+    pos = arb.state[f"pos:{agent}"].value
+    arb._write(key, f"consumed@{pos}", agent, lease.lease_id)
+    arb._write(f"hold:{agent}", "none", agent, lease.lease_id)
+    return True, f"consumed@{pos}"
+
+
+OPS_REGISTRY: dict[str, Callable] = {"move": op_move, "grab": op_grab,
+                                     "place": op_place, "consume": op_consume}
 
 
 def init_world(arb: Arbiter, items: dict, agents: dict,

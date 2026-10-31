@@ -95,6 +95,9 @@ class Arbiter:
         self.ops_registry = ops_registry
         self._lease_counter = 0
         self.max_hold: Optional[int] = None   # v0.2.2：累计持有时长上界（tick），None = 不限
+        # R5 lease-only 消融开关：False = 跳过 L4 分类与隔离（租约/仲裁/续约全保留）。
+        # 语义 = "带超时与心跳的锁"基线；开关为臂级（同一 sim 内所有 agent 共享）。
+        self.l4_enabled = True
         # v0.2：信念隔离。agent -> "ok" | "suspect"（曾报 deviation 且未以正确信念清除）
         self.agent_status: dict[str, str] = {}
         self.stats: dict[str, Any] = {"grants": 0, "denies": 0, "expires": 0,
@@ -155,10 +158,10 @@ class Arbiter:
         ttl = max(int(ttl), TTL_MIN)
         iseq = self._next_seq()
         self.log.append(("intent", iseq, agent_id, keys, priority))
-        verdict = self._classify(belief) if belief else None
+        verdict = self._classify(belief) if (belief and self.l4_enabled) else None
         if verdict:
             self._set_status(agent_id, verdict["class"])   # v0.2：信念隔离判定
-        if self.agent_status.get(agent_id) == "suspect":
+        if self.l4_enabled and self.agent_status.get(agent_id) == "suspect":
             # 隔离期间：不授予、不入队（解除后须重新 INTENT）
             self.stats["denies"] += 1
             self.log.append(("intent_suspect_blocked", iseq, agent_id, keys))

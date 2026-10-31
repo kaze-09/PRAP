@@ -1,0 +1,1892 @@
+[
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 5377,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3515,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3797,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3606,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 4058,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3631,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 7528,
+  "llm_calls": 5,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3580,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 4127,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "baseline": "coagent",
+  "task": "T1",
+  "cond": "C2",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "agent_ops": {
+   "A": {
+    "ops": 23,
+    "failed": 13
+   },
+   "B": {
+    "ops": 8,
+    "failed": 0
+   }
+  },
+  "tokens": 3542,
+  "llm_calls": 4,
+  "extra": {
+   "A": {
+    "conflicts": 3,
+    "undone": 5,
+    "undo_failed": 10
+   },
+   "B": {}
+  },
+  "op_seq": [
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "agent": "B",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "agent": "A",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   },
+   {
+    "agent": "A",
+    "op": "move",
+    "ok": false
+   }
+  ]
+ }
+]

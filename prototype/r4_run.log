@@ -1,0 +1,3 @@
+R3 已完成（2 臂 × 30）-> 启动 R4
+["  => 成功=True 隔离拦截=2 拒提交=0 失败算子={'B': 2} tokens=4691", '', '[R4] 30 局 成功率 100% 隔离拦截总次数 31 -> D:\\LearningResource\\ResearchForAIGC\\GameAgent\\PRAP\\prototype\\r4_transient_p50.json']
+===== R4 完成 =====

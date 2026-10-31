@@ -1,0 +1,1220 @@
+
+--- E6[coagent] 任务 T1 条件 C2 trial 0 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=3，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左移到(2,4)，再向上移到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 currently held by B at (0,3). I must move to (0,3) to grab it from B, but
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 在 (0,4)，但 B 也在 (0,4)，因此我无法直接 grab apple1（同格需空闲，而 B 占据该格）。我必须先移动到 (0,4) 邻格
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=5377
+
+--- E6[coagent] 任务 T1 条件 C2 trial 1 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)到(3,4)，再move(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=3 | 苹果已被 B 持有，不在世界上，无法直接 grab。最新状态显示 item:apple1 在 B 手中（hold:B）。我无法直接操作 B 持有的物品，需先移动
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | 苹果已在目标格 (0,4)，我需从 (0,0) 沿 y 轴向下移动 4 步到 (0,4)，然后抓取苹果，再原地放下。上次越界可能是移动方向错误，这次只做 dy=
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=3515
+
+--- E6[coagent] 任务 T1 条件 C2 trial 2 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 is held by agent B at (0,3). I must move to (0,3) to grab it, then move t
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 在 (0,4)，但 B 也在 (0,4)，因此 apple1 当前被 B 占据格子，我无法直接 grab。需先移动到 (0,4) 邻格等待或尝试其
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=3797
+
+--- E6[coagent] 任务 T1 条件 C2 trial 3 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)到(3,4)，再move(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | apple1 已被 B 持有（hold:B=item:apple1），不在世界上，无法直接 grab。需先让 B 放下或等待。当前 A 在 (0,0)，目标投放
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | 苹果已在目标格 (0,4)，我在 (0,0)。需先移动到 (0,4) 抓取，再原地 place。上次越界冲突，这次严格沿 y 轴向下走 4 步。
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=3606
+
+--- E6[coagent] 任务 T1 条件 C2 trial 4 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。移动路径：(0,0)->(1,0)->(2,0)->(2,1)->
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)再向上到(2,3)抓取，然后送到(0,4)：从(2,3)向左到(0,3)再向下到(0,4)放下。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 is held by agent B at (0,3). I must move to (0,3) to grab it, then move t
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 在 (0,4)，但 B 也在 (0,4)，因此 apple1 当前不可抓取（同格有他人，grab 需独占格）。我需先移动到 (0,4) 邻格等待或
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=4058
+
+--- E6[coagent] 任务 T1 条件 C2 trial 5 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(4,4)到(2,3)：dx=-2, dy=-1，分步为move(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | apple1 已被 B 持有（hold:B=item:apple1），不在世界格上，因此无法直接 grab。需先让 B 放下或由 B 交出；但当前只有我能操作，
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | 苹果已在 (0,4)，我位于 (0,0)。需沿 y 轴向下移动 4 步到 (0,4)，抓取苹果，再原地放下。上次越界可能是 dy 方向或步数错误，这次逐步核对：
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=3631
+
+--- E6[coagent] 任务 T1 条件 C2 trial 6 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左走到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 currently held by B at (0,3). I must move to (0,3) to grab it, but since 
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 在 (0,4)，但 B 也在 (0,4)，因此 apple1 当前不可抓取（同格有他人，grab 需独占格）。我需先移动到 (0,4) 邻格等待或
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=7528
+
+--- E6[coagent] 任务 T1 条件 C2 trial 7 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)，需先移动到(2,3)：dx=-2, dy=-1，分两步（先左再上或先上再左）；为最简路径，先move(dx=-1,dy
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=3 | apple1 已被 B 持有（hold:B=item:apple1），不在世界格子上，所以 grab 失败。B 在 (0,3)，我在 (0,0)。我无法直接抓取
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | 苹果已在目标格 (0,4)，但 B 也在 (0,4)。我从 (0,0) 出发需向下移动 4 步到 (0,4)，然后抓取苹果并原地放下。上次越界可能是 dy 方向
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=3580
+
+--- E6[coagent] 任务 T1 条件 C2 trial 8 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 is held by agent B at (0,3). I must move to (0,3) to grab it, then move t
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/qwen] 计划: keys=('item:apple1',) ops=6 | apple1 在 (0,4)，但 B 也在 (0,4)，因此我无法直接 grab apple1（同格有他人且未授权）。需先移动到 (0,4) 邻格等待或协调，但
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=4127
+
+--- E6[coagent] 任务 T1 条件 C2 trial 9 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后左移2步到(0,3)，再下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)到(3,4)，再move(
+  [A] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 5 算子（0 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=2 | 苹果已被 B 持有，不在世界上，无法直接 grab。B 在 (0,3)，我在 (0,0)。先移动到 B 附近等待其放下苹果；但当前苹果在 B 手中，grab 会
+  [A] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  [A/deepseek] 计划: keys=('item:apple1',) ops=6 | 苹果已在目标格 (0,4)，我在 (0,0)。需先移动到 (0,4) 再抓取并原地放下。上次越界冲突可能因坐标算术错误，这次逐步核对：从 (0,0) 向下走 4
+  [A] CoAgent 冲突（place 失败: not_holding(none)）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=13 tokens=3542
+
+[coagent/T1/C2] 完成 10/10 -> comp_coagent_T1_C2.json
+
+--- E6[coagent] 任务 T1 条件 C4 trial 0 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取->(2,3)->(1,3)-
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。上次冲突是因为我误以为自己在(2,3)。现在重新规划：先移动到(3,3)抓取，再送到(0,4)。路径：(4,4)->(3,4)
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，但状态显示A已持有item:apple1（hold:A=item:apple1），说明苹果可能已被A拿走，item:apple1的world位
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 8 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3747
+
+--- E6[coagent] 任务 T1 条件 C4 trial 1 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)（dx=-1,dy=-1），然后grab，再移动到目标(0,4)（从(3,3)到(0,4)需左
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | apple1 在 (3,3)，我在 (4,4)。需先 move 到 (3,3)（dx=-1, dy=-1），然后 grab apple1，再 move 到目标 
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=5272
+
+--- E6[coagent] 任务 T1 条件 C4 trial 2 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：上(4,3)、左(3,3)抓取，然后左(2,3)、左(1,3)、左(0,
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。上次抓取失败是因为我误判了位置。先移动到(3,3)再抓取，然后送到(0,4)。路径：(4,4)->(3,4)->(3,3)抓取
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，但状态显示A已持有item:apple1（hold:A=item:apple1），说明苹果可能已被A取走；不过item:apple1仍标为wo
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 8 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3700
+
+--- E6[coagent] 任务 T1 条件 C4 trial 3 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)（dx=-1,dy=-1），再grab，再移动到目标(0,4)（需左移3步：x从3→0，y保持
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)（dx=-1,dy=-1），grab apple1，再移动到目标(0,4)（从(3,3)→(0
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 8 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3834
+
+--- E6[coagent] 任务 T1 条件 C4 trial 4 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：从(4,4)到(3,3)需dx=-1,dy=-1；抓取；从(3,3)到(
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。上次抓取失败是因为我还没到(3,3)。先移动到(3,3)再抓取，然后送到(0,4)。路径：(4,4)->(3,4)->(3,3
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(4,4)。但状态显示 A 已持有 apple1（hold:A=item:apple1），说明苹果可能已被 A 取走，世界状态里 item
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 8 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3750
+
+--- E6[coagent] 任务 T1 条件 C4 trial 5 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 苹果在(2,3)，我在(0,0)。先向右2步到(2,0)，再向下3步到(2,3)抓取，然后向左2步到(0,3)，再向下1步到(0,4)放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)：dx=-1, dy=-1；从(3,3
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)（dx=-1, dy=-1），再grab，再移动到目标(0,4)：从(3,3)→(2,4)→(
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 当前B在(4,4)，apple1在(3,3)。需先移动到(3,3)抓取apple1，再移动到(0,4)放置。注意(0,4)已被A占据，但A持有apple1，说明
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3894
+
+--- E6[coagent] 任务 T1 条件 C4 trial 6 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)->(
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取->(2,3)->(1,3)-
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。上次抓取失败是因为我还没到(3,3)就尝试抓取。先移动到(3,3)再抓取，然后送到(0,4)。路径：(4,4)->(3,4)-
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，但状态显示A已持有apple1（hold:A=item:apple1），说明物品可能已被A取走，世界状态中item:apple1仍标world
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 8 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3696
+
+--- E6[coagent] 任务 T1 条件 C4 trial 7 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后向左2步到(0,3)，再下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)（dx=-1,dy=-1），再grab，再移动到目标(0,4)（需左移3步：x从3→2→1→0
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)抓取apple1，再移动到(0,4)放置。注意(0,4)已被A占据，但place操作只需目标格
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3986
+
+--- E6[coagent] 任务 T1 条件 C4 trial 8 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取->(2,3)->(1,3)-
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。上次抓取失败是因为我还没到(3,3)就尝试抓取。需要先移动到(3,3)，抓取，再移动到(0,4)放下。路径：(4,4)->(3
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 3 算子（2 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，但状态显示A已持有apple1（hold:A=item:apple1），说明苹果可能已不在世界格上。不过任务要求我取送，先按世界状态规划：从(
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 8 算子（5 失败）-> 通知自修复
+  => 成功=True 浪费算子=10 tokens=3697
+
+--- E6[coagent] 任务 T1 条件 C4 trial 9 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后左移2步到(0,3)，再下移1步到(0,4)，放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(4,4)，apple1在(3,3)。需先移动到(3,3)：dx=-1, dy=-1。然后grab apple1。再移动到目标(0,4)：从(3,3)
+  [B] CoAgent 冲突（grab 失败: agent_not_at_item((2,3) != (3,3))）-> undo 2 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)（dx=-1, dy=-1），再grab，再移动到目标(0,4)：从(3,3)→(2,4)→(
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（2 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(4,4)，apple1在(3,3)。需先移动到(3,3)抓取apple1，再移动到(0,4)放置。注意：A已持有apple1，但状态显示item:ap
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 0 算子（3 失败）-> 通知自修复
+  => 成功=True 浪费算子=8 tokens=3880
+
+[coagent/T1/C4] 完成 10/10 -> comp_coagent_T1_C4.json
+
+--- E6[coagent] 任务 T2 条件 C4 trial 0 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 我在(2,0)，苹果在(2,3)。向下走3步到(2,3)抓取，再移动到(4,0)：先上3步到(2,0)，再右2步到(4,0)，然后放置。
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=() ops=0 | apple1 已被 A 持有（hold:A=item:apple1），世界上已无该物品，我无法抓取。任务无法由我完成，只能报告现状；为不产生冲突，不锁定物品、不
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（3 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 苹果在(2,3)，但状态显示A持有item:apple1（hold:A=item:apple1），而item:apple1仍在world@(2,3)，两者矛盾。
+  [B] CoAgent 冲突（place 失败: not_holding(none)）-> undo 3 算子（3 失败）-> 通知自修复
+  => 成功=True 浪费算子=9 tokens=4299
+
+--- E6[coagent] 任务 T2 条件 C4 trial 1 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)再向右到(4,0)放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步到(4,3)，再向上移动3步到(4,0)放置。但注意y向下为正，
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 当前在 (2,3)，我在 (2,0)。需先移动到 (2,3) 抓取 apple1，再移动到 (4,0) 放下。注意：当前 hold:B 是 'no
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)：从(2,3)→(3,3)→(4,3)→(4,2)→(4,
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=9 tokens=4222
+
+--- E6[coagent] 任务 T2 条件 C4 trial 2 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 我在(2,0)，苹果在(2,3)。先向下走3步到(2,3)抓取，再向上走3步到(2,0)，然后向右走2步到(4,0)放下。
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=() ops=0 | apple1 已被 A 持有（hold:A=item:apple1），世界上已无该物品，我无法抓取。任务无法由我完成，只能空等/报告。为不产生冲突，计划为空操作
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（3 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，但状态显示 A 已持有 item:apple1（hold:A=item:apple1），说明物品可能已被 A 取走。不过 item
+  [B] CoAgent 冲突（place 失败: not_holding(none)）-> undo 3 算子（3 失败）-> 通知自修复
+  => 成功=True 浪费算子=9 tokens=4443
+
+--- E6[coagent] 任务 T2 条件 C4 trial 3 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)->(2,1
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (2,0)。需先移动到 (2,3) 抓取，再移动到 (4,0) 放下。当前 apple1 仍在 world@(2,3)，ve
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)：从(2,3)→(3,3)→(4,3)→(4,2)→(4,
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=9 tokens=3878
+
+--- E6[coagent] 任务 T2 条件 C4 trial 4 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=9 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)：dx=1,dy=-1；抓取apple1；
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 我在(2,0)，苹果在(2,3)。向下走3步到(2,3)抓取，再向上走3步到(2,0)，再向右走2步到(4,0)放下。
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=() ops=0 | apple1 已被 A 持有（hold:A=item:apple1），世界上已无该物品，我无法抓取。任务无法由我完成，只能等待/报告；但按协议仍需输出计划。由于
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（3 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 状态显示 A 已持有 apple1（hold:A=item:apple1），但我的任务是把 apple1 送到 (4,0)。apple1 当前在 A 手中，不在
+  [B] CoAgent 冲突（place 失败: not_holding(none)）-> undo 3 算子（3 失败）-> 通知自修复
+  => 成功=False（item:apple1 未送达（world@(3,0)）） 浪费算子=9 tokens=4447
+
+--- E6[coagent] 任务 T2 条件 C4 trial 5 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | B在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。路径：(2,0)→(2,1)→(2,2
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (2,0)。需先移动到 (2,3) 抓取，再移动到 (4,0) 放下。当前 apple1 仍在 world@(2,3)，ve
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)放置。注意：从(2,3)到(4,0)需先右移2格到(4
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=9 tokens=4768
+
+--- E6[coagent] 任务 T2 条件 C4 trial 6 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 我在(2,0)，苹果在(2,3)。先向下走3步到(2,3)抓取，再送到(4,0)：从(2,3)需上移3步到(2,0)，再右移2步到(4,0)，然后place。
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=2 | apple1 已被 A 持有（hold:A=item:apple1），世界上已无该物品，我无法抓取。任务无法由我完成，只能等待/报告。为遵守协议，我锁定 ite
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（3 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，但状态显示 A 已持有 item:apple1（hold:A=item:apple1），说明物品可能已被 A 拿走，世界状态中 i
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 2 算子（3 失败）-> 通知自修复
+  => 成功=True 浪费算子=9 tokens=4514
+
+--- E6[coagent] 任务 T2 条件 C4 trial 7 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | B在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。路径：(2,0)→(2,1)→(2,2
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=2 | apple1 当前在 (2,3)，但已被 A 持有（hold:A = item:apple1），因此 B 无法 grab 它。B 需先移动到 (4,0) 准备接
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（3 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (2,0)。需先向下移动3步到 (2,3) 抓取，再向右移动2步、向上移动3步到 (4,0) 放下。注意：y向下为正，所以从
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 2 算子（3 失败）-> 通知自修复
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=9 tokens=4521
+
+--- E6[coagent] 任务 T2 条件 C4 trial 8 ---
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | 我在(2,0)，苹果在(2,3)。向下走3步到(2,3)抓取，再向上走3步到(2,0)，然后向右走2步到(4,0)放下。
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=() ops=0 | apple1 已被 A 持有（hold:A=item:apple1），世界上已无该物品，我无法抓取。冲突原因正是 item_not_in_world。我应等待/
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 0 算子（3 失败）-> 通知自修复
+  [B/deepseek] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，但状态显示 A 持有 item:apple1（hold:A），世界状态里 item:apple1 仍标为 world@(2,3) 
+  [B] CoAgent 冲突（place 失败: not_holding(none)）-> undo 3 算子（3 失败）-> 通知自修复
+  => 成功=True 浪费算子=9 tokens=4346
+
+--- E6[coagent] 任务 T2 条件 C4 trial 9 ---
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] CoAgent 冲突（grab 失败: item_not_in_world）-> undo 3 算子（0 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (2,0)。需先移动到 (2,3) 抓取，再移动到 (4,0) 放下。当前 apple1 在 world@(2,3)，ver
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)放置。注意y向下为正，所以从(2,0)到(2,3)需dy=
+  [B] CoAgent 冲突（move 失败: out_of_bounds）-> undo 1 算子（3 失败）-> 通知自修复
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=9 tokens=4012
+
+[coagent/T2/C4] 完成 10/10 -> comp_coagent_T2_C4.json
+
+--- E6[orch] 任务 T1 条件 C2 trial 0 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=3，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1361
+
+--- E6[orch] 任务 T1 条件 C2 trial 1 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，距物品 (2,3) 的曼哈顿距离为 5；B 在 (4,4)，距离为 3。但目标 
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1223
+
+--- E6[orch] 任务 T1 条件 C2 trial 2 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1422
+
+--- E6[orch] 任务 T1 条件 C2 trial 3 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，离物品 (2,3) 更近，且目标 (0,4) 也在 A 一侧；B 在 (4,4)
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1204
+
+--- E6[orch] 任务 T1 条件 C2 trial 4 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1422
+
+--- E6[orch] 任务 T1 条件 C2 trial 5 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，距物品 (2,3) 的曼哈顿距离为 5；B 在 (4,4)，距离为 3。但目标 
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后向左2步到(0,3)，再下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1217
+
+--- E6[orch] 任务 T1 条件 C2 trial 6 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=3，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1379
+
+--- E6[orch] 任务 T1 条件 C2 trial 7 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，离苹果 (2,3) 更近，且 B 在 (4,4) 更靠近目标点；由 A 取件并送
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1200
+
+--- E6[orch] 任务 T1 条件 C2 trial 8 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 当前我在(0,0)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=3，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1566
+
+--- E6[orch] 任务 T1 条件 C2 trial 9 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，离苹果 (2,3) 更近，且目标 (0,4) 也在 A 一侧；B 在 (4,4)
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1206
+
+[orch/T1/C2] 完成 10/10 -> comp_orch_T1_C2.json
+
+--- E6[orch] 任务 T1 条件 C4 trial 0 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1325
+
+--- E6[orch] 任务 T1 条件 C4 trial 1 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，离物品 (2,3) 更近，且 B 在 (4,4) 更远；单一物品只需一个 wor
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1188
+
+--- E6[orch] 任务 T1 条件 C4 trial 2 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)。需先移动到(2,3)：dx=2, dy=3，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1407
+
+--- E6[orch] 任务 T1 条件 C4 trial 3 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，离物品 (2,3) 更近，且目标 (0,4) 也在 A 一侧；B 在 (4,4)
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1198
+
+--- E6[orch] 任务 T1 条件 C4 trial 4 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。移动路径：(0,0)->(1,0)->(2,0)->(2,1)->
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1320
+
+--- E6[orch] 任务 T1 条件 C4 trial 5 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 距物品 (2,3) 更近（曼哈顿距离 5 vs B 的 5，但 A 到目标 (0,4) 的路径更
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1217
+
+--- E6[orch] 任务 T1 条件 C4 trial 6 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1313
+
+--- E6[orch] 任务 T1 条件 C4 trial 7 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，离物品 (2,3) 更近，且目标 (0,4) 与 A 同侧；B 在 (4,4) 
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1193
+
+--- E6[orch] 任务 T1 条件 C4 trial 8 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is at (0,0), closer to apple1 at (2,3) than B at
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。移动路径：(0,0)->(1,0)->(2,0)-
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1313
+
+--- E6[orch] 任务 T1 条件 C4 trial 9 ---
+  [orch] 分配: {'item:apple1': 'A'} | A 在 (0,0)，距物品 (2,3) 更近，且目标 (0,4) 与 A 同侧；B 在 (4,4) 
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1205
+
+[orch/T1/C4] 完成 10/10 -> comp_orch_T1_C4.json
+
+--- E6[orch] 任务 T2 条件 C4 trial 0 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1232
+
+--- E6[orch] 任务 T2 条件 C4 trial 1 ---
+  [orch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 更远。只此
+  [B] 收到编排分配: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | B在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。路径：(2,0)→(2,1)→(2,2
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，满足grab条件；grab后需移动到(4,0)再place。从(2,3)到(4,0)需先向右2步到(4,3
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,1))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | 当前我在(2,1)，apple1在(2,3)，需先向下移动2步到(2,3)抓取，再向右上移动到(4,0)放置：从(2,3)→(3,3)→(4,3)→(4,2)→
+  [B] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> 上报编排者（item:apple1）
+  [orch] item:apple1 失败（B）-> 重分配给 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移一步到(0,3)，再右移到(1,3)抓取，然后到(4,0)：上移到(1,0)需3步，再右移3步到(4,0)放下。
+  => 成功=True 浪费算子=3 tokens=4610
+
+--- E6[orch] 任务 T2 条件 C4 trial 2 ---
+  [orch] 分配: {'item:apple1': 'A'} | A在(0,4)，距apple1(1,3)曼哈顿距离2；B在(2,0)，距apple1曼哈顿距离4；A
+  [A/qwen] 计划: keys=('item:apple1',) ops=9 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=1216
+
+--- E6[orch] 任务 T2 条件 C4 trial 3 ---
+  [orch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离物品 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 更远，交给
+  [B] 收到编排分配: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，满足grab条件；grab后需移动到(4,0)再place。从(2,3)到(4,0)需先向右2步到(4,3
+  [B] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我当前在(3,3)，apple1在(2,3)，需先向左移动1步到(2,3)抓取；然后移动到目标点(4,0)：从(2,3)→(3,3)→(4,3)→(4,2)→(
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (3,1))）-> 重规划
+  [B] 重试耗尽 -> 上报编排者（item:apple1）
+  [orch] item:apple1 失败（B）-> 重分配给 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移一格到(0,3)，再右移到(1,3)抓取；然后送到(4,0)：需上移3格到y=0，再右移3格到x=4，最后place。
+  => 成功=True 浪费算子=3 tokens=3813
+
+--- E6[orch] 任务 T2 条件 C4 trial 4 ---
+  [orch] 分配: {'item:apple1': 'A'} | A在(0,4)，距apple1(1,3)曼哈顿距离2；B在(2,0)，距apple1曼哈顿距离4；A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到目标(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1678
+
+--- E6[orch] 任务 T2 条件 C4 trial 5 ---
+  [orch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近，由 B 单独完成取放可最小化总
+  [B] 收到编排分配: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | B在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。路径：(2,0)→(2,1)→(2,2
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，满足grab条件；grab后需移动到(4,0)再place。先grab apple1，再规划move路径：
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,1))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | 当前我在(2,1)，apple1在(2,3)，需先向下移动2步到(2,3)抓取，再向右上移动到(4,0)放置：从(2,3)→(3,3)→(4,3)→(4,2)→
+  [B] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> 上报编排者（item:apple1）
+  [orch] item:apple1 失败（B）-> 重分配给 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+  => 成功=True 浪费算子=3 tokens=4270
+
+--- E6[orch] 任务 T2 条件 C4 trial 6 ---
+  [orch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1273
+
+--- E6[orch] 任务 T2 条件 C4 trial 7 ---
+  [orch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离物品 (1,3) 和目的地 (4,0) 都更近，搬运总路程更短；A 在 (0,
+  [B] 收到编排分配: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | B在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)->(2,1)->
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，满足grab条件；grab后需移动到(4,0)再place。从(2,3)到(4,0)需先向右2步到(4,3
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (3,2))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | 当前我在(3,2)，apple1在(2,3)。需先移动到(2,3)（dx=-1, dy=+1），然后grab，再移动到目标(4,0)（从(2,3)→(3,3)→
+  [B] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> 上报编排者（item:apple1）
+  [orch] item:apple1 失败（B）-> 重分配给 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)抓取；然后上移到(1,0)，再右移到(4,0)放下。
+  => 成功=True 浪费算子=3 tokens=4021
+
+--- E6[orch] 任务 T2 条件 C4 trial 8 ---
+  [orch] 分配: {'item:apple1': 'A'} | A在(0,4)，距apple1(1,3)曼哈顿距离2；B在(2,0)，距apple1曼哈顿距离4；A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到目标(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1
+  [B] 编排等待超时且未分到任务 -> 待命
+  => 成功=True 浪费算子=0 tokens=1216
+
+--- E6[orch] 任务 T2 条件 C4 trial 9 ---
+  [orch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离物品 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 更远，交给
+  [B] 收到编排分配: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，满足grab条件；grab后需移动到(4,0)再place。从(2,3)到(4,0)需先向右2步到(4,3
+  [B] orch worker 算子失败（place: not_holding(none)）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我当前在(3,3)，apple1在(2,3)，先向左移动1步到(2,3)抓取apple1，再移动到目标点(4,0)：从(2,3)→(3,3)→(4,3)→(4,
+  [B] orch worker 算子失败（grab: agent_not_at_item((1,3) != (3,1))）-> 重规划
+  [B] 重试耗尽 -> 上报编排者（item:apple1）
+  [orch] item:apple1 失败（B）-> 重分配给 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移一步到(0,3)，再右移到(1,3)抓取；然后送到(4,0)：需上移3步到y=0，再右移3步到x=4，最后place。
+  => 成功=True 浪费算子=3 tokens=5723
+
+[orch/T2/C4] 完成 10/10 -> comp_orch_T2_C4.json
+
+--- E6[cnp] 任务 T1 条件 C2 trial 0 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。需先移动到(2,3)抓取，再送到(0,4)放下。路径：左移两次到(2,4)，上移到(2,3)抓取；然后左移两次到(0,3)，下
+  => 成功=True 浪费算子=0 tokens=856
+
+--- E6[cnp] 任务 T1 条件 C2 trial 1 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(4,4)到(2,3)：dx=-2, dy=-1，分两步：先mov
+  => 成功=True 浪费算子=0 tokens=949
+
+--- E6[cnp] 任务 T1 条件 C2 trial 2 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左走到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  => 成功=True 浪费算子=0 tokens=833
+
+--- E6[cnp] 任务 T1 条件 C2 trial 3 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)到(3,4)，再move(
+  => 成功=True 浪费算子=0 tokens=932
+
+--- E6[cnp] 任务 T1 条件 C2 trial 4 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)再向上到(2,3)抓取，然后向左到(0,3)再向下到(0,4)放下。
+  => 成功=True 浪费算子=0 tokens=801
+
+--- E6[cnp] 任务 T1 条件 C2 trial 5 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)到(3,4)，再move(
+  => 成功=True 浪费算子=0 tokens=923
+
+--- E6[cnp] 任务 T1 条件 C2 trial 6 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  => 成功=True 浪费算子=0 tokens=801
+
+--- E6[cnp] 任务 T1 条件 C2 trial 7 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(4,4)到(2,3)：dx=-2, dy=-1，分两步：先mov
+  => 成功=True 浪费算子=0 tokens=949
+
+--- E6[cnp] 任务 T1 条件 C2 trial 8 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  => 成功=True 浪费算子=0 tokens=833
+
+--- E6[cnp] 任务 T1 条件 C2 trial 9 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我（B）在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分步为move(dx=-1,dy=0)到(3,4)，再move(
+  => 成功=True 浪费算子=0 tokens=926
+
+[cnp/T1/C2] 完成 10/10 -> comp_cnp_T1_C2.json
+
+--- E6[cnp] 任务 T1 条件 C4 trial 0 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：从(4,4)到(3,3)需dx=-1,dy=-1；抓取；从(3,3)到(
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)，然后放下。路径：(3,3)->(2,3)->(1,3)->(0,3)->(0,4)。
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(1,3)，苹果在(3,3)。上次抓取失败是因为我误以为苹果在(2,3)。现在先向右走2步到(3,3)，抓取，再送到(0,4)：从(3,3)向左3步到(0,
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。先计算路径：(0,0)->(1,0)->(2,0)
+  => 成功=True 浪费算子=3 tokens=3592
+
+--- E6[cnp] 任务 T1 条件 C4 trial 1 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，满足grab条件；grab后需移动到(0,4)place。先grab apple1，再move左3步(x:
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我当前在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放下。从(3,3)到(0,4)：先左移3步到(0,3)，再
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  => 成功=True 浪费算子=3 tokens=3630
+
+--- E6[cnp] 任务 T1 条件 C4 trial 2 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：从(4,4)到(3,3)需dx=-1,dy=-1；抓取；从(3,3)到(
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)，抓取，再送到(0,4)：从(3,3)向左到(0,3)，再向下到(0,4)，然后放置。
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。先计算路径：(0,0)->(1,0)->(2,0)
+  => 成功=True 浪费算子=3 tokens=3543
+
+--- E6[cnp] 任务 T1 条件 C4 trial 3 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我位于(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需左1上1；从(3,3)到(0,4)需左3
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，满足grab条件；grab后需移动到(0,4) place。先grab apple1，再move左3格（d
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我当前在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放下。从(3,3)到(0,4)：先左3步到(0,3)，再下
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后左移2步到(0,3)，下移1步到(0,4)放下。
+  => 成功=True 浪费算子=3 tokens=3665
+
+--- E6[cnp] 任务 T1 条件 C4 trial 4 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：从(4,4)到(3,3)需dx=-1,dy=-1；抓取；从(3,3)到(
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)并放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)，抓取，再送到(0,4)：从(3,3)向左到(0,3)，再向下到(0,4)，然后放置。
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,0)，apple1在(2,3)。需先移动到(2,3)：右2步、下3步，即move(dx=1,dy=0)两次到(2,0)，再move(dx=0,dy=
+  => 成功=True 浪费算子=3 tokens=3581
+
+--- E6[cnp] 任务 T1 条件 C4 trial 5 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，满足grab条件；grab后需移动到(0,4) place。先grab apple1，再向左走3步（x:3
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：先左移3步到(0,3)，再
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  => 成功=True 浪费算子=3 tokens=3690
+
+--- E6[cnp] 任务 T1 条件 C4 trial 6 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取，然后(3,3)->(2,3)
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)并放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)，抓取，再送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步到(0,4)，然后放下。
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，grab它，然后移动到目标点(0,4)并place。先计算移动路径：(0,0)->(1,0)->(2,0
+  => 成功=True 浪费算子=3 tokens=3568
+
+--- E6[cnp] 任务 T1 条件 C4 trial 7 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，可直接grab；grab后需移动到(0,4)place。先锁定item:apple1，ops序列：grab
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：先左移3步到(0,3)，再
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  => 成功=True 浪费算子=3 tokens=3685
+
+--- E6[cnp] 任务 T1 条件 C4 trial 8 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：左移到(3,4)，上移到(3,3)抓取，然后左移到(0,3)再下移到(0
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)并放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)，抓取，再送到(0,4)：从(3,3)向左到(0,3)，再向下到(0,4)，然后放置。
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,0)移动到apple1所在位置(2,3)，然后grab它，再移动到目标点(0,4)并place。先计算路径：(0,0)->(1,0)->(2,0)
+  => 成功=True 浪费算子=3 tokens=3531
+
+--- E6[cnp] 任务 T1 条件 C4 trial 9 ---
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [B] CNP 投标 item:apple1: cost=3
+  [A] CNP 开标 item:apple1: bids={'A': 5, 'B': 3} -> 中标 B
+  [B] 中标 item:apple1 -> 开始执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，满足grab条件；grab后需移动到(0,4)place。先grab apple1，再move左3步(x:
+  [B] CNP 承包执行失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：先左3步到(0,3)，再下
+  [B] CNP 承包执行失败（place: not_holding(none)）-> 重规划
+  [B] 重试耗尽 -> CNP_FAIL item:apple1 -> 重新招标
+  [A] 收到 CNP_FAIL item:apple1 -> 重新招标
+  [A] CNP 招标 item:apple1 @world@(2,3)（己方估价 5）
+  [A] CNP 开标 item:apple1: bids={'A': 5} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取后下移到(2,4)，再左移2步到(0,4)放下。
+  => 成功=True 浪费算子=3 tokens=3619
+
+[cnp/T1/C4] 完成 10/10 -> comp_cnp_T1_C4.json
+
+--- E6[cnp] 任务 T2 条件 C4 trial 0 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到目标(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1
+  => 成功=True 浪费算子=0 tokens=1442
+
+--- E6[cnp] 任务 T2 条件 C4 trial 1 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=833
+
+--- E6[cnp] 任务 T2 条件 C4 trial 2 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+  => 成功=True 浪费算子=0 tokens=965
+
+--- E6[cnp] 任务 T2 条件 C4 trial 3 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+  => 成功=True 浪费算子=0 tokens=881
+
+--- E6[cnp] 任务 T2 条件 C4 trial 4 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=9 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)：dx=1,dy=-1；抓取apple1；
+  => 成功=False（item:apple1 未送达（world@(3,0)）） 浪费算子=0 tokens=939
+
+--- E6[cnp] 任务 T2 条件 C4 trial 5 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=833
+
+--- E6[cnp] 任务 T2 条件 C4 trial 6 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+  => 成功=True 浪费算子=0 tokens=966
+
+--- E6[cnp] 任务 T2 条件 C4 trial 7 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=849
+
+--- E6[cnp] 任务 T2 条件 C4 trial 8 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+  => 成功=True 浪费算子=0 tokens=966
+
+--- E6[cnp] 任务 T2 条件 C4 trial 9 ---
+  [A] CNP 招标 item:apple1 @world@(1,3)（己方估价 2）
+  [B] CNP 投标 item:apple1: cost=4
+  [A] CNP 开标 item:apple1: bids={'A': 2, 'B': 4} -> 中标 A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)再向右到(4,0)放下。
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=849
+
+[cnp/T2/C4] 完成 10/10 -> comp_cnp_T2_C4.json
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 0 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(2,3)，目标(0,4)。我在(4,4)，A在(0,0)。A离苹果更近，
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左2步到(2,4)，再向上1步到(2,3)抓取，然后向左2步到(0,3)，再向下1步到(0,4)放下。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  => 成功=True 浪费算子=0 tokens=1762
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 1 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)离得更近，我来取送吧。
+  [B] 群聊终态: claim=item:apple1 | 我离(2,3)更近，我来取送。
+  [A] 群聊终态: claim=yield | 我(0,0)到苹果(2,3)距离5，你(4,4)到苹果距离3，你更近；且送达点(
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(4,4)到(2,3)：dx=-2, dy=-1，分步为move(
+  => 成功=True 浪费算子=0 tokens=1938
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 2 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(2,3)，我在(4,4)比你在(0,0)更近，我来送。
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左到(2,4)，再向上到(2,3)抓取，然后向左到(0,3)，再向下到(0,4)放下。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  => 成功=True 浪费算子=0 tokens=1713
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 3 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)离得更近，我来取送吧。
+  [B] 群聊终态: claim=item:apple1 | 我离(2,3)更近（曼哈顿距离|4-2|+|4-3|=3），你离(0,0)到(2
+  [A] 群聊终态: claim=yield | 你确实更近，苹果让给你送，我配合不重复取件。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)。需先移动到(2,3)：dx=-2, dy=-1，分两步：先move(dx=-1,dy=0)到(3,4)，再move(d
+  => 成功=True 浪费算子=0 tokens=2436
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 4 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(2,3)，我在(4,4)，你在(0,0)。我离苹果更近，由我来取送更省总
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左2步到(2,4)，再向上1步到(2,3)抓取，然后向左2步到(0,3)，再向下1步到(0,4)放下。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  => 成功=True 浪费算子=0 tokens=1730
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 5 ---
+  [A] 群聊开场: claim=item:apple1 | 我在(0,0)，苹果在(2,3)，目标(0,4)。我离苹果更近，建议我来取送，你
+  [B] 群聊终态: claim=item:apple1 | 我离苹果(2,3)距离为|4-2|+|4-3|=3，你离苹果距离为|0-2|+|
+  [A] 群聊终态: claim=yield | 你确实更近，取送更省总路程，我让步。我在(0,0)待命，需要协助可随时叫我。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)，需先移动到(2,3)：dx=-2, dy=-1，分两步：先move(dx=-1,dy=0)到(3,4)，再move(d
+  => 成功=True 浪费算子=0 tokens=2054
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 6 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(2,3)，我在(4,4)，你在(0,0)。我离苹果更近，由我来取送更省总
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先移动到(2,3)：左移2步到(2,4)，再上移1步到(2,3)。抓取后送到(0,4)：从(2,3)左移2步到(0,3)，再下
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  => 成功=True 浪费算子=0 tokens=1752
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 7 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)更近，我来取送；你从(4,4)过来反而绕远。
+  [B] 群聊终态: claim=yield | 同意，你取送苹果更近，我让出任务。
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后左移2步到(0,3)，下移1步到(0,4)，放下。
+  => 成功=True 浪费算子=0 tokens=1503
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 8 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(2,3)，我在(4,4)，你在(0,0)。我离苹果更近，由我来取送更省总
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(2,3)。先向左走到(2,4)再向上到(2,3)抓取，然后送到(0,4)：从(2,3)向左到(0,3)再向下到(0,4)放下。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  => 成功=True 浪费算子=0 tokens=1734
+
+--- E6[groupchat] 任务 T1 条件 C2 trial 9 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)离得更近，我来取送吧。
+  [B] 群聊终态: claim=item:apple1 | 我离(2,3)更近，我来取送苹果。
+  [A] 群聊终态: claim=yield | 我(0,0)到苹果(2,3)距离5，你(4,4)到苹果距离3，你更近；且送达点(
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(2,3)。先move到(2,3)：dx=2-4=-2，dy=3-4=-1，需两步：先(-1,0)到(3,4)，再(-1,-1)到
+  => 成功=True 浪费算子=0 tokens=1923
+
+[groupchat/T1/C2] 完成 10/10 -> comp_groupchat_T1_C2.json
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 0 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(3,3)，我在(4,4)离得更近，由我来取送更省总路程。
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：上1到(4,3)，左1到(3,3)抓取；然后左3到(0,3)，下1到(0
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，直接抓取后送到(0,4)。路径：先向左3步到(0,3)，再向下1步到(0,4)。
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右移动到(3,3)，抓取，再送到(0,4)：从(3,3)向左到(0,3)，再向下到(0,4)，然后放置。
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3436
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 1 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)离得更近，我来取送吧。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(3,3)，我在(4,4)，曼哈顿距离为2；你在(0,0)，距离为6。
+  [A] 群聊终态: claim=yield | 我核对状态：苹果在(2,3)，我在(0,0)距离5，你在(4,4)距离3，你更近
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，可直接grab；grab后需移动到(0,4)place。先grab apple1，再move左3步、下1步
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我当前在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：先左3步到(0,3)，再下
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3848
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 2 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(3,3)，我在(4,4)比A(0,0)近得多，我来送。
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：上(4,3)、左(3,3)抓取，然后左到(0,3)再下到(0,4)放下。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)并放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)抓取，再送到(0,4)：从(3,3)向左到(0,3)，再向下到(0,4)放置。
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3440
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 3 ---
+  [A] 群聊开场: claim=item:apple1 | 我离苹果(2,3)更近，从(0,0)过去约5步，你从(4,4)过去要3步但送达点
+  [B] 群聊终态: claim=yield | 我确认你取送 apple1，我 yield
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  => 成功=True 浪费算子=0 tokens=1574
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 4 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(3,3)，我在(4,4)更近，我来送；你从(0,0)到(0,4)接应即可
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：上(4,3)、左(3,3)抓取，然后左到(2,3)、左到(1,3)、左到
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=7 | 我在(3,3)，苹果也在(3,3)，先抓取，再移动到(0,4)放下。路径：grab，然后向左4步到x=0，再向下1步到y=4。
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右移动两次到(3,3)，抓取，再向左三次到(0,3)，向下到(0,4)，放置。
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3463
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 5 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)更近，我来取送；你离得远，请让给我。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(3,3)，我距(3,3)曼哈顿距离为2，你距(3,3)为6，我更近；
+  [A] 群聊终态: claim=yield | 状态显示苹果在(2,3)，我距其曼哈顿距离为5，你距其为3，你更近，让你做。
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，可直接grab；grab后需移动到(0,4)place。先grab apple1，再move左3步(x:3
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 我当前在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：先左3步到(0,3)，再下
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3826
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 6 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(3,3)，我在(4,4)离得更近，我来送；A在(0,0)离终点(0,4)
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：从(4,4)到(3,3)需dx=-1,dy=-1；抓取；从(3,3)到(
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)并放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)，抓取，再走到(0,4)放下。路径：(1,3)->(2,3)->(3,3)抓取，然后向左到(0,3)，再向
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3497
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 7 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)离得更近，我来取送吧。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(3,3)，我在(4,4)更近，我来送。
+  [A] 群聊终态: claim=item:apple1 | 状态显示苹果在(2,3)，我在(0,0)到苹果距离3，你从(4,4)到苹果距离2
+  [A] 群聊结果：双方同claim -> 各自执行（冲突模式）
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到苹果(2,3)：先右移2步到(2,0)，再下移3步到(2,3)，抓取，然后移动到(0,4)：左移2步到(0,3)，下移1步到(0,4)，放下。
+  [B] 群聊终态: claim=item:apple1 | 确认苹果在(3,3)，我距苹果曼哈顿距离|4-3|+|4-3|=2，你距苹果|0
+  [B] 群聊结果：双方同claim -> 各自执行（冲突模式）
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [A] 群聊终态: claim=item:apple1 | 状态里苹果明确在(2,3)，不是(3,3)。我总路程：到苹果3 + 到目标4 =
+  [B] 群聊终态: claim=item:apple1 | 状态显示苹果在(3,3)，我距苹果曼哈顿距离2，你距苹果6；我总路程6，你10。
+  [A] 群聊终态: claim=item:apple1 | 状态明确显示苹果在(2,3)，不是(3,3)。按真实坐标：我到苹果3、再到(0,
+  [B] 群聊终态: claim=item:apple1 | 确认状态中苹果确在(3,3)，我距其曼哈顿距离2，你距其6；我到目标(0,4)距
+  [A] 群聊终态: claim=item:apple1 | 状态明确显示苹果在(2,3)，不是(3,3)。按真实坐标我总路程7，你也是7，完
+  [B] 群聊终态: claim=item:apple1 | 确认状态中苹果在(3,3)，我位置(3,4)，到苹果距离1，到目标(0,4)距离
+  [A] 群聊终态: claim=item:apple1 | 按世界状态，苹果在(2,3)，我在(2,0)，到苹果3步、再到(0,4)4步，共
+  [B] 群聊终态: claim=item:apple1 | 确认当前状态：apple1在(3,3)，我在(3,4)，曼哈顿距离仅1；你位置(
+  [A] 群聊终态: claim=yield | 按世界状态苹果在(2,3)，我在(2,1)：到苹果3步、再到(0,4)共7；你从
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | B当前在(3,3)，apple1也在(3,3)，可直接grab；grab后需move到(0,4)再place。从(3,3)到(0,4)需左移3步（dx=-1三次
+  [B] 群聊路线算子失败（grab: item_not_in_world）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | apple1 当前在 (3,3)，我（B）在 (1,3)。需先移动到 (3,3) 抓取 apple1，再移动到 (0,4) 放下。注意：当前 hold:B 是 
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=True 浪费算子=3 tokens=13714
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 8 ---
+  [A] 群聊开场: claim=yield | (解析失败，默认表态)
+  [B] 群聊终态: claim=item:apple1 | 苹果在(3,3)，我在(4,4)离得更近，A在(0,0)离目标(0,4)更近。我
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(4,4)，苹果在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取->(2,3)->(1,3)-
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=6 | 我在(3,3)，苹果也在(3,3)，所以先抓取，再移动到(0,4)放下。路径：从(3,3)向左3步到(0,3)，再向下1步到(0,4)。
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(3,3)，我在(1,3)。先向右走到(3,3)，抓取，再走到(0,4)放下。路径：(1,3)->(2,3)->(3,3)抓取，然后向左到(0,3)，再向
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3480
+
+--- E6[groupchat] 任务 T1 条件 C4 trial 9 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(2,3)，我在(0,0)更近，我来取送；你离得远，请让给我。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(3,3)，我在(4,4)更近（曼哈顿距离2），你在(0,0)距离为5
+  [A] 群聊终态: claim=yield | 状态里明确写的是 world@(2,3)，不是(3,3)。我(0,0)到苹果距离
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | B在(4,4)，apple1在(3,3)，需先移动到(3,3)抓取，再移动到(0,4)放置。从(4,4)到(3,3)需dx=-1,dy=-1；从(3,3)到(0
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (3,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=6 | 我（B）当前在(3,3)，apple1也在(3,3)，满足grab条件；grab后需移动到(0,4)place。先grab apple1，再向左走3步到x=0，
+  [B] 群聊路线算子失败（grab: agent_not_at_item((2,3) != (1,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=8 | 当前我在(1,3)，apple1在(3,3)，需先向右移动2步到(3,3)抓取，再移动到目标(0,4)放置。从(3,3)到(0,4)：先左移3步到(0,3)，再
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(2,3)）） 浪费算子=3 tokens=3844
+
+[groupchat/T1/C4] 完成 10/10 -> comp_groupchat_T1_C4.json
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 0 ---
+  [A] 群聊开场: claim=item:apple1 | 我离apple1更近，我来取送。
+  [B] 群聊终态: claim=yield | 你从(0,4)到(2,3)确实比我近，apple1交给你送，我不重复做。
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+  => 成功=True 浪费算子=0 tokens=1566
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 1 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(1,3)，我在(0,4)离它更近，我来取送；你从(2,0)过来反而绕远。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(2,3)，我(2,0)比你(0,4)更近——竖直距离3 vs 斜距√
+  [A] 群聊终态: claim=yield | 状态里苹果明确在(1,3)，不是(2,3)。我(0,4)到苹果距离√10≈3.1
+  [A] 群聊结果：我让给 B -> 待命（对话层无故障监视）
+  [B] 群聊结果：对端让给我 -> 执行
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 群聊路线算子失败（grab: agent_not_at_item((1,3) != (2,3))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，满足grab条件；grab后需移动到(4,0)place。从(2,3)到(4,0)需先向右2步到(4,3)
+  [B] 群聊路线算子失败（grab: agent_not_at_item((1,3) != (3,2))）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | 当前我在(3,2)，apple1在(2,3)。需先移动到(2,3)（dx=-1, dy=+1），然后grab，再移动到目标(4,0)：从(2,3)→(3,3)→
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(1,3)）） 浪费算子=3 tokens=3973
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 2 ---
+  [A] 群聊开场: claim=item:apple1 | 我离apple1更近，我来取送。
+  [B] 群聊终态: claim=yield | 你从(0,4)到(2,3)确实更近，apple1交给你送。
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+  => 成功=True 浪费算子=0 tokens=1479
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 3 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(1,3)，我在(0,4)离它更近，我来取送；你从(2,0)过来反而绕远。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(2,3)，我(2,0)正下方，垂直距离仅3步；你(0,4)需走|2-
+  [A] 群聊终态: claim=item:apple1 | 按世界状态苹果在(1,3)：我(0,4)到苹果3步，你(2,0)到苹果4步，且我
+  [A] 群聊结果：双方同claim -> 各自执行（冲突模式）
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  [B] 群聊终态: claim=item:apple1 | 世界状态明确显示 apple1 在 (2,3)，我(2,0)正上方，曼哈顿距离3
+  [B] 群聊结果：双方同claim -> 各自执行（冲突模式）
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步到(4,3)，再向上移动3步到(4,0)放置。但注意y向下为正，
+  [A] 群聊终态: claim=item:apple1 | 世界状态里 apple1 明确在 (1,3)，不是 (2,3)。我(0,4)到苹
+  [B] 群聊终态: claim=item:apple1 | 世界状态明确显示 item:apple1 在 (2,3)，非 (1,3)；我(2
+  [A] 群聊终态: claim=item:apple1 | 世界状态明确写的是 apple1 在 (1,3)，不是 (2,3)。我(1,4)
+  [B] 群聊终态: claim=yield | 世界状态明确显示 item:apple1 在 (2,3)，且 pos:A 是 (
+  [B] 群聊路线算子失败（grab: item_not_in_world）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，但状态显示hold:B=none，且item:apple1仍在world@(2,3)（version 2）
+  [B] 群聊路线算子失败（grab: item_not_in_world）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | 当前我在(3,2)，apple1在(2,3)。需先移动到(2,3)（dx=-1, dy=1），然后grab，再移动到目标(4,0)：从(2,3)→(3,3)→(
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=3 tokens=10182
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 4 ---
+  [A] 群聊开场: claim=item:apple1 | 我离apple1更近，我来取送。
+  [B] 群聊终态: claim=yield | 你离苹果更近，由你取送更省总工作量，我放弃。
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到目标(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1
+  => 成功=True 浪费算子=0 tokens=1475
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 5 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(1,3)，我在(0,4)离得近，我来取送(4,0)吧。
+  [B] 群聊终态: claim=yield | 苹果实际在(2,3)，我在(2,0)，竖直距离3格；你在(0,4)，曼哈顿距离|
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=1538
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 6 ---
+  [A] 群聊开场: claim=item:apple1 | 我离apple1更近，我来取送。
+  [B] 群聊终态: claim=yield | 你离apple1更近，由你取送更省总工作量，我让给你。
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到目标(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1
+  => 成功=True 浪费算子=0 tokens=1477
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 7 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(1,3)，我在(0,4)离它更近，我来取送吧。
+  [B] 群聊终态: claim=item:apple1 | 苹果实际在(2,3)，我(2,0)比你(0,4)更近，我来送。
+  [A] 群聊终态: claim=item:apple1 | 我这边看到苹果在(1,3)，我在(0,4)确实更近；不过为避免重复，我坚持由我送
+  [A] 群聊结果：双方同claim -> 各自执行（冲突模式）
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)再向右到(4,0)放下。
+  [B] 群聊终态: claim=item:apple1 | 我已确认苹果在(2,3)，我(2,0)到(2,3)仅需3步，再到(4,0)需5步
+  [B] 群聊结果：双方同claim -> 各自执行（冲突模式）
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步到(4,3)，再向上移动3步到(4,0)放置。但注意y向下为正，
+  [A] 群聊终态: claim=yield | 我这边状态显示苹果在(1,3)，与你说的(2,3)不一致；但按各自位置算，你总步
+  [B] 群聊路线算子失败（grab: item_not_in_world）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）当前在(2,3)，apple1也在(2,3)，但状态显示hold:B=none，且item:apple1仍在world@(2,3)（version 2）
+  [B] 群聊路线算子失败（grab: item_not_in_world）-> 重规划
+  [B/qwen] 计划: keys=('item:apple1',) ops=9 | 当前我在(3,2)，apple1在(2,3)。需先移动到(2,3)（dx=-1, dy=+1），grab apple1，再移动到投放点(4,0)：从(2,3)→
+  [B] 群聊路线算子失败（place: not_holding(none)）-> 重规划
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=3 tokens=5831
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 8 ---
+  [A] 群聊开场: claim=item:apple1 | 我离apple1更近，我来取送。
+  [B] 群聊终态: claim=yield | 你离苹果更近，由你取送更省总工作量，我放弃。
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+  => 成功=True 浪费算子=0 tokens=1482
+
+--- E6[groupchat] 任务 T2 条件 C4 trial 9 ---
+  [A] 群聊开场: claim=item:apple1 | 苹果在(1,3)，我在(0,4)，B在(2,0)。我离苹果更近，由我来取送更省总
+  [B] 群聊终态: claim=yield | 苹果实际在(2,3)，我距(2,3)曼哈顿距离为3，你距(2,3)为|0-2|+
+  [B] 群聊结果：我让给 A -> 待命（对话层无故障监视）
+  [A] 群聊结果：对端让给我 -> 执行
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+  => 成功=False（item:apple1 未送达（world@(4,1)）） 浪费算子=0 tokens=1594
+
+[groupchat/T2/C4] 完成 10/10 -> comp_groupchat_T2_C4.json
+
+================== E6 竞品对比汇总 ==================
+基线/任务/条件              n    成功率     浪费算子  tokens   LLM调用
+cnp/T1/C2            10  100%      0.0     880     1.0
+cnp/T1/C4            10  100%      3.0    3610     4.0
+cnp/T2/C4            10   50%      0.0     952     1.0
+coagent/T1/C2        10  100%     13.0    4276     4.1
+coagent/T1/C4        10  100%      9.8    3946     4.0
+coagent/T2/C4        10   40%      9.0    4345     4.5
+groupchat/T1/C2      10  100%      0.0    1854     3.9
+groupchat/T1/C4      10   20%      2.7    4412     6.8
+groupchat/T2/C4      10   50%      0.9    3060     4.9
+orch/T1/C2           10  100%      0.0    1320     2.0
+orch/T1/C4           10  100%      0.0    1268     2.0
+orch/T2/C4           10   90%      1.5    2905     3.6

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import re
 import time
 import urllib.request
@@ -149,7 +150,9 @@ class LLMAgent(ScriptedAgent):
                  belief_mode: str = "sdk_cache",
                  ttl_override: Optional[int] = None,
                  sub_policy: Optional[str] = None,
-                 visible_keys: Optional[set] = None):
+                 visible_keys: Optional[set] = None,
+                 override_prob: float = 0.0,
+                 obs_seed: Optional[str] = None):
         # think>0：GRANT 与 COMMIT 之间保留"推理区间"，租约在 LLM 规划期间仍被持有
         #（CoAgent 所说的事务=数分钟推理；虚拟时钟上以 2 tick 代表）
         super().__init__(sim, agent_id, (), [], ttl=5, think=think, stuck=stuck)
@@ -166,6 +169,13 @@ class LLMAgent(ScriptedAgent):
         self.max_replans = max_replans
         self.replans_left = max_replans
         self.belief_override = belief_override or {}
+        # R4 间歇偏置：override_prob > 0 时每次观察以该概率看到错位值
+        #（下一次观察可恢复真值——对比持续性注入）。obs_seed 保证逐局可复现。
+        self.override_prob = override_prob
+        self._obs_rng = random.Random(obs_seed) if obs_seed is not None else None
+        # R4：被隔离拦截后的重新申请余额（规范的解除路径 = 重新观察 -> 正确信念
+        # INTENT）。上限 3 次，防止持续性故障下的无限重申烧 token。
+        self._reapplies_left = 3
         self.ttl_override = ttl_override   # E4 悲观锁基线：租约永不过期
         self.plans: list[dict] = []       # LLM 计划记录（供报告）
         self.last_verdict: Optional[str] = None
@@ -193,7 +203,12 @@ class LLMAgent(ScriptedAgent):
         for key, entry in self.sim.arbiter.state.items():
             if self.visible_keys is not None and key not in self.visible_keys:
                 continue   # E5 部分观察：可见集之外的 key 对 agent 不可见
-            val = self.belief_override.get(key, entry.value)
+            val = entry.value
+            if key in self.belief_override:
+                if self._obs_rng is None:
+                    val = self.belief_override[key]   # 持续性注入（E1/E6 口径）
+                elif self._obs_rng.random() < self.override_prob:
+                    val = self.belief_override[key]   # R4 间歇偏置：本次观察被偏置
             obs[key] = {"value": val, "version": entry.version}
             self._cache(key, entry.version, digest(val))
         return obs
@@ -313,7 +328,7 @@ class LLMAgent(ScriptedAgent):
             if not (isinstance(op, list) and len(op) == 2):
                 continue
             name, args = op
-            if name not in ("move", "grab", "place"):
+            if name not in ("move", "grab", "place", "consume"):
                 continue
             args = dict(args) if isinstance(args, dict) else {}
             if name == "move":
@@ -353,6 +368,15 @@ class LLMAgent(ScriptedAgent):
                 self._cache(key, ver, dig)
             if msg.verdict:
                 self.last_verdict = msg.verdict["class"]
+            # R4：隔离拦截后的解除路径——重新观察并以（可能已恢复的）信念重申。
+            # 有限次数，间歇偏置下数步内即可携带正确信念解除隔离。
+            ev = (msg.verdict or {}).get("evidence") or []
+            if any(isinstance(e, (list, tuple)) and e and e[0] == "suspect_blocked"
+                   for e in ev) and self._reapplies_left > 0:
+                self._reapplies_left -= 1
+                print(f"  [{self.id}] 被隔离拦截 -> 重新观察并申请解除（剩 "
+                      f"{self._reapplies_left}）")
+                self.sim.schedule(self.sim.now + 1, self._submit)
             # L5（P1-3）：被拒后按策略订阅目标 key——订阅期间 STATE_UPDATE
             # 免费推送（协议消息，无 LLM 开销），用于提交前过期检测。
             # oracle 不订阅（"全知"上界：无需消息即知过期）。

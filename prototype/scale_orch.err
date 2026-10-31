@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\run_scale_orch.py", line 123, in <module>
+    sys.exit(main())
+  File "D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\run_scale_orch.py", line 115, in main
+    recs = run_cell(s, f, args.trials, clients, out)
+  File "D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\run_scale_orch.py", line 72, in run_cell
+    sim.run(SPEC_HORIZON)
+  File "D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\testbed.py", line 123, in run
+    self._deliver(t)      # 4) 投递动作产生的响应（同一 tick）
+  File "D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\testbed.py", line 131, in _deliver
+    self.agents[msg.to].on_msg(msg)
+KeyError: 'A'

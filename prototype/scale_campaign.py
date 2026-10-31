@@ -38,7 +38,8 @@ AGENT_STARTS = [(0, 0), (4, 4), (0, 2), (4, 2), (2, 0), (2, 4), (0, 3), (4, 1)]
 SCALES = (2, 4, 8)
 FAULTS = (0.0, 0.10, 0.30)
 ARMS = ("prap", "noproto", "promptfix")
-ARMS_CLS = {"prap": LLMAgent, "noproto": NoProtocolAgent, "promptfix": PromptFixAgent}
+ARMS_CLS = {"prap": LLMAgent, "noproto": NoProtocolAgent, "promptfix": PromptFixAgent,
+            "leaseonly": LLMAgent}   # R5：租约仲裁但关闭 L4（l4_enabled=False）
 
 
 def cell_name(scale: int, fault: float, arm: str) -> str:
@@ -56,6 +57,8 @@ def build_scale_sim(scale: int, fault: float, arm: str, trial: int, clients: dic
 
     rng = random.Random(f"{scale}-{fault}-{arm}-{trial}")
     cls = ARMS_CLS[arm]
+    if arm == "leaseonly":
+        sim.arbiter.l4_enabled = False   # R5：租约保留，L4 分类与隔离关闭
     agents = []
     for i in range(scale):
         aid = f"A{i}"
