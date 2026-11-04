@@ -1,0 +1,8 @@
+{"seed": 4, "model": "qwen-plus", "task": "discount", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def tax(price):\n    return apply_discount(price, 10)"}
+{"seed": 5, "model": "deepseek-chat", "task": "discount", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def tax(price):\n    return apply_discount(price, 10)"}
+{"seed": 6, "model": "qwen-plus", "task": "bucket", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def twice(n):\n    if n < 0:\n        return None\n    return bucket(n) * 2"}
+{"seed": 7, "model": "deepseek-chat", "task": "bucket", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def twice(n):\n    if n < 0:\n        return None\n    return bucket(n) * 2"}
+{"seed": 12, "model": "qwen-plus", "task": "discount", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def tax(price):\n    return apply_discount(price, 10)"}
+{"seed": 13, "model": "deepseek-chat", "task": "discount", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def tax(price):\n    return apply_discount(price, 10)"}
+{"seed": 14, "model": "qwen-plus", "task": "bucket", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def twice(n):\n    if n < 0:\n        return None\n    return bucket(n) * 2"}
+{"seed": 15, "model": "deepseek-chat", "task": "bucket", "extracted": true, "hidden_ok": true, "own_ok": true, "why": "ok", "func": "def twice(n):\n    if n < 0:\n        return None\n    return bucket(n) * 2"}

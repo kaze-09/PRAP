@@ -1,0 +1,62 @@
+{
+ "passed": true,
+ "reports": [
+  {
+   "file": "e1_T2_C4_n30_v023.json",
+   "n": 30,
+   "failures": 14,
+   "failures_caught": 14,
+   "blocked_plans": 14,
+   "false_positives": 0,
+   "patterns": [
+    {
+     "model": "deepseek-chat",
+     "reason": "place@(4, 1)",
+     "n": 12
+    },
+    {
+     "model": "qwen-plus",
+     "reason": "place@(3, 0)",
+     "n": 1
+    },
+    {
+     "model": "qwen-plus",
+     "reason": "place@(3, 1)",
+     "n": 1
+    }
+   ],
+   "missed_failures": []
+  },
+  {
+   "file": "e1_T2_C4_n10_debug.json",
+   "n": 10,
+   "failures": 6,
+   "failures_caught": 6,
+   "blocked_plans": 12,
+   "false_positives": 0,
+   "patterns": [
+    {
+     "model": "deepseek-chat",
+     "reason": "place@(4, 1)",
+     "n": 5
+    },
+    {
+     "model": "qwen-plus",
+     "reason": "place@(0, 4)",
+     "n": 4
+    },
+    {
+     "model": "qwen-plus",
+     "reason": "place@(1, 4)",
+     "n": 1
+    },
+    {
+     "model": "qwen-plus",
+     "reason": "place@(3, 1)",
+     "n": 2
+    }
+   ],
+   "missed_failures": []
+  }
+ ]
+}

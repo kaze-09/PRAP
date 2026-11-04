@@ -1,0 +1,542 @@
+[
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 0,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + grab + 6 move + place），但ops中每个move是单步，grab/place各1步；keys锁定apple1；belief照抄状态值和version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 933,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 1,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上走6步到(0,0)，抓取，再向右走6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 869,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 2,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + 1 grab + 6 move + 1 place），但ops中只列执行序列，ttl设为13。keys锁定apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 937,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 3,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上走6步到(0,0)，抓取，再向右6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 868,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 4,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + 1 grab + 6 move + 1 place），但ops中只列执行序列，ttl设为13。keys锁定apple1。belief按状态原样抄写。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 935,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 5,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。需向上移动6步到(0,0)，抓取，再移动到(6,0)投放。路径：先到(0,0)抓取，再向右6步到(6,0)放置。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 905,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 6,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + 1 grab + 6 move + 1 place），但ops中只列执行序列，ttl设为13。keys锁定apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 936,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 7,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。需先向上移动6步到(0,0)，抓取，再移动到(6,0)并放下。路径：从(0,6)向上6步到(0,0)，grab，然后向右6步到(6,0)，place。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 899,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 8,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + 1 grab + 6 move + 1 place），但ops中只列执行序列，ttl设为13。keys锁定apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 936,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 9,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上移动6步到(0,0)，抓取，再向右6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 868,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 10,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab，再向右移动6步到(6,0)，place。共需13步操作（6 move up + 1 grab + 6 move right + 1 place），但ops中只列执行动作，不包含等待；keys锁定apple1；belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 935,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 11,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上走6步到(0,0)，抓取，再向右6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 868,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 12,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)。需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + grab + 6 move + place），但ops中每个move是单步，grab/place各1步；keys需锁定item:apple1；belief按状态原样抄写。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 966,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 13,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上走6步到(0,0)，抓取，再向右走6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 885,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 14,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + grab + 6 move + place），但ops中每个move是单步，grab/place各1步；keys锁定apple1；belief照抄状态值和version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 933,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 15,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。需向上移动6步到(0,0)，抓取，再向右6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 868,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 16,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + grab + 6 move + place），但ops中每个move是单步，grab/place各1步；keys锁定apple1；belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 934,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 17,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上移动6步到(0,0)，抓取，再向右6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 868,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 18,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "当前我在(0,6)，apple1在(0,0)，需先向上移动6步到(0,0)，grab apple1，再向右移动6步到(6,0)，place。共需13步操作（6 move + grab + 6 move + place），但ops中每个move是单步，grab/place各1步；keys锁定apple1；belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 934,
+  "llm_calls": 1
+ },
+ {
+  "layout": "LONG",
+  "arm": "plain",
+  "trial": 19,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(6,0)",
+  "first_ok": true,
+  "first_place": [
+   6,
+   0
+  ],
+  "first_grab": [
+   0,
+   0
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "苹果在(0,0)，我在(0,6)。先向上走6步到(0,0)，抓取，再向右6步到(6,0)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": null,
+  "tokens": 868,
+  "llm_calls": 1
+ }
+]

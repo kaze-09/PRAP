@@ -1,0 +1,16 @@
+{"arm": "independent", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 33, "contention": 0, "decisions": 35}
+{"arm": "independent", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 33, "contention": 0, "decisions": 35}
+{"arm": "independent", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "independent", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "dialogue", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 33, "contention": 0, "decisions": 35}
+{"arm": "dialogue", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 33, "contention": 0, "decisions": 36}
+{"arm": "dialogue", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "dialogue", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "dispatcher", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "dispatcher", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 36}
+{"arm": "dispatcher", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "dispatcher", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 35}
+{"arm": "lock", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 2, "contention": 37, "decisions": 40}
+{"arm": "lock", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 2, "contention": 36, "decisions": 40}
+{"arm": "lock", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 4, "decisions": 40}
+{"arm": "lock", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 31, "contention": 7, "decisions": 40}

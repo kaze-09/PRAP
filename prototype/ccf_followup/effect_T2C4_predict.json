@@ -1,0 +1,3452 @@
+[
+ {
+  "arm": "predict",
+  "trial": 0,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)→(1,3)（dx=1,dy=-1）→抓取→(1,3)→(2,2)→(3,1)→(4,0)（共4步移动+1抓+1放）。注意每步dx/dy只能±1或0，且不能越界（x,y∈[0,4]）。从(1,3)到(4,0)最短曼哈顿路径是右3上3，但需分步：(1,3)→(2,2)→(3,1)→(4,0)（每步dx=1,dy=-1，合法）。总共ops：move→grab→move→move→move→place。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4917,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 1,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "A 在 (0,4)，苹果在 (1,3)。先向右到 (1,4)，再向上到 (1,3) 抓取，然后向右到 (4,3)、向上到 (4,0) 放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5754,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 2,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1）。共需：move(1,-1)→grab→move(1,0)→move(1,0)→move(0,-1)→move(0,-1)→move(0,-1)→place。但注意每步必须合法（不越界），且坐标计算准确：从(1,3)出发，到(4,0)需右3、上3，即dx=+1三次，dy=-1三次。顺序可为：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)。共6步移动+1抓+1放=8 ops。keys锁定item:apple1。belief按状态抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4996,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 3,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)，抓取，然后到(4,0)：上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,0)，最后放置。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5528,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 4,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)（dx=1,dy=-1）；抓取apple1；再从(1,3)->(2,3)->(3,3)->(4,3)->(4,2)->(4,1)->(4,0)共6步移动，但可优化为曼哈顿最短：dx=+3, dy=-3，分步走：先x方向3步到(4,3)，再y方向3步到(4,0)。但注意每步dx/dy只能±1或0，所以需7步移动（含抓取和放置）。keys锁定apple1。belief按状态原样抄version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4972,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 5,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后到(4,0)：右移到(4,3)，再上移到(4,0)，放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5582,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 6,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)->(4,0)需dx=3,dy=-3，分步走：(1,3)->(2,3)->(3,3)->(4,3)->(4,2)->(4,1)->(4,0)。共7步移动+1抓+1放=9 ops。keys锁定apple1。belief按状态原样抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4879,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 7,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后到(4,0)：上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,0)，放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5777,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 8,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1）。共需：move(1,-1)→grab→move(1,0)→move(1,0)→move(0,-1)→move(0,-1)→move(0,-1)→place。但注意每步必须合法（不越界），且路径要逐格计算：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)。共6步移动+1抓+1放=8 ops。keys锁定item:apple1。belief按状态抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5020,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 9,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)抓取，然后到(4,0)：上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,0)放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 6586,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 10,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到投放点(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1）：(1,3)->(2,3)->(3,3)->(4,3)->(4,2)->(4,1)->(4,0)共6步移动，加上初始移动2步、grab1步，共9步；但ops只写动作序列，不计等待。keys锁定apple1。belief按状态抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4891,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 11,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)，抓取，然后到(4,0)：上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,0)，放置。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5451,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 12,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我当前在(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)->(4,0)需dx=3,dy=-3，分步走：(1,3)->(2,3)->(3,3)->(4,3)->(4,2)->(4,1)->(4,0)。共7步移动+1抓+1放=9操作，但grab和place各占1 tick，move每步1 tick，总ttl=9。keys锁定item:apple1。belief按状态原样抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4981,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 13,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "A 在 (0,4)，苹果在 (1,3)。先向右到 (1,4)，再向上到 (1,3) 抓取，然后向右到 (4,3)，再向上到 (4,0) 放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 6472,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 14,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1），共需6步移动（右3次、上3次）。最后place。总共ops：move→grab→move×6→place。keys锁定item:apple1。belief中各key version均取状态中对应version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4936,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 15,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)抓取，然后到(4,0)：上移到(1,2),(1,1),(1,0)，再右移到(2,0),(3,0),(4,0)放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5463,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 16,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)→(1,3)需dx=1,dy=-1；然后(1,3)→(4,0)需dx=3,dy=-3，分步走：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)。共6步移动+1抓+1放=8 ops。keys锁定item:apple1。belief照抄状态值和version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4895,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 17,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "A 在 (0,4)，苹果在 (1,3)。先向右到 (1,4)，再向上到 (1,3) 抓取，然后向右到 (4,3)，再向上到 (4,0) 放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5154,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 18,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到投放点(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每步dx/dy最多±1），共需6步移动（右3+上3）。全程共1 grab + 7 move（含去程1步+返程6步）。keys锁定item:apple1。belief按状态原样抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4892,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 19,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)，抓取，然后上移到(1,0)，再右移到(4,0)，放置。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5232,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 20,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到投放点(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每步dx/dy最多±1），共需6步移动（右3+上3）。全程共1 grab + 7 move（含去程1步+返程6步）。keys锁定item:apple1。belief按状态原样抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4926,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 21,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到(1,3)取苹果，再送到(4,0)放下。路径：先上移到(0,3)，再右移到(1,3)抓取；然后上移到(1,0)，再右移到(4,0)放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 6311,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 22,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到投放点(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每步dx/dy最多±1），共需6步移动（右3+上3）。最后place。总共ops：move→grab→move×6→place。keys锁定item:apple1。belief按状态原样抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4890,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 23,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后到(4,0)：上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,0)，放置。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5698,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 24,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1），共需6步移动（右3次、上3次）。最后place。总共ops：move→grab→move×6→place。keys锁定item:apple1。belief中各key version均取状态中对应version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4879,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 25,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我在(0,4)，苹果在(1,3)。先向右到(1,4)，再向上到(1,3)抓取，然后向右到(4,3)、向上到(4,0)放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 6485,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 26,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1），共需6步移动（右3次、上3次）。最后place。总共ops：move→grab→move×6→place。keys锁定item:apple1。belief中各key version均取状态中对应version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4856,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 27,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我在(0,4)，苹果在(1,3)。先向右到(1,4)，再向上到(1,3)抓取，然后向右到(4,3)再向上到(4,0)放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 6525,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 28,
+  "model_A": "qwen-plus",
+  "model_B": "deepseek-chat",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "我位于(0,4)，apple1在(1,3)。需先移动到(1,3)：dx=1, dy=-1。然后grab apple1。再移动到目标(4,0)：从(1,3)到(4,0)需dx=3, dy=-3，分步走（每次dx/dy最多±1）。共需：move(1,-1)→grab→move(1,0)→move(1,0)→move(0,-1)→move(0,-1)→move(0,-1)→place。但注意每步必须合法（不越界），且坐标计算准确：从(1,3)出发，到(4,0)需右3、上3，即dx=+1三次，dy=-1三次。顺序可为：(1,3)→(2,3)→(3,3)→(4,3)→(4,2)→(4,1)→(4,0)。共6步移动+1抓+1放=8 ops。keys锁定item:apple1。belief按状态抄写version。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 4925,
+  "llm_calls": 5
+ },
+ {
+  "arm": "predict",
+  "trial": 29,
+  "model_A": "deepseek-chat",
+  "model_B": "qwen-plus",
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "final_item": "world@(4,0)",
+  "slip_landed": false,
+  "effect_rejects": 0,
+  "rejects_by_agent": {
+   "A": 0,
+   "B": 0
+  },
+  "reject_detail": [],
+  "fixed_after_reject": false,
+  "a_declared": [
+   {
+    "item:apple1": "world@(4,0)"
+   }
+  ],
+  "a_missing_effect": 0,
+  "a_effect_not_goal": 0,
+  "a_plans": [
+   {
+    "thought": "A 在 (0,4)，苹果在 (1,3)。先向右到 (1,4)，再向上到 (1,3) 抓取，然后向右到 (4,3)，再向上到 (4,0) 放下。",
+    "n_ops": 10,
+    "ops": [
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "grab",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 1,
+       "dy": 0
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "move",
+      {
+       "agent": "A",
+       "dx": 0,
+       "dy": -1
+      }
+     ],
+     [
+      "place",
+      {
+       "agent": "A",
+       "key": "item:apple1"
+      }
+     ]
+    ]
+   }
+  ],
+  "b_status": "suspect",
+  "wasted_ops": 0,
+  "tokens": 5654,
+  "llm_calls": 5
+ }
+]

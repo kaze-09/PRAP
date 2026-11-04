@@ -1,0 +1,11 @@
+{
+ "episodes": 50,
+ "attempts": 100,
+ "counts": {
+  "ok": 50,
+  "stale": 50
+ },
+ "belief_deviation": 0,
+ "cat2_harm": 0,
+ "decision": "STOP"
+}

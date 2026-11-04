@@ -1,0 +1,589 @@
+[
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 0,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1。再移动到投放点(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步。最后place。总共ops数：8移动+1grab+4移动+1place=14步，但ttl只需覆盖关键锁定期（grab前到grab后瞬间），设为10。keys锁定apple1。belief按状态原样抄写。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 1174,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 1,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 987,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 2,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1，再移动到(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步，最后place。总共ops序列13步，ttl设为13。keys锁定item:apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)",
+   "pos:A": "(0,6)",
+   "hold:A": "none"
+  },
+  "tokens": 1169,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 3,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取，然后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 988,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 4,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1。再移动到(0,6)：从(3,5)出发，需dx=-3, dy=1，路径：(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步。最后place。总共ops序列13步（8移动+1grab+4移动+1place），但move ops可合并为单步指令链；注意每move指令只能dx/dy∈{-1,0,1}，所以必须拆成原子步。keys锁定item:apple1。belief照抄状态值。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)",
+   "hold:A": "none"
+  },
+  "tokens": 1215,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 5,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取，然后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 971,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 6,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1，再移动到(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步，最后place。总ops序列共13步（含grab和place），ttl设为13。keys锁定item:apple1。belief按状态原样抄写。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 1153,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 7,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)到(3,5)取苹果，再送到(0,6)。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取，然后向左3步到(0,5)，再向下1步到(0,6)，放置。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 985,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 8,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1。再移动到投放点(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步。最后place。总共操作序列13步（含grab和place），ttl设为15留余量。keys锁定item:apple1。belief按状态原样抄写。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 1157,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 9,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取，然后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 988,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 10,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1，再移动到(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步，最后place。总共ops序列13步（8移动+1grab+4移动+1place），但grab和place各占1 tick，移动各1 tick，故ttl=13。keys锁定item:apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)",
+   "hold:A": "none"
+  },
+  "tokens": 1185,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 11,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)移动到苹果(3,5)：先向右3步，再向下5步，然后抓取，再移动到(0,6)并放置。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 937,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 12,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每步dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1。再移动到(0,6)：从(3,5)出发，dx=-3, dy=1 → (2,5)→(1,5)→(0,5)→(0,6)共4步。最后place。总共ops数：8 move + 1 grab + 4 move + 1 place = 14 ops。ttl设为14。keys锁定item:apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 1175,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 13,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 971,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 14,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1，再移动到(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步，最后place。总共ops序列13步（8移动+1grab+4移动+1place），但grab和place各占1 tick，移动各1 tick，故ttl=13。keys锁定item:apple1。belief按状态原样抄写version。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)",
+   "hold:A": "none"
+  },
+  "tokens": 1185,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 15,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取，然后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 988,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 16,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1，再移动到(0,6)：从(3,5)到(0,6)需dx=-3, dy=1，路径：(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步，最后place。总操作序列共8+1+4+1=14步，但ops只含动作指令，不计等待；keys锁定item:apple1；belief照抄状态值；effect中apple1应变为world@(0,6)，pos:A变为(0,6)，hold:A变为none。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)",
+   "pos:A": "(0,6)",
+   "hold:A": "none"
+  },
+  "tokens": 1210,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 17,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发，先向右3步到(3,0)，再向下5步到(3,5)抓苹果，然后向左3步到(0,5)，再向下1步到(0,6)放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 969,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 18,
+  "model": "qwen-plus",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "我位于(0,0)，apple1在(3,5)。需先移动到(3,5)：dx=3, dy=5，分步走（每次dx/dy最多±1）。路径：(0,0)→(1,0)→(2,0)→(3,0)→(3,1)→(3,2)→(3,3)→(3,4)→(3,5)共8步。然后grab apple1。再移动到投放点(0,6)：从(3,5)→(2,5)→(1,5)→(0,5)→(0,6)共4步。最后place。总共ops数：8移动+1grab+4移动+1place=14步，但ttl只需覆盖关键锁定期（grab前到grab后瞬间），设为10。keys锁定apple1。belief按状态原样抄写。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 1174,
+  "llm_calls": 1
+ },
+ {
+  "layout": "T4",
+  "arm": "declare",
+  "trial": 19,
+  "model": "deepseek-chat",
+  "error": null,
+  "success": true,
+  "final_item": "world@(0,6)",
+  "first_ok": true,
+  "first_place": [
+   0,
+   6
+  ],
+  "first_grab": [
+   3,
+   5
+  ],
+  "first_axis": "H",
+  "thought_mentions_drop": true,
+  "thought_ops_gap": false,
+  "thought": "从(0,0)出发到(3,5)取苹果，再送到(0,6)放下。路径：先向右3步到(3,0)，再向下5步到(3,5)，抓取，然后向左3步到(0,5)，再向下1步到(0,6)，放下。",
+  "n_ops": 14,
+  "n_plans": 1,
+  "declared_effect": {
+   "item:apple1": "world@(0,6)"
+  },
+  "tokens": 988,
+  "llm_calls": 1
+ }
+]

@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import copy
 import hashlib
 from dataclasses import dataclass, field
 from typing import Any, Callable, Optional
@@ -21,6 +22,10 @@ from typing import Any, Callable, Optional
 TTL_MIN = 2        # 最小租约时长（tick），见规范 §8.1 自适应问题，先取常量
 AGING_UNIT = 10    # 每等待 10 tick，有效优先级 +1
 PRIORITY_CAP = 9
+
+
+def _norm(value: Any) -> str:
+    return "" if value is None else str(value).replace(" ", "")
 
 
 def digest(value: Any) -> str:
@@ -45,6 +50,7 @@ class Lease:
     created: int
     priority: int
     hold_total: int = 0
+    effect: Optional[dict] = None
 
 
 @dataclass
@@ -57,6 +63,7 @@ class PendingIntent:
     ttl: int
     priority: int
     wait_since: int
+    effect: Optional[dict] = None
 
     def effective_priority(self) -> int:
         return min(self.priority + self.wait_since // AGING_UNIT, PRIORITY_CAP)
@@ -98,11 +105,24 @@ class Arbiter:
         # R5 lease-only 消融开关：False = 跳过 L4 分类与隔离（租约/仲裁/续约全保留）。
         # 语义 = "带超时与心跳的锁"基线；开关为臂级（同一 sim 内所有 agent 共享）。
         self.l4_enabled = True
+        # 恢复策略（默认 quarantine = 既有行为，E1 回归不改变）：
+        #   quarantine         deviation -> suspect，不授予
+        #   detect             只记录偏差，照常授予
+        #   correct_reobserve  不隔离；下发权威快照，要求重新观察后再申请
+        #   correct_pin        不隔离；下发权威值并要求下一份计划采用该值
+        #   adaptive           第 1 次偏差走 correct_pin，其后走 quarantine
+        self.recovery_mode = "quarantine"
+        self.deviation_strikes: dict[str, int] = {}
+        # 提交时按声明效果准入：off = 不检查；reject = 不符即拒；
+        # predict = 不符即拒，并回传空跑后的实际值与失败算子。
+        self.effect_check = "off"
         # v0.2：信念隔离。agent -> "ok" | "suspect"（曾报 deviation 且未以正确信念清除）
         self.agent_status: dict[str, str] = {}
         self.stats: dict[str, Any] = {"grants": 0, "denies": 0, "expires": 0,
                                       "commits": 0, "renews": 0,
-                                      "commits_rejected": 0, "msgs": {}}
+                                      "commits_rejected": 0, "deviations": 0,
+                                      "corrections": 0, "effect_rejects": 0,
+                                      "msgs": {}}
 
     # ---------- 内部工具 ----------
 
@@ -139,6 +159,23 @@ class Arbiter:
 
     # ---------- 协议入口（规范 §4 消息定义） ----------
 
+    def _recovery_action(self, agent_id: str) -> str:
+        """adaptive：第一次偏差纠正，重复偏差改为隔离。其余模式原样返回。"""
+        mode = self.recovery_mode
+        if mode != "adaptive":
+            return mode
+        n = self.deviation_strikes.get(agent_id, 0) + 1
+        self.deviation_strikes[agent_id] = n
+        return "correct_pin" if n <= 1 else "quarantine"
+
+    def _authority_snapshot(self, keys) -> list:
+        snap = []
+        for k in keys:
+            entry = self.state.get(k)
+            if entry is not None:
+                snap.append({"key": k, "value": entry.value, "version": entry.version})
+        return snap
+
     def _set_status(self, agent_id: str, verdict_class: str) -> None:
         """v0.2：deviation -> 隔离（suspect）；ok/stale -> 解除。"""
         if verdict_class == "deviation":
@@ -147,7 +184,8 @@ class Arbiter:
             self.agent_status[agent_id] = "ok"
 
     def submit_intent(self, agent_id: str, keys, ops=(), ttl: int = 5,
-                      priority: int = 5, belief: Optional[list] = None) -> None:
+                      priority: int = 5, belief: Optional[list] = None,
+                      effect: Optional[dict] = None) -> None:
         """INTENT：原子授予 keys（all-or-nothing，§3.2 消除 hold-and-wait）。
 
         v0.2.2 信念隔离强化：suspect 状态的 agent **不授予、不入等待队列**
@@ -159,7 +197,23 @@ class Arbiter:
         iseq = self._next_seq()
         self.log.append(("intent", iseq, agent_id, keys, priority))
         verdict = self._classify(belief) if (belief and self.l4_enabled) else None
-        if verdict:
+        if verdict and verdict["class"] == "deviation" and self.recovery_mode != "quarantine":
+            action = self._recovery_action(agent_id)
+            self.stats["deviations"] += 1
+            if action in ("correct_reobserve", "correct_pin"):
+                self.stats["corrections"] += 1
+                self.log.append(("correct", iseq, agent_id, action))
+                self._send(Msg(
+                    "CORRECT", agent_id, iseq, keys=keys,
+                    state_diff=self.state_diff(keys), verdict=verdict,
+                    payload={"style": action,
+                             "authority": self._authority_snapshot(keys)}))
+                return
+            if action == "detect":
+                self.log.append(("detect_deviation", iseq, agent_id, keys))
+            else:
+                self._set_status(agent_id, "deviation")
+        elif verdict:
             self._set_status(agent_id, verdict["class"])   # v0.2：信念隔离判定
         if self.l4_enabled and self.agent_status.get(agent_id) == "suspect":
             # 隔离期间：不授予、不入队（解除后须重新 INTENT）
@@ -172,22 +226,23 @@ class Arbiter:
                                                   "reobserve_and_reintent_with_belief")]}))
             return
         if all(k not in self.key_holder for k in keys):
-            self._grant(agent_id, keys, tuple(ops), ttl, priority, verdict, iseq)
+            self._grant(agent_id, keys, tuple(ops), ttl, priority, verdict, iseq, effect)
             return
         # 拒绝 + 停靠等待队列 + DENY_WITH_STATE
         self.stats["denies"] += 1
         self.waiting.append(PendingIntent(iseq, agent_id, keys, tuple(ops),
-                                          ttl, priority, self.now))
+                                          ttl, priority, self.now, effect))
         msg = Msg("DENY_WITH_STATE", agent_id, iseq, keys=keys,
                   state_diff=self.state_diff(keys), queue_pos=len(self.waiting),
                   verdict=verdict)   # L4 随和解消息一并返回
         self._send(msg)
 
-    def _grant(self, agent_id, keys, ops, ttl, priority, verdict, iseq) -> None:
+    def _grant(self, agent_id, keys, ops, ttl, priority, verdict, iseq,
+               effect: Optional[dict] = None) -> None:
         self._lease_counter += 1
         lease_id = f"L{self.epoch}.{self._lease_counter}"
         self.leases[lease_id] = Lease(lease_id, agent_id, keys,
-                                      self.now + ttl, self.now, priority)
+                                      self.now + ttl, self.now, priority, effect=effect)
         for k in keys:
             self.key_holder[k] = lease_id
         self.stats["grants"] += 1
@@ -261,11 +316,41 @@ class Arbiter:
                                     "evidence": [("commit_refused", "suspect_agent")]}))
             self.release(lease_id)   # 强制收回，唤醒等待队列
             return
+        if self.effect_check != "off" and lease.effect:
+            predicted, failed = self._dry_run(lease, ops, tuple(lease.effect))
+            mismatch = {k: {"claimed": v, "predicted": predicted.get(k)}
+                        for k, v in lease.effect.items()
+                        if _norm(predicted.get(k)) != _norm(v)}
+            if mismatch:
+                self.stats["effect_rejects"] += 1
+                self.log.append(("effect_rejected", self._next_seq(), lease_id,
+                                 lease.agent_id, mismatch, failed))
+                payload = {"mode": self.effect_check}
+                if self.effect_check == "predict":
+                    payload.update(mismatch=mismatch, failed_ops=failed)
+                self._send(Msg("EFFECT_REJECTED", lease.agent_id, self._next_seq(),
+                               lease_id=lease_id, payload=payload))
+                self.release(lease_id)
+                return
         for name, args in ops:
             handler = self.ops_registry.get(name)
             ok, detail = handler(self, lease, args) if handler else (False, "unknown_op")
             self.log.append(("op", self._next_seq(), lease_id, name, args, ok, detail))
         self.stats["commits"] += 1
+
+    def _dry_run(self, lease: Lease, ops, keys) -> tuple[dict, list]:
+        """在权威状态副本上执行算子。只读副本，不写日志、不发消息。"""
+        shadow = copy.deepcopy(self)
+        shadow.subs = {}
+        shadow.outbox = []
+        failed = []
+        for i, (name, args) in enumerate(ops):
+            handler = shadow.ops_registry.get(name)
+            ok, detail = handler(shadow, lease, args) if handler else (False, "unknown_op")
+            if not ok:
+                failed.append({"index": i, "op": name, "detail": detail})
+        predicted = {k: (shadow.state[k].value if k in shadow.state else None) for k in keys}
+        return predicted, failed
 
     def subscribe(self, agent_id: str, keys, decision: Optional[dict] = None) -> None:
         """L5：订阅（decision 记录 p_hat/代价参数，供校准曲线用）。"""
@@ -308,7 +393,8 @@ class Arbiter:
                 remaining.append(p)   # v0.2.2：隔离者不授予（留在队列，解除后可复活）
                 continue
             if all(k not in self.key_holder for k in p.keys):
-                self._grant(p.agent_id, p.keys, p.ops, p.ttl, p.priority, None, p.intent_seq)
+                self._grant(p.agent_id, p.keys, p.ops, p.ttl, p.priority, None,
+                            p.intent_seq, p.effect)
             else:
                 remaining.append(p)
         self.waiting = remaining

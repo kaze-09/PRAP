@@ -1,0 +1,7 @@
+{
+ "episodes": 40,
+ "retry_committed": 40,
+ "both_tests_ok": 40,
+ "lost_update": 0,
+ "decision": "FAIL"
+}

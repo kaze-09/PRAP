@@ -43,13 +43,15 @@ class LLMClient:
         self.timeout = timeout
         self.usage = {"prompt_tokens": 0, "completion_tokens": 0, "calls": 0}
 
-    def chat(self, system: str, user: str) -> str:
+    def chat(self, system: str, user: str, max_tokens: int | None = None) -> str:
         body = {
             "model": self.model,
             "messages": [{"role": "system", "content": system},
                          {"role": "user", "content": user}],
             "temperature": self.temperature,
         }
+        if max_tokens is not None:
+            body["max_tokens"] = max_tokens
         last_err: Optional[Exception] = None
         # 指数退避重试：DashScope 间歇性 400（限流窗口）实测需要更长等待
         for attempt, wait in enumerate([2, 4, 8, 16, 30, 60]):
@@ -168,10 +170,16 @@ class LLMAgent(ScriptedAgent):
         self.start_pos = start_pos
         self.max_replans = max_replans
         self.replans_left = max_replans
+        self.op_cap = MAX_OPS
         self.belief_override = belief_override or {}
         # R4 间歇偏置：override_prob > 0 时每次观察以该概率看到错位值
         #（下一次观察可恢复真值——对比持续性注入）。obs_seed 保证逐局可复现。
         self.override_prob = override_prob
+        self.override_once = False          # True：只有第一次观察被篡改（瞬态报告错误）
+        self._observe_n = 0
+        self.pinned_values: dict[str, str] = {}  # correct_pin 推送的权威值
+        self.corrections_taken = 0
+        self.max_corrections = 3
         self._obs_rng = random.Random(obs_seed) if obs_seed is not None else None
         # R4：被隔离拦截后的重新申请余额（规范的解除路径 = 重新观察 -> 正确信念
         # INTENT）。上限 3 次，防止持续性故障下的无限重申烧 token。
@@ -200,11 +208,15 @@ class LLMAgent(ScriptedAgent):
         值是错的，L4 应判 deviation（同步无法修复）而非 stale。
         """
         obs = {}
+        self._observe_n += 1
         for key, entry in self.sim.arbiter.state.items():
             if self.visible_keys is not None and key not in self.visible_keys:
                 continue   # E5 部分观察：可见集之外的 key 对 agent 不可见
             val = entry.value
-            if key in self.belief_override:
+            if key in self.pinned_values:
+                val = self.pinned_values[key]   # 权威推送覆盖传感器
+            elif key in self.belief_override and not (
+                    self.override_once and self._observe_n > 1):
                 if self._obs_rng is None:
                     val = self.belief_override[key]   # 持续性注入（E1/E6 口径）
                 elif self._obs_rng.random() < self.override_prob:
@@ -256,7 +268,10 @@ class LLMAgent(ScriptedAgent):
             plan = {"thought": "LLM 输出不可解析，退化：锁全部目标物品",
                     "keys": list(self.item_keys), "ops": [], "ttl": 5, "priority": 5}
         plan["keys"] = tuple(plan["keys"])[:5]
-        plan["ops"] = self._sanitize_ops(plan["ops"])[:MAX_OPS]
+        raw_ops = self._sanitize_ops(plan["ops"])
+        plan["ops_before_cap"] = len(raw_ops)
+        plan["capped"] = len(raw_ops) > self.op_cap
+        plan["ops"] = raw_ops[:self.op_cap]
         plan["ttl"] = max(int(plan.get("ttl", 5)), 2)
         plan["priority"] = max(0, min(int(plan.get("priority", 5)), 9))
         # LLM 自报信念（v0.2.2：value 与 version 都由 LLM 自报——L4 的校验对象
@@ -384,6 +399,25 @@ class LLMAgent(ScriptedAgent):
                 self.sim.arbiter.subscribe(self.id, self.keys,
                                            decision={"policy": self.sub_policy})
                 self.subscribed = True
+        elif msg.type == "CORRECT":
+            # 恢复策略：不隔离。pin 把权威值写入缓存；reobserve 只记版本，
+            # 下一次 _observe 仍读传感器（持续故障会再次偏差）。
+            self.corrections_taken += 1
+            style = (msg.payload or {}).get("style", "correct_reobserve")
+            self.last_verdict = (msg.verdict or {}).get("class", "deviation")
+            if style == "correct_pin":
+                for item in (msg.payload or {}).get("authority") or []:
+                    self.pinned_values[str(item["key"])] = item["value"]
+                    self._cache(item["key"], int(item["version"]), digest(item["value"]))
+            else:
+                for key, (ver, dig, _holder) in msg.state_diff:
+                    self._cache(key, ver, dig)
+            if self.corrections_taken <= self.max_corrections:
+                print(f"  [{self.id}] 收到权威纠正({style}) -> 重规划"
+                      f"（第 {self.corrections_taken} 次）")
+                self.sim.schedule(self.sim.now + 1, self._submit)
+            else:
+                print(f"  [{self.id}] 纠正次数耗尽，停止重申")
         elif msg.type == "GRANT" and msg.verdict:
             self.last_verdict = msg.verdict["class"]
         elif msg.type == "STATE_UPDATE":
@@ -459,11 +493,22 @@ class LLMAgent(ScriptedAgent):
                       f"p*={self.p_star:.2f} -> 退订（低波动 key 不值得订阅）")
         if failed:
             self.reactive_replans += 1
+            handled = self._handle_failed_commit(failed)
             print(f"  [{self.id}] {len(failed)} 个算子失败: {[f[3] for f in failed]}"
-                  f" -> {'重规划' if self.replans_left > 0 else '重规划余额耗尽'}")
-            if self.replans_left > 0:
+                  f" -> {'已按触发器处理' if handled else ('重规划' if self.replans_left > 0 else '重规划余额耗尽')}")
+            if not handled and self.replans_left > 0:
                 self.replans_left -= 1
                 self.sim.schedule(self.sim.now + 1, self._submit)
+        else:
+            self._handle_clean_commit()
+
+    def _handle_failed_commit(self, failed) -> bool:
+        """子类可接管失败后的去向。返回 True 表示不要走默认的自我重规划。"""
+        return False
+
+    def _handle_clean_commit(self) -> None:
+        """子类可在「算子全部成功」之后决定要不要为剩余目标再规划。"""
+        return None
 
 
 class NoProtocolAgent(LLMAgent):

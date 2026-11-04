@@ -1,0 +1,8 @@
+{"arm": "independent", "seed": 0, "model": "qwen-plus", "accomplished": 0, "failed_actions": 18, "contention": 0, "steps": 12}
+{"arm": "independent", "seed": 1, "model": "deepseek-chat", "accomplished": 0, "failed_actions": 20, "contention": 0, "steps": 12}
+{"arm": "dialogue", "seed": 0, "model": "qwen-plus", "accomplished": 0, "failed_actions": 17, "contention": 0, "steps": 12}
+{"arm": "dialogue", "seed": 1, "model": "deepseek-chat", "accomplished": 0, "failed_actions": 20, "contention": 0, "steps": 12}
+{"arm": "dispatcher", "seed": 0, "model": "qwen-plus", "accomplished": 0, "failed_actions": 20, "contention": 0, "steps": 12}
+{"arm": "dispatcher", "seed": 1, "model": "deepseek-chat", "accomplished": 0, "failed_actions": 20, "contention": 0, "steps": 12}
+{"arm": "lock", "seed": 0, "model": "qwen-plus", "accomplished": 0, "failed_actions": 15, "contention": 1, "steps": 12}
+{"arm": "lock", "seed": 1, "model": "deepseek-chat", "accomplished": 0, "failed_actions": 10, "contention": 2, "steps": 12}

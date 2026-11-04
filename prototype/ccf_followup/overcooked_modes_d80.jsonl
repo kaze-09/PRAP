@@ -1,0 +1,8 @@
+{"arm": "independent", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 78, "contention": 0, "decisions": 80, "steps": 942}
+{"arm": "independent", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 80, "steps": 951}
+{"arm": "dialogue", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 77, "contention": 0, "decisions": 80, "steps": 934}
+{"arm": "dialogue", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 25, "contention": 0, "decisions": 80, "steps": 827}
+{"arm": "dispatcher", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 80, "steps": 940}
+{"arm": "dispatcher", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 0, "decisions": 80, "steps": 951}
+{"arm": "lock", "seed": 0, "model": "qwen-plus", "soups": 0.0, "failed_macros": 28, "contention": 74, "decisions": 80, "steps": 395}
+{"arm": "lock", "seed": 1, "model": "deepseek-chat", "soups": 0.0, "failed_macros": 0, "contention": 4, "decisions": 80, "steps": 102}
