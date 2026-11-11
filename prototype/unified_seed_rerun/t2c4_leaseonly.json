@@ -1,0 +1,8600 @@
+[
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3586,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3676,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 4048,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3650,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3530,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 2743,
+  "llm_calls": 3,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3593,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3542,
+  "llm_calls": 3,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3569,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3660,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 10,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3585,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 11,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3676,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 12,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3653,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 13,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3795,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 14,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3770,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 15,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 2870,
+  "llm_calls": 3,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 16,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3660,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 17,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 2882,
+  "llm_calls": 3,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 18,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3656,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 19,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(4,1)）",
+  "error": null,
+  "wasted_ops": 5,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 5,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 4111,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,1)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 20,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3723,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 21,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3673,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 22,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3973,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 23,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 3,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3525,
+  "llm_calls": 3,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 24,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3657,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 25,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3971,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 26,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3569,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 27,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 4,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 4,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 3800,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 28,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 4047,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "leaseonly",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 29,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 6,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 6,
+  "n_quarantined": 0,
+  "grants": 4,
+  "denies": 1,
+  "expires": 0,
+  "tokens": 4226,
+  "llm_calls": 4,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "grant",
+    "agent": null,
+    "op": null,
+    "ok": null
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ }
+]

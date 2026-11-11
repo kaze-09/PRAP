@@ -1,58 +1,59 @@
-# PRAP: Preemption & Resource Arbitration Protocol for Multi-LLM-Agent Systems
+# PRAP: Preemption and Resource Arbitration Protocol
 
-多 LLM 智能体共享互斥资源时的协调协议：**不打架（互斥）、不卡死（TTL 租约）、能发现自己想错了（信念校验）、坏信念不产生作用（信念隔离）、观察按需计价（订阅经济学）**。
+A protocol and measurement testbed for exclusive writes among multiple LLM agents. An authority ledger, TTL leases, and a write gate mediate commits; the gate compares the cached observation already used for planning with the ledger and can refuse a write before it executes.
 
-核心洞察：把游戏状态同步领域 30 年的成熟技术（权威服务器、客户端预测+和解、兴趣管理）迁移到多 agent 协作，并补上游戏栈里不存在、LLM 时代必需的部件——信念校验（游戏客户端不会幻觉，LLM agent 会）。
+This repository is the artifact for the CSCWD 2027 draft in [`cscwd2027/`](cscwd2027/). The official confirmatory counts, seed formula, and replay instructions are in [`ARTIFACT.md`](ARTIFACT.md).
 
-## 当前状态（2026-10-26）
+**Official eight-agent result (shared injection set, *n* = 30 per arm).** Success rates do not separate (lease-only 22/30, write gating 21/30, orchestrator 19/30, no protocol 19/30, prompt 16/30; all three preregistered Fisher tests *p* ≥ 0.58). What separates is execution waste: write gating 0.00 (SD 0.00) against lease-only 12.50 (7.13) and orchestrator 3.50 (3.35). Write-gating planning tokens are higher (17043 against the orchestrator's 9408). Do not cite a success-rate win on this cell.
 
-- 协议规范 v0.2（消息定义、状态机、正确性论证提纲、信念隔离）
-- 仲裁器原型 + 网格测试床（纯 Python 标准库，虚拟时钟，确定性可重放）
-- 真实 LLM（Qwen / DeepSeek）批次实验通过：互斥零泄漏、TTL 恢复 10/10、L4 检测+隔离 36/36
-- 详见 [实验记录](PRAP_experiment_log.md)
+**Topology cell.** The preregistered contrast remains orchestrator 27/30 against write gating 16/30 (*p* = 0.003). Later baselines on the same injection reach lease-only 29/30 and no protocol 28/30, nearly even with the orchestrator. That gap is mainly the cost of write gating cancelling rescue, not a unique benefit of the orchestrator relative to running without a lock.
 
-## 仓库结构
+Documents dated before 2026-11-11 (including [`PRAP_experiment_log.md`](PRAP_experiment_log.md) and [`PRAP_advisor_briefing.md`](PRAP_advisor_briefing.md)) describe earlier campaigns. They may contain superseded counts, including an eight-agent run whose seed contained the arm name and is **not** the confirmatory result.
 
-```
-├── PRAP_protocol_spec.md               协议规范 v0.2
-├── PRAP_experiment_log.md              实验记录（台账）
-├── PRAP_feasibility_novelty_analysis.md 可行性与创新性调研（文献截至 2026-10）
-├── PRAP_paper_reading_notes.md         CoAgent / DPBench 精读笔记
-├── PRAP_advisor_briefing.md            面向导师的项目说明
-└── prototype/                          可运行原型
-    ├── prap_core.py                    仲裁器（L0 权威状态 / L1 租约 / L2 仲裁 / L3 和解 / L4 校验+隔离 / L5 订阅）
-    ├── testbed.py                      5x5 网格测试床 + 脚本 agent + 离散事件仿真
-    ├── llm_agent.py                    真实 LLM agent 适配器（OpenAI 兼容，零依赖）
-    ├── run_e1.py                       协议回归（24 断言，无 API）
-    ├── run_e1_full.py / merge_e1.py    批次实验与合并汇总
-    ├── run_e2.py                       信念校验专项实验
-    ├── analyze_planning.py             规划可靠性分析（分模型 + Fisher 检验）
-    ├── run_llm_smoke.py                LLM 冒烟实验
-    └── *.json                          原始实验数据
-```
+## Reproduce the tables (no API key)
 
-## 快速开始
-
-```powershell
+```bash
 cd prototype
-python run_e1.py                # 协议回归（无网络，秒级）
-python run_llm_smoke.py --stuck # 真实 LLM 冒烟（需先配置 api_keys.json）
-python run_e1_full.py --trials 10   # 批次实验
-python run_e2.py                # 信念校验专项
-python analyze_planning.py      # 规划可靠性分析（离线）
+python summarize_confirmatory.py
 ```
 
-LLM 实验需在 `prototype/api_keys.json` 填入 Qwen（DashScope）与 DeepSeek 的 key，或设环境变量 `QWEN_API_KEY` / `DEEPSEEK_API_KEY`。**该文件已被 .gitignore 排除，切勿提交。**
+This reads `unified_seed_rerun/`, checks that the five eight-agent arms share one injection set, and reprints success rates, Wilson 95% intervals, waste, tokens, and the preregistered Fisher tests.
 
-## 文档导航
+Offline protocol checks, also without a network:
 
-- 想快速理解 idea → 读 [`PRAP_advisor_briefing.md`](PRAP_advisor_briefing.md)（含游戏同步迁移叙事与真实实验数据）
-- 想实现或扩展协议 → 读 [`PRAP_protocol_spec.md`](PRAP_protocol_spec.md)
-- 想了解实验证据 → 读 [`PRAP_experiment_log.md`](PRAP_experiment_log.md)
-- 想了解文献定位 → 读 [`PRAP_feasibility_novelty_analysis.md`](PRAP_feasibility_novelty_analysis.md)
+```bash
+cd prototype
+python run_e1.py
+```
 
-## 投稿规划
+## Optional live rerun
 
-- 短文占坑：NeurIPS/ICLR workshop（2026-12 前后）
-- 正稿：AAMAS / ICLR 2028
-- 与 Collab-Overcooked 主线（ECAI 2027）技术解耦、互引留作可选策略
+A live rerun calls Qwen-plus and DeepSeek-chat and incurs API cost. Copy `api_keys.json` from the example below, or set `QWEN_API_KEY` and `DEEPSEEK_API_KEY`. That file is gitignored; never commit it.
+
+```bash
+cd prototype
+python run_unified_confirmatory.py --suite inject   # print the injection plan only
+python run_unified_confirmatory.py --suite scale8
+python run_unified_confirmatory.py --suite t2c4
+```
+
+The confirmatory eight-agent seed is `unified-{scale}-{fault}-{trial}` (arm name not included). Topology T2/C4 injection is deterministic: always agent B, +1 *x*. Existing orchestrator, contract-net, group-chat, write-gating, and OCC+undo topology files were not overwritten.
+
+## Layout
+
+```
+ARTIFACT.md                         Official counts and how to check them
+PRAP_prereg_R1.md                   Frozen 2026-10-31 preregistration (seed later changed; see ARTIFACT.md)
+PRAP_protocol_spec.md               Protocol specification
+prototype/
+  prap_core.py                      Authority ledger, leases, write gate
+  testbed.py                        5x5 grid testbed and discrete-event simulator
+  run_unified_confirmatory.py       Confirmatory runner
+  summarize_confirmatory.py         Offline reprint of the official tables
+  unified_seed_rerun/               Official trial logs (do not overwrite)
+  *.json                            Earlier campaign files, kept for the record
+```
+
+## 中文说明
+
+本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。2026-11-11 之前的实验记录与 briefing 不是正式结果。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。

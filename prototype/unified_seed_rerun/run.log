@@ -1,0 +1,266 @@
+2026-11-10 21:41:50 start suite=inject trials=30
+2026-11-10 21:41:50 injection plan: inj 71/240=0.296, eff 52/240=0.217 (expected 0.225), zero-eff trials=[16, 28]
+2026-11-10 21:41:50 wrote D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\injection_plan_scale8.json
+2026-11-10 21:42:06 start suite=all trials=30
+2026-11-10 21:42:06 injection plan: inj 71/240=0.296, eff 52/240=0.217 (expected 0.225), zero-eff trials=[16, 28]
+2026-11-10 21:42:06 wrote D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\injection_plan_scale8.json
+2026-11-10 21:42:06 clients loaded: qwen=qwen-plus, deepseek=deepseek-chat
+2026-11-10 21:42:06 injection plan: inj 71/240=0.296, eff 52/240=0.217 (expected 0.225), zero-eff trials=[16, 28]
+2026-11-10 21:42:06 wrote D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\injection_plan_scale8.json
+2026-11-10 21:42:06 scale8 prap: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\scale8_f30_prap.json
+2026-11-10 21:44:01   [scale8_f30_prap t0] success=1 delivered=4/4 eff=1 waste=0 tokens=13106 114.5s
+2026-11-10 21:45:55   [scale8_f30_prap t1] success=1 delivered=4/4 eff=1 waste=0 tokens=13108 114.0s
+2026-11-10 21:49:20   [scale8_f30_prap t2] success=0 delivered=3/4 eff=3 waste=0 tokens=24501 205.1s
+2026-11-10 21:51:12   [scale8_f30_prap t3] success=1 delivered=4/4 eff=2 waste=0 tokens=16363 112.0s
+2026-11-10 21:53:29   [scale8_f30_prap t4] success=1 delivered=4/4 eff=1 waste=0 tokens=16731 136.9s
+2026-11-10 21:55:19   [scale8_f30_prap t5] success=1 delivered=4/4 eff=1 waste=0 tokens=13004 110.8s
+2026-11-10 21:58:49   [scale8_f30_prap t6] success=0 delivered=3/4 eff=4 waste=0 tokens=24756 209.2s
+2026-11-10 22:02:47   [scale8_f30_prap t7] success=0 delivered=3/4 eff=4 waste=0 tokens=28224 238.5s
+2026-11-10 22:04:46   [scale8_f30_prap t8] success=1 delivered=4/4 eff=1 waste=0 tokens=16669 118.7s
+2026-11-10 22:06:38   [scale8_f30_prap t9] success=1 delivered=4/4 eff=1 waste=0 tokens=12970 111.9s
+2026-11-10 22:09:25   [scale8_f30_prap t10] success=1 delivered=4/4 eff=2 waste=0 tokens=20809 166.9s
+2026-11-10 22:11:16   [scale8_f30_prap t11] success=1 delivered=4/4 eff=2 waste=0 tokens=16353 111.0s
+2026-11-10 22:14:28   [scale8_f30_prap t12] success=0 delivered=3/4 eff=4 waste=0 tokens=23860 192.8s
+2026-11-10 22:16:38   [scale8_f30_prap t13] success=0 delivered=3/4 eff=3 waste=0 tokens=20045 129.6s
+2026-11-10 22:19:07   [scale8_f30_prap t14] success=1 delivered=4/4 eff=1 waste=0 tokens=17181 148.5s
+2026-11-10 22:21:31   [scale8_f30_prap t15] success=1 delivered=4/4 eff=1 waste=0 tokens=17307 144.5s
+2026-11-10 22:22:45   [scale8_f30_prap t16] success=1 delivered=4/4 eff=0 waste=0 tokens=9220 73.7s
+2026-11-10 22:24:48   [scale8_f30_prap t17] success=1 delivered=4/4 eff=1 waste=0 tokens=16279 123.0s
+2026-11-10 22:27:43   [scale8_f30_prap t18] success=0 delivered=3/4 eff=2 waste=0 tokens=17819 175.1s
+2026-11-10 22:29:15   [scale8_f30_prap t19] success=1 delivered=4/4 eff=1 waste=0 tokens=12701 92.5s
+2026-11-10 22:32:05   [scale8_f30_prap t20] success=1 delivered=4/4 eff=2 waste=0 tokens=17632 169.9s
+2026-11-10 22:34:18   [scale8_f30_prap t21] success=1 delivered=4/4 eff=2 waste=0 tokens=16694 132.3s
+2026-11-10 22:37:54   [scale8_f30_prap t22] success=0 delivered=3/4 eff=4 waste=0 tokens=24363 216.7s
+2026-11-10 22:40:50   [scale8_f30_prap t23] success=0 delivered=3/4 eff=1 waste=0 tokens=16773 175.4s
+2026-11-10 22:42:58   [scale8_f30_prap t24] success=1 delivered=4/4 eff=1 waste=0 tokens=16567 128.4s
+2026-11-10 22:44:36   [scale8_f30_prap t25] success=1 delivered=4/4 eff=1 waste=0 tokens=12958 98.1s
+2026-11-10 22:46:22   [scale8_f30_prap t26] success=0 delivered=3/4 eff=2 waste=0 tokens=16032 105.4s
+2026-11-10 22:48:33   [scale8_f30_prap t27] success=1 delivered=4/4 eff=2 waste=0 tokens=16631 131.4s
+2026-11-10 22:49:51   [scale8_f30_prap t28] success=1 delivered=4/4 eff=0 waste=0 tokens=9515 78.2s
+2026-11-10 22:51:25   [scale8_f30_prap t29] success=1 delivered=4/4 eff=1 waste=0 tokens=13130 94.0s
+2026-11-10 22:51:25   scale8 prap done: 21/30
+2026-11-10 22:51:25 scale8 promptfix: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\scale8_f30_promptfix.json
+2026-11-10 22:53:30   [scale8_f30_promptfix t0] success=1 delivered=4/4 eff=1 waste=6 tokens=9060 125.1s
+2026-11-10 22:57:37   [scale8_f30_promptfix t1] success=0 delivered=3/4 eff=1 waste=8 tokens=15807 246.3s
+2026-11-10 22:59:29   [scale8_f30_promptfix t2] success=0 delivered=2/4 eff=3 waste=11 tokens=9939 112.4s
+2026-11-10 23:00:58   [scale8_f30_promptfix t3] success=0 delivered=3/4 eff=2 waste=8 tokens=9465 89.3s
+2026-11-10 23:02:28   [scale8_f30_promptfix t4] success=1 delivered=4/4 eff=1 waste=6 tokens=9928 89.3s
+2026-11-10 23:03:28   [scale8_f30_promptfix t5] success=0 delivered=3/4 eff=1 waste=8 tokens=8950 60.3s
+2026-11-10 23:04:57   [scale8_f30_promptfix t6] success=0 delivered=3/4 eff=4 waste=9 tokens=10174 89.6s
+2026-11-10 23:06:08   [scale8_f30_promptfix t7] success=0 delivered=2/4 eff=4 waste=10 tokens=9501 70.8s
+2026-11-10 23:07:30   [scale8_f30_promptfix t8] success=1 delivered=4/4 eff=1 waste=7 tokens=9730 81.3s
+2026-11-10 23:08:38   [scale8_f30_promptfix t9] success=1 delivered=4/4 eff=1 waste=8 tokens=9090 68.0s
+2026-11-10 23:10:22   [scale8_f30_promptfix t10] success=1 delivered=4/4 eff=2 waste=8 tokens=10022 104.1s
+2026-11-10 23:14:10   [scale8_f30_promptfix t11] success=0 delivered=3/4 eff=2 waste=6 tokens=16343 228.3s
+2026-11-10 23:15:31   [scale8_f30_promptfix t12] success=0 delivered=3/4 eff=4 waste=8 tokens=8881 81.0s
+2026-11-10 23:16:46   [scale8_f30_promptfix t13] success=0 delivered=2/4 eff=3 waste=10 tokens=8841 74.9s
+2026-11-10 23:18:11   [scale8_f30_promptfix t14] success=1 delivered=4/4 eff=1 waste=9 tokens=9244 84.9s
+2026-11-10 23:19:37   [scale8_f30_promptfix t15] success=1 delivered=4/4 eff=1 waste=8 tokens=9296 86.1s
+2026-11-10 23:21:01   [scale8_f30_promptfix t16] success=1 delivered=4/4 eff=0 waste=6 tokens=9191 84.2s
+2026-11-10 23:22:32   [scale8_f30_promptfix t17] success=1 delivered=4/4 eff=1 waste=7 tokens=9617 90.8s
+2026-11-10 23:24:17   [scale8_f30_promptfix t18] success=0 delivered=3/4 eff=2 waste=10 tokens=10119 105.0s
+2026-11-10 23:25:55   [scale8_f30_promptfix t19] success=1 delivered=4/4 eff=1 waste=6 tokens=9888 97.7s
+2026-11-10 23:27:26   [scale8_f30_promptfix t20] success=1 delivered=4/4 eff=2 waste=5 tokens=9450 91.0s
+2026-11-10 23:29:04   [scale8_f30_promptfix t21] success=1 delivered=4/4 eff=2 waste=6 tokens=9914 98.7s
+2026-11-10 23:30:32   [scale8_f30_promptfix t22] success=0 delivered=3/4 eff=4 waste=6 tokens=9323 88.2s
+2026-11-10 23:31:50   [scale8_f30_promptfix t23] success=0 delivered=3/4 eff=1 waste=7 tokens=9004 78.0s
+2026-11-10 23:33:17   [scale8_f30_promptfix t24] success=1 delivered=4/4 eff=1 waste=6 tokens=9155 87.1s
+2026-11-10 23:35:19   [scale8_f30_promptfix t25] success=0 delivered=3/4 eff=1 waste=8 tokens=10884 121.4s
+2026-11-10 23:37:00   [scale8_f30_promptfix t26] success=0 delivered=2/4 eff=2 waste=8 tokens=9794 101.6s
+2026-11-10 23:40:16   [scale8_f30_promptfix t27] success=1 delivered=4/4 eff=2 waste=8 tokens=13998 195.9s
+2026-11-10 23:42:19   [scale8_f30_promptfix t28] success=1 delivered=4/4 eff=0 waste=8 tokens=9152 123.0s
+2026-11-10 23:45:01   [scale8_f30_promptfix t29] success=1 delivered=4/4 eff=1 waste=8 tokens=11442 162.2s
+2026-11-10 23:45:01   scale8 promptfix done: 16/30
+2026-11-10 23:45:01 scale8 orch: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\scale8_f30_orch.json
+2026-11-10 23:46:32   [scale8_f30_orch t0] success=1 delivered=4/4 eff=1 waste=3 tokens=9059 90.6s
+2026-11-10 23:47:36   [scale8_f30_orch t1] success=1 delivered=4/4 eff=1 waste=0 tokens=5564 64.3s
+2026-11-10 23:49:50   [scale8_f30_orch t2] success=0 delivered=3/4 eff=3 waste=9 tokens=14991 134.0s
+2026-11-10 23:50:52   [scale8_f30_orch t3] success=1 delivered=4/4 eff=2 waste=3 tokens=8987 61.5s
+2026-11-10 23:51:41   [scale8_f30_orch t4] success=1 delivered=4/4 eff=1 waste=0 tokens=5632 49.4s
+2026-11-10 23:52:20   [scale8_f30_orch t5] success=0 delivered=3/4 eff=1 waste=0 tokens=5328 38.9s
+2026-11-10 23:54:12   [scale8_f30_orch t6] success=0 delivered=3/4 eff=4 waste=9 tokens=14898 111.4s
+2026-11-10 23:56:32   [scale8_f30_orch t7] success=0 delivered=3/4 eff=4 waste=12 tokens=18683 140.7s
+2026-11-10 23:57:37   [scale8_f30_orch t8] success=1 delivered=4/4 eff=1 waste=3 tokens=8970 64.4s
+2026-11-10 23:59:05   [scale8_f30_orch t9] success=1 delivered=4/4 eff=1 waste=3 tokens=9651 88.8s
+2026-11-11 00:00:57   [scale8_f30_orch t10] success=1 delivered=4/4 eff=2 waste=6 tokens=13093 111.8s
+2026-11-11 00:01:40   [scale8_f30_orch t11] success=1 delivered=4/4 eff=2 waste=0 tokens=5443 43.1s
+2026-11-11 00:02:56   [scale8_f30_orch t12] success=0 delivered=3/4 eff=4 waste=6 tokens=11164 75.5s
+2026-11-11 00:04:10   [scale8_f30_orch t13] success=0 delivered=3/4 eff=3 waste=6 tokens=11352 74.5s
+2026-11-11 00:05:41   [scale8_f30_orch t14] success=1 delivered=4/4 eff=1 waste=3 tokens=9559 91.0s
+2026-11-11 00:06:45   [scale8_f30_orch t15] success=0 delivered=3/4 eff=1 waste=3 tokens=9083 63.2s
+2026-11-11 00:07:29   [scale8_f30_orch t16] success=1 delivered=4/4 eff=0 waste=0 tokens=5360 44.1s
+2026-11-11 00:08:33   [scale8_f30_orch t17] success=1 delivered=4/4 eff=1 waste=3 tokens=9153 64.1s
+2026-11-11 00:10:14   [scale8_f30_orch t18] success=0 delivered=3/4 eff=2 waste=6 tokens=11651 101.5s
+2026-11-11 00:11:05   [scale8_f30_orch t19] success=1 delivered=4/4 eff=1 waste=0 tokens=5797 50.6s
+2026-11-11 00:12:26   [scale8_f30_orch t20] success=1 delivered=4/4 eff=2 waste=3 tokens=9100 81.5s
+2026-11-11 00:13:09   [scale8_f30_orch t21] success=1 delivered=4/4 eff=2 waste=0 tokens=5462 43.1s
+2026-11-11 00:15:37   [scale8_f30_orch t22] success=0 delivered=3/4 eff=4 waste=9 tokens=15467 147.4s
+2026-11-11 00:16:41   [scale8_f30_orch t23] success=1 delivered=4/4 eff=1 waste=3 tokens=9038 63.8s
+2026-11-11 00:17:44   [scale8_f30_orch t24] success=1 delivered=4/4 eff=1 waste=3 tokens=8879 63.0s
+2026-11-11 00:18:26   [scale8_f30_orch t25] success=1 delivered=4/4 eff=1 waste=0 tokens=5395 42.6s
+2026-11-11 00:19:42   [scale8_f30_orch t26] success=0 delivered=3/4 eff=2 waste=6 tokens=11219 75.6s
+2026-11-11 00:21:24   [scale8_f30_orch t27] success=0 delivered=3/4 eff=2 waste=6 tokens=12963 102.0s
+2026-11-11 00:22:08   [scale8_f30_orch t28] success=1 delivered=4/4 eff=0 waste=0 tokens=5421 44.3s
+2026-11-11 00:23:00   [scale8_f30_orch t29] success=1 delivered=4/4 eff=1 waste=0 tokens=5863 52.0s
+2026-11-11 00:23:00   scale8 orch done: 19/30
+2026-11-11 00:23:00 scale8 noproto: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\scale8_f30_noproto.json
+2026-11-11 00:24:17   [scale8_f30_noproto t0] success=1 delivered=4/4 eff=1 waste=8 tokens=9633 77.3s
+2026-11-11 00:25:34   [scale8_f30_noproto t1] success=1 delivered=4/4 eff=1 waste=8 tokens=9590 77.1s
+2026-11-11 00:26:51   [scale8_f30_noproto t2] success=0 delivered=3/4 eff=3 waste=10 tokens=9689 76.9s
+2026-11-11 00:28:10   [scale8_f30_noproto t3] success=1 delivered=4/4 eff=2 waste=8 tokens=9642 78.5s
+2026-11-11 00:29:35   [scale8_f30_noproto t4] success=1 delivered=4/4 eff=1 waste=8 tokens=9501 85.5s
+2026-11-11 00:32:04   [scale8_f30_noproto t5] success=1 delivered=4/4 eff=1 waste=9 tokens=12152 149.2s
+2026-11-11 00:33:26   [scale8_f30_noproto t6] success=0 delivered=3/4 eff=4 waste=10 tokens=9859 81.2s
+2026-11-11 00:34:47   [scale8_f30_noproto t7] success=0 delivered=2/4 eff=4 waste=11 tokens=9800 81.2s
+2026-11-11 00:36:02   [scale8_f30_noproto t8] success=1 delivered=4/4 eff=1 waste=8 tokens=9549 75.0s
+2026-11-11 00:37:39   [scale8_f30_noproto t9] success=1 delivered=4/4 eff=1 waste=8 tokens=10457 96.9s
+2026-11-11 00:38:56   [scale8_f30_noproto t10] success=1 delivered=4/4 eff=2 waste=8 tokens=9617 77.2s
+2026-11-11 00:40:41   [scale8_f30_noproto t11] success=1 delivered=4/4 eff=2 waste=8 tokens=12199 105.6s
+2026-11-11 00:41:45   [scale8_f30_noproto t12] success=0 delivered=3/4 eff=4 waste=10 tokens=9602 63.1s
+2026-11-11 00:43:11   [scale8_f30_noproto t13] success=0 delivered=2/4 eff=3 waste=10 tokens=9995 86.5s
+2026-11-11 00:44:29   [scale8_f30_noproto t14] success=1 delivered=4/4 eff=1 waste=8 tokens=9749 78.2s
+2026-11-11 00:45:43   [scale8_f30_noproto t15] success=1 delivered=4/4 eff=1 waste=8 tokens=9497 73.5s
+2026-11-11 00:46:58   [scale8_f30_noproto t16] success=1 delivered=4/4 eff=0 waste=8 tokens=9575 75.3s
+2026-11-11 00:48:24   [scale8_f30_noproto t17] success=1 delivered=4/4 eff=1 waste=8 tokens=9939 86.0s
+2026-11-11 00:50:05   [scale8_f30_noproto t18] success=0 delivered=3/4 eff=2 waste=10 tokens=9706 101.0s
+2026-11-11 00:51:51   [scale8_f30_noproto t19] success=0 delivered=3/4 eff=1 waste=8 tokens=9508 106.2s
+2026-11-11 00:53:17   [scale8_f30_noproto t20] success=1 delivered=4/4 eff=2 waste=8 tokens=9833 86.2s
+2026-11-11 00:54:40   [scale8_f30_noproto t21] success=1 delivered=4/4 eff=2 waste=8 tokens=9719 82.5s
+2026-11-11 00:55:55   [scale8_f30_noproto t22] success=0 delivered=3/4 eff=4 waste=10 tokens=9509 74.9s
+2026-11-11 00:57:13   [scale8_f30_noproto t23] success=0 delivered=3/4 eff=1 waste=8 tokens=9637 78.3s
+2026-11-11 00:58:28   [scale8_f30_noproto t24] success=1 delivered=4/4 eff=1 waste=8 tokens=9535 75.1s
+2026-11-11 00:59:41   [scale8_f30_noproto t25] success=1 delivered=4/4 eff=1 waste=8 tokens=9372 73.3s
+2026-11-11 01:00:56   [scale8_f30_noproto t26] success=0 delivered=3/4 eff=2 waste=10 tokens=9501 74.9s
+2026-11-11 01:02:56   [scale8_f30_noproto t27] success=1 delivered=4/4 eff=2 waste=8 tokens=11597 120.1s
+2026-11-11 01:04:10   [scale8_f30_noproto t28] success=0 delivered=3/4 eff=0 waste=8 tokens=9436 73.4s
+2026-11-11 01:05:24   [scale8_f30_noproto t29] success=1 delivered=4/4 eff=1 waste=8 tokens=9495 74.1s
+2026-11-11 01:05:24   scale8 noproto done: 19/30
+2026-11-11 01:05:24 scale8 leaseonly: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\scale8_f30_leaseonly.json
+2026-11-11 01:07:00   [scale8_f30_leaseonly t0] success=1 delivered=4/4 eff=1 waste=6 tokens=11677 96.5s
+2026-11-11 01:08:41   [scale8_f30_leaseonly t1] success=1 delivered=4/4 eff=1 waste=6 tokens=11874 100.5s
+2026-11-11 01:11:29   [scale8_f30_leaseonly t2] success=0 delivered=3/4 eff=3 waste=24 tokens=19931 167.8s
+2026-11-11 01:13:09   [scale8_f30_leaseonly t3] success=1 delivered=4/4 eff=2 waste=12 tokens=14210 100.6s
+2026-11-11 01:14:58   [scale8_f30_leaseonly t4] success=1 delivered=4/4 eff=1 waste=12 tokens=14030 108.4s
+2026-11-11 01:16:42   [scale8_f30_leaseonly t5] success=1 delivered=4/4 eff=1 waste=8 tokens=12706 104.0s
+2026-11-11 01:19:32   [scale8_f30_leaseonly t6] success=0 delivered=3/4 eff=4 waste=24 tokens=19548 169.9s
+2026-11-11 01:22:59   [scale8_f30_leaseonly t7] success=0 delivered=3/4 eff=4 waste=30 tokens=22248 207.0s
+2026-11-11 01:24:40   [scale8_f30_leaseonly t8] success=1 delivered=4/4 eff=1 waste=12 tokens=14337 100.8s
+2026-11-11 01:26:20   [scale8_f30_leaseonly t9] success=1 delivered=4/4 eff=1 waste=7 tokens=11872 100.6s
+2026-11-11 01:28:34   [scale8_f30_leaseonly t10] success=1 delivered=4/4 eff=2 waste=18 tokens=17066 133.7s
+2026-11-11 01:30:24   [scale8_f30_leaseonly t11] success=1 delivered=4/4 eff=2 waste=12 tokens=14237 110.6s
+2026-11-11 01:33:07   [scale8_f30_leaseonly t12] success=0 delivered=2/4 eff=4 waste=24 tokens=19617 162.5s
+2026-11-11 01:34:59   [scale8_f30_leaseonly t13] success=0 delivered=3/4 eff=3 waste=18 tokens=16553 111.9s
+2026-11-11 01:37:00   [scale8_f30_leaseonly t14] success=1 delivered=4/4 eff=1 waste=12 tokens=14574 120.9s
+2026-11-11 01:39:09   [scale8_f30_leaseonly t15] success=1 delivered=4/4 eff=1 waste=12 tokens=15056 129.2s
+2026-11-11 01:40:26   [scale8_f30_leaseonly t16] success=1 delivered=4/4 eff=0 waste=0 tokens=9465 77.3s
+2026-11-11 01:42:21   [scale8_f30_leaseonly t17] success=1 delivered=4/4 eff=1 waste=12 tokens=14420 114.6s
+2026-11-11 01:44:48   [scale8_f30_leaseonly t18] success=0 delivered=3/4 eff=2 waste=12 tokens=15319 147.5s
+2026-11-11 01:46:21   [scale8_f30_leaseonly t19] success=1 delivered=4/4 eff=1 waste=6 tokens=11851 92.3s
+2026-11-11 01:48:33   [scale8_f30_leaseonly t20] success=1 delivered=4/4 eff=2 waste=12 tokens=14592 132.5s
+2026-11-11 01:50:36   [scale8_f30_leaseonly t21] success=1 delivered=4/4 eff=2 waste=12 tokens=14777 122.6s
+2026-11-11 01:53:08   [scale8_f30_leaseonly t22] success=0 delivered=3/4 eff=4 waste=24 tokens=19274 151.8s
+2026-11-11 01:55:05   [scale8_f30_leaseonly t23] success=1 delivered=4/4 eff=1 waste=12 tokens=14385 117.2s
+2026-11-11 01:56:47   [scale8_f30_leaseonly t24] success=1 delivered=4/4 eff=1 waste=12 tokens=14275 102.1s
+2026-11-11 01:58:18   [scale8_f30_leaseonly t25] success=1 delivered=4/4 eff=1 waste=6 tokens=11804 91.1s
+2026-11-11 01:59:57   [scale8_f30_leaseonly t26] success=0 delivered=3/4 eff=2 waste=12 tokens=14141 99.3s
+2026-11-11 02:01:57   [scale8_f30_leaseonly t27] success=1 delivered=4/4 eff=2 waste=12 tokens=14617 120.0s
+2026-11-11 02:03:14   [scale8_f30_leaseonly t28] success=1 delivered=4/4 eff=0 waste=0 tokens=9418 76.3s
+2026-11-11 02:04:45   [scale8_f30_leaseonly t29] success=1 delivered=4/4 eff=1 waste=6 tokens=11983 91.0s
+2026-11-11 02:04:45   scale8 leaseonly done: 22/30
+2026-11-11 02:04:45 t2c4 noproto: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\t2c4_noproto.json
+2026-11-11 02:05:03   [t2c4 noproto t0] success=1 waste=2 tokens=1748 18.0s
+2026-11-11 02:05:24   [t2c4 noproto t1] success=1 waste=2 tokens=1972 21.9s
+2026-11-11 02:05:43   [t2c4 noproto t2] success=1 waste=2 tokens=1749 18.3s
+2026-11-11 02:06:04   [t2c4 noproto t3] success=1 waste=2 tokens=1951 21.4s
+2026-11-11 02:06:25   [t2c4 noproto t4] success=1 waste=2 tokens=1749 21.3s
+2026-11-11 02:06:42   [t2c4 noproto t5] success=0 waste=2 tokens=1681 16.4s
+2026-11-11 02:07:02   [t2c4 noproto t6] success=1 waste=2 tokens=1831 20.0s
+2026-11-11 02:07:19   [t2c4 noproto t7] success=1 waste=2 tokens=1713 16.9s
+2026-11-11 02:07:47   [t2c4 noproto t8] success=1 waste=2 tokens=2234 28.1s
+2026-11-11 02:08:03   [t2c4 noproto t9] success=1 waste=2 tokens=1713 16.7s
+2026-11-11 02:08:23   [t2c4 noproto t10] success=1 waste=2 tokens=1831 19.7s
+2026-11-11 02:08:45   [t2c4 noproto t11] success=0 waste=2 tokens=1919 21.7s
+2026-11-11 02:09:05   [t2c4 noproto t12] success=1 waste=2 tokens=1821 19.9s
+2026-11-11 02:09:21   [t2c4 noproto t13] success=1 waste=2 tokens=1706 16.3s
+2026-11-11 02:09:41   [t2c4 noproto t14] success=1 waste=2 tokens=1832 20.0s
+2026-11-11 02:09:58   [t2c4 noproto t15] success=1 waste=2 tokens=1730 16.7s
+2026-11-11 02:10:16   [t2c4 noproto t16] success=1 waste=2 tokens=1757 18.1s
+2026-11-11 02:10:32   [t2c4 noproto t17] success=1 waste=2 tokens=1713 16.4s
+2026-11-11 02:11:03   [t2c4 noproto t18] success=1 waste=2 tokens=1911 31.0s
+2026-11-11 02:11:20   [t2c4 noproto t19] success=1 waste=2 tokens=1713 16.5s
+2026-11-11 02:11:49   [t2c4 noproto t20] success=1 waste=2 tokens=1843 29.7s
+2026-11-11 02:12:06   [t2c4 noproto t21] success=1 waste=2 tokens=1713 16.6s
+2026-11-11 02:12:19   [t2c4 noproto t22] success=1 waste=2 tokens=1757 13.3s
+2026-11-11 02:12:31   [t2c4 noproto t23] success=1 waste=2 tokens=1734 11.7s
+2026-11-11 02:12:45   [t2c4 noproto t24] success=1 waste=2 tokens=1748 13.4s
+2026-11-11 02:12:56   [t2c4 noproto t25] success=1 waste=2 tokens=1713 12.0s
+2026-11-11 02:13:13   [t2c4 noproto t26] success=1 waste=2 tokens=1902 16.1s
+2026-11-11 02:13:28   [t2c4 noproto t27] success=1 waste=2 tokens=1857 15.3s
+2026-11-11 02:13:41   [t2c4 noproto t28] success=1 waste=2 tokens=1749 13.1s
+2026-11-11 02:13:58   [t2c4 noproto t29] success=1 waste=2 tokens=1976 17.3s
+2026-11-11 02:13:58   t2c4 noproto done: 28/30
+2026-11-11 02:13:58 t2c4 leaseonly: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\t2c4_leaseonly.json
+2026-11-11 02:14:15   [t2c4 leaseonly t0] success=1 waste=6 tokens=3586 16.5s
+2026-11-11 02:14:54   [t2c4 leaseonly t1] success=1 waste=6 tokens=3676 38.9s
+2026-11-11 02:15:20   [t2c4 leaseonly t2] success=1 waste=6 tokens=4048 26.8s
+2026-11-11 02:15:59   [t2c4 leaseonly t3] success=1 waste=6 tokens=3650 38.9s
+2026-11-11 02:16:16   [t2c4 leaseonly t4] success=1 waste=6 tokens=3530 17.0s
+2026-11-11 02:16:43   [t2c4 leaseonly t5] success=1 waste=2 tokens=2743 26.7s
+2026-11-11 02:17:00   [t2c4 leaseonly t6] success=1 waste=6 tokens=3593 17.0s
+2026-11-11 02:17:44   [t2c4 leaseonly t7] success=1 waste=2 tokens=3542 44.0s
+2026-11-11 02:18:01   [t2c4 leaseonly t8] success=1 waste=6 tokens=3569 16.8s
+2026-11-11 02:18:39   [t2c4 leaseonly t9] success=1 waste=6 tokens=3660 38.6s
+2026-11-11 02:18:56   [t2c4 leaseonly t10] success=1 waste=6 tokens=3585 16.8s
+2026-11-11 02:19:35   [t2c4 leaseonly t11] success=1 waste=6 tokens=3676 38.8s
+2026-11-11 02:19:54   [t2c4 leaseonly t12] success=1 waste=6 tokens=3653 19.1s
+2026-11-11 02:20:36   [t2c4 leaseonly t13] success=1 waste=6 tokens=3795 41.8s
+2026-11-11 02:21:10   [t2c4 leaseonly t14] success=1 waste=6 tokens=3770 33.6s
+2026-11-11 02:21:44   [t2c4 leaseonly t15] success=1 waste=2 tokens=2870 33.8s
+2026-11-11 02:22:36   [t2c4 leaseonly t16] success=1 waste=6 tokens=3660 52.5s
+2026-11-11 02:23:10   [t2c4 leaseonly t17] success=1 waste=2 tokens=2882 33.6s
+2026-11-11 02:24:02   [t2c4 leaseonly t18] success=1 waste=6 tokens=3656 52.9s
+2026-11-11 02:24:56   [t2c4 leaseonly t19] success=0 waste=5 tokens=4111 53.9s
+2026-11-11 02:25:36   [t2c4 leaseonly t20] success=1 waste=6 tokens=3723 39.3s
+2026-11-11 02:26:14   [t2c4 leaseonly t21] success=1 waste=6 tokens=3673 38.8s
+2026-11-11 02:26:40   [t2c4 leaseonly t22] success=1 waste=6 tokens=3973 25.8s
+2026-11-11 02:27:24   [t2c4 leaseonly t23] success=1 waste=2 tokens=3525 43.9s
+2026-11-11 02:27:43   [t2c4 leaseonly t24] success=1 waste=6 tokens=3657 18.9s
+2026-11-11 02:28:28   [t2c4 leaseonly t25] success=1 waste=6 tokens=3971 44.9s
+2026-11-11 02:28:44   [t2c4 leaseonly t26] success=1 waste=6 tokens=3569 16.4s
+2026-11-11 02:29:26   [t2c4 leaseonly t27] success=1 waste=4 tokens=3800 41.7s
+2026-11-11 02:29:53   [t2c4 leaseonly t28] success=1 waste=6 tokens=4047 27.0s
+2026-11-11 02:30:43   [t2c4 leaseonly t29] success=1 waste=6 tokens=4226 50.3s
+2026-11-11 02:30:43   t2c4 leaseonly done: 29/30
+2026-11-11 02:30:43 t2c4 promptfix: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\unified_seed_rerun\t2c4_promptfix.json
+2026-11-11 02:31:14   [t2c4 promptfix t0] success=1 waste=2 tokens=1707 30.9s
+2026-11-11 02:31:35   [t2c4 promptfix t1] success=1 waste=1 tokens=1723 20.6s
+2026-11-11 02:32:04   [t2c4 promptfix t2] success=1 waste=2 tokens=1663 29.4s
+2026-11-11 02:32:26   [t2c4 promptfix t3] success=1 waste=2 tokens=1786 21.9s
+2026-11-11 02:32:55   [t2c4 promptfix t4] success=1 waste=2 tokens=1666 29.3s
+2026-11-11 02:33:21   [t2c4 promptfix t5] success=0 waste=2 tokens=1925 25.9s
+2026-11-11 02:33:51   [t2c4 promptfix t6] success=1 waste=2 tokens=1678 29.3s
+2026-11-11 02:34:11   [t2c4 promptfix t7] success=1 waste=2 tokens=1731 20.8s
+2026-11-11 02:34:41   [t2c4 promptfix t8] success=1 waste=2 tokens=1663 29.5s
+2026-11-11 02:35:06   [t2c4 promptfix t9] success=0 waste=2 tokens=1937 25.4s
+2026-11-11 02:35:36   [t2c4 promptfix t10] success=1 waste=2 tokens=1658 29.2s
+2026-11-11 02:35:56   [t2c4 promptfix t11] success=1 waste=2 tokens=1749 20.9s
+2026-11-11 02:36:26   [t2c4 promptfix t12] success=1 waste=2 tokens=1661 29.4s
+2026-11-11 02:36:48   [t2c4 promptfix t13] success=0 waste=1 tokens=1739 22.0s
+2026-11-11 02:37:17   [t2c4 promptfix t14] success=1 waste=2 tokens=1663 29.4s
+2026-11-11 02:37:38   [t2c4 promptfix t15] success=0 waste=2 tokens=1708 21.0s
+2026-11-11 02:38:07   [t2c4 promptfix t16] success=1 waste=2 tokens=1651 29.2s
+2026-11-11 02:38:28   [t2c4 promptfix t17] success=0 waste=2 tokens=1721 20.9s
+2026-11-11 02:38:57   [t2c4 promptfix t18] success=1 waste=2 tokens=1628 29.1s
+2026-11-11 02:39:23   [t2c4 promptfix t19] success=0 waste=2 tokens=1924 25.5s
+2026-11-11 02:39:52   [t2c4 promptfix t20] success=1 waste=2 tokens=1662 29.2s
+2026-11-11 02:40:13   [t2c4 promptfix t21] success=0 waste=2 tokens=1735 21.2s
+2026-11-11 02:40:42   [t2c4 promptfix t22] success=1 waste=2 tokens=1630 29.0s
+2026-11-11 02:41:08   [t2c4 promptfix t23] success=1 waste=2 tokens=1969 25.6s
+2026-11-11 02:41:27   [t2c4 promptfix t24] success=1 waste=2 tokens=1670 19.6s
+2026-11-11 02:41:56   [t2c4 promptfix t25] success=0 waste=2 tokens=2056 28.3s
+2026-11-11 02:42:14   [t2c4 promptfix t26] success=1 waste=2 tokens=1644 18.6s
+2026-11-11 02:42:40   [t2c4 promptfix t27] success=0 waste=2 tokens=1925 25.5s
+2026-11-11 02:43:02   [t2c4 promptfix t28] success=1 waste=2 tokens=1787 21.9s
+2026-11-11 02:43:27   [t2c4 promptfix t29] success=1 waste=2 tokens=1957 25.5s
+2026-11-11 02:43:27   t2c4 promptfix done: 21/30
+2026-11-11 02:43:27 all requested work finished

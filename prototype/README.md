@@ -1,3 +1,16 @@
+# PRAP prototype
+
+Official confirmatory results, the unified-seed runner, and the offline table reprint live in this folder:
+
+- unified_seed_rerun/ — official trial logs (do not overwrite)
+- 
+un_unified_confirmatory.py — confirmatory runner
+- summarize_confirmatory.py — reprint tables without an API key
+
+See [../ARTIFACT.md](../ARTIFACT.md) for the official counts and measurement contract. The notes below describe the earlier prototype and are kept as a historical guide.
+
+---
+
 # PRAP 原型（最小实现）
 
 对应 `../PRAP_protocol_spec.md` v0.1 的最小可运行实现，用于验证协议关键路径后再扩展为完整测试床。

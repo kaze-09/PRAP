@@ -1,0 +1,4340 @@
+[
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1748,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1972,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1749,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1951,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1749,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(4,1)）",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1681,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,1)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1831,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1713,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 2234,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1713,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 10,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1831,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 11,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(4,1)）",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1919,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,1)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 12,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1821,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 13,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1706,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 14,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1832,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 15,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1730,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 16,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1757,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 17,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1713,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 18,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1911,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 19,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1713,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 20,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1843,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 21,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1713,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 22,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1757,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 23,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1734,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 24,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1748,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 25,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1713,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 26,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1902,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 27,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1857,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 28,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1749,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ },
+ {
+  "suite": "t2c4_missing_baselines",
+  "arm": "noproto",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 29,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 2,
+  "wasted_ops_free_only": 2,
+  "failed_ops": 2,
+  "n_quarantined": 0,
+  "grants": 0,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1976,
+  "llm_calls": 2,
+  "verdicts": {
+   "A": null,
+   "B": null
+  },
+  "status": {},
+  "item_final": "world@(4,0)",
+  "op_seq": [
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "grab",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "grab",
+    "ok": false
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "A",
+    "op": "place",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "move",
+    "ok": true
+   },
+   {
+    "kind": "op_free",
+    "agent": "B",
+    "op": "place",
+    "ok": false
+   }
+  ]
+ }
+]
