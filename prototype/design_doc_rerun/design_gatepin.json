@@ -1,0 +1,3722 @@
+[
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 0,
+    "seed": "design-doc-0",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 0,
+    "n_quarantined": 0,
+    "grants": 3,
+    "denies": 0,
+    "tokens": 3730,
+    "llm_calls": 5,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 6
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 1,
+    "seed": "design-doc-1",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 8149,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 2,
+    "seed": "design-doc-2",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7192,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 3,
+    "seed": "design-doc-3",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 4,
+    "denies": 0,
+    "tokens": 5584,
+    "llm_calls": 7,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": false,
+        "detail": "already_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 9
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 4,
+    "seed": "design-doc-4",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7375,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 5,
+    "seed": "design-doc-5",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 9793,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 6,
+    "seed": "design-doc-6",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 4,
+    "denies": 0,
+    "tokens": 4526,
+    "llm_calls": 6,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": false,
+        "detail": "already_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 9
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 7,
+    "seed": "design-doc-7",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 3,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7221,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": false,
+        "detail": "already_released"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": false,
+        "detail": "already_released"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 8,
+    "seed": "design-doc-8",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 7278,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 9,
+    "seed": "design-doc-9",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 6830,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 10,
+    "seed": "design-doc-10",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7751,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 11,
+    "seed": "design-doc-11",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7539,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 12,
+    "seed": "design-doc-12",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7267,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 13,
+    "seed": "design-doc-13",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 4,
+    "denies": 0,
+    "tokens": 6699,
+    "llm_calls": 8,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": false,
+        "detail": "already_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 9
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 14,
+    "seed": "design-doc-14",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 0,
+    "n_quarantined": 0,
+    "grants": 3,
+    "denies": 0,
+    "tokens": 3828,
+    "llm_calls": 5,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 6
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 15,
+    "seed": "design-doc-15",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 0,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 0,
+    "tokens": 7444,
+    "llm_calls": 8,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 10
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 16,
+    "seed": "design-doc-16",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 4,
+    "denies": 0,
+    "tokens": 5613,
+    "llm_calls": 6,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": false,
+        "detail": "already_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 9
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 17,
+    "seed": "design-doc-17",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 0,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 0,
+    "tokens": 7703,
+    "llm_calls": 8,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 10
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 18,
+    "seed": "design-doc-18",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 6519,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 19,
+    "seed": "design-doc-19",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7296,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 20,
+    "seed": "design-doc-20",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 6622,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 21,
+    "seed": "design-doc-21",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7005,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 22,
+    "seed": "design-doc-22",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 0,
+    "n_quarantined": 0,
+    "grants": 3,
+    "denies": 0,
+    "tokens": 3809,
+    "llm_calls": 5,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 6
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 23,
+    "seed": "design-doc-23",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 8113,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 24,
+    "seed": "design-doc-24",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7367,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 25,
+    "seed": "design-doc-25",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 4,
+    "denies": 0,
+    "tokens": 6260,
+    "llm_calls": 7,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 2,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": false,
+        "detail": "already_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 9
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 2,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": null,
+        "completed_at": 5
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 26,
+    "seed": "design-doc-26",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 6795,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 27,
+    "seed": "design-doc-27",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 6,
+    "denies": 1,
+    "tokens": 7783,
+    "llm_calls": 10,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 3,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 3,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 15
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 28,
+    "seed": "design-doc-28",
+    "models": {
+      "A": "qwen-plus",
+      "B": "deepseek-chat"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 6798,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  },
+  {
+    "suite": "design_doc",
+    "arm": "gatepin",
+    "trial": 29,
+    "seed": "design-doc-29",
+    "models": {
+      "A": "deepseek-chat",
+      "B": "qwen-plus"
+    },
+    "success": true,
+    "wrong_release": false,
+    "params_correct": true,
+    "consistent": true,
+    "document": {
+      "doc:part": "coupling_plate",
+      "doc:bore_mm": 12,
+      "doc:wall_mm": 5,
+      "doc:outer_mm": 22,
+      "doc:mating_bore_mm": 12,
+      "doc:mating_wall_mm": 5,
+      "doc:status": "released",
+      "doc:revision": 1
+    },
+    "fail_reason": "ok",
+    "error": null,
+    "wasted_ops": 1,
+    "n_quarantined": 0,
+    "grants": 5,
+    "denies": 1,
+    "tokens": 7471,
+    "llm_calls": 9,
+    "recovery_mode": "correct_pin",
+    "reassignments": 0,
+    "n_corrections": 4,
+    "agent_status": {
+      "A": "ok",
+      "B": "ok"
+    },
+    "arbiter_ops": [
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:wall_mm",
+          "value": 5
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:outer_mm",
+          "value": 22
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "set_param",
+        "args": {
+          "key": "doc:bore_mm",
+          "value": 12
+        },
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": true,
+        "detail": "ok"
+      },
+      {
+        "kind": "op",
+        "name": "release_revision",
+        "args": {},
+        "ok": false,
+        "detail": "bad_status_released"
+      }
+    ],
+    "agents": [
+      {
+        "id": "A",
+        "model": "deepseek-chat",
+        "write_keys": [
+          "doc:bore_mm"
+        ],
+        "injected": false,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 0,
+        "status": "ok",
+        "last_verdict": "ok",
+        "granted_at": 0,
+        "blocked_from": null,
+        "completed_at": 10
+      },
+      {
+        "id": "B",
+        "model": "qwen-plus",
+        "write_keys": [
+          "doc:wall_mm",
+          "doc:outer_mm"
+        ],
+        "injected": true,
+        "inherited_from": null,
+        "reassignments": 0,
+        "corrections_taken": 4,
+        "status": "ok",
+        "last_verdict": "deviation",
+        "granted_at": 3,
+        "blocked_from": 8,
+        "completed_at": 12
+      }
+    ]
+  }
+]

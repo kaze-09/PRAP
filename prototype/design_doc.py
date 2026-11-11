@@ -156,7 +156,8 @@ class DesignAgent(LLMAgent):
     SYSTEM_PROMPT_OVERRIDE = SYSTEM_PROMPT
 
     def __init__(self, sim, agent_id: str, client, write_keys: tuple[str, ...],
-                 inject_bore: bool = False, **kwargs):
+                 inject_bore: bool = False, reassign_on_isolate: bool = False,
+                 **kwargs):
         goal = (
             f"你的 ID 是 {agent_id}。你可写的 key 是 {list(write_keys)}。"
             "把本零件改到与配合件对齐，更新外径，并在三项都正确后 release。"
@@ -169,11 +170,18 @@ class DesignAgent(LLMAgent):
         super().__init__(sim, agent_id, client, goal, **kwargs)
         self.write_keys = tuple(write_keys)
         self.inject_bore = inject_bore
+        self.reassign_on_isolate = reassign_on_isolate
+        self.reassignments = 0
+        self.inherited_from = None
+        self._handed_off = False
         self.op_cap = 8
 
     def _observe(self) -> dict:
         obs = super()._observe()
-        if self.inject_bore and INJECT_KEY in self.sim.arbiter.state:
+        # A correct_pin must not be overwritten by the persistent injection;
+        # the next plan is supposed to use the authority value.
+        if (self.inject_bore and INJECT_KEY in self.sim.arbiter.state
+                and INJECT_KEY not in getattr(self, "pinned_values", {})):
             entry = self.sim.arbiter.state[INJECT_KEY]
             try:
                 val = int(entry.value) + INJECT_SHIFT
@@ -182,6 +190,66 @@ class DesignAgent(LLMAgent):
             obs[INJECT_KEY] = {"value": val, "version": entry.version}
             self._cache(INJECT_KEY, entry.version, digest(val))
         return obs
+
+    def _refresh_goal(self) -> None:
+        extra = ""
+        if self.inherited_from:
+            extra = f"另一名写者 {self.inherited_from} 已被隔离，其可写字段已转交给你。"
+        self.goal = (
+            f"你的 ID 是 {self.id}。你可写的 key 是 {list(self.write_keys)}。"
+            "把本零件改到与配合件对齐，更新外径，并在三项都正确后 release。"
+            + extra
+        )
+
+    def inherit_writes(self, from_agent: "DesignAgent") -> None:
+        """Take the isolated writer's fields and replan (reassignment arm)."""
+        merged = tuple(dict.fromkeys(list(self.write_keys) + list(from_agent.write_keys)))
+        if merged == self.write_keys and self.inherited_from:
+            return
+        self.write_keys = merged
+        self.item_keys = list(merged)
+        self.inherited_from = from_agent.id
+        self.reassignments += 1
+        self.replans_left = max(int(self.replans_left), 2)
+        self._reapplies_left = max(int(getattr(self, "_reapplies_left", 0)), 2)
+        self._refresh_goal()
+        self.sim.schedule(self.sim.now + 1, self._submit)
+
+    def _handoff_to(self, to_id: str = "A") -> None:
+        if self._handed_off:
+            return
+        other = self.sim.agents.get(to_id)
+        if other is None or not hasattr(other, "inherit_writes"):
+            return
+        if snapshot(self.sim.arbiter).get(KEY_STATUS) == "released":
+            return
+        self._handed_off = True
+        self._reapplies_left = 0
+        self.replans_left = 0
+        other.inherit_writes(self)
+
+    def on_msg(self, msg) -> None:
+        # Pin the true bore even if it was not in the leased key set
+        # (B only leases wall/outer; the deviation is on the bore).
+        if getattr(msg, "type", None) == "CORRECT":
+            entry = self.sim.arbiter.state.get(KEY_BORE)
+            if entry is not None:
+                self.pinned_values[KEY_BORE] = entry.value
+                self._cache(KEY_BORE, entry.version, digest(entry.value))
+        super().on_msg(msg)
+        if not self.reassign_on_isolate or self._handed_off:
+            return
+        ev = (getattr(msg, "verdict", None) or {}).get("evidence") or []
+        isolated = (
+            getattr(msg, "type", None) == "DENY_WITH_STATE"
+            and (
+                (getattr(msg, "verdict", None) or {}).get("class") == "deviation"
+                or any(isinstance(e, (list, tuple)) and e and e[0] == "suspect_blocked"
+                       for e in ev)
+            )
+        )
+        if isolated and self.sim.arbiter.agent_status.get(self.id) == "suspect":
+            self._handoff_to("A")
 
     def _sanitize_ops(self, ops: list) -> list:
         clean = []

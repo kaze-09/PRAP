@@ -1,15 +1,23 @@
-"""n=30 lease-only vs write-gating on the parametric design document.
+"""Design-document cells: lease-only, write gating, and two later recovery arms.
 
 Same instrument (authority ledger, sdk_cache gate, Qwen / DeepSeek at
 temperature 0.2). Agent B always has a persistent +1 mm shift on the
 observed bore. Seeds are design-doc-{trial} (no arm name). Logs go to
 design_doc_rerun/ and do not overwrite unified_seed_rerun/ or
-combo_gate_orch/.
+combo_gate_orch/. The original lease-only and gate JSON files are not
+rewritten by the recovery suites.
+
+Recovery arms (later, not prospectively registered):
+  gaterassign  gate on, quarantine as usual; when B is isolated, A
+               inherits wall, outer, and release, and replans.
+  gatepin      gate on, recovery_mode=correct_pin: deviation does not
+               isolate B; the authority bore is pinned into B's next plan.
 
 Usage:
   python run_design_doc.py --suite selftest
   python run_design_doc.py --suite smoke --trials 1
   python run_design_doc.py --suite all
+  python run_design_doc.py --suite recovery
 """
 from __future__ import annotations
 
@@ -36,6 +44,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(BASE, "design_doc_rerun")
 N_TRIALS = 30
 ARMS = ("leaseonly", "gate")
+RECOVERY_ARMS = ("gaterassign", "gatepin")
 SEED_PREFIX = "design-doc"
 
 
@@ -90,6 +99,9 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
         "denies": denies,
         "tokens": 0,
         "llm_calls": 0,
+        "recovery_mode": getattr(arb, "recovery_mode", "quarantine"),
+        "reassignments": 0,
+        "n_corrections": int(arb.stats.get("corrections") or 0),
         "agent_status": dict(arb.agent_status),
         "arbiter_ops": [
             {"kind": e[0], "name": e[3], "args": e[4], "ok": e[5], "detail": e[6]}
@@ -107,12 +119,16 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
             "model": getattr(client, "model", models.get(aid)),
             "write_keys": list(getattr(ag, "write_keys", ())),
             "injected": bool(getattr(ag, "inject_bore", False)),
+            "inherited_from": getattr(ag, "inherited_from", None),
+            "reassignments": int(getattr(ag, "reassignments", 0) or 0),
+            "corrections_taken": int(getattr(ag, "corrections_taken", 0) or 0),
             "status": arb.agent_status.get(aid),
             "last_verdict": getattr(ag, "last_verdict", None),
             "granted_at": ag.report.granted_at,
             "blocked_from": ag.report.blocked_from,
             "completed_at": ag.report.completed_at,
         })
+        rec["reassignments"] += int(getattr(ag, "reassignments", 0) or 0)
     rec["tokens"] = tokens
     rec["llm_calls"] = calls
     if error:
@@ -130,7 +146,9 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
 
 def run_llm_trial(arm: str, trial: int, clients: dict) -> dict:
     names = models_for_trial(trial)
-    sim = make_sim(l4_enabled=(arm == "gate"))
+    sim = make_sim(l4_enabled=(arm != "leaseonly"))
+    if arm == "gatepin":
+        sim.arbiter.recovery_mode = "correct_pin"
     # Fresh usage counters per trial (clients are reused otherwise).
     local = {}
     for aid, cname in names.items():
@@ -142,6 +160,7 @@ def run_llm_trial(arm: str, trial: int, clients: dict) -> dict:
     )
     DesignAgent(
         sim, "B", local["B"], B_WRITE, inject_bore=True,
+        reassign_on_isolate=(arm == "gaterassign"),
         obs_seed=f"{SEED_PREFIX}-{trial}-B",
     )
     sim.agents["A"].start(0)
@@ -272,6 +291,114 @@ def selftest() -> int:
     assert bore_belief[2] != digest(entry.value)
     assert bore_belief[2] == digest(int(entry.value) + INJECT_SHIFT)
     print("selftest 4 ok: +1 mm of the current bore stays a deviation")
+
+    # 5. Gate + reassignment: B is isolated on the bad outer; A inherits
+    #    wall/outer/release and finishes a correct revision.
+    sim = make_sim(l4_enabled=True)
+    a = ScriptedAgent(
+        sim, "A", (KEY_BORE,),
+        [("set_param", {"key": KEY_BORE, "value": 12})],
+        ttl=8, think=0, belief=_belief_from_obs(sim, False),
+    )
+    b = ScriptedAgent(
+        sim, "B", (KEY_WALL, KEY_OUTER, KEY_STATUS, KEY_REV),
+        [("set_param", {"key": KEY_WALL, "value": 5}),
+         ("set_param", {"key": KEY_OUTER, "value": 21}),
+         ("release_revision", {})],
+        ttl=8, think=0, belief=_belief_from_obs(sim, True),
+    )
+    _b_submit = b._submit
+    def _submit_fresh():
+        b.belief = _belief_from_obs(sim, True)
+        _b_submit()
+    b._submit = _submit_fresh
+    orig_on_msg = b.on_msg
+    handed = {"done": False}
+
+    def _b_on_msg(msg, _orig=orig_on_msg):
+        _orig(msg)
+        if handed["done"]:
+            return
+        if getattr(msg, "type", None) != "DENY_WITH_STATE":
+            return
+        if sim.arbiter.agent_status.get("B") != "suspect":
+            return
+        handed["done"] = True
+        def _a_finish():
+            a.keys = (KEY_WALL, KEY_OUTER, KEY_STATUS, KEY_REV)
+            a.ops = [
+                ("set_param", {"key": KEY_WALL, "value": 5}),
+                ("set_param", {"key": KEY_OUTER, "value": 22}),
+                ("release_revision", {}),
+            ]
+            a.belief = _belief_from_obs(sim, False)
+            a.lease_id = None
+            a._committed = False
+            a._submit()
+        sim.schedule(sim.now + 1, _a_finish)
+    b.on_msg = _b_on_msg
+    a.start(0)
+    b.start(2)
+    sim.run(until=24)
+    assert sim.arbiter.agent_status.get("B") == "suspect"
+    assert snapshot(sim.arbiter)[KEY_BORE] == 12
+    assert is_success(sim.arbiter), snapshot(sim.arbiter)
+    assert not is_wrong_release(sim.arbiter)
+    print("selftest 5 ok: gate+reassign, A finishes after B is isolated")
+
+    # 6. Gate + pin: deviation does not isolate B; after CORRECT, B writes
+    #    a ledger-consistent outer and releases.
+    sim = make_sim(l4_enabled=True)
+    sim.arbiter.recovery_mode = "correct_pin"
+    ScriptedAgent(
+        sim, "A", (KEY_BORE,),
+        [("set_param", {"key": KEY_BORE, "value": 12})],
+        ttl=8, think=0, belief=_belief_from_obs(sim, False),
+    )
+
+    class _PinScripted(ScriptedAgent):
+        def __init__(self, *args, then_ops=None, inject_first=True, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.then_ops = then_ops or []
+            self._corrected = False
+            self.inject_first = inject_first
+
+        def _submit(self):
+            if not self._corrected and self.inject_first:
+                self.belief = _belief_from_obs(sim, True)
+            super()._submit()
+
+        def on_msg(self, msg):
+            if getattr(msg, "type", None) == "CORRECT" and not self._corrected:
+                self._corrected = True
+                self.belief = _belief_from_obs(sim, False)
+                self.ops = list(self.then_ops)
+                self.lease_id = None
+                self._committed = False
+                sim.schedule(sim.now + 1, self._submit)
+                return
+            super().on_msg(msg)
+
+    _PinScripted(
+        sim, "B", (KEY_WALL, KEY_OUTER, KEY_STATUS, KEY_REV),
+        [("set_param", {"key": KEY_WALL, "value": 5}),
+         ("set_param", {"key": KEY_OUTER, "value": 21}),
+         ("release_revision", {})],
+        ttl=8, think=0, belief=_belief_from_obs(sim, True),
+        then_ops=[
+            ("set_param", {"key": KEY_WALL, "value": 5}),
+            ("set_param", {"key": KEY_OUTER, "value": 22}),
+            ("release_revision", {}),
+        ],
+    )
+    sim.agents["A"].start(0)
+    sim.agents["B"].start(2)
+    sim.run(until=24)
+    assert sim.arbiter.agent_status.get("B") != "suspect", sim.arbiter.agent_status
+    assert is_success(sim.arbiter), snapshot(sim.arbiter)
+    assert not is_wrong_release(sim.arbiter)
+    assert int(sim.arbiter.stats.get("corrections") or 0) >= 1
+    print("selftest 6 ok: gate+pin, B not isolated, correct release")
     print("all selftests passed")
     return 0
 
@@ -314,15 +441,18 @@ def run_arm(arm: str, trials: int, clients: dict, resume: bool) -> str:
         rec = run_llm_trial(arm, t, clients)
         append_json(path, rec)
         log(f"{arm} t{t} success={rec['success']} wrong_release={rec['wrong_release']} "
-            f"waste={rec['wasted_ops']} tokens={rec['tokens']} calls={rec['llm_calls']} "
-            f"reason={rec['fail_reason']} ({time.time()-t0:.1f}s)")
+            f"waste={rec['wasted_ops']} reassign={rec.get('reassignments', 0)} "
+            f"corr={rec.get('n_corrections', 0)} tokens={rec['tokens']} "
+            f"calls={rec['llm_calls']} reason={rec['fail_reason']} "
+            f"({time.time()-t0:.1f}s)")
     summarize(path)
     return path
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--suite", choices=["selftest", "smoke", "leaseonly", "gate", "all"],
+    ap.add_argument("--suite", choices=["selftest", "smoke", "leaseonly", "gate",
+                                       "gaterassign", "gatepin", "recovery", "all"],
                     default="all")
     ap.add_argument("--trials", type=int, default=N_TRIALS)
     ap.add_argument("--no-resume", action="store_true")
@@ -345,7 +475,12 @@ def main() -> int:
             run_arm("leaseonly", args.trials, clients, resume=False)
             run_arm("gate", args.trials, clients, resume=False)
         else:
-            arms = ARMS if args.suite == "all" else (args.suite,)
+            if args.suite == "all":
+                arms = ARMS
+            elif args.suite == "recovery":
+                arms = RECOVERY_ARMS
+            else:
+                arms = (args.suite,)
             for arm in arms:
                 run_arm(arm, args.trials, clients, resume=not args.no_resume)
     except Exception:
