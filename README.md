@@ -10,6 +10,8 @@ This repository is the artifact for a CSCWD 2027 draft. The official counts, see
 
 **Later combination (gate + reassignment), not prospectively registered.** On the two-agent map the arm recovers 28/30 with zero waste. On the eight-agent map it matches the orchestrator (18/30 vs 19/30) and wastes 3.37; composition does not both raise success and keep zero waste. Logs are in [`prototype/combo_gate_orch/`](prototype/combo_gate_orch/). See [ARTIFACT.md](ARTIFACT.md).
 
+**Later design-file cell (lease vs gate), not prospectively registered.** On a shared parametric coupling-plate file, lease-only releases a correct revision in 24/30 trials and a geometrically inconsistent one in 2/30 (not significant). The gate isolates the biased writer in 30/30, never releases a bad file, and also never finishes the file (0/30). Do not cite a success-rate win for the gate on this cell. Logs are in [`prototype/design_doc_rerun/`](prototype/design_doc_rerun/). See [ARTIFACT.md](ARTIFACT.md).
+
 An earlier eight-agent campaign whose seed contained the arm name is **not** the official result; see [ARTIFACT.md](ARTIFACT.md).
 
 ## Reproduce the tables (no API key)
@@ -52,12 +54,15 @@ prototype/
   testbed.py                        5x5 grid testbed and discrete-event simulator
   run_unified_confirmatory.py       Official (corrective-replication) runner
   run_combo_gate_orch.py            Later combination-arm runner
+  design_doc.py                     Later parametric design-file testbed
+  run_design_doc.py                 Later design-file cell runner
   summarize_confirmatory.py         Offline reprint of the official tables and the later combination
   unified_seed_rerun/               Official trial logs (do not overwrite)
   combo_gate_orch/                  Later combination trial logs (do not overwrite)
+  design_doc_rerun/                 Later design-file trial logs (do not overwrite)
   *.json                            Earlier campaign files, kept for the record
 ```
 
 ## 中文说明
 
-本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。后加的门控加再分配组合臂日志在 `prototype/combo_gate_orch/`，不是前瞻注册的对比；摘要中的 28/30 与 18/30 可在该目录复核。
+本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。后加的门控加再分配组合臂日志在 `prototype/combo_gate_orch/`，不是前瞻注册的对比；摘要中的 28/30 与 18/30 可在该目录复核。后加的设计文件实验日志在 `prototype/design_doc_rerun/`，同样不是前瞻注册的对比；只租约 24/30 正确发布、2/30 错误发布（不显著），门控 30/30 隔离且 0/30 完成，可在该目录复核。

@@ -1,6 +1,6 @@
 # Artifact for the CSCWD 2027 PRAP draft
 
-This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), and of a later combination arm finished the same day. Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. Recompute both with:
+This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), of a later combination arm finished the same day, and of a later design-file cell finished the same afternoon. Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. The later design-file logs are in `prototype/design_doc_rerun/`. Recompute the grid counts with:
 
 ```bash
 cd prototype
@@ -16,6 +16,7 @@ No API key is required for that check. The design can be inspected in `prototype
 | Eight-agent, five arms, *n* = 30, shared injection | **Official (corrective replication)** | `unified_seed_rerun/scale8_f30_*.json` |
 | Topology T2/C4 later baselines: lease-only, no protocol, prompt, *n* = 30 | Later baselines, **not** a new ranking and not Fisher-tested | `unified_seed_rerun/t2c4_*.json` |
 | Later combination: lease + write gate + official reassignment, *n* = 30 on both cells | Later measurement, **not** a prospectively registered contrast; not a confirmatory success-rate test | `combo_gate_orch/t2c4_gateorch.json` and `combo_gate_orch/scale8_f30_gateorch.json` |
+| Later design-file cell: lease-only vs write gating on a shared parametric coupling-plate, *n* = 30 | Later measurement, **not** a prospectively registered contrast; not a success-rate test of the gate | `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` |
 | Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun; the public preregistration already records this outcome and is not a prospective registration of it | existing `prototype/` JSON files cited in the paper |
 | Earlier eight-agent campaign whose seed included the arm name | **Not official**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
 
@@ -32,7 +33,7 @@ Topology T2/C4 injection was already deterministic (always agent B, a +1 *x* shi
 - Waste (the metric named in the preregistration) counts `op` / `op_free` log entries with `ok=False`. Refused intents are not waste. Use `wasted_ops`, not `wasted_ops_free_only`.
 - Success means all items delivered with no unreleased hold.
 - The three eight-agent Fisher tests named in the preregistration, computed on this corrective replication, are write gating vs lease-only, write gating vs orchestrator, and orchestrator vs lease-only. Bonferroni would set α = 0.0167; all three are already non-significant unadjusted. Other comparisons are descriptive only.
-- The testbed is a 5×5 grid of apples, not a collaborative design file. Stopped pilots (Overcooked, CuisineWorld, repository splice/conflict) are not results.
+- The main testbed is a 5×5 grid of apples. A later cell uses a shared parametric JSON coupling-plate file, not a CAD kernel; see below. Stopped pilots (Overcooked, CuisineWorld, repository splice/conflict) are not results.
 
 ## Official eight-agent counts
 
@@ -75,9 +76,22 @@ The arm was added after the ranked cells, on the same injections, *n* = 30 on ea
 
 **Eight-agent cell** (same seeds `unified-8-0.3-{trial}`, identical 71/240 injected and 52/240 effective; zero-effective trials 16 and 28 both succeeded; zero errors): 18/30, Wilson 95% CI [42%, 75%], waste 3.37 (3.47) (`wasted_ops`; `wasted_ops_free_only` is 0 on every trial), tokens 9905 (3620), LLM calls 8.70 (3.03), reassignments 1.00 (0.79) (22/30 trials reassigned at least once), quarantined 1.27 (1.08). Delivered-item counts: 18 trials delivered 4, 11 delivered 3, 1 delivered 2. No reassignment: 7/8 success, waste 0; with reassignment: 11/22 success, waste 4.59. This cell tracks the official orchestrator (19/30, waste 3.50), not the gate (21/30, waste 0.00). Composition does not raise success and keep zero waste.
 
+
+## Later design-file cell (lease vs gate)
+
+Added after the ranked grid cells and finished on 2026-11-11 at 14:47 (Asia/Shanghai). The object is a shared JSON parametric coupling-plate file, not a CAD kernel. Agent A writes only the bore (`doc:bore_mm`); B writes only wall and outer diameter (`doc:wall_mm`, `doc:outer_mm`); either may include status and revision when releasing. The change order is to reach (12, 5, 22) mm and release. There is no authority-side dimension check: a geometrically inconsistent file can be released, and a wrong release is counted the same way a wrong consume is counted. B's observed current bore is shifted by +1 mm into the cache at observation time (the shift tracks the true value after A updates). Models, temperature 0.2, `belief_mode=sdk_cache`, and the even/odd A=Qwen vs DeepSeek swap match the topology cell. Seeds are `design-doc-{trial}` (the arm name is not in the seed). Horizon 50. Scripts: `prototype/design_doc.py` and `prototype/run_design_doc.py`. Logs: `prototype/design_doc_rerun/`. This cell is **not** a prospectively registered contrast and is **not** a success-rate test of the gate. Do not overwrite `unified_seed_rerun/` or `combo_gate_orch/`.
+
+Success means the parameters are correct, the file is released, and no lease is left held. A wrong release means the file is released and the parameters are not correct.
+
+**Lease-only:** 24/30 success (80%, Wilson 95% CI [63%, 90%]), 2/30 wrong releases (trials 7 and 19, released outer 21 mm and 23 mm), parameters correct in 26/30, waste 1.30 (1.42), tokens 6242.60 (1708.79), LLM calls 7.30 (1.90), grants 6.6, denies 0, errors 0. A non-target outer (21 or 23 mm) was successfully checked in at least once in 18/30 trials; that count is descriptive, not a ranked test.
+
+**Write gating:** 0/30 success (Wilson 95% CI [0%, 11%]), 0/30 wrong releases, 0/30 parameters correct. Every trial ends at bore 12 mm, wall 4 mm, outer 18 mm, status `in_design`, revision 0. A updates the bore in 30/30 trials; B never writes wall or outer and is isolated in 30/30. Grants 4.0, denies 4.0, quarantined 1.00, waste 0.00, tokens 6977.70 (737.74), LLM calls 8.33 (0.55), errors 0.
+
+Fisher two-sided: success 24 vs 0, *p* ≈ 3.29 × 10^{-11}; wrong release 2 vs 0, *p* ≈ 0.49 (not significant); parameters correct 26 vs 0, *p* ≈ 7.84 × 10^{-13}. The honest claim is isolation at the cost of completion, the same pattern as 16/30 on the two-agent grid. Do not claim a success-rate win for the gate, and do not treat the wrong-release contrast as a statistical win. The strong irreversible-action number remains the consume cell (0/30 vs 30/30). The fault is an injected cache shift, with the same circularity as the grid cells.
+
 ## How to check a trial
 
-Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string. Each later combination record in `combo_gate_orch/` includes the same success, waste, token, and (for the eight-agent cell) seed and injection fields, plus `reassignments` and `handoffs`. The eight-agent plan written to `combo_gate_orch/injection_plan_scale8.json` has the same per-trial injection lists as the official plan; only the summary note differs. `summarize_confirmatory.py` reprints the combination counts and checks that those injection flags match the official write-gating arm.
+Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string. Each later combination record in `combo_gate_orch/` includes the same success, waste, token, and (for the eight-agent cell) seed and injection fields, plus `reassignments` and `handoffs`. Each later design-file record in `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` includes `seed`, `success`, `wrong_release`, `params_correct`, `wasted_ops`, `tokens`, `llm_calls`, `grants`, `denies`, `n_quarantined`, and the final `document`. The eight-agent plan written to `combo_gate_orch/injection_plan_scale8.json` has the same per-trial injection lists as the official plan; only the summary note differs. `summarize_confirmatory.py` reprints the combination counts and checks that those injection flags match the official write-gating arm.
 
 ## Live rerun (optional, costs API usage)
 
@@ -95,6 +109,13 @@ To rerun the later combination arm, first copy or rename `prototype/combo_gate_o
 ```bash
 python run_combo_gate_orch.py --suite inject
 python run_combo_gate_orch.py --suite all
+```
+
+To rerun the later design-file cell, first copy or rename `prototype/design_doc_rerun/` if you need to keep the posted logs (the runner writes to that folder):
+
+```bash
+python run_design_doc.py --suite selftest
+python run_design_doc.py --suite all
 ```
 
 ## Files that must not be committed
