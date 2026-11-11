@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reprint official confirmatory tables from unified_seed_rerun/ (no API key)."""
+"""Reprint official confirmatory tables and the later combination arm (no API key)."""
 from __future__ import annotations
 
 import json
@@ -11,6 +11,7 @@ from statistics import mean, stdev
 
 HERE = Path(__file__).resolve().parent
 RUN = HERE / "unified_seed_rerun"
+COMBO = HERE / "combo_gate_orch"
 
 SCALE_ARMS = (
     ("leaseonly", "Lease-only"),
@@ -209,11 +210,148 @@ def summarize_t2c4() -> None:
         )
 
 
+def first_assignee_t2c4(trial: dict) -> str:
+    for h in trial.get("handoffs") or []:
+        if h.get("agent"):
+            return str(h["agent"])
+    for ag in trial.get("agents") or []:
+        if ag.get("assigned"):
+            return str(ag.get("id") or "?")
+    return "?"
+
+
+def summarize_combo() -> None:
+    print()
+    print("Later combination: lease + write gate + official reassignment")
+    print("  Not a prospectively registered contrast; not a confirmatory success-rate test.")
+    if not COMBO.is_dir():
+        print(f"  missing {COMBO}")
+        return
+
+    path = COMBO / "t2c4_gateorch.json"
+    if not path.exists():
+        print(f"  missing {path}")
+    else:
+        trials = load_trials(path)
+        n = len(trials)
+        succ = sum(1 for t in trials if t.get("success"))
+        lo, hi = wilson(succ, n)
+        w_m, w_s = mean_sd([float(t.get("wasted_ops") or 0) for t in trials])
+        t_m, t_s = mean_sd([float(t.get("tokens") or 0) for t in trials])
+        c_m, c_s = mean_sd([float(t.get("llm_calls") or 0) for t in trials])
+        r_m, r_s = mean_sd([float(t.get("reassignments") or 0) for t in trials])
+        q_m, q_s = mean_sd([float(t.get("n_quarantined") or 0) for t in trials])
+        err = sum(1 for t in trials if t.get("error"))
+        print()
+        print("Topology T2/C4 combination")
+        print(
+            f"  success {succ}/{n}  Wilson [{lo:.0%}, {hi:.0%}]  "
+            f"waste {w_m:.2f} ({w_s:.2f})  tokens {t_m:.0f} ({t_s:.0f})  "
+            f"calls {c_m:.2f} ({c_s:.2f})  reassignments {r_m:.2f} ({r_s:.2f})  "
+            f"quarantined {q_m:.2f} ({q_s:.2f})"
+        )
+        if err:
+            print(f"  errors={err}")
+        first = defaultdict(lambda: [0, 0])
+        models = defaultdict(lambda: [0, 0])
+        fails = []
+        for t in trials:
+            who = first_assignee_t2c4(t)
+            first[who][1] += 1
+            if t.get("success"):
+                first[who][0] += 1
+            else:
+                fails.append((t.get("trial"), t.get("item_final"), who))
+            a_model = str((t.get("models") or {}).get("A", "?"))
+            if "qwen" in a_model.lower():
+                tag = "A=Qwen"
+            elif "deepseek" in a_model.lower():
+                tag = "A=DeepSeek"
+            else:
+                tag = a_model
+            models[tag][1] += 1
+            if t.get("success"):
+                models[tag][0] += 1
+        for who in sorted(first):
+            a, b = first[who]
+            print(f"  first assigned to {who}: {a}/{b}")
+        for tag in sorted(models):
+            a, b = models[tag]
+            print(f"  {tag}: {a}/{b}")
+        if fails:
+            print("  failures:", ", ".join(f"t{t} {item} (first {who})" for t, item, who in fails))
+
+    path = COMBO / "scale8_f30_gateorch.json"
+    if not path.exists():
+        print(f"  missing {path}")
+        return
+    trials = load_trials(path)
+    n = len(trials)
+    succ = sum(1 for t in trials if t.get("success"))
+    lo, hi = wilson(succ, n)
+    w_m, w_s = mean_sd([float(t.get("wasted_ops") or 0) for t in trials])
+    t_m, t_s = mean_sd([float(t.get("tokens") or 0) for t in trials])
+    c_m, c_s = mean_sd([float(t.get("llm_calls") or 0) for t in trials])
+    r_m, r_s = mean_sd([float(t.get("reassignments") or 0) for t in trials])
+    q_m, q_s = mean_sd([float(t.get("n_quarantined") or 0) for t in trials])
+    err = sum(1 for t in trials if t.get("error"))
+    inj = sum(int(t.get("n_injected") or 0) for t in trials)
+    eff = sum(int(t.get("n_effective") or 0) for t in trials)
+    zero_eff = [t.get("trial") for t in trials if int(t.get("n_effective") or 0) == 0]
+    zero_ok = [t.get("trial") for t in trials if int(t.get("n_effective") or 0) == 0 and t.get("success")]
+    no_re = [t for t in trials if int(t.get("reassignments") or 0) == 0]
+    with_re = [t for t in trials if int(t.get("reassignments") or 0) > 0]
+    delivered = defaultdict(int)
+    for t in trials:
+        delivered[int(t.get("delivered") or 0)] += 1
+    free_only = [float(t.get("wasted_ops_free_only") or 0) for t in trials]
+    print()
+    print("Eight-agent combination (same unified seed)")
+    print(f"  trials: {n}  injected: {inj}/{n * 8}  effective: {eff}/{n * 8}")
+    print(f"  zero-effective trials: {zero_eff}  succeeded: {zero_ok}")
+    print(
+        f"  success {succ}/{n}  Wilson [{lo:.0%}, {hi:.0%}]  "
+        f"waste {w_m:.2f} ({w_s:.2f})  tokens {t_m:.0f} ({t_s:.0f})  "
+        f"calls {c_m:.2f} ({c_s:.2f})  reassignments {r_m:.2f} ({r_s:.2f})  "
+        f"quarantined {q_m:.2f} ({q_s:.2f})"
+    )
+    if err:
+        print(f"  errors={err}")
+    if free_only and max(free_only) == 0 and min(free_only) == 0:
+        print("  wasted_ops_free_only is 0 on every trial")
+    no_s = sum(1 for t in no_re if t.get("success"))
+    with_s = sum(1 for t in with_re if t.get("success"))
+    no_w = mean_sd([float(t.get("wasted_ops") or 0) for t in no_re]) if no_re else (float("nan"), float("nan"))
+    with_w = mean_sd([float(t.get("wasted_ops") or 0) for t in with_re]) if with_re else (float("nan"), float("nan"))
+    print(f"  no reassignment: {no_s}/{len(no_re)} success, waste {no_w[0]:.2f}")
+    print(f"  with reassignment: {with_s}/{len(with_re)} success, waste {with_w[0]:.2f}")
+    d_bits = ", ".join(f"{k} items in {delivered[k]}" for k in sorted(delivered, reverse=True))
+    print(f"  delivered: {d_bits}")
+
+    official = RUN / "scale8_f30_prap.json"
+    if official.exists():
+        ref = load_trials(official)
+        mismatches = []
+        if len(ref) != n:
+            mismatches.append(f"trial count {n} vs official {len(ref)}")
+        else:
+            for i, t in enumerate(trials):
+                if injection_key(t) != injection_key(ref[i]) or t.get("seed") != ref[i].get("seed"):
+                    mismatches.append((i, t.get("seed"), ref[i].get("seed")))
+        if mismatches:
+            print("  INJECTION MISMATCH vs official write gating:", mismatches)
+            sys.exit(1)
+        print("  injection patterns: identical to the official write-gating arm")
+    else:
+        print(f"  official write-gating log not found at {official}; skipped injection check")
+
+
 def main() -> None:
     if not RUN.is_dir():
         raise SystemExit(f"missing {RUN}")
     summarize_scale()
     summarize_t2c4()
+    summarize_combo()
 
 
 if __name__ == "__main__":

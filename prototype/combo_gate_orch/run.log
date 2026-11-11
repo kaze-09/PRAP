@@ -1,0 +1,79 @@
+2026-11-11 11:42:12 start suite=inject trials=30
+2026-11-11 11:42:12 injection plan: inj 71/240=0.296, eff 52/240=0.217 (expected 0.225), zero-eff trials=[16, 28]
+2026-11-11 11:42:12 injection plan matches official unified_seed_rerun/injection_plan_scale8.json
+2026-11-11 11:42:12 wrote D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\injection_plan_scale8.json
+2026-11-11 11:42:19 start suite=t2c4 trials=1
+2026-11-11 11:42:19 clients loaded: qwen=qwen-plus, deepseek=deepseek-chat
+2026-11-11 11:42:19 t2c4 gateorch: resume from t0 -> 1, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\t2c4_gateorch.json
+2026-11-11 11:42:37   [t2c4 gateorch t0] success=1 waste=0 reassign=0 tokens=1200 17.8s
+2026-11-11 11:42:37   t2c4 gateorch done: 1/1
+2026-11-11 11:42:37 all requested work finished
+2026-11-11 11:42:49 start suite=all trials=30
+2026-11-11 11:42:49 injection plan: inj 71/240=0.296, eff 52/240=0.217 (expected 0.225), zero-eff trials=[16, 28]
+2026-11-11 11:42:49 injection plan matches official unified_seed_rerun/injection_plan_scale8.json
+2026-11-11 11:42:49 wrote D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\injection_plan_scale8.json
+2026-11-11 11:42:49 clients loaded: qwen=qwen-plus, deepseek=deepseek-chat
+2026-11-11 11:42:49 t2c4 gateorch: resume from t1 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\t2c4_gateorch.json
+2026-11-11 11:43:27   [t2c4 gateorch t1] success=1 waste=0 reassign=1 tokens=3342 37.5s
+2026-11-11 11:43:47   [t2c4 gateorch t2] success=1 waste=0 reassign=0 tokens=1322 20.3s
+2026-11-11 11:44:10   [t2c4 gateorch t3] success=1 waste=0 reassign=1 tokens=2854 22.9s
+2026-11-11 11:44:29   [t2c4 gateorch t4] success=1 waste=0 reassign=0 tokens=1244 18.5s
+2026-11-11 11:44:52   [t2c4 gateorch t5] success=1 waste=0 reassign=1 tokens=2846 22.9s
+2026-11-11 11:45:12   [t2c4 gateorch t6] success=1 waste=0 reassign=0 tokens=1316 20.3s
+2026-11-11 11:45:45   [t2c4 gateorch t7] success=1 waste=0 reassign=1 tokens=3141 33.0s
+2026-11-11 11:46:05   [t2c4 gateorch t8] success=0 waste=0 reassign=0 tokens=1272 19.7s
+2026-11-11 11:46:36   [t2c4 gateorch t9] success=1 waste=0 reassign=1 tokens=2862 31.5s
+2026-11-11 11:46:55   [t2c4 gateorch t10] success=1 waste=0 reassign=0 tokens=1277 19.3s
+2026-11-11 11:47:33   [t2c4 gateorch t11] success=1 waste=0 reassign=1 tokens=3094 37.7s
+2026-11-11 11:47:53   [t2c4 gateorch t12] success=1 waste=0 reassign=0 tokens=1278 19.5s
+2026-11-11 11:48:28   [t2c4 gateorch t13] success=1 waste=0 reassign=1 tokens=3008 35.2s
+2026-11-11 11:48:48   [t2c4 gateorch t14] success=1 waste=0 reassign=0 tokens=1326 20.6s
+2026-11-11 11:49:27   [t2c4 gateorch t15] success=1 waste=0 reassign=1 tokens=3122 38.3s
+2026-11-11 11:49:47   [t2c4 gateorch t16] success=1 waste=0 reassign=0 tokens=1298 19.9s
+2026-11-11 11:50:24   [t2c4 gateorch t17] success=0 waste=0 reassign=1 tokens=3089 37.5s
+2026-11-11 11:50:45   [t2c4 gateorch t18] success=1 waste=0 reassign=0 tokens=1325 20.5s
+2026-11-11 11:51:22   [t2c4 gateorch t19] success=1 waste=0 reassign=1 tokens=3104 37.5s
+2026-11-11 11:51:41   [t2c4 gateorch t20] success=1 waste=0 reassign=0 tokens=1241 18.5s
+2026-11-11 11:52:18   [t2c4 gateorch t21] success=1 waste=0 reassign=1 tokens=3107 37.7s
+2026-11-11 11:52:38   [t2c4 gateorch t22] success=1 waste=0 reassign=0 tokens=1311 20.0s
+2026-11-11 11:53:16   [t2c4 gateorch t23] success=1 waste=0 reassign=1 tokens=3103 37.8s
+2026-11-11 11:53:35   [t2c4 gateorch t24] success=1 waste=0 reassign=0 tokens=1266 19.0s
+2026-11-11 11:54:08   [t2c4 gateorch t25] success=1 waste=0 reassign=1 tokens=2855 33.0s
+2026-11-11 11:54:28   [t2c4 gateorch t26] success=1 waste=0 reassign=0 tokens=1305 20.0s
+2026-11-11 11:55:00   [t2c4 gateorch t27] success=1 waste=0 reassign=1 tokens=2862 32.4s
+2026-11-11 11:55:21   [t2c4 gateorch t28] success=1 waste=0 reassign=0 tokens=1298 20.5s
+2026-11-11 11:56:03   [t2c4 gateorch t29] success=1 waste=0 reassign=1 tokens=2858 41.7s
+2026-11-11 11:56:03   t2c4 gateorch done: 28/30
+2026-11-11 11:56:03 scale8 gateorch: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\scale8_f30_gateorch.json
+2026-11-11 11:57:57   [scale8 gateorch t0] success=1 waste=6 reassign=1 tokens=10304 114.6s
+2026-11-11 11:58:59   [scale8 gateorch t1] success=1 waste=0 reassign=0 tokens=5420 62.0s
+2026-11-11 12:01:28   [scale8 gateorch t2] success=0 waste=6 reassign=2 tokens=13642 148.5s
+2026-11-11 12:02:32   [scale8 gateorch t3] success=1 waste=0 reassign=0 tokens=5619 64.6s
+2026-11-11 12:03:16   [scale8 gateorch t4] success=1 waste=0 reassign=0 tokens=5413 43.6s
+2026-11-11 12:03:48   [scale8 gateorch t5] success=0 waste=0 reassign=0 tokens=5350 32.3s
+2026-11-11 12:05:25   [scale8 gateorch t6] success=0 waste=6 reassign=2 tokens=14109 96.9s
+2026-11-11 12:07:16   [scale8 gateorch t7] success=0 waste=9 reassign=3 tokens=18265 111.0s
+2026-11-11 12:08:31   [scale8 gateorch t8] success=1 waste=6 reassign=1 tokens=10181 74.8s
+2026-11-11 12:10:05   [scale8 gateorch t9] success=0 waste=6 reassign=1 tokens=10427 93.5s
+2026-11-11 12:12:18   [scale8 gateorch t10] success=1 waste=9 reassign=2 tokens=15462 133.3s
+2026-11-11 12:13:01   [scale8 gateorch t11] success=1 waste=0 reassign=0 tokens=5528 43.1s
+2026-11-11 12:14:08   [scale8 gateorch t12] success=0 waste=0 reassign=1 tokens=9032 66.9s
+2026-11-11 12:15:14   [scale8 gateorch t13] success=0 waste=0 reassign=1 tokens=9235 65.8s
+2026-11-11 12:17:15   [scale8 gateorch t14] success=1 waste=3 reassign=1 tokens=10578 121.0s
+2026-11-11 12:19:04   [scale8 gateorch t15] success=1 waste=3 reassign=1 tokens=10198 109.3s
+2026-11-11 12:20:00   [scale8 gateorch t16] success=1 waste=0 reassign=0 tokens=5453 55.9s
+2026-11-11 12:22:00   [scale8 gateorch t17] success=1 waste=4 reassign=1 tokens=10234 120.2s
+2026-11-11 12:23:35   [scale8 gateorch t18] success=0 waste=0 reassign=1 tokens=9722 94.7s
+2026-11-11 12:24:32   [scale8 gateorch t19] success=0 waste=0 reassign=1 tokens=7656 56.8s
+2026-11-11 12:27:07   [scale8 gateorch t20] success=1 waste=10 reassign=2 tokens=16034 155.1s
+2026-11-11 12:28:54   [scale8 gateorch t21] success=0 waste=4 reassign=1 tokens=9956 106.9s
+2026-11-11 12:31:31   [scale8 gateorch t22] success=0 waste=4 reassign=2 tokens=14210 157.3s
+2026-11-11 12:32:51   [scale8 gateorch t23] success=1 waste=6 reassign=1 tokens=10194 80.7s
+2026-11-11 12:33:36   [scale8 gateorch t24] success=1 waste=6 reassign=1 tokens=9964 44.5s
+2026-11-11 12:34:06   [scale8 gateorch t25] success=1 waste=0 reassign=0 tokens=5527 30.2s
+2026-11-11 12:34:46   [scale8 gateorch t26] success=0 waste=0 reassign=1 tokens=8927 40.3s
+2026-11-11 12:36:24   [scale8 gateorch t27] success=1 waste=10 reassign=2 tokens=14907 97.2s
+2026-11-11 12:37:08   [scale8 gateorch t28] success=1 waste=0 reassign=0 tokens=5397 44.4s
+2026-11-11 12:38:20   [scale8 gateorch t29] success=1 waste=3 reassign=1 tokens=10219 72.1s
+2026-11-11 12:38:20   scale8 gateorch done: 18/30
+2026-11-11 12:38:20 all requested work finished

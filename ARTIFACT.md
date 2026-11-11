@@ -1,6 +1,6 @@
 # Artifact for the CSCWD 2027 PRAP draft
 
-This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai). Numbers below are taken from `prototype/unified_seed_rerun/`. Recompute them with:
+This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), and of a later combination arm finished the same day. Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. Recompute both with:
 
 ```bash
 cd prototype
@@ -15,6 +15,7 @@ No API key is required for that check. The design can be inspected in `prototype
 |---|---|---|
 | Eight-agent, five arms, *n* = 30, shared injection | **Official (corrective replication)** | `unified_seed_rerun/scale8_f30_*.json` |
 | Topology T2/C4 later baselines: lease-only, no protocol, prompt, *n* = 30 | Later baselines, **not** a new ranking and not Fisher-tested | `unified_seed_rerun/t2c4_*.json` |
+| Later combination: lease + write gate + official reassignment, *n* = 30 on both cells | Later measurement, **not** a prospectively registered contrast; not a confirmatory success-rate test | `combo_gate_orch/t2c4_gateorch.json` and `combo_gate_orch/scale8_f30_gateorch.json` |
 | Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun; the public preregistration already records this outcome and is not a prospective registration of it | existing `prototype/` JSON files cited in the paper |
 | Earlier eight-agent campaign whose seed included the arm name | **Not official**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
 
@@ -63,9 +64,20 @@ Original campaign, not rerun: orchestrator 27/30, contract net 18/30, group chat
 
 The original contrast is orchestrator against write gating (27/30 against 16/30, *p* = 0.003). Later lease-only and no-protocol baselines finish as often as the orchestrator. The gap is mainly the cost of write gating cancelling rescue, not a unique benefit of the orchestrator relative to running without a lock.
 
+
+## Later combination (gate + reassignment)
+
+The official orchestrator writes without the gate: `OrchestratorAgent` / `OrchScaleAgent` inherit `NoProtocolAgent` and write through `op_free`. This later arm keeps the grant-time cache gate (`LLMAgent` path, `belief_mode=sdk_cache`, Layer-4 on) and uses the official assignment / reassignment path. Reassignment triggers after the same retry budget (`MAX_RETRIES=2`) when the assigned worker is isolated (`suspect_blocked`) or a granted plan fails at execution.
+
+The arm was added after the ranked cells, on the same injections, *n* = 30 on each map. It is **not** a prospectively registered contrast and is **not** a confirmatory success-rate test. Unadjusted Fisher comparisons against other arms are descriptive only. Logs and the runner are `prototype/combo_gate_orch/` and `prototype/run_combo_gate_orch.py`. Do not overwrite `unified_seed_rerun/`.
+
+**Topology T2/C4** (same deterministic C4 injection: always agent B, a +1 *x* shift): 28/30, Wilson 95% CI [79%, 98%], waste 0.00 (0.00), tokens 2151 (887), LLM calls 3.00 (1.02), reassignments 0.50 (0.51), quarantined 0.50 (0.51). All 15 trials first assigned to biased B isolated that writer and handed the item to A (14/15 recovered). All 15 trials first assigned to healthy A finished 14/15 with no reassignment. Model split: 14/15 vs 14/15. Failures: trial 8 (A granted; item finished at (3,0)) and trial 17 (B isolated, handed to A; item finished at (4,1)). Isolation plus reassignment recovered successes that isolation alone cancelled (write gating 16/30) and kept zero waste; do not treat 28/30 vs 16/30 as a confirmatory test.
+
+**Eight-agent cell** (same seeds `unified-8-0.3-{trial}`, identical 71/240 injected and 52/240 effective; zero-effective trials 16 and 28 both succeeded; zero errors): 18/30, Wilson 95% CI [42%, 75%], waste 3.37 (3.47) (`wasted_ops`; `wasted_ops_free_only` is 0 on every trial), tokens 9905 (3620), LLM calls 8.70 (3.03), reassignments 1.00 (0.79) (22/30 trials reassigned at least once), quarantined 1.27 (1.08). Delivered-item counts: 18 trials delivered 4, 11 delivered 3, 1 delivered 2. No reassignment: 7/8 success, waste 0; with reassignment: 11/22 success, waste 4.59. This cell tracks the official orchestrator (19/30, waste 3.50), not the gate (21/30, waste 0.00). Composition does not raise success and keep zero waste.
+
 ## How to check a trial
 
-Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string.
+Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string. Each later combination record in `combo_gate_orch/` includes the same success, waste, token, and (for the eight-agent cell) seed and injection fields, plus `reassignments` and `handoffs`. The eight-agent plan written to `combo_gate_orch/injection_plan_scale8.json` has the same per-trial injection lists as the official plan; only the summary note differs. `summarize_confirmatory.py` reprints the combination counts and checks that those injection flags match the official write-gating arm.
 
 ## Live rerun (optional, costs API usage)
 
@@ -77,6 +89,13 @@ python run_unified_confirmatory.py --suite t2c4
 ```
 
 Write keys to `prototype/api_keys.json` (gitignored) or set `QWEN_API_KEY` and `DEEPSEEK_API_KEY`. Do not overwrite `unified_seed_rerun/` if you are comparing against the official logs; point the runner at a new output directory or copy the folder first.
+
+To rerun the later combination arm, first copy or rename `prototype/combo_gate_orch/` if you need to keep the posted logs (the runner writes to that folder and has no separate output flag):
+
+```bash
+python run_combo_gate_orch.py --suite inject
+python run_combo_gate_orch.py --suite all
+```
 
 ## Files that must not be committed
 

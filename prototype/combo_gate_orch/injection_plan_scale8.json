@@ -1,0 +1,3253 @@
+{
+ "summary": {
+  "seed_formula": "unified-{scale}-{fault}-{trial}",
+  "scale": 8,
+  "fault": 0.3,
+  "trials": 30,
+  "agent_slots": 240,
+  "injected": 71,
+  "injected_rate": 0.29583333333333334,
+  "effective": 52,
+  "effective_rate": 0.21666666666666667,
+  "expected_effective_rate": 0.22499999999999998,
+  "zero_effective_trials": [
+   16,
+   28
+  ],
+  "note": "Same seed as the official unified-seed campaign."
+ },
+ "trials": [
+  {
+   "trial": 0,
+   "n_injected": 1,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 1,
+   "n_injected": 2,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 2,
+   "n_injected": 5,
+   "n_effective": 3,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 3,
+   "n_injected": 2,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 4,
+   "n_injected": 2,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 5,
+   "n_injected": 1,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 6,
+   "n_injected": 4,
+   "n_effective": 4,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 7,
+   "n_injected": 5,
+   "n_effective": 4,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 8,
+   "n_injected": 3,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 9,
+   "n_injected": 1,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 10,
+   "n_injected": 3,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 11,
+   "n_injected": 2,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 12,
+   "n_injected": 4,
+   "n_effective": 4,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 13,
+   "n_injected": 3,
+   "n_effective": 3,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 14,
+   "n_injected": 3,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 15,
+   "n_injected": 3,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 16,
+   "n_injected": 0,
+   "n_effective": 0,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 17,
+   "n_injected": 3,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 18,
+   "n_injected": 2,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 19,
+   "n_injected": 1,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 20,
+   "n_injected": 2,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 21,
+   "n_injected": 3,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 22,
+   "n_injected": 4,
+   "n_effective": 4,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 23,
+   "n_injected": 2,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 24,
+   "n_injected": 2,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 25,
+   "n_injected": 1,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple1": "world@(2,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 26,
+   "n_injected": 2,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 27,
+   "n_injected": 2,
+   "n_effective": 2,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple2": "world@(3,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  },
+  {
+   "trial": 28,
+   "n_injected": 1,
+   "n_effective": 0,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    }
+   ]
+  },
+  {
+   "trial": 29,
+   "n_injected": 2,
+   "n_effective": 1,
+   "agents": [
+    {
+     "agent": "A0",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A1",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A2",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": true,
+     "effective": true,
+     "override": {
+      "item:apple3": "world@(4,3)"
+     },
+     "model": "deepseek"
+    },
+    {
+     "agent": "A3",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": true,
+     "effective": false,
+     "override": {
+      "item:apple4": "world@(4,3)"
+     },
+     "model": "qwen"
+    },
+    {
+     "agent": "A4",
+     "item": "item:apple1",
+     "true_pos": [
+      1,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A5",
+     "item": "item:apple2",
+     "true_pos": [
+      2,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    },
+    {
+     "agent": "A6",
+     "item": "item:apple3",
+     "true_pos": [
+      3,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "deepseek"
+    },
+    {
+     "agent": "A7",
+     "item": "item:apple4",
+     "true_pos": [
+      4,
+      3
+     ],
+     "injected": false,
+     "effective": false,
+     "override": null,
+     "model": "qwen"
+    }
+   ]
+  }
+ ]
+}

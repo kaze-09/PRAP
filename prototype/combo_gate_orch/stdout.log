@@ -1,0 +1,790 @@
+2026-11-11 11:42:49 start suite=all trials=30
+2026-11-11 11:42:49 injection plan: inj 71/240=0.296, eff 52/240=0.217 (expected 0.225), zero-eff trials=[16, 28]
+2026-11-11 11:42:49 injection plan matches official unified_seed_rerun/injection_plan_scale8.json
+2026-11-11 11:42:49 wrote D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\injection_plan_scale8.json
+2026-11-11 11:42:49 clients loaded: qwen=qwen-plus, deepseek=deepseek-chat
+2026-11-11 11:42:49 t2c4 gateorch: resume from t1 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\t2c4_gateorch.json
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 距离更远，
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 苹果在(1,3)，我在(0,4)。先右移到(1,4)，再上移到(1,3)抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4
+2026-11-11 11:43:27   [t2c4 gateorch t1] success=1 waste=0 reassign=1 tokens=3342 37.5s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+2026-11-11 11:43:47   [t2c4 gateorch t2] success=1 waste=0 reassign=0 tokens=1322 20.3s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近；A 在 (0,4) 离物品 (1,3) 更近，但物品只
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:44:10   [t2c4 gateorch t3] success=1 waste=0 reassign=1 tokens=2854 22.9s
+  [gateorch] 分配: {'item:apple1': 'A'} | A在(0,4)，离apple1(1,3)曼哈顿距离为2；B在(2,0)，距离为|1-2|+|3-0|
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+2026-11-11 11:44:29   [t2c4 gateorch t4] success=1 waste=0 reassign=0 tokens=1244 18.5s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近；且 A 是编排者，由 B 单独取放可避免争抢。
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:44:52   [t2c4 gateorch t5] success=1 waste=0 reassign=1 tokens=2846 22.9s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+2026-11-11 11:45:12   [t2c4 gateorch t6] success=1 waste=0 reassign=0 tokens=1316 20.3s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近；A 在 (0,4) 离物品 (1,3) 更近，但物品只
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移一步到(0,3)，再右移到(1,3)抓取；然后送到(4,0)：需上移3步到y=0，再右移3步到x=4。路径：(1,3)->(
+2026-11-11 11:45:45   [t2c4 gateorch t7] success=1 waste=0 reassign=1 tokens=3141 33.0s
+  [gateorch] 分配: {'item:apple1': 'A'} | A在(0,4)，距apple1(1,3)曼哈顿距离2；B在(2,0)，距apple1曼哈顿距离4；A
+  [A/qwen] 计划: keys=('item:apple1',) ops=9 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)：dx=1,dy=-1；抓取apple1；
+2026-11-11 11:46:05   [t2c4 gateorch t8] success=0 waste=0 reassign=0 tokens=1272 19.7s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 距离更远，
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:46:36   [t2c4 gateorch t9] success=1 waste=0 reassign=1 tokens=2862 31.5s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+2026-11-11 11:46:55   [t2c4 gateorch t10] success=1 waste=0 reassign=0 tokens=1277 19.3s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近，单 worker 完成取放总路
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:47:33   [t2c4 gateorch t11] success=1 waste=0 reassign=1 tokens=3094 37.7s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+2026-11-11 11:47:53   [t2c4 gateorch t12] success=1 waste=0 reassign=0 tokens=1278 19.5s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近；A 在 (0,4) 离物品 (1,3) 更近但整体搬运
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)：从(2,3)→(3,3)→(4,3)→(4,2)→(
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移到(0,3)，再右移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:48:28   [t2c4 gateorch t13] success=1 waste=0 reassign=1 tokens=3008 35.2s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+2026-11-11 11:48:48   [t2c4 gateorch t14] success=1 waste=0 reassign=0 tokens=1326 20.6s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近，且离物品 (1,3) 也近；A 在 (0,4) 更远。
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)放置。路径：(2,0)→(2,1)→(2,2)→(2,
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:49:27   [t2c4 gateorch t15] success=1 waste=0 reassign=1 tokens=3122 38.3s
+  [gateorch] 分配: {'item:apple1': 'A'} | A在(0,4)，距apple1(1,3)曼哈顿距离2；B在(2,0)，距apple1曼哈顿距离4；A
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+2026-11-11 11:49:47   [t2c4 gateorch t16] success=1 waste=0 reassign=0 tokens=1298 19.9s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近；A 在 (0,4) 离物品 (1,3) 更近，但物品只
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)放置。路径：(2,0)→(2,1)→(2,2)→(2,
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=9 | 苹果在(1,3)，我在(0,4)。先向右到(1,4)，再向上到(1,3)抓取，然后向上到(1,0)，再向右到(4,0)放下。
+2026-11-11 11:50:24   [t2c4 gateorch t17] success=0 waste=0 reassign=1 tokens=3089 37.5s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。移动路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3
+2026-11-11 11:50:45   [t2c4 gateorch t18] success=1 waste=0 reassign=0 tokens=1325 20.5s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 更远，交给
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)出发到苹果(1,3)：先右移到(1,4)，再上移到(1,3)抓取；然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4
+2026-11-11 11:51:22   [t2c4 gateorch t19] success=1 waste=0 reassign=1 tokens=3104 37.5s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要从(0,4)移动到apple1所在位置(1,3)，grab它，然后移动到目标点(4,0)并place。先计算路径：(0,4)->(1,3)需dx=1,dy
+2026-11-11 11:51:41   [t2c4 gateorch t20] success=1 waste=0 reassign=0 tokens=1241 18.5s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近；A 在 (0,4)，离物品 (1,3) 更近但需长途搬
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。移动序列：(2,0)→(2,1)
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:52:18   [t2c4 gateorch t21] success=1 waste=0 reassign=1 tokens=3107 37.7s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。路径：(0,4)->(1,3)需dx=1,dy=-1；(1,3)-
+2026-11-11 11:52:38   [t2c4 gateorch t22] success=1 waste=0 reassign=0 tokens=1311 20.0s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 距离更远，
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=10 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右上移动到(4,0)放置。路径：(2,0)→(2,1)→(2,2)→(2,
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:53:16   [t2c4 gateorch t23] success=1 waste=0 reassign=1 tokens=3103 37.8s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我需要先移动到 apple1 所在位置 (1,3)，然后 grab 它，再移动到目标点 (4,0) 并 place。当前我在 (0,4)，apple1 在 (1
+2026-11-11 11:53:35   [t2c4 gateorch t24] success=1 waste=0 reassign=0 tokens=1266 19.0s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离目标 (4,0) 更近，且苹果在 (1,3)；由 B 取送可减少总移动距离，A
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先上移一步到(0,3)，再右移到(1,3)抓取；然后送到(4,0)：需上移3步到(1,0)，再右移3步到(4,0)放下。
+2026-11-11 11:54:08   [t2c4 gateorch t25] success=1 waste=0 reassign=1 tokens=2855 33.0s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)需dx=1,dy=-1；从(1,3)到(4
+2026-11-11 11:54:28   [t2c4 gateorch t26] success=1 waste=0 reassign=0 tokens=1305 20.0s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离物品 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 更远，交给
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:55:00   [t2c4 gateorch t27] success=1 waste=0 reassign=1 tokens=2862 32.4s
+  [gateorch] 分配: {'item:apple1': 'A'} | A is closer to apple1 at (1,3) than B at (2,0); A 
+  [A/qwen] 计划: keys=('item:apple1',) ops=10 | 我位于(0,4)，apple1在(1,3)，需先移动到(1,3)抓取，再移动到(4,0)放置。从(0,4)到(1,3)：dx=1,dy=-1；抓取apple1；
+2026-11-11 11:55:21   [t2c4 gateorch t28] success=1 waste=0 reassign=0 tokens=1298 20.5s
+  [gateorch] 分配: {'item:apple1': 'B'} | B 在 (2,0)，离苹果 (1,3) 和目的地 (4,0) 都更近；A 在 (0,4) 更远。只分
+  [B] received assignment: ['item:apple1']
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [B/qwen] 计划: keys=('item:apple1',) ops=7 | 我（B）在(2,0)，apple1在(2,3)，需先向下移动3步到(2,3)抓取，再向右移动2步、向上移动0步到(4,0)放置。抓取前需锁定item:apple
+  [B] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch B] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (B) -> reassign to A
+  [A/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,4)到苹果(1,3)：先右移到(1,4)，再上移到(1,3)，抓取，然后上移到(1,2)、(1,1)、(1,0)，再右移到(2,0)、(3,0)、(4,
+2026-11-11 11:56:03   [t2c4 gateorch t29] success=1 waste=0 reassign=1 tokens=2858 41.7s
+2026-11-11 11:56:03   t2c4 gateorch done: 28/30
+2026-11-11 11:56:03 scale8 gateorch: resume from t0 -> 30, out=D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\combo_gate_orch\scale8_f30_gateorch.json
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√13）；A5比A1更近apple2（dist
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我当前在 (0,0)。需先移动到 (2,3)：右移2步（dx=1两次），下移3步（dy=1三次）；然后 grab apple1；再
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我当前在 (0,0)。需先移动到 (2,3)：右移2步（dx=1两次），下移3步（dy=1三次）；然后 grab apple1；再
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A0] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A0) -> reassign to A4
+  [A4] received assignment: ['item:apple1']
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，再送到(0,4)：先上到y=2? 不，需从(4,3)到(0,4)。路径：(4,2)->(4,3)抓取，然后左
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A4）在(2,0)，apple1在(1,3)。需先移动到(1,3)：dx=1-2=-1, dy=3-0=3，分步走：(-1,0)→(1,0)；(0,1)→(
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(2,0)移动到apple1所在位置(1,3)，然后抓取它，再移动到目标位置(0,4)并放置。移动路径：(2,0)->(1,0)->(1,1)->(1,
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，向上一步到(2,3)抓取，再送到(0,4)：从(2,3)向左两步到(0,3)，再向下一步到(0,4)，然后place。
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我（A6）在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再向左移动3步到(0,3)，再向下移动1步到(0,4) 
+  [A4] 6 个算子失败: ['move', 'move', 'move', 'move', 'move', 'move'] -> 已按触发器处理
+  [A4/qwen] 计划: keys=('item:apple1',) ops=2 | apple1 is already at (0,4), and I am also at (0,4) — no move needed. I can grab 
+2026-11-11 11:57:57   [scale8 gateorch t0] success=1 waste=6 reassign=1 tokens=10304 114.6s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近分配：apple1 给 A0(0,0)，apple2 给 A5(2,4)，
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取，然后移到(0,4)投放。路径：(1,3)->(1,4)->(0,4)。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)抓取，再左3步到(0,3)，下1步到(0,4)放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，需先向下移动1格到(4,3)抓取，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。注意：move 
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）当前在(2,4)，apple2在(2,3)，需先向下移动到(2,3)抓取，再移动到目标(0,4)放置。从(2,3)到(0,4)：先向左2步到(0,3)
+2026-11-11 11:58:59   [scale8 gateorch t1] success=1 waste=0 reassign=0 tokens=5420 62.0s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，再下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我（A2）在(0,2)，apple3在(4,3)。需先移动到(4,3)：dx=4, dy=1 → 4步右移+1步下移，但每次只能±1，所以需[move:{dx:
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，再送到(0,4)：从(4,3)向左4步到(0,3)，再向下1步到(0,4)放下。
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | A2在(0,2)，apple3在(4,3)。需先移动到(4,3)：右移4步(x:0→4)，下移1步(y:2→3)，共5步；然后grab apple3；再移动到目
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(2,4)，apple2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(2,4)->(3,4)->(3,3)抓取，然后(3,3)->(2
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,4)并place。注意：(0,4)
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,4)并place。注意(0,4)已
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先向右到 (3,4)，再向上到 (3,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [gateorch] item:apple3: no unused worker left, give up
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(2,3)。需先移动到(2,3)抓取，再送到(0,4)放下。路径：左2步到(2,4)，上1步到(2,3)抓取；然后左2步到(0,3)，下
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(2,3)。先左移2步到(2,4)，再上移1步到(2,3)抓取，然后左移2步到(0,3)，下移1步到(0,4)放置。
+  [A1] 6 个算子失败: ['move', 'move', 'grab', 'move', 'move', 'place'] -> 已按触发器处理
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=2 | 我在(0,4)，apple2也在(0,4)，直接抓取并原地放下即可。
+2026-11-11 12:01:28   [scale8 gateorch t2] success=0 waste=6 reassign=2 tokens=13642 148.5s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A1', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 每件物品分给其候选者中距离最近者：apple1 距 A0(0,0) 为 4、距 
+  [A1] received assignment: ['item:apple2']
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）在(4,4)，apple2在(2,3)。需先移动到(2,3)：从(4,4)左移2步(dx=-1两次)、上移1步(dy=-1)，即move(dx=-1,
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先下移3步到(0,3)，再右移到(1,3)抓取，然后左移回(0,3)，下移到(0,4)放置。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | A2在(0,2)，apple3在(3,3)。先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+2026-11-11 12:02:32   [scale8 gateorch t3] success=1 waste=0 reassign=0 tokens=5619 64.6s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5比A1更近apple2（dist
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1在(1,3)，我在(0,0)。需先移动到(1,3)：右1→下3（共4步）。然后grab apple1，再移动到投放点(0,4)：左1→下1（共2步）
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我(A2)在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步；然后grab；再移动到目标(0,4)：左3步、下1步；最后place。共
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下移动一格抓取，然后送到(0,4)：先上移到(4,1)再左移到(0,1)再下移到(0,4)？更简单：抓取后从(4,3)向左
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先向上移动到 (2,3)，抓取 apple2，然后送到 (0,4)：从 (2,3) 向左两步到 (0,3)，再向
+2026-11-11 12:03:16   [scale8 gateorch t4] success=1 waste=0 reassign=0 tokens=5413 43.6s
+  [gateorch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品的候选者互不重叠，因此不存在争抢；把每件物品分给离它最近的候选者（A4→
+  [A4] received assignment: ['item:apple1']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A7] received assignment: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)：从(1,3)左到(0,3)，下到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=5 | 我（A5）当前在(2,4)，apple2在(2,3)，紧邻正上方，只需move dy=-1到(2,3)抓取；然后移动到目标(0,4)：先向左到x=0（dx=-2
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，放置。
+  [A7/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A7）在(4,1)，apple4在(4,3)。需先向下移动2步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下1步到(0,4)放置。注意：(
+2026-11-11 12:03:48   [scale8 gateorch t5] success=0 waste=0 reassign=0 tokens=5350 32.3s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1@(2,3)（曼哈顿距离2）；A5@(2,4)距apple
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我当前在 (0,0)。需先移动到 (2,3)：右2步、下3步；然后 grab apple1；再移动到投放点 (0,4)：左2步、上
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我当前在 (0,0)。需先移动到 (2,3)：右移2步（dx=1两次），下移3步（dy=1三次）；然后 grab apple1；再
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A0] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A0) -> reassign to A4
+  [A4] received assignment: ['item:apple1']
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步到(4,3)抓取，然后送到(0,4)：从(4,3)需左移4次到(0,3)，再下移1次到(0,4)，最后place。
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(2,0)移动到apple1所在位置(1,3)，然后抓取它，再移动到目标位置(0,4)并放置。移动路径：(2,0)->(1,0)->(1,1)->(1,
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(2,0)移动到apple1所在位置(1,3)，然后grab它，再移动到目标点(0,4)并place。路径：(2,0)->(1,0)->(1,1)->(
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先向右到 (3,4)，再向上到 (3,3) 抓取，然后送到 (0,4)：从 (3,3) 向左三次到 (0,3)，
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我（A6）在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再向左移动3步到(0,3)，再向下移动1步到(0,4) 
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，apple2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取，然后(3,3)->(2
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，apple2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取，然后(3,3)->(2
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A1] handoff item:apple2 (isolated)
+  [gateorch] item:apple2: no unused worker left, give up
+  [A4] 6 个算子失败: ['move', 'move', 'move', 'move', 'move', 'move'] -> 已按触发器处理
+  [A4/qwen] 计划: keys=('item:apple1',) ops=2 | apple1 在 (0,4)，而我（A4）当前也在 (0,4)，所以已与 apple1 同格，可直接 grab；grab 后需 place 到 (0,4) ——
+2026-11-11 12:05:25   [scale8 gateorch t6] success=0 waste=6 reassign=2 tokens=14109 96.9s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按距离就近分配：apple1(2,3) 给 A0(0,0) 与 A4(2,0) 
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到(2,3)取苹果，再送到(0,4)。路径：右2下3到(2,3)，抓取，然后左2下1到(0,4)放下。
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。先向右4步到 (4,2)，再向下1步到 (4,3) 抓取，然后送到 (0,4)：从 (4,3) 向左4步到 (0
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到(2,3)取apple1，再送到(0,4)。路径：右2下3到(2,3)，抓取，然后左2下1到(0,4)，放下。
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A0] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A0) -> reassign to A4
+  [A4] received assignment: ['item:apple1']
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共需6
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | 我在(0,2)，apple3在(4,3)。先向右4步到(4,2)，再向下1步到(4,3)抓取，然后送到(0,4)：从(4,3)向左4步到(0,3)，再向下1步到
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(2,0)到苹果(1,3)：先下移3步到(2,3)，再左移到(1,3)抓取；然后送到(0,4)：从(1,3)下移到(1,4)，再左移到(0,4)放置。
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。先向左到(1,0)，再向下到(1,3)抓取，然后送到(0,4)：从(1,3)向左到(0,3)，再向下到(0,4)放下。
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下移动1步到(0,4)，然后放置。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）在(2,4)，apple2在(3,3)。先move到(3,3)：dx=1, dy=-1。然后grab apple2。再move到目标(0,4)：从(3
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)，目标(0,4)。先向右3步到(3,3)抓取，再向左3步到(0,3)，向下1步到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=3 | 我（A5）在(2,4)，apple2在(3,3)。需先移动到(3,3)：dx=1, dy=-1 → (3,3)；grab apple2；再移动到目标(0,4)：
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (4,4)。先 move 到 (3,3)：dx=-1, dy=-1。然后 grab apple2。再 move 到目标 (0
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A4] 6 个算子失败: ['move', 'move', 'move', 'move', 'move', 'move'] -> 已按触发器处理
+  [A6] 3 个算子失败: ['grab', 'move', 'place'] -> 已按触发器处理
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我(A1)在(4,4)，apple2在(3,3)。需先移动到(3,3)：dx=-1,dy=-1；然后grab apple2；再移动到目标(0,4)：从(3,3)
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A1] handoff item:apple2 (isolated)
+  [gateorch] item:apple2: no unused worker left, give up
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=2 | 苹果已在 (0,4)，我也在 (0,4)，直接抓取并放下即可。
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=2 | 我在(0,4)，apple3也在(0,4)，直接抓取并原地放下即可。
+2026-11-11 12:07:16   [scale8 gateorch t7] success=0 waste=9 reassign=3 tokens=18265 111.0s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(1,3)；A5在(2,4)比A1(4,4)更近apple
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1 在 (1,3)，我需从 (0,0) 移动到 (1,3)：先向右1步到 (1,0)，再向下3步到 (1,3)；然后 grab apple1；再移动到
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步；然后grab；再移动到目标(0,4)：左3步、下1步；最后place。共
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，再送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(2,4)，苹果2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(2,4)->(3,4)->(3,3)抓取，然后(3,3)->(2,3)
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(2,3)。需先移动到(2,3)抓取，再送到(0,4)放下。路径：左2步到(2,4)，上1步到(2,3)抓取；然后左2步到(0,3)，下
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(2,3)。先左移2步到(2,4)，再上移1步到(2,3)抓取，然后左移2步到(0,3)，下移1步到(0,4)放置。
+  [A1] 6 个算子失败: ['move', 'move', 'grab', 'move', 'move', 'place'] -> 已按触发器处理
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=2 | 我在(0,4)，apple2也在(0,4)，直接抓取并原地放下即可。
+2026-11-11 12:08:31   [scale8 gateorch t8] success=1 waste=6 reassign=1 tokens=10181 74.8s
+  [gateorch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品的候选者互不重叠，因此不存在争抢；把每件物品分给距离更近的候选者（A4 
+  [A4] received assignment: ['item:apple1']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A7] received assignment: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)：从(1,3)下到(1,4)，左到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）当前在(2,4)，apple2在(3,3)。需先移动到(3,3)：dx=1, dy=-1 → (3,3)；然后grab apple2；再移动到目标(0
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，放置。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我需要先移动到 apple2 所在位置 (3,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (2,4)，先向右下移动到 (3
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我需要先移动到 apple2 所在位置 (2,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (4,4)，到 (2,3) 需要
+  [A7/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A7）在(4,1)，apple4在(4,3)。先向下移动2步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。注意：
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）在(4,4)，apple2在(2,3)。先移动到(2,3)：从(4,4)→(3,4)→(2,4)→(2,3)共3步；然后grab apple2；再移动
+  [A1] 6 个算子失败: ['move', 'move', 'grab', 'move', 'move', 'place'] -> 已按触发器处理
+  [A1/qwen] 计划: keys=('item:apple2',) ops=2 | item:apple2 在 (0,4)，而我（A1）当前也在 (0,4)，所以已与 apple2 同格，可直接 grab；grab 后需 place 到 (0,
+2026-11-11 12:10:05   [scale8 gateorch t9] success=0 waste=6 reassign=1 tokens=10427 93.5s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(1,3)；A5在(2,4)比A1(4,4)更近apple
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，再下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我(A2)在(0,2)，apple3在(4,3)。需先移动到(4,3)：向右4步，向下1步；然后grab apple3；再移动到投放点(0,4)：向左4步，向上
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，然后送到(0,4)：需从(4,3)向左4步到(0,3)，再向下1步到(0,4)，最后place。
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我（A2）在(0,2)，apple3在(4,3)。需先移动到(4,3)：右移4步（x:0→4），下移1步（y:2→3），共5步；然后grab apple3；再移
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | A6在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再移动到目标(0,4)：从(3,3)→(2,3)→(1,3)→
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | A6在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再移动到目标(0,4)：从(3,3)→(2,3)→(1,3)→
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,4)。先向左到 (2,4)，再向上到 (2,3) 抓取，然后送到 (0,4)：从 (2,3) 向左到 (0,3)，再向
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (2,3)，我在 (4,4)。先向左到 (2,4)，再向上到 (2,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A6] 3 个算子失败: ['grab', 'move', 'place'] -> 已按触发器处理
+  [A6/qwen] 计划: keys=('item:apple3',) ops=2 | apple3 在 (0,4)，我（A6）也在 (0,4)，所以无需移动，可直接 grab；grab 后需 place 到 (0,4) —— 但目标位置就是当前格
+  [A1] 6 个算子失败: ['move', 'move', 'grab', 'move', 'move', 'place'] -> 已按触发器处理
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=2 | 我在(0,4)，apple2也在(0,4)，直接抓取并原地放下即可。
+2026-11-11 12:12:18   [scale8 gateorch t10] success=1 waste=9 reassign=2 tokens=15462 133.3s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近原则分配：apple1 给 A0（(0,0) 距 (1,3) 较近），ap
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到苹果(1,3)：先下移3步到(0,3)，再右移1步到(1,3)抓取；然后送到(0,4)：左移1步到(0,3)，下移1步到(0,4)放置。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。路径：右3步到(3,2)，下1步到(3,3)，抓取，然后到(0,4)：左3步到(0,3)，下1步到(0,4)，放下。
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我当前在(2,4)，apple2在(2,3)，需先向上移动1格到(2,3)抓取，再移动到目标(0,4)。从(2,3)到(0,4)需左移2格、下移1格：(2,3)
+2026-11-11 12:13:01   [scale8 gateorch t11] success=1 waste=0 reassign=0 tokens=5528 43.1s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1 在 (1,3)，我当前在 (0,0)。需先移动到 (1,3) 抓取 apple1，再移动到目标 (0,4) 放下。路径：(0,0)→(1,0)→(
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步，即[(1,0),(1,0),(1,0),(0,1)]；然后grab ap
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，再送到(0,4)：从(4,3)向左4步到(0,3)，再向下1步到(0,4)放下。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先向右到 (3,4)，再向上到 (3,3) 抓取，然后向左到 (0,3)，再向下到 (0,4) 放下。
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(3,3)。先移动到(3,3)抓取，再送到(0,4)。路径：(4,4)->(3,4)->(3,3)抓取，然后(3,3)->(2,3)->
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：上到(4,3)，左到(3,3)抓取；然后左到(2,3)、左到(1,3)、
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A1] handoff item:apple2 (isolated)
+  [gateorch] item:apple2: no unused worker left, give up
+2026-11-11 12:14:08   [scale8 gateorch t12] success=0 waste=0 reassign=1 tokens=9032 66.9s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近分配：apple1 给 A0（距离 3），apple2 给 A5（距离 1
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取后到(0,4)：左移到(0,3)，下移到(0,4)，放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。先向右4步到 (4,2)，再向下1步到 (4,3) 抓取，然后送到 (0,4)：向左4步到 (0,3)，再向下1
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | 我在(0,2)，苹果3在(4,3)。先向右4步到(4,2)，再向下1步到(4,3)，抓取，然后送到(0,4)：从(4,3)向左4步到(0,3)，再向下1步到(0
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）当前在(2,4)，apple2在(2,3)，需先向下移动到(2,3)抓取，再移动到目标(0,4)放置。从(2,3)到(0,4)需左移2步、上移1步：先
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)，需先向右走4步到(4,3)抓取，再向左走4步到(0,4)？注意y需从3到4，先到(4,3)抓取后需移动到(0,4)：左4步到
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)。先向右移动4步到(4,3)，抓取，再向左移动4步到(0,3)，向下移动1步到(0,4)，然后放置。
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3: no unused worker left, give up
+2026-11-11 12:15:14   [scale8 gateorch t13] success=0 waste=0 reassign=1 tokens=9235 65.8s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(1,3)；A5在(2,4)比A1(4,4)更近apple
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1在(1,3)，我在(0,0)。需先移动到(1,3)：右1→下3（共4步）。然后grab apple1，再移动到投放点(0,4)：左1→下1（共2步）
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我当前在(0,2)，apple3在(4,3)。需先移动到(4,3)：向右4步，向下1步，共5步；然后grab apple3；再移动到目标(0,4)：向左4步，向
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，再送到(0,4)：从(4,3)需左移4次到(0,3)，再下移1次到(0,4)，然后place。
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | A2在(0,2)，apple3在(4,3)。需先移动到(4,3)：右移4步(x:0→4)，下移1步(y:2→3)，共5步；然后grab apple3；再移动到目
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先上移到 (2,3) 抓取，再送到 (0,4)：从 (2,3) 到 (0,4) 需左移2、下移1。注意 (0,4
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | A6在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再移动到目标(0,4)：从(3,3)→(2,3)→(1,3)→
+  [A6/qwen] 计划: keys=('item:apple3',) ops=9 | 我（A6）在(0,3)，apple3在(3,3)。需先向右移动3步到(3,3)，grab apple3，再向左移动3步到(0,3)，再向下1步到(0,4)，pl
+  [A6] 3 个算子失败: ['grab', 'move', 'place'] -> 已按触发器处理
+  [A6/qwen] 计划: keys=('item:apple3',) ops=2 | apple3 在 (0,4)，我（A6）也在 (0,4)，已同格，可直接 grab；grab 后需 place 到 (0,4) —— 但目标位置就是当前格，pl
+2026-11-11 12:17:15   [scale8 gateorch t14] success=1 waste=3 reassign=1 tokens=10578 121.0s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A1', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 每件物品分给其候选者中距离最近者：apple1 距 A0(0,0) 为 4，距 
+  [A1] received assignment: ['item:apple2']
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A1）在(4,4)，apple2在(2,3)。需先移动到(2,3)：从(4,4)左移2步(dx=-1两次)到x=2，y保持4→3需上移1步(dy=-1)，故
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先右移到(1,0)，再下移到(1,3)，抓取，然后移到(0,4)投放。路径：(1,3)->(1,4)->(0,4)。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。先向右 4 步到 (4,2)，再向下 1 步到 (4,3) 抓取，然后送到 (0,4)：从 (4,3) 向左 4
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。需先向右 4 步、向下 1 步到 (4,3) 抓取，再送到 (0,4)：向左 4 步、向下 1 步。
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，然后放置。
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果在(3,3)，需先右移3步到(3,3)抓取，再左移3步到(0,3)，下移到(0,4)放置。
+  [A6] 3 个算子失败: ['grab', 'move', 'place'] -> 已按触发器处理
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=2 | apple3 已在 (0,4)，我也在 (0,4)，直接抓取并原地放下即可。
+2026-11-11 12:19:04   [scale8 gateorch t15] success=1 waste=3 reassign=1 tokens=10198 109.3s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5比A1更近apple2（dist
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | apple1在(1,3)，我在(0,0)。需先移动到(1,3)：右1→下3（共4步）。然后grab apple1，再移动到投放点(0,4)：左1→下1（共2步）
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步，即[(1,0),(1,0),(1,0),(0,1)]；然后grab ap
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，需先下移一格抓取，再送到(0,4)：从(4,3)向左4步到(0,3)，再下移1步到(0,4)放置。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先向上移动到 (2,3) 抓取，再送到 (0,4)：从 (2,3) 到 (0,4) 需左移2、下移1。
+2026-11-11 12:20:00   [scale8 gateorch t16] success=1 waste=0 reassign=0 tokens=5453 55.9s
+  [gateorch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | 按就近原则分配：A4(2,0)取apple1(1,3)，A5(2,4)取appl
+  [A3] received assignment: ['item:apple4']
+  [A4] received assignment: ['item:apple1']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共需6
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。先下移到(2,3)再左移到(1,3)抓取，然后送到(0,4)：从(1,3)左移到(0,3)，再下移到(0,4)放置。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，正上方一格；先move上到(2,3)抓取，再移动到目标(0,4)：从(2,3)→(1,3)→(0,3)→(0,
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)，需先向右走4步到(4,3)抓取，再送到(0,4)。注意(0,4)已有apple4，但任务只要求place，不要求格子为空。路
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)，需先向右移动4步到(4,3)抓取，再向左移动4步到(0,4)投放。路径：从(0,3)到(4,3)需dx=+1四次；抓取后从(
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A6) -> reassign to A2
+  [A2] received assignment: ['item:apple3']
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | 从(0,2)到(3,3)取苹果3，再送到(0,4)。路径：右3步到(3,2)，下1步到(3,3)抓取，然后上1步到(3,2)，左3步到(0,2)，下2步到(0,
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。需先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步到(0
+  [A2] 4 个算子失败: ['move', 'grab', 'move', 'place'] -> 已按触发器处理
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=2 | 我在(0,4)，apple3也在(0,4)，直接抓取即可；投放点就是当前格，抓取后原地place。
+2026-11-11 12:22:00   [scale8 gateorch t17] success=1 waste=4 reassign=1 tokens=10234 120.2s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5(2,4)比A1(4,4)更近a
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(0,0)移动到apple1所在位置(1,3)，然后grab它，再移动到目标点(0,4)并place。路径：(0,0)->(1,0)->(1,1)->(
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | 我（A2）在(0,2)，apple3在(4,3)。需先移动到(4,3)：dx=4, dy=1 → 需4步右移+1步下移，路径为(0,2)→(1,2)→(2,2)
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=10 | 我在(4,2)，苹果4在(4,3)，向下一步抓取，然后送到(0,4)：先上到(4,2)再左移4步到(0,2)，再下移2步到(0,4)放下。路径：move(0,1
+  [A2/qwen] 计划: keys=('item:apple3',) ops=12 | A2在(0,2)，apple3在(4,3)。需先移动到(4,3)：右移4步(x:0→4)，下移1步(y:2→3)，共5步；然后grab apple3；再移动到目
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先上移到 (2,3) 抓取，再送到 (0,4)：从 (2,3) 到 (0,4) 需左移2、下移1。注意 (0,4
+  [A6/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,4) place。注意(0,4)已
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=11 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,3)，再向下1步到(0,4) pl
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3: no unused worker left, give up
+2026-11-11 12:23:35   [scale8 gateorch t18] success=0 waste=0 reassign=1 tokens=9722 94.7s
+  [gateorch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品的候选者互不重叠，按就近原则分配：A4(2,0)取apple1(1,3)
+  [A4] received assignment: ['item:apple1']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A7] received assignment: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(2,3)。先向下走3步到(2,3)抓取，再向左2步、向下1步到(0,4)放置。
+  [A4] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，先向上移动1格到(2,3)抓取apple2，再向下/向左移动到目标(0,4)。但(2,4)->(2,3)是dy
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(2,3)，需先下移3步到(2,3)抓取，再左移2步、下移1步到(0,4)放下。
+  [A4] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A4] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A4) -> reassign to A0
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下移动1步到(0,4)，然后放置。
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到苹果(1,3)：先下移3步到(0,3)，再右移到(1,3)抓取；然后送到(0,4)：左移到(0,3)，下移到(0,4)放下。
+  [A7/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A7）在(4,1)，apple4在(4,3)。需先向下移动2步到(4,3)抓取，再向左移动4步到(0,3)，再向下1步到(0,4)放置。注意：(0,4)是目
+2026-11-11 12:24:32   [scale8 gateorch t19] success=0 waste=0 reassign=1 tokens=7656 56.8s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1@(2,3)；A5@(2,4)比A1@(4,4)更近app
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | A0在(0,0)，apple1在(2,3)。需先移动到(2,3)：右2步、下3步，即move(dx=1,dy=0)→(1,0)，再move(dx=1,dy=0)
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | 当前我在(0,0)，apple1在(2,3)。需先移动到(2,3)：右2步、下3步 → (0,0)→(1,0)→(2,0)→(2,1)→(2,2)→(2,3)共
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A0] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A0) -> reassign to A4
+  [A4] received assignment: ['item:apple1']
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步抓取，再送到(0,4)：先上到y=2? 不，需从(4,3)到(0,4)。路径：抓取后向左4步到(0,3)，再向下1
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(2,0)移动到apple1所在位置(1,3)，然后抓取它，再移动到目标位置(0,4)并放置。移动路径：(2,0)->(1,0)->(1,1)->(1,
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A4）在(2,0)，apple1在(1,3)。需先移动到(1,3)：dx=-1,dy=3 → 分步：(2,0)→(1,0)→(1,1)→(1,2)→(1,3
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再向左2格到(0,3)，再向下1格到(0,4)放下。
+  [A6/qwen] 计划: keys=('item:apple3',) ops=11 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,3)，再向下移动1步到(0,4)（
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=11 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,3)，再向下1步到(0,4)，pl
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A6) -> reassign to A2
+  [A2] received assignment: ['item:apple3']
+  [A4] 6 个算子失败: ['move', 'move', 'move', 'move', 'move', 'move'] -> 已按触发器处理
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步 → (1,2)→(2,2)→(3,2)→(3,3)；然后grab app
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我需要先移动到 apple3 所在位置 (3,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (0,2)，到 (3,3) 需要
+  [A4/qwen] 计划: keys=('item:apple1',) ops=2 | apple1 在 (0,4)，而我（A4）当前也在 (0,4)，所以已与 apple1 同格，可直接 grab；grab 后需 place 到 (0,4) ——
+  [A2] 4 个算子失败: ['move', 'grab', 'move', 'place'] -> 已按触发器处理
+  [A2/qwen] 计划: keys=('item:apple3',) ops=2 | 我（A2）当前在(0,4)，item:apple3也在(0,4)，因此无需移动，可直接grab；grab后需place到(0,4)——但目标位置就是当前位置，所
+2026-11-11 12:27:07   [scale8 gateorch t20] success=1 waste=10 reassign=2 tokens=16034 155.1s
+  [gateorch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A7'} | 每件物品的候选者中，A4/A5/A6/A7 分别比 A0/A1/A2/A3 更接
+  [A4] received assignment: ['item:apple1']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A7] received assignment: ['item:apple4']
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)：从(1,3)左到(0,3)，下到(0,4)放下。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，先向上移动1格到(2,3)抓取apple2，再向下/向左移动到目标(0,4)。但(2,4)->(2,3)是dy
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，apple3在(4,3)。先向右移动4步到(4,3)抓取，再送到(0,4)：从(4,3)向左4步到(0,3)，再向下1步到(0,4)，然后pla
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A7/qwen] 计划: keys=('item:apple4',) ops=8 | A7在(4,1)，apple4在(4,3)，需先向下移动2步到(4,3)抓取，再向左移动4步到(0,3)，再向下1步到(0,4)放置。注意(0,4)已有appl
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)，需先向右移动4步到(4,3)抓取，再向左移动4步到(0,4)放下。路径：右4步到(4,3)，grab，左4步到(0,4)，p
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A6) -> reassign to A2
+  [A2] received assignment: ['item:apple3']
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 从(0,2)到(3,3)取苹果3，再送到(0,4)。路径：右3步到(3,2)，下1步到(3,3)，抓取，然后左3步到(0,3)，下1步到(0,4)，放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。先向右3步到(3,2)，再向下1步到(3,3)抓取，然后向左3步到(0,3)，再向下1步到(0,4)放置。
+  [A2] 4 个算子失败: ['move', 'grab', 'move', 'place'] -> 已按触发器处理
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=2 | apple3 已在 (0,4)，我也在 (0,4)，直接抓取并原地放下即可。
+2026-11-11 12:28:54   [scale8 gateorch t21] success=0 waste=4 reassign=1 tokens=9956 106.9s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√13）；A5比A1更近apple2（dist
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | A0在(0,0)，apple1在(2,3)。需先移动到(2,3)：右2步、下3步，即move(dx=2,dy=3)需分步（因每次dx/dy最多±1）。路径：(0
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A0/qwen] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我当前在 (0,0)。需先移动到 (2,3)：右移2步（dx=1两次），下移3步（dy=1三次）；然后 grab apple1；再
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A0] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A0) -> reassign to A4
+  [A4] received assignment: ['item:apple1']
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步到(4,3)抓取，再送到(0,4)：从(4,3)需向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A4）在(2,0)，apple1在(2,3)。需先向下移动3步到(2,3)抓取apple1，再移动到目标(0,4)：从(2,3)→(1,3)→(0,3)→(
+  [A4] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A4/qwen] 计划: keys=('item:apple1',) ops=8 | 我（A4）在(2,0)，apple1在(2,3)。需先向下移动3步到(2,3)抓取apple1，再移动到目标(0,4)：从(2,3)→(1,3)→(0,3)→(
+  [A4] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A4] handoff item:apple1 (isolated)
+  [gateorch] item:apple1: no unused worker left, give up
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | apple2 在 (2,3)，我在 (2,4)。先上移到 (2,3) 抓取，再送到 (0,4)：从 (2,3) 到 (0,4) 需左移2、下移1。路径：(2,4
+  [A6/qwen] 计划: keys=('item:apple3',) ops=11 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,3)，再向下移动1步到(0,4)（
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A6）在(0,3)，apple3在(4,3)。需先向右移动4步到(4,3)，grab apple3，再向左移动4步到(0,4) place。注意(0,4)已
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A6) -> reassign to A2
+  [A2] received assignment: ['item:apple3']
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我需要先移动到 apple3 所在位置 (3,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (0,2)，需向右走 3 步到 
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我需要先移动到 apple3 所在位置 (3,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (0,2)，需向右走 3 步到 
+  [A2] 4 个算子失败: ['move', 'grab', 'move', 'place'] -> 已按触发器处理
+  [A2/qwen] 计划: keys=('item:apple3',) ops=2 | 我（A2）当前在(0,4)，而apple3也在(0,4)，因此无需移动，可直接grab。grab后需place到(0,4)——但目标位置就是当前格，所以plac
+2026-11-11 12:31:31   [scale8 gateorch t22] success=0 waste=4 reassign=2 tokens=14210 157.3s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按距离就近分配：apple1(2,3) 给 A0(0,0) 与 A4(2,0) 
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | 从(0,0)到(2,3)取apple1，再送到(0,4)。路径：右2下3到(2,3)，grab，再左2下1到(0,4)，place。
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | apple3 在 (3,3)，我在 (0,2)。先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：从(3,3)向左3步到(0,3)，再向下
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=10 | apple1 在 (2,3)，我在 (0,0)。需先移动到 (2,3) 抓取，再送到 (0,4) 放下。路径：右2步到(2,0)，下3步到(2,3)，抓取，左2
+  [A0] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A0] handoff item:apple1 (isolated)
+  [gateorch] item:apple1 failed (A0) -> reassign to A4
+  [A4] received assignment: ['item:apple1']
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共需6
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)：从(1,3)下到(1,4)，左到(0,4)放置。
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 我在(2,0)，苹果在(1,3)。路径：下到(2,3)再左到(1,3)抓取，然后送到(0,4)。注意(0,4)已有apple3，但任务要求place，直接放下即
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先移动到(2,3)抓取，再移动到(0,4)放置。从(2,4)到(2,3)是dy=-1；从(2,3)到(0,4
+  [A4] 6 个算子失败: ['move', 'move', 'move', 'move', 'move', 'move'] -> 已按触发器处理
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=2 | 苹果已在 (0,4)，我也在 (0,4)，直接抓取并原地放下即可。
+2026-11-11 12:32:51   [scale8 gateorch t23] success=1 waste=6 reassign=1 tokens=10194 80.7s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5(2,4)比A1(4,4)更近a
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | A0在(0,0)，apple1在(1,3)。需先移动到(1,3)：右1步到(1,0)，再下3步到(1,3)；然后grab apple1；再移动到投放点(0,4)
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右移3步到x=3，再下移1步到y=3，即move(dx=1,dy=0)三次，再move(
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下移动一格抓取，再送到(0,4)：先向左4格到(0,3)，再向下到(0,4)放下。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(2,4)，苹果2在(3,3)。先向右到(3,4)，再向上到(3,3)抓取，然后送到(0,4)：从(3,3)向左3步到(0,3)，再向下到(0,4)放置。
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(2,3)。需先左移2格、上移1格到(2,3)抓取，再左移2格、下移1格到(0,4)放下。
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(2,3)。先向左2步到(2,4)，再向上1步到(2,3)抓取，然后向左2步到(0,3)，再向下1步到(0,4)放置。
+  [A1] 6 个算子失败: ['move', 'move', 'grab', 'move', 'move', 'place'] -> 已按触发器处理
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=2 | 我在(0,4)，apple2也在(0,4)，直接抓取并原地放置即可。
+2026-11-11 12:33:36   [scale8 gateorch t24] success=1 waste=6 reassign=1 tokens=9964 44.5s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近分配：apple1 给 A0（(0,0) 距 (1,3) 较近），appl
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 苹果在(1,3)，我在(0,0)。先向右1步到(1,0)，再向下3步到(1,3)抓取，然后向左1步到(0,3)，再向下1步到(0,4)放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：从(3,3)向左3步到(0,3)，再向下1步到(0,
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1步到(4,3)抓取apple4，再向左移动4步到(0,3)，再向下移动1步到(0,4)放置。共需6
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）当前在(2,4)，apple2在(2,3)，需先向下移动1格到(2,3)抓取apple2，再移动到目标(0,4)放置。从(2,3)到(0,4)：先向左
+2026-11-11 12:34:06   [scale8 gateorch t25] success=1 waste=0 reassign=0 tokens=5527 30.2s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1(0,0→1,3); A5最邻近apple2(2,4→2,
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(0,0)移动到apple1所在位置(1,3)，然后grab它，再移动到目标点(0,4)并place。路径：(0,0)->(1,0)->(1,1)->(
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步；再grab；再移动到投放点(0,4)：左3步、下1步；最后place。共
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步到(4,3)抓取，然后送到(0,4)：先向上到(4,2)…实际路径需从(4,3)到(0,4)，可先左移4步到(0,
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | apple2 在 (3,3)，我在 (2,4)。先移动到 (3,3) 抓取，再送到 (0,4) 放下。路径：(2,4)->(3,4)->(3,3) 抓取，然后 
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(2,4)，苹果2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(2,4)->(3,4)->(3,3)抓取，然后(3,3)->(2,3)
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(3,3)。先移动到(3,3)抓取，再移动到(0,4)放下。路径：从(4,4)到(3,3)需左移1、上移1；从(3,3)到(0,4)需左
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A1/deepseek] 计划: keys=('item:apple2',) ops=8 | 我在(4,4)，苹果2在(3,3)。先移动到(3,3)抓取，再送到(0,4)放下。路径：(4,4)->(3,4)->(3,3)抓取，然后(3,3)->(2,3)
+  [A1] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A1] handoff item:apple2 (isolated)
+  [gateorch] item:apple2: no unused worker left, give up
+2026-11-11 12:34:46   [scale8 gateorch t26] success=0 waste=0 reassign=1 tokens=8927 40.3s
+  [gateorch] 分配: {'item:apple1': 'A4', 'item:apple2': 'A5', 'item:apple3': 'A6', 'item:apple4': 'A3'} | 按就近原则分配：apple1(1,3) 给 A4(2,0) 而非 A0(0,0)
+  [A3] received assignment: ['item:apple4']
+  [A4] received assignment: ['item:apple1']
+  [A5] received assignment: ['item:apple2']
+  [A6] received assignment: ['item:apple3']
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，先向下移动1格到(4,3)抓取apple4，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6
+  [A4/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(2,0)到苹果(1,3)：先下移3步到(2,3)，再左移到(1,3)抓取；然后送到(0,4)：从(1,3)下移到(1,4)，再左移到(0,4)放置。
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）在(2,4)，apple2在(3,3)。先move到(3,3)：dx=1, dy=-1。然后grab apple2。再move到目标(0,4)：从(3
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)，需先向右移动4步到(4,3)抓取，再送到(0,4)。抓取后从(4,3)到(0,4)：向左4步到(0,3)，再向下1步到(0,
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A5/qwen] 计划: keys=('item:apple2',) ops=8 | 我（A5）在(2,4)，apple2在(3,3)。需先移动到(3,3)：dx=1, dy=-1 → (3,3)。然后grab apple2，再移动到目标(0,4
+  [A5] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A5] handoff item:apple2 (isolated)
+  [gateorch] item:apple2 failed (A5) -> reassign to A1
+  [A1] received assignment: ['item:apple2']
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=11 | 我在(0,3)，苹果3在(4,3)。先向右移动4步到(4,3)，抓取，再向左移动4步到(0,4)？注意y需从3到4，所以先到(4,3)抓取后需移动到(0,4)：
+  [A6] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A6] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A6) -> reassign to A2
+  [A2] received assignment: ['item:apple3']
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我需要先移动到 apple2 所在位置 (2,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (4,4)，所以先向左走 2 步
+  [A1/qwen] 计划: keys=('item:apple2',) ops=8 | 我需要先移动到 apple2 所在位置 (2,3)，然后 grab 它，再移动到目标位置 (0,4) 并 place。当前我在 (4,4)，需左移 2 步（dx
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | 我在(0,2)，苹果3在(3,3)。需先向右3步到(3,2)，再向下1步到(3,3)抓取，然后送到(0,4)：向左3步到(0,3)，再向下1步到(0,4)放下。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=10 | apple3 在 (3,3)，我在 (0,2)。先向右 3 步到 (3,2)，再向下 1 步到 (3,3) 抓取，然后送到 (0,4)：向左 3 步到 (0,3
+  [A1] 6 个算子失败: ['move', 'move', 'grab', 'move', 'move', 'place'] -> 已按触发器处理
+  [A2] 4 个算子失败: ['move', 'grab', 'move', 'place'] -> 已按触发器处理
+  [A1/qwen] 计划: keys=('item:apple2',) ops=2 | 我（A1）已在(0,4)，而apple2也在(0,4)，可直接grab；grab后已在目标位(0,4)，无需移动，place即可。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=2 | 我在(0,4)，苹果3也在(0,4)，直接抓取并原地放下即可。
+2026-11-11 12:36:24   [scale8 gateorch t27] success=1 waste=10 reassign=2 tokens=14907 97.2s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | A0最邻近apple1（dist=√10）；A5比A1更近apple2（dist
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/qwen] 计划: keys=('item:apple1',) ops=8 | 我需要从(0,0)移动到apple1所在位置(1,3)，然后grab它，再移动到目标点(0,4)并place。路径：(0,0)->(1,0)->(1,1)->(
+  [A2/qwen] 计划: keys=('item:apple3',) ops=10 | 我（A2）在(0,2)，apple3在(3,3)。需先移动到(3,3)：右3步、下1步；再grab；再移动到投放点(0,4)：左3步、下1步；最后place。共
+  [A3/deepseek] 计划: keys=('item:apple4',) ops=8 | 我在(4,2)，苹果4在(4,3)，向下走一步到(4,3)抓取，再送到(0,4)：从(4,3)需向左4步到(0,3)，再向下1步到(0,4)，然后place。
+  [A5/deepseek] 计划: keys=('item:apple2',) ops=6 | 我在(2,4)，apple2在(2,3)，先上移一格到(2,3)抓取，再移动到(0,4)放下。路径：(2,4)->(2,3)抓取->(1,3)->(0,3)->
+2026-11-11 12:37:08   [scale8 gateorch t28] success=1 waste=0 reassign=0 tokens=5397 44.4s
+  [gateorch] 分配: {'item:apple1': 'A0', 'item:apple2': 'A5', 'item:apple3': 'A2', 'item:apple4': 'A3'} | 按就近分配：apple1 给 (0,0) 的 A0，apple2 给 (2,4)
+  [A2] received assignment: ['item:apple3']
+  [A3] received assignment: ['item:apple4']
+  [A5] received assignment: ['item:apple2']
+  [A0/deepseek] 计划: keys=('item:apple1',) ops=8 | 从(0,0)到(1,3)取苹果：先下移3步到(0,3)，再右移到(1,3)抓取；然后送到(0,4)：左移到(0,3)，下移到(0,4)放置。
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | apple3 在 (4,3)，我在 (0,2)。先向右4步到 (4,2)，再向下1步到 (4,3) 抓取，然后送到 (0,4)：从 (4,3) 向左4步到 (0
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 2）
+  [A3/qwen] 计划: keys=('item:apple4',) ops=8 | 我（A3）在(4,2)，apple4在(4,3)，需先向下移动1格到(4,3)抓取，再向左移动4格到(0,3)，再向下移动1格到(0,4)放置。共需6步：mov
+  [A2/deepseek] 计划: keys=('item:apple3',) ops=12 | 我在(0,2)，apple3在(4,3)。先右移4步到(4,2)，再下移到(4,3)抓取，然后送到(0,4)：需左移4步到(0,3)，再下移到(0,4)放置。
+  [A2] 被隔离拦截 -> 重新观察并申请解除（剩 1）
+  [gateorch A2] handoff item:apple3 (isolated)
+  [gateorch] item:apple3 failed (A2) -> reassign to A6
+  [A6] received assignment: ['item:apple3']
+  [A5/qwen] 计划: keys=('item:apple2',) ops=6 | 我（A5）在(2,4)，apple2在(2,3)，需先向上移动1格到(2,3)抓取，再移动到目标(0,4)放置。从(2,3)到(0,4)需左移2格、下移1格，但
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右走3步到(3,3)，抓取，再向左走3步到(0,3)，向下走1步到(0,4)，放下。
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=9 | 我在(0,3)，苹果3在(3,3)。先向右移动3步到(3,3)，抓取，再向左移动3步到(0,3)，向下1步到(0,4)，然后放置。
+  [A6] 3 个算子失败: ['grab', 'move', 'place'] -> 已按触发器处理
+  [A6/deepseek] 计划: keys=('item:apple3',) ops=2 | 我在(0,4)，apple3也在(0,4)，直接抓取并原地放下即可。
+2026-11-11 12:38:20   [scale8 gateorch t29] success=1 waste=3 reassign=1 tokens=10219 72.1s
+2026-11-11 12:38:20   scale8 gateorch done: 18/30
+2026-11-11 12:38:20 all requested work finished

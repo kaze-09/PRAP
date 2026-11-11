@@ -1,0 +1,2267 @@
+[
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 0,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1200,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 1,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3342,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 2,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1322,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 3,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 2854,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 4,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1244,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 5,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 2846,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 6,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1316,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 7,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3141,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 8,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(3,0)）",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1272,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(3,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 9,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 2862,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 10,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1277,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 11,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3094,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 12,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1278,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 13,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3008,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 14,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1326,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 15,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3122,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 16,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1298,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 17,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": false,
+  "fail_reason": "item:apple1 未送达（world@(4,1)）",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3089,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,1)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 18,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1325,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 19,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3104,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 20,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1241,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 21,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3107,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 22,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1311,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 23,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 3103,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 24,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1266,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 25,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 2855,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 26,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1305,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 27,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 2862,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 28,
+  "models": {
+   "A": "qwen-plus",
+   "B": "deepseek-chat"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 0,
+  "grants": 1,
+  "denies": 0,
+  "expires": 0,
+  "tokens": 1298,
+  "llm_calls": 2,
+  "reassignments": 0,
+  "verdicts": {
+   "A": "ok",
+   "B": null
+  },
+  "status": {
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [],
+  "agents": [
+   {
+    "id": "A",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 4,
+    "blocked_from": null,
+    "granted_at": 2
+   },
+   {
+    "id": "B",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [],
+    "status": null,
+    "last_verdict": null,
+    "handoffs": [],
+    "completed_at": null,
+    "blocked_from": null,
+    "granted_at": null
+   }
+  ]
+ },
+ {
+  "suite": "combo_gate_orch",
+  "arm": "gateorch",
+  "task": "T2",
+  "cond": "C4",
+  "trial": 29,
+  "models": {
+   "A": "deepseek-chat",
+   "B": "qwen-plus"
+  },
+  "success": true,
+  "fail_reason": "ok",
+  "error": null,
+  "wasted_ops": 0,
+  "wasted_ops_free_only": 0,
+  "failed_ops": 0,
+  "n_quarantined": 1,
+  "grants": 1,
+  "denies": 2,
+  "expires": 0,
+  "tokens": 2858,
+  "llm_calls": 4,
+  "reassignments": 1,
+  "verdicts": {
+   "A": "ok",
+   "B": "deviation"
+  },
+  "status": {
+   "B": "suspect",
+   "A": "ok"
+  },
+  "item_final": "world@(4,0)",
+  "handoffs": [
+   {
+    "tick": 3,
+    "agent": "B",
+    "item": "item:apple1",
+    "reason": "isolated"
+   }
+  ],
+  "agents": [
+   {
+    "id": "A",
+    "model": "deepseek-chat",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "ok",
+    "last_verdict": "ok",
+    "handoffs": [],
+    "completed_at": 7,
+    "blocked_from": null,
+    "granted_at": 5
+   },
+   {
+    "id": "B",
+    "model": "qwen-plus",
+    "item": null,
+    "injected": null,
+    "effective": null,
+    "override": null,
+    "assigned": [
+     "item:apple1"
+    ],
+    "status": "suspect",
+    "last_verdict": "deviation",
+    "handoffs": [
+     {
+      "tick": 3,
+      "agent": "B",
+      "item": "item:apple1",
+      "reason": "isolated"
+     }
+    ],
+    "completed_at": null,
+    "blocked_from": 2,
+    "granted_at": null
+   }
+  ]
+ }
+]
