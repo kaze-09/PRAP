@@ -1,6 +1,6 @@
 # Artifact for the CSCWD 2027 PRAP draft
 
-This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), of a later combination arm finished the same day, of a later design-file cell finished the same afternoon, and of two later design-file recovery arms finished the same afternoon. Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. The later design-file logs, including the recovery arms, are in `prototype/design_doc_rerun/`. Recompute the grid counts with:
+This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), of a later combination arm finished the same day, of a later design-file cell finished the same afternoon, of two later design-file recovery arms finished the same afternoon, and of a later descriptive design-file plan-slip cell finished the same evening. Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. The later design-file logs, including the recovery arms, are in `prototype/design_doc_rerun/`. Recompute the grid counts with:
 
 ```bash
 cd prototype
@@ -18,6 +18,7 @@ No API key is required for that check. The design can be inspected in `prototype
 | Later combination: lease + write gate + official reassignment, *n* = 30 on both cells | Later measurement, **not** a prospectively registered contrast; not a confirmatory success-rate test | `combo_gate_orch/t2c4_gateorch.json` and `combo_gate_orch/scale8_f30_gateorch.json` |
 | Later design-file cell: lease-only vs write gating on a shared parametric coupling-plate, *n* = 30 | Later measurement, **not** a prospectively registered contrast; not a success-rate test of the gate | `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` |
 | Later design-file recovery: isolation then reassignment, and pinning without isolation, *n* = 30 | Later measurement, **not** a prospectively registered contrast | `design_doc_rerun/design_gaterassign.json` and `design_doc_rerun/design_gatepin.json` |
+| Later design-file plan-slip cell: lease-only vs write gating under an injected +1 mm slip on B's submitted wall and outer, cache left correct, *n* = 10 | Later descriptive measurement, **not** a prospectively registered contrast and **not** a confirmatory test; not a naturally occurring model error | `design_doc_rerun/design_leaseonly_planslip.json` and `design_doc_rerun/design_gate_planslip.json` |
 | Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun; the public preregistration already records this outcome and is not a prospective registration of it | existing `prototype/` JSON files cited in the paper |
 | Earlier eight-agent campaign whose seed included the arm name | **Not official**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
 
@@ -103,9 +104,22 @@ Pinning is not a substitute for the gate. Detection is still the grant-time cach
 Fisher two-sided: both recovery arms versus write gating, success *p* ≈ 1.69 × 10^{-17}; both versus lease-only, success *p* = 0.024; both versus lease-only, wrong release *p* = 0.49 (not significant). Waste favors pinning (0.90) over lease-only (1.30) over reassignment (2.27). Tokens per completed file favor reassignment (5709.83) over pinning (6778.67) over lease-only (7803.25; equivalently the lease-only mean 6242.60 × 30 / 24). Zero waste after reassignment holds on the two-agent map (28/30), not on this file or the eight-agent combination (waste 3.37). Do not treat these arms as a registered contrast, and do not claim that pinning always dominates or that reassignment always has zero waste.
 
 
+
+## Later design-file plan-slip cell (descriptive, n = 10)
+
+Added after the observation-bias design-file cells and finished on 2026-11-11 at 19:06 (Asia/Shanghai). This cell is **not** a prospectively registered contrast, is **not** a confirmatory analysis, and does **not** measure naturally occurring model errors. The fault is an injected persistent +1 mm slip applied to B's submitted `set_param` values on wall and outer after planning; the observation cache is left correct, and A is not slipped. Seeds are `design-doc-planslip-{trial}` (the arm name is not in the seed). Default *n* = 10. Horizon, models, temperature 0.2, `belief_mode=sdk_cache`, and the even/odd model swap match the other design-file cells. Observation-bias injection is off. Logs: `prototype/design_doc_rerun/design_leaseonly_planslip.json` and `prototype/design_doc_rerun/design_gate_planslip.json`. Do not overwrite `design_leaseonly.json`, `design_gate.json`, `design_gaterassign.json`, or `design_gatepin.json`. `--suite all` does not include this cell.
+
+Because the cache matches the ledger, the grant-time gate should grant. It did: 0 denies and 0 isolations on both arms.
+
+**Lease-only + plan slip:** 0/10 success, 7/10 wrong releases, 3/10 not released. Every trial ends at bore 12 mm, wall 6 mm, outer 23 mm (target 12, 5, 22). The three unreleased trials are already at those wrong dimensions, status `in_design`, revision 0. Waste 0.00 (0.00), tokens 5260.60 (1280.85), LLM calls 6.70 (1.70), mean plan slips 5.30 (2.16), grants 6.2, denies 0, errors 0.
+
+**Write gating + plan slip:** 0/10 success, 6/10 wrong releases, 4/10 not released. Every trial ends at the same (12, 6, 23) mm document. Waste 0.00 (0.00), tokens 5821.90 (1422.42), LLM calls 7.20 (1.62), mean plan slips 6.60 (1.90), grants 7.0, denies 0, quarantined 0, errors 0.
+
+Do not treat 7/10 versus 6/10 wrong releases as a comparison between the arms. The result supports the measurement contract: the gate compares the cache with the ledger and does not inspect whether the plan is reasonable.
+
 ## How to check a trial
 
-Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string. Each later combination record in `combo_gate_orch/` includes the same success, waste, token, and (for the eight-agent cell) seed and injection fields, plus `reassignments` and `handoffs`. Each later design-file record in `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` includes `seed`, `success`, `wrong_release`, `params_correct`, `wasted_ops`, `tokens`, `llm_calls`, `grants`, `denies`, `n_quarantined`, and the final `document`. Each later recovery-arm record in `design_doc_rerun/design_gaterassign.json` and `design_doc_rerun/design_gatepin.json` includes the same fields, plus `reassignments`, `n_corrections`, `recovery_mode`, and per-agent `inherited_from`. The eight-agent plan written to `combo_gate_orch/injection_plan_scale8.json` has the same per-trial injection lists as the official plan; only the summary note differs. `summarize_confirmatory.py` reprints the combination counts and checks that those injection flags match the official write-gating arm.
+Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string. Each later combination record in `combo_gate_orch/` includes the same success, waste, token, and (for the eight-agent cell) seed and injection fields, plus `reassignments` and `handoffs`. Each later design-file record in `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` includes `seed`, `success`, `wrong_release`, `params_correct`, `wasted_ops`, `tokens`, `llm_calls`, `grants`, `denies`, `n_quarantined`, and the final `document`. Each later recovery-arm record in `design_doc_rerun/design_gaterassign.json` and `design_doc_rerun/design_gatepin.json` includes the same fields, plus `reassignments`, `n_corrections`, `recovery_mode`, and per-agent `inherited_from`. Each later plan-slip record in `design_doc_rerun/design_leaseonly_planslip.json` and `design_doc_rerun/design_gate_planslip.json` includes the same design-file fields, plus `plan_slip` and `n_plan_slips`. The eight-agent plan written to `combo_gate_orch/injection_plan_scale8.json` has the same per-trial injection lists as the official plan; only the summary note differs. `summarize_confirmatory.py` reprints the combination counts and checks that those injection flags match the official write-gating arm.
 
 ## Live rerun (optional, costs API usage)
 
@@ -125,12 +139,13 @@ python run_combo_gate_orch.py --suite inject
 python run_combo_gate_orch.py --suite all
 ```
 
-To rerun the later design-file cell, first copy or rename `prototype/design_doc_rerun/` if you need to keep the posted logs (the runner writes to that folder and resumes by default). `--suite all` includes the two recovery arms; `--suite recovery` runs only those two. Do not overwrite `design_leaseonly.json` or `design_gate.json`.
+To rerun the later design-file cells, first copy or rename `prototype/design_doc_rerun/` if you need to keep the posted logs (the runner writes to that folder and resumes by default). `--suite all` runs only lease-only and write gating. `--suite recovery` runs only the two recovery arms. `--suite planslip` runs the later plan-slip cell (default *n* = 10). Do not overwrite `design_leaseonly.json`, `design_gate.json`, `design_gaterassign.json`, or `design_gatepin.json`.
 
 ```bash
 python run_design_doc.py --suite selftest
 python run_design_doc.py --suite all
 python run_design_doc.py --suite recovery
+python run_design_doc.py --suite planslip
 ```
 
 ## Files that must not be committed

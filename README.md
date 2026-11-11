@@ -12,6 +12,8 @@ This repository is the artifact for a CSCWD 2027 draft. The official counts, see
 
 **Later design-file cell (lease vs gate, plus recovery), not prospectively registered.** On a shared parametric coupling-plate file, lease-only releases a correct revision in 24/30 trials and a geometrically inconsistent one in 2/30 (not significant). The gate isolates the biased writer in 30/30, never releases a bad file, and also never finishes the file (0/30). Two later recovery arms on the same seeds each finish 30/30 with no wrong release: isolation then reassignment, and pinning without isolation. Do not cite a success-rate win for the gate alone, and do not treat the recovery arms as a registered contrast. Logs are in [`prototype/design_doc_rerun/`](prototype/design_doc_rerun/), including `design_gaterassign.json` and `design_gatepin.json`. See [ARTIFACT.md](ARTIFACT.md).
 
+**Later design-file plan-slip cell (descriptive, *n* = 10), not prospectively registered.** With the cache left correct, a persistent +1 mm slip is applied to B's submitted wall and outer values. Both lease-only and write gating finish 0/10 (wrong releases 7/10 and 6/10); the gate grants every write (0 denies). This is an injected write-path fault, not a naturally occurring model error, and not a comparison between the arms. Logs: [`design_leaseonly_planslip.json`](prototype/design_doc_rerun/design_leaseonly_planslip.json) and [`design_gate_planslip.json`](prototype/design_doc_rerun/design_gate_planslip.json). See [ARTIFACT.md](ARTIFACT.md).
+
 An earlier eight-agent campaign whose seed contained the arm name is **not** the official result; see [ARTIFACT.md](ARTIFACT.md).
 
 ## Reproduce the tables (no API key)
@@ -65,4 +67,4 @@ prototype/
 
 ## 中文说明
 
-本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。后加的门控加再分配组合臂日志在 `prototype/combo_gate_orch/`，不是前瞻注册的对比；摘要中的 28/30 与 18/30 可在该目录复核。后加的设计文件实验日志在 `prototype/design_doc_rerun/`，同样不是前瞻注册的对比；只租约 24/30 正确发布、2/30 错误发布（不显著），门控 30/30 隔离且 0/30 完成；后加的再分配与钉住恢复臂均为 30/30 完成且无错误发布，可在 `design_gaterassign.json` 与 `design_gatepin.json` 复核。
+本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。后加的门控加再分配组合臂日志在 `prototype/combo_gate_orch/`，不是前瞻注册的对比；摘要中的 28/30 与 18/30 可在该目录复核。后加的设计文件实验日志在 `prototype/design_doc_rerun/`，同样不是前瞻注册的对比；只租约 24/30 正确发布、2/30 错误发布（不显著），门控 30/30 隔离且 0/30 完成；后加的再分配与钉住恢复臂均为 30/30 完成且无错误发布，可在 `design_gaterassign.json` 与 `design_gatepin.json` 复核。后加的描述性计划失误实验（*n* = 10，缓存正确，对 B 提交的壁厚和外径注入 +1 mm）中，仅租约与门控均为 0/10 完成（错误发布分别为 7/10 与 6/10），门控全部放行；这是注入的写路径故障，不是自然出现的模型错误，日志为 `design_leaseonly_planslip.json` 与 `design_gate_planslip.json`。

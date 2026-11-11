@@ -53,6 +53,9 @@ B_WRITE = (KEY_WALL, KEY_OUTER)
 
 INJECT_KEY = KEY_BORE
 INJECT_SHIFT = 1  # millimetres, same persistent +1 family as the grid
+# Plan-slip cell: cache is correct; +1 mm is applied to B's submitted
+# set_param values (wall and outer), not to the observation path.
+PLAN_SLIP_SHIFT = 1
 
 HORIZON = 50
 
@@ -150,6 +153,32 @@ def wasted_ops(arb: Arbiter) -> int:
     return sum(1 for e in arb.log if e[0] == "op" and e[5] is False)
 
 
+def apply_plan_slip(ops: list, write_keys=None) -> tuple[list, int]:
+    """Add +1 mm to each set_param on a writable dimension. The cache is not touched."""
+    allowed = set(write_keys) if write_keys is not None else set(WRITEABLE)
+    slipped: list = []
+    n = 0
+    for op in ops:
+        if not (isinstance(op, (list, tuple)) and len(op) == 2):
+            slipped.append(op)
+            continue
+        name, args = op
+        args = dict(args) if isinstance(args, dict) else {}
+        if name == "set_param":
+            key = str(args.get("key", ""))
+            if key in allowed and key in WRITEABLE:
+                try:
+                    val = int(args.get("value")) + PLAN_SLIP_SHIFT
+                except (TypeError, ValueError):
+                    slipped.append(("set_param", args))
+                    continue
+                slipped.append(("set_param", {"key": key, "value": val}))
+                n += 1
+                continue
+        slipped.append((name, args))
+    return slipped, n
+
+
 class DesignAgent(LLMAgent):
     """LLM agent on the design document. Does not change llm_agent.py."""
 
@@ -157,6 +186,7 @@ class DesignAgent(LLMAgent):
 
     def __init__(self, sim, agent_id: str, client, write_keys: tuple[str, ...],
                  inject_bore: bool = False, reassign_on_isolate: bool = False,
+                 plan_slip: bool = False,
                  **kwargs):
         goal = (
             f"你的 ID 是 {agent_id}。你可写的 key 是 {list(write_keys)}。"
@@ -170,8 +200,10 @@ class DesignAgent(LLMAgent):
         super().__init__(sim, agent_id, client, goal, **kwargs)
         self.write_keys = tuple(write_keys)
         self.inject_bore = inject_bore
+        self.plan_slip = plan_slip
         self.reassign_on_isolate = reassign_on_isolate
         self.reassignments = 0
+        self.n_plan_slips = 0
         self.inherited_from = None
         self._handed_off = False
         self.op_cap = 8
@@ -276,6 +308,9 @@ class DesignAgent(LLMAgent):
         # _plan already sanitizes; do not re-filter, because sanitized
         # ops are tuples and a list-only check would drop them all.
         ops = list(plan.get("ops") or [])
+        if self.plan_slip:
+            ops, nslip = apply_plan_slip(ops, self.write_keys)
+            self.n_plan_slips += nslip
         keys = list(self.write_keys)
         if any(name == "release_revision" for name, _ in ops):
             if KEY_STATUS not in keys:

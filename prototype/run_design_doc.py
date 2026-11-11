@@ -1,11 +1,12 @@
-"""Design-document cells: lease-only, write gating, and two later recovery arms.
+"""Design-document cells: lease-only, write gating, two later recovery arms,
+and a later plan-slip cell.
 
 Same instrument (authority ledger, sdk_cache gate, Qwen / DeepSeek at
-temperature 0.2). Agent B always has a persistent +1 mm shift on the
-observed bore. Seeds are design-doc-{trial} (no arm name). Logs go to
-design_doc_rerun/ and do not overwrite unified_seed_rerun/ or
-combo_gate_orch/. The original lease-only and gate JSON files are not
-rewritten by the recovery suites.
+temperature 0.2). On the observation-bias cells, agent B has a persistent
++1 mm shift on the observed bore. Seeds are design-doc-{trial} (no arm
+name). Logs go to design_doc_rerun/ and do not overwrite
+unified_seed_rerun/ or combo_gate_orch/. The original lease-only and
+gate JSON files are not rewritten by the recovery or plan-slip suites.
 
 Recovery arms (later, not prospectively registered):
   gaterassign  gate on, quarantine as usual; when B is isolated, A
@@ -13,11 +14,20 @@ Recovery arms (later, not prospectively registered):
   gatepin      gate on, recovery_mode=correct_pin: deviation does not
                isolate B; the authority bore is pinned into B's next plan.
 
+Plan-slip arms (later, descriptive, default n=10):
+  leaseonly_planslip / gate_planslip
+               no observation injection; B's submitted set_param values
+               for wall and outer are shifted by +1 mm after planning.
+               The cache matches the ledger, so the gate should grant.
+               Seeds are design-doc-planslip-{trial}. Logs go to
+               design_leaseonly_planslip.json and design_gate_planslip.json.
+
 Usage:
   python run_design_doc.py --suite selftest
   python run_design_doc.py --suite smoke --trials 1
   python run_design_doc.py --suite all
   python run_design_doc.py --suite recovery
+  python run_design_doc.py --suite planslip --trials 10
 """
 from __future__ import annotations
 
@@ -36,8 +46,8 @@ from llm_agent import load_clients
 from design_doc import (
     A_WRITE, B_WRITE, DOC_KEYS, DOC_OPS, HORIZON, INIT, INJECT_KEY,
     INJECT_SHIFT, KEY_BORE, KEY_OUTER, KEY_REV, KEY_STATUS, KEY_WALL,
-    TARGET, DesignAgent, consistent, init_document, is_success,
-    is_wrong_release, params_correct, snapshot, wasted_ops,
+    TARGET, DesignAgent, apply_plan_slip, consistent, init_document,
+    is_success, is_wrong_release, params_correct, snapshot, wasted_ops,
 )
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -45,7 +55,10 @@ OUT_DIR = os.path.join(BASE, "design_doc_rerun")
 N_TRIALS = 30
 ARMS = ("leaseonly", "gate")
 RECOVERY_ARMS = ("gaterassign", "gatepin")
+PLANSLIP_ARMS = ("leaseonly_planslip", "gate_planslip")
 SEED_PREFIX = "design-doc"
+PLANSLIP_SEED_PREFIX = "design-doc-planslip"
+PLANSLIP_TRIALS = 10
 
 
 def log(msg: str) -> None:
@@ -73,6 +86,19 @@ def models_for_trial(trial: int) -> dict[str, str]:
     return {"A": "deepseek", "B": "qwen"}
 
 
+def is_planslip_arm(arm: str) -> bool:
+    return arm.endswith("_planslip")
+
+
+def is_leaseonly_arm(arm: str) -> bool:
+    return arm.startswith("leaseonly")
+
+
+def seed_for(arm: str, trial: int) -> str:
+    prefix = PLANSLIP_SEED_PREFIX if is_planslip_arm(arm) else SEED_PREFIX
+    return f"{prefix}-{trial}"
+
+
 def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> dict:
     arb = sim.arbiter
     s = snapshot(arb)
@@ -83,7 +109,7 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
         "suite": "design_doc",
         "arm": arm,
         "trial": trial,
-        "seed": f"{SEED_PREFIX}-{trial}",
+        "seed": seed_for(arm, trial),
         "models": {k: sim.agents[k].client.model if hasattr(sim.agents[k], "client") else models[k]
                    for k in ("A", "B") if k in sim.agents},
         "success": bool(is_success(arb)) if error is None else False,
@@ -102,6 +128,8 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
         "recovery_mode": getattr(arb, "recovery_mode", "quarantine"),
         "reassignments": 0,
         "n_corrections": int(arb.stats.get("corrections") or 0),
+        "n_plan_slips": 0,
+        "plan_slip": is_planslip_arm(arm),
         "agent_status": dict(arb.agent_status),
         "arbiter_ops": [
             {"kind": e[0], "name": e[3], "args": e[4], "ok": e[5], "detail": e[6]}
@@ -119,6 +147,8 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
             "model": getattr(client, "model", models.get(aid)),
             "write_keys": list(getattr(ag, "write_keys", ())),
             "injected": bool(getattr(ag, "inject_bore", False)),
+            "plan_slip": bool(getattr(ag, "plan_slip", False)),
+            "n_plan_slips": int(getattr(ag, "n_plan_slips", 0) or 0),
             "inherited_from": getattr(ag, "inherited_from", None),
             "reassignments": int(getattr(ag, "reassignments", 0) or 0),
             "corrections_taken": int(getattr(ag, "corrections_taken", 0) or 0),
@@ -129,6 +159,7 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
             "completed_at": ag.report.completed_at,
         })
         rec["reassignments"] += int(getattr(ag, "reassignments", 0) or 0)
+        rec["n_plan_slips"] += int(getattr(ag, "n_plan_slips", 0) or 0)
     rec["tokens"] = tokens
     rec["llm_calls"] = calls
     if error:
@@ -146,9 +177,11 @@ def record_trial(sim: Sim, arm: str, trial: int, models: dict, error=None) -> di
 
 def run_llm_trial(arm: str, trial: int, clients: dict) -> dict:
     names = models_for_trial(trial)
-    sim = make_sim(l4_enabled=(arm != "leaseonly"))
+    sim = make_sim(l4_enabled=not is_leaseonly_arm(arm))
     if arm == "gatepin":
         sim.arbiter.recovery_mode = "correct_pin"
+    plan_slip = is_planslip_arm(arm)
+    seed = seed_for(arm, trial)
     # Fresh usage counters per trial (clients are reused otherwise).
     local = {}
     for aid, cname in names.items():
@@ -156,12 +189,13 @@ def run_llm_trial(arm: str, trial: int, clients: dict) -> dict:
         local[aid] = type(src)(src.name, src.base_url, src.api_key, src.model, src.temperature, src.timeout)
     DesignAgent(
         sim, "A", local["A"], A_WRITE, inject_bore=False,
-        obs_seed=f"{SEED_PREFIX}-{trial}-A",
+        obs_seed=f"{seed}-A",
     )
     DesignAgent(
-        sim, "B", local["B"], B_WRITE, inject_bore=True,
+        sim, "B", local["B"], B_WRITE, inject_bore=not plan_slip,
+        plan_slip=plan_slip,
         reassign_on_isolate=(arm == "gaterassign"),
-        obs_seed=f"{SEED_PREFIX}-{trial}-B",
+        obs_seed=f"{seed}-B",
     )
     sim.agents["A"].start(0)
     sim.agents["B"].start(1)
@@ -399,6 +433,37 @@ def selftest() -> int:
     assert not is_wrong_release(sim.arbiter)
     assert int(sim.arbiter.stats.get("corrections") or 0) >= 1
     print("selftest 6 ok: gate+pin, B not isolated, correct release")
+
+    # 7. Plan slip under the gate: cache matches the ledger, but B's
+    #    submitted wall/outer are +1 mm. The gate grants; a wrong
+    #    release goes through; B is not isolated.
+    sim = make_sim(l4_enabled=True)
+    slipped, nslip = apply_plan_slip([
+        ("set_param", {"key": KEY_WALL, "value": 5}),
+        ("set_param", {"key": KEY_OUTER, "value": 22}),
+        ("release_revision", {}),
+    ], B_WRITE)
+    assert nslip == 2
+    assert slipped[0][1]["value"] == 6 and slipped[1][1]["value"] == 23
+    ScriptedAgent(
+        sim, "A", (KEY_BORE,),
+        [("set_param", {"key": KEY_BORE, "value": 12})],
+        ttl=8, think=0, belief=_belief_from_obs(sim, False),
+    )
+    ScriptedAgent(
+        sim, "B", (KEY_WALL, KEY_OUTER, KEY_STATUS, KEY_REV),
+        slipped,
+        ttl=8, think=0, belief=_belief_from_obs(sim, False),
+    )
+    sim.agents["A"].start(0)
+    sim.agents["B"].start(2)
+    sim.run(until=20)
+    s = snapshot(sim.arbiter)
+    assert s[KEY_BORE] == 12 and s[KEY_WALL] == 6 and s[KEY_OUTER] == 23
+    assert is_wrong_release(sim.arbiter), s
+    assert not is_success(sim.arbiter)
+    assert sim.arbiter.agent_status.get("B") != "suspect"
+    print("selftest 7 ok: plan slip under the gate is granted, wrong release")
     print("all selftests passed")
     return 0
 
@@ -442,7 +507,8 @@ def run_arm(arm: str, trials: int, clients: dict, resume: bool) -> str:
         append_json(path, rec)
         log(f"{arm} t{t} success={rec['success']} wrong_release={rec['wrong_release']} "
             f"waste={rec['wasted_ops']} reassign={rec.get('reassignments', 0)} "
-            f"corr={rec.get('n_corrections', 0)} tokens={rec['tokens']} "
+            f"corr={rec.get('n_corrections', 0)} slips={rec.get('n_plan_slips', 0)} "
+            f"tokens={rec['tokens']} "
             f"calls={rec['llm_calls']} reason={rec['fail_reason']} "
             f"({time.time()-t0:.1f}s)")
     summarize(path)
@@ -452,14 +518,18 @@ def run_arm(arm: str, trials: int, clients: dict, resume: bool) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--suite", choices=["selftest", "smoke", "leaseonly", "gate",
-                                       "gaterassign", "gatepin", "recovery", "all"],
+                                       "gaterassign", "gatepin", "recovery", "all",
+                                       "planslip", "leaseonly_planslip", "gate_planslip"],
                     default="all")
-    ap.add_argument("--trials", type=int, default=N_TRIALS)
+    ap.add_argument("--trials", type=int, default=None)
     ap.add_argument("--no-resume", action="store_true")
     args = ap.parse_args()
 
     if args.suite == "selftest":
         return selftest()
+
+    if args.trials is None:
+        args.trials = PLANSLIP_TRIALS if args.suite in ("planslip",) + PLANSLIP_ARMS else N_TRIALS
 
     os.makedirs(OUT_DIR, exist_ok=True)
     clients = load_clients()
@@ -479,6 +549,8 @@ def main() -> int:
                 arms = ARMS
             elif args.suite == "recovery":
                 arms = RECOVERY_ARMS
+            elif args.suite == "planslip":
+                arms = PLANSLIP_ARMS
             else:
                 arms = (args.suite,)
             for arm in arms:
