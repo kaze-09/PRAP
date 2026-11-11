@@ -8,7 +8,7 @@ This repository is the artifact for the CSCWD 2027 draft in [`cscwd2027/`](cscwd
 
 **Topology cell.** The preregistered contrast remains orchestrator 27/30 against write gating 16/30 (*p* = 0.003). Later baselines on the same injection reach lease-only 29/30 and no protocol 28/30, nearly even with the orchestrator. That gap is mainly the cost of write gating cancelling rescue, not a unique benefit of the orchestrator relative to running without a lock.
 
-Documents dated before 2026-11-11 (including [`PRAP_experiment_log.md`](PRAP_experiment_log.md) and [`PRAP_advisor_briefing.md`](PRAP_advisor_briefing.md)) describe earlier campaigns. They may contain superseded counts, including an eight-agent run whose seed contained the arm name and is **not** the confirmatory result.
+An earlier eight-agent campaign whose seed contained the arm name is **not** the confirmatory result; see [ARTIFACT.md](ARTIFACT.md).
 
 ## Reproduce the tables (no API key)
 
@@ -56,4 +56,4 @@ prototype/
 
 ## 中文说明
 
-本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。2026-11-11 之前的实验记录与 briefing 不是正式结果。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。
+本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。

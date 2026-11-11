@@ -22,3 +22,24 @@ prap_cscwd2027v2.pdf
 review_cscwd.md
 review_cscwd_v2.md
 
+# Local working notes, drafts, and manuscript; keep on disk, not in the artifact
+cscwd2027/
+prap_cscwd2027.pdf
+prap_cscwd2027v2.pdf
+review_cscwd.md
+review_cscwd_v2.md
+PRAP_CCFC_draft.md
+PRAP_advisor_briefing.md
+PRAP_cuisine_protocol.md
+PRAP_experiment_log.md
+PRAP_feasibility_novelty_analysis.md
+PRAP_overcooked_protocol.md
+PRAP_paper_en.md
+PRAP_paper_reading_notes.md
+PRAP_paper_skeleton.md
+PRAP_replan_trigger_protocol.md
+PRAP_repo_conflict_protocol.md
+PRAP_repo_splice_protocol.md
+PRAP_revision_plan.md
+PRAP_revision_response.md
+relatedpaper/
