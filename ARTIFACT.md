@@ -1,6 +1,6 @@
 # Artifact for the CSCWD 2027 PRAP draft
 
-This file is the official record of the confirmatory campaign finished on 2026-11-11 (Asia/Shanghai). Numbers below are taken from `prototype/unified_seed_rerun/`. Recompute them with:
+This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai). Numbers below are taken from `prototype/unified_seed_rerun/`. Recompute them with:
 
 ```bash
 cd prototype
@@ -13,12 +13,12 @@ No API key is required for that check. The design can be inspected in `prototype
 
 | Cell | Status | Where |
 |---|---|---|
-| Eight-agent, five arms, *n* = 30, shared injection | **Confirmatory** | `unified_seed_rerun/scale8_f30_*.json` |
+| Eight-agent, five arms, *n* = 30, shared injection | **Official (corrective replication)** | `unified_seed_rerun/scale8_f30_*.json` |
 | Topology T2/C4 later baselines: lease-only, no protocol, prompt, *n* = 30 | Later baselines, **not** a new ranking and not Fisher-tested | `unified_seed_rerun/t2c4_*.json` |
-| Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun | existing `prototype/` JSON files cited in the paper |
-| Earlier eight-agent campaign whose seed included the arm name | **Not confirmatory**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
+| Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun; the public preregistration already records this outcome and is not a prospective registration of it | existing `prototype/` JSON files cited in the paper |
+| Earlier eight-agent campaign whose seed included the arm name | **Not official**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
 
-The eight-agent confirmatory seed is `unified-8-0.3-{trial}` (for trial 0…29). The arm name is not in the seed, so all five arms share one injection set. This is a disclosed deviation from the frozen preregistration in `PRAP_prereg_R1.md`, which used `8-0.3-{arm}-{trial}`. The earlier arm-in-seed campaign is the one that is **not** confirmatory.
+The official eight-agent seed is `unified-8-0.3-{trial}` (for trial 0…29). The arm name is not in the seed, so all five arms share one injection set. This is a corrective replication: the frozen preregistration in `PRAP_prereg_R1.md` specified `8-0.3-{arm}-{trial}`, so that file does not prospectively register these official counts. The earlier arm-in-seed campaign is **not** the official result. The three eight-agent Fisher tests named in that document are still reported on this replication.
 
 Topology T2/C4 injection was already deterministic (always agent B, a +1 *x* shift) and was not changed.
 
@@ -28,9 +28,9 @@ Topology T2/C4 injection was already deterministic (always agent B, a +1 *x* shi
 - Default `belief_mode` is `sdk_cache`: the gate compares the cached observation already used for planning (which already contains the injection). A self-reported belief is logged and is not the grant criterion.
 - Eight-agent assignment: agent *i* in trial *t* uses Qwen if `(i + t) % 2 == 0`, otherwise DeepSeek.
 - The injected fault is a +1 shift of the *x* coordinate. On the 5×5 map, an injected shift for apple 4 at (4, 3) is a null fault (`I4` clamp). Expected injection rate 0.30; expected effective rate 0.30 × 0.75 = 0.225.
-- Waste (preregistered) counts `op` / `op_free` log entries with `ok=False`. Refused intents are not waste. Use `wasted_ops`, not `wasted_ops_free_only`.
+- Waste (the metric named in the preregistration) counts `op` / `op_free` log entries with `ok=False`. Refused intents are not waste. Use `wasted_ops`, not `wasted_ops_free_only`.
 - Success means all items delivered with no unreleased hold.
-- The three preregistered eight-agent Fisher tests are write gating vs lease-only, write gating vs orchestrator, and orchestrator vs lease-only. Bonferroni would set α = 0.0167; all three are already non-significant unadjusted. Unregistered comparisons are descriptive only.
+- The three eight-agent Fisher tests named in the preregistration, computed on this corrective replication, are write gating vs lease-only, write gating vs orchestrator, and orchestrator vs lease-only. Bonferroni would set α = 0.0167; all three are already non-significant unadjusted. Other comparisons are descriptive only.
 - The testbed is a 5×5 grid of apples, not a collaborative design file. Stopped pilots (Overcooked, CuisineWorld, repository splice/conflict) are not results.
 
 ## Official eight-agent counts
@@ -61,7 +61,7 @@ Same deterministic C4 injection as the original campaign (agent B, +1 *x*). Thes
 
 Original campaign, not rerun: orchestrator 27/30, contract net 18/30, group chat 17/30, write gating 16/30, OCC+undo 15/30. Original model split when the remaining writer is DeepSeek: orchestrator 13/15, write gating 3/15 (lease-only later 14/15, no protocol later 13/15). When the remaining writer is Qwen: orchestrator 14/15, write gating 13/15.
 
-The preregistered contrast is still orchestrator against write gating (27/30 against 16/30, *p* = 0.003). Later lease-only and no-protocol baselines finish as often as the orchestrator. The gap is mainly the cost of write gating cancelling rescue, not a unique benefit of the orchestrator relative to running without a lock.
+The original contrast is orchestrator against write gating (27/30 against 16/30, *p* = 0.003). Later lease-only and no-protocol baselines finish as often as the orchestrator. The gap is mainly the cost of write gating cancelling rescue, not a unique benefit of the orchestrator relative to running without a lock.
 
 ## How to check a trial
 
