@@ -102,6 +102,12 @@ def op_release_revision(arb: Arbiter, lease, args) -> tuple:
         return False, f"bad_status_{None if status is None else status.value}"
     if KEY_STATUS not in lease.keys:
         return False, "status_not_leased"
+    # R2 (PRAP_prereg_R2.md): authority-side geometric ledger constraint.
+    # Checked only at release, because the intermediate state after A writes
+    # the bore but before B updates wall/outer is necessarily inconsistent.
+    # Default off; existing arms keep their original behaviour.
+    if getattr(arb, "dimension_constraint", False) and not consistent(snapshot(arb)):
+        return False, "dimension_constraint"
     arb._write(KEY_STATUS, "released", lease.agent_id, lease.lease_id)
     if KEY_REV in lease.keys and KEY_REV in arb.state:
         arb._write(KEY_REV, int(arb.state[KEY_REV].value) + 1,

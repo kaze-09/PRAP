@@ -1,0 +1,15 @@
+=== condition P (P: plan slip, cache correct; O: +1 mm bore observation bias) ===
+arm                  n  success  wrong_release  cd  false_reject  not_released  waste  tokens  calls  denies  errors
+leaseonly            10    0/10    5/10        0     0           5/10        0.00    5435   7.00    0.00    0
+gate                 10    0/10    6/10        0     0           4/10        0.00    5442   7.00    0.00    0
+gate_constraint      10    0/10    0/10       13     0          10/10        1.30    6459   8.30    0.00    0
+gate_constraint: trials with a constraint denial 8/10; denial-free trials still unreleased 2/10
+
+=== condition O (P: plan slip, cache correct; O: +1 mm bore observation bias) ===
+arm                  n  success  wrong_release  cd  false_reject  not_released  waste  tokens  calls  denies  errors
+leaseonly            10   10/10    0/10        0     0           0/10        1.20    4858   6.00    0.00    0
+gate                 10    0/10    0/10        0     0          10/10        0.00    7098   8.40    4.00    0
+gate_constraint      10    0/10    0/10        0     0          10/10        0.00    6627   8.40    4.00    0
+gate_constraint: trials with a constraint denial 0/10; denial-free trials still unreleased 10/10
+
+Note: wrong_release = 0 under the constraint is a definitional result (a refused release cannot be a wrong release); only the cost columns waste / tokens / calls / success carry empirical information. See PRAP_prereg_R2.md section 5.

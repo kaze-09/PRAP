@@ -26,6 +26,8 @@ No API key is required for that check. The design can be inspected in `prototype
 
 The official eight-agent seed is `unified-8-0.3-{trial}` (for trial 0…29). The arm name is not in the seed, so all five arms share one injection set. This is a corrective replication: the frozen preregistration in `PRAP_prereg_R1.md` specified `8-0.3-{arm}-{trial}`, so that file does not prospectively register these official counts. The earlier arm-in-seed campaign is **not** the official result. The three eight-agent Fisher tests named in that document are still reported on this replication.
 
+The paper (Section IV-A) now discloses both campaigns. Under the preregistered arm-in-seed formula the first campaign gave write gating 24/30, lease-only 15/30 (Fisher *p* = 0.029), prompt 22/30, orchestrator 19/30 and no protocol 19/30; the corrective replication gave 21/30, 22/30, 16/30, 19/30 and 19/30 respectively. The replication is official because the first seed gave each arm a different injection set, which confounds the comparison. The paper claims no confirmatory test and re-analyses the paired replication with exact McNemar (discordant trials 1/30, 4/30, 3/30; *p* = 1.00, 0.63, 0.25); the three preregistered unadjusted Fisher values (1.00, 0.78, 0.58) are retained for comparison only.
+
 Topology T2/C4 injection was already deterministic (always agent B, a +1 *x* shift) and was not changed.
 
 ## Measurement contract
@@ -171,6 +173,25 @@ python run_natural_error.py --summarize
 python run_natural_error.py --stage a
 python run_natural_error.py --stage b
 ```
+
+## R2: release-time geometric ledger constraint (2026-11-12, exploratory)
+
+Frozen protocol: `PRAP_prereg_R2.md` (2026-11-12 21:18:46 +08:00, written **before the first API call**). Runner `prototype/run_constraint.py`, summary `prototype/summarize_r2.py`, logs `prototype/constraint_runs/`. The constraint `outer = bore + 2*wall` is checked only at `release_revision`, behind `arb.dimension_constraint` (default off, so all earlier arms keep their behaviour). It is deliberately **not** checked on `set_param`: after A writes bore=12 and before B updates wall/outer, the intermediate state is necessarily inconsistent.
+
+Two conditions, three arms each, `n=10`, one shared seed `constraint-20261112-{cond}-{trial}`, same batch, `qwen-plus` / `deepseek-chat` at temperature 0.2. P = plan slip (cache correct, B's submitted wall/outer `+1 mm`); O = `+1 mm` bore observation bias.
+
+| Cond | Arm | Success | Wrong release | Constraint denials | Waste mean | Tokens mean | Calls mean |
+|---|---|---|---|---|---|---|---|
+| P | leaseonly | 0/10 | 5/10 | 0 | 0.00 | 5435 | 7.00 |
+| P | gate | 0/10 | 6/10 | 0 | 0.00 | 5442 | 7.00 |
+| P | gate+constraint | 0/10 | 0/10 | 13 (8/10 trials) | 1.30 | 6459 | 8.30 |
+| O | leaseonly | 10/10 | 0/10 | 0 | 1.20 | 4858 | 6.00 |
+| O | gate | 0/10 | 0/10 | 0 | 0.00 | 7098 | 8.40 |
+| O | gate+constraint | 0/10 | 0/10 | 0 | 0.00 | 6627 | 8.40 |
+
+False rejections (final state correct and consistent but not released): **0 in every arm**. In condition O the constraint never fired and `gate` / `gate+constraint` coincide, so it does not disturb the observation-bias cell. In condition P, 2/10 constrained trials were unreleased **without any constraint denial**, so the `0/10` wrong releases are not wholly attributable to the check. `wrong_release = 0` is a definitional result; the informative columns are waste, tokens, calls and the `10/10` unreleased files. The constraint turns a wrong release into an unfinished file; **it does not replace recovery**.
+
+Offline regression: `python run_constraint.py --suite selftest` passes the original 7 design-file self-tests plus 3 new ones (healthy release passes; intermediate writes are not refused; inconsistent release is refused; constraint-off preserves the original wrong release). Do **not** cite the `10/10` leaseonly success in condition O as a replication of the `81/100` design-file result: `n=10`, different seed prefix and batch.
 
 ## Files that must not be committed
 
