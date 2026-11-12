@@ -115,8 +115,8 @@ DOC_OPS = {
 }
 
 
-def init_document(arb: Arbiter) -> None:
-    for key, value in INIT.items():
+def init_document(arb: Arbiter, state: Optional[dict] = None) -> None:
+    for key, value in (state or INIT).items():
         arb._write(key, value, "init", None)
 
 
@@ -197,6 +197,9 @@ class DesignAgent(LLMAgent):
         kwargs.setdefault("start_pos", (0, 0))
         kwargs.setdefault("max_replans", 3)
         kwargs.setdefault("think", 2)
+        self.document_spec = kwargs.pop("document_spec", None)
+        self.read_logs: list = []
+        self.intent_logs: list = []
         super().__init__(sim, agent_id, client, goal, **kwargs)
         self.write_keys = tuple(write_keys)
         self.inject_bore = inject_bore
@@ -209,6 +212,9 @@ class DesignAgent(LLMAgent):
         self.op_cap = 8
 
     def _observe(self) -> dict:
+        if self.document_spec is not None:
+            from natural_doc import observe_from_document
+            return observe_from_document(self)
         obs = super()._observe()
         # A correct_pin must not be overwritten by the persistent injection;
         # the next plan is supposed to use the authority value.

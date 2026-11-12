@@ -1,6 +1,6 @@
 # Artifact for the CSCWD 2027 PRAP draft
 
-This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), of a later combination arm finished the same day, of the design-file cell later expanded to *n* = 100 and finished on 2026-11-12 at 01:38 (Asia/Shanghai), and of a later descriptive design-file plan-slip cell finished on 2026-11-11 at 19:06 (Asia/Shanghai). Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. The official design-file logs, including the recovery arms, are in `prototype/design_doc_rerun/`. Recompute the grid counts with:
+This file is the official record of the eight-agent corrective replication finished on 2026-11-11 (Asia/Shanghai), of a later combination arm finished the same day, of the design-file cell later expanded to *n* = 100 and finished on 2026-11-12 at 01:38 (Asia/Shanghai), and of a later descriptive design-file plan-slip cell finished on 2026-11-11 at 19:06 (Asia/Shanghai), and of a later natural-read experiment finished on 2026-11-12 (Asia/Shanghai). Official five-arm and later-baseline numbers are taken from `prototype/unified_seed_rerun/`. The later gate-plus-reassignment logs are in `prototype/combo_gate_orch/`. The official design-file logs, including the recovery arms, are in `prototype/design_doc_rerun/`. The later natural-read logs are in `prototype/natural_error_runs/`. Recompute the grid counts with:
 
 ```bash
 cd prototype
@@ -19,6 +19,8 @@ No API key is required for that check. The design can be inspected in `prototype
 | Design-file cell: lease-only vs write gating on a shared parametric coupling-plate, *n* = 100 | Main RQ3 / design-domain evidence; added after the grid campaigns and then expanded from *n* = 30; **not** a prospectively registered analysis and **not** a confirmatory test | `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` |
 | Design-file recovery: isolation then reassignment, and pinning without isolation, *n* = 100 | Same *n* = 100 design-file cell as above; **not** a prospectively registered contrast | `design_doc_rerun/design_gaterassign.json` and `design_doc_rerun/design_gatepin.json` |
 | Later design-file plan-slip cell: lease-only vs write gating under an injected +1 mm slip on B's submitted wall and outer, cache left correct, *n* = 10 | Later descriptive measurement, **not** a prospectively registered contrast and **not** a confirmatory test; not a naturally occurring model error | `design_doc_rerun/design_leaseonly_planslip.json` and `design_doc_rerun/design_gate_planslip.json` |
+| Later natural-read Stage A: extracts from uniquely determined checkout notes, 10 instances × 5 templates × 2 models = 100, temperature 0.2 | Later exploratory add-on, **not** a prospectively registered confirmatory analysis; primary mismatches 0/100 | `natural_error_runs/stage_a.jsonl` |
+| Later natural-read Stage B: closed-loop follow-on, lease-only vs write gating, *n* = 30 | Later exploratory add-on; first-read mismatches were 0; official log TPR/FPR are **not** valid detection rates (the checkout note did not display the live ledger outer after writes) and must not be cited | `natural_error_runs/stage_b_leaseonly.json` and `natural_error_runs/stage_b_gate.json` |
 | Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun; the public preregistration already records this outcome and is not a prospective registration of it | existing `prototype/` JSON files cited in the paper |
 | Earlier eight-agent campaign whose seed included the arm name | **Not official**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
 
@@ -117,9 +119,21 @@ Because the cache matches the ledger, the grant-time gate should grant. It did: 
 
 Do not treat 7/10 versus 6/10 wrong releases as a comparison between the arms. The result supports the measurement contract: the gate compares the cache with the ledger and does not inspect whether the plan is reasonable.
 
+
+## Later natural-read experiment (exploratory)
+
+Added after the injected-fault cells and finished on 2026-11-12 (Asia/Shanghai). Frozen protocol: `prototype/NATURAL_ERROR_PROTOCOL.md` (frozen 2026-11-12 16:26 Asia/Shanghai). Runners: `prototype/natural_doc.py` and `prototype/run_natural_error.py`. `prototype/design_doc.py` gained an optional `document_spec` observation hook used only when that argument is set. This experiment is **not** a prospectively registered confirmatory analysis. Errors had to come from the model's reading of a checkout note; the runtime did not inject a +1 into the cache. Models and temperature match the main cells: Qwen-plus and DeepSeek-chat, temperature 0.2.
+
+**Stage A (read-only extracts).** Five templates (clean; superseded voided Rev A; dual-unit, mm authoritative; mating-reference, truth is the current part; inspection-table, as-inspected authority) times 10 instances times two models yield 100 extracts. Extract failures: 0/100. Primary mismatches, any of bore, wall, or outer, are 0/100 = 0.0% (Wilson 95% CI [0.0%, 3.7%]); each template is 0/20 and each model is 0/50 (Wilson 95% CI [0.0%, 7.1%]). Log: `prototype/natural_error_runs/stage_a.jsonl`.
+
+**Stage B (closed-loop follow-on).** Same models and temperature, no injection, lease-only then write gating, *n* = 30 each. Seeds are `natural-err-20261112-{arm}-{t}` (the arm name is in the seed; this cell does not share one injection set, because there is no injection). First-read mismatches: 0/60 on each arm (Wilson 95% CI [0.0%, 6.0%]). Lease-only: 24/30 success (Wilson 95% CI [62.7%, 90.5%]), 6/30 wrong releases, waste mean 1.00, tokens mean 6538.8. Write gating: 24/30 success (same CI), 0/30 wrong releases, waste mean 0.80, tokens mean 7671.9. Failures were plan slips or omitted outer writes, not extract mismatches.
+
+Do not cite official log TPR/FPR from this cell as detection rates. `instance_from_snapshot` rebuilds the checkout note from ledger bore and wall only, so `Instance.outer` is always `bore+2*wall`; after a partial or wrong outer write, the note displays a geometrically consistent outer, not the live ledger outer. The paper therefore reports only the Stage A 0/100 rate, does not estimate gate true- or false-positive rates on spontaneous errors (none occurred under this setup), and does not report a closed-loop follow-on for that reason. Logs are kept for reproducibility: `prototype/natural_error_runs/stage_b_leaseonly.json`, `stage_b_gate.json`, and `stage_b_run.log`. The runner's `summary.txt` prints those official-log TPR/FPR figures; they must not be cited.
+
 ## How to check a trial
 
 Each eight-agent record in `unified_seed_rerun/scale8_f30_*.json` includes `seed`, `success`, `wasted_ops`, `tokens`, `llm_calls`, `n_injected`, `n_effective`, and per-agent injection flags. The shared plan is also written to `unified_seed_rerun/injection_plan_scale8.json`. `summarize_confirmatory.py` asserts that, for every trial, the five arms have identical injection flags and the same seed string. Each later combination record in `combo_gate_orch/` includes the same success, waste, token, and (for the eight-agent cell) seed and injection fields, plus `reassignments` and `handoffs`. Each official design-file record in `design_doc_rerun/design_leaseonly.json` and `design_doc_rerun/design_gate.json` includes `seed`, `success`, `wrong_release`, `params_correct`, `wasted_ops`, `tokens`, `llm_calls`, `grants`, `denies`, `n_quarantined`, and the final `document`. Each official recovery-arm record in `design_doc_rerun/design_gaterassign.json` and `design_doc_rerun/design_gatepin.json` includes the same fields, plus `reassignments`, `n_corrections`, `recovery_mode`, and per-agent `inherited_from`. Each later plan-slip record in `design_doc_rerun/design_leaseonly_planslip.json` and `design_doc_rerun/design_gate_planslip.json` includes the same design-file fields, plus `plan_slip` and `n_plan_slips`. The eight-agent plan written to `combo_gate_orch/injection_plan_scale8.json` has the same per-trial injection lists as the official plan; only the summary note differs. `summarize_confirmatory.py` reprints the combination counts and checks that those injection flags match the official write-gating arm.
+Each Stage A record in `natural_error_runs/stage_a.jsonl` includes the template, instance, model, extracted dimensions, and a primary-mismatch flag. Each Stage B record in `natural_error_runs/stage_b_leaseonly.json` and `stage_b_gate.json` includes `seed`, `success`, `wrong_release`, `wasted_ops`, `tokens`, and per-writer first-read fields. `python run_natural_error.py --summarize` reprints the Stage A and Stage B counts from those files without an API call. Official-log TPR/FPR in that reprint must not be cited as detection rates.
 
 ## Live rerun (optional, costs API usage)
 
@@ -147,6 +161,15 @@ python run_design_doc.py --suite leaseonly --trials 100
 python run_design_doc.py --suite gate --trials 100
 python run_design_doc.py --suite recovery --trials 100
 python run_design_doc.py --suite planslip
+```
+
+To reproduce the later natural-read experiment, first copy or rename `prototype/natural_error_runs/` if you need to keep the posted logs. `--selftest` and `--summarize` do not call the API. A live `--stage a` or `--stage b` run incurs API cost. Do not use a live rerun to replace the posted 0/100 extracts after seeing the rate.
+
+```bash
+python run_natural_error.py --selftest
+python run_natural_error.py --summarize
+python run_natural_error.py --stage a
+python run_natural_error.py --stage b
 ```
 
 ## Files that must not be committed

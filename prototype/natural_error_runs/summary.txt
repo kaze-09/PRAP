@@ -1,0 +1,15 @@
+Stage A (D:\LearningResource\ResearchForAIGC\GameAgent\PRAP\prototype\natural_error_runs\stage_a.jsonl): 100 completed extracts
+  extract failures (excluded from primary): 0/100
+  primary mismatch: 0/100 = 0.0%  Wilson 95% CI [0.0%, 3.7%]
+    clean: 0/20 = 0.0%  Wilson 95% CI [0.0%, 16.1%]
+    superseded: 0/20 = 0.0%  Wilson 95% CI [0.0%, 16.1%]
+    dual_unit: 0/20 = 0.0%  Wilson 95% CI [0.0%, 16.1%]
+    mating_ref: 0/20 = 0.0%  Wilson 95% CI [0.0%, 16.1%]
+    inspect_table: 0/20 = 0.0%  Wilson 95% CI [0.0%, 16.1%]
+    qwen: 0/50 = 0.0%  Wilson 95% CI [0.0%, 7.1%]
+    deepseek: 0/50 = 0.0%  Wilson 95% CI [0.0%, 7.1%]
+Stage B:
+  leaseonly n=30 success 24/30 = 80.0%  Wilson 95% CI [62.7%, 90.5%]; wrong_release 6/30; first-read mismatch 0/60 = 0.0%  Wilson 95% CI [0.0%, 6.0%]; waste mean 1.00; tokens mean 6538.8
+    intents=150 TPR 6/12 = 50.0%  Wilson 95% CI [25.4%, 74.6%]  FPR 0/138 = 0.0%  Wilson 95% CI [0.0%, 2.7%]  lease-only granted on error 6
+  gate n=30 success 24/30 = 80.0%  Wilson 95% CI [62.7%, 90.5%]; wrong_release 0/30; first-read mismatch 0/60 = 0.0%  Wilson 95% CI [0.0%, 6.0%]; waste mean 0.80; tokens mean 7671.9
+    intents=178 TPR 25/25 = 100.0%  Wilson 95% CI [86.7%, 100.0%]  FPR 23/153 = 15.0%  Wilson 95% CI [10.2%, 21.5%]

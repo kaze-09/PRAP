@@ -14,6 +14,8 @@ This repository is the artifact for a CSCWD 2027 draft. The official counts, see
 
 **Later design-file plan-slip cell (descriptive, *n* = 10), not prospectively registered.** With the cache left correct, a persistent +1 mm slip is applied to B's submitted wall and outer values. Both lease-only and write gating finish 0/10 (wrong releases 7/10 and 6/10); the gate grants every write (0 denies). This is an injected write-path fault, not a naturally occurring model error, and not a comparison between the arms. Logs: [`design_leaseonly_planslip.json`](prototype/design_doc_rerun/design_leaseonly_planslip.json) and [`design_gate_planslip.json`](prototype/design_doc_rerun/design_gate_planslip.json). See [ARTIFACT.md](ARTIFACT.md).
 
+**Later natural-read experiment (exploratory), not prospectively registered.** On uniquely determined checkout notes with distractors, the same models at temperature 0.2 produced 0/100 primary mismatches (Wilson 95% CI [0.0%, 3.7%]). A closed-loop follow-on is logged but not reported as detection rates, because the checkout note did not display the live ledger outer after writes. Protocol, runners, and logs: [`prototype/NATURAL_ERROR_PROTOCOL.md`](prototype/NATURAL_ERROR_PROTOCOL.md), [`prototype/natural_doc.py`](prototype/natural_doc.py), [`prototype/run_natural_error.py`](prototype/run_natural_error.py), and [`prototype/natural_error_runs/`](prototype/natural_error_runs/). See [ARTIFACT.md](ARTIFACT.md).
+
 An earlier eight-agent campaign whose seed contained the arm name is **not** the official result; see [ARTIFACT.md](ARTIFACT.md).
 
 ## Reproduce the tables (no API key)
@@ -62,9 +64,13 @@ prototype/
   unified_seed_rerun/               Official trial logs (do not overwrite)
   combo_gate_orch/                  Later combination trial logs (do not overwrite)
   design_doc_rerun/                 Design-file trial logs (official observation-bias files are *n* = 100; do not overwrite)
+  natural_doc.py                    Checkout-note renderer and extract helpers for the natural-read cell
+  run_natural_error.py              Natural-read Stage A / Stage B runner
+  NATURAL_ERROR_PROTOCOL.md         Frozen 2026-11-12 natural-read protocol
+  natural_error_runs/               Natural-read logs (do not overwrite; Stage B TPR/FPR must not be cited)
   *.json                            Earlier campaign files, kept for the record
 ```
 
 ## 中文说明
 
-本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。后加的门控加再分配组合臂日志在 `prototype/combo_gate_orch/`，不是前瞻注册的对比；摘要中的 28/30 与 18/30 可在该目录复核。设计文件实验日志在 `prototype/design_doc_rerun/`。该格是主要的 RQ3 证据，在网格实验之后加入，并在 *n* = 30 之后扩到 *n* = 100，不是前瞻注册的验证分析；只租约 81/100 正确发布、2/100 错误发布（不显著，均在原 0…29 局），门控 100/100 隔离且 0/100 完成；再分配与钉住恢复臂均为 100/100 完成且无错误发布，可在 `design_gaterassign.json` 与 `design_gatepin.json` 复核。后加的描述性计划失误实验（*n* = 10，缓存正确，对 B 提交的壁厚和外径注入 +1 mm）中，仅租约与门控均为 0/10 完成（错误发布分别为 7/10 与 6/10），门控全部放行；这是注入的写路径故障，不是自然出现的模型错误，日志为 `design_leaseonly_planslip.json` 与 `design_gate_planslip.json`。
+本仓库是 CSCWD 2027 稿的可复核材料。正式计数、统一种子和回放方法见 [`ARTIFACT.md`](ARTIFACT.md)。密钥文件 `prototype/api_keys.json` 已被忽略，请勿提交。后加的门控加再分配组合臂日志在 `prototype/combo_gate_orch/`，不是前瞻注册的对比；摘要中的 28/30 与 18/30 可在该目录复核。设计文件实验日志在 `prototype/design_doc_rerun/`。该格是主要的 RQ3 证据，在网格实验之后加入，并在 *n* = 30 之后扩到 *n* = 100，不是前瞻注册的验证分析；只租约 81/100 正确发布、2/100 错误发布（不显著，均在原 0…29 局），门控 100/100 隔离且 0/100 完成；再分配与钉住恢复臂均为 100/100 完成且无错误发布，可在 `design_gaterassign.json` 与 `design_gatepin.json` 复核。后加的描述性计划失误实验（*n* = 10，缓存正确，对 B 提交的壁厚和外径注入 +1 mm）中，仅租约与门控均为 0/10 完成（错误发布分别为 7/10 与 6/10），门控全部放行；这是注入的写路径故障，不是自然出现的模型错误，日志为 `design_leaseonly_planslip.json` 与 `design_gate_planslip.json`。后加的自然读数实验（2026-11-12，不是前瞻注册的验证分析）中，模型在温度 0.2、真值唯一的出库说明上主终点读错为 0/100（Wilson 95% 区间 [0.0%, 3.7%]）。闭环节日志已保存，但因出库说明在写入后未展示账本中的实际外径，不能把其中的检出率/误拒率当作有效结果引用。协议、运行脚本和日志见 `prototype/NATURAL_ERROR_PROTOCOL.md`、`prototype/natural_doc.py`、`prototype/run_natural_error.py` 与 `prototype/natural_error_runs/`。
