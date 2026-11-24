@@ -1,0 +1,3 @@
+== PRAP 不变量 fuzzer：400 seeds × 300 事件（max_hold=50）==
+
+===== 400 seeds × 300 事件全部通过：I1 互斥 / I2 零越权写 / I3 WAL 一致 / I4 版本单调 / I5 隔离完备 / I6 max_hold / I7 确定性 =====
