@@ -7,7 +7,7 @@ cd prototype
 python summarize_confirmatory.py
 ```
 
-No API key is required for that check. The design can be inspected in `prototype/prap_core.py` and `prototype/testbed.py`. Trial logs are deterministic given the recorded seeds and operator traces.
+No API key is required for that check. The design can be inspected in `prototype/prap_core.py` and `prototype/testbed.py`. Trial logs are deterministic given the recorded seeds and operator traces. The randomized invariant-check log added on 2026-11-23 is a reproduction, not the 2026-10-28 historical run. It is `prototype/fuzz_invariants_400x300.log`.
 
 ## What is official
 
@@ -20,7 +20,8 @@ No API key is required for that check. The design can be inspected in `prototype
 | Design-file recovery: isolation then reassignment, and pinning without isolation, *n* = 100 | Same *n* = 100 design-file cell as above; **not** a prospectively registered contrast | `design_doc_rerun/design_gaterassign.json` and `design_doc_rerun/design_gatepin.json` |
 | Later design-file plan-slip cell: lease-only vs write gating under an injected +1 mm slip on B's submitted wall and outer, cache left correct, *n* = 10 | Later descriptive measurement, **not** a prospectively registered contrast and **not** a confirmatory test; not a naturally occurring model error | `design_doc_rerun/design_leaseonly_planslip.json` and `design_doc_rerun/design_gate_planslip.json` |
 | Later natural-read Stage A: extracts from uniquely determined checkout notes, 10 instances × 5 templates × 2 models = 100, temperature 0.2 | Later exploratory add-on, **not** a prospectively registered confirmatory analysis; primary mismatches 0/100 | `natural_error_runs/stage_a.jsonl` |
-| Later natural-read Stage B: closed-loop follow-on, lease-only vs write gating, *n* = 30 | Later exploratory add-on; first-read mismatches were 0; official log TPR/FPR are **not** valid detection rates (the checkout note did not display the live ledger outer after writes) and must not be cited | `natural_error_runs/stage_b_leaseonly.json` and `natural_error_runs/stage_b_gate.json` |
+| Later natural-read Stage B: closed-loop follow-on, lease-only vs write gating, *n* = 30 | Later exploratory add-on; first-read mismatches 0/60 per arm (0/120 combined); official log TPR/FPR are **not** valid detection rates (the checkout note did not display the live ledger outer after writes) and must not be cited | `natural_error_runs/stage_b_leaseonly.json` and `natural_error_runs/stage_b_gate.json` |
+| Randomized invariant checks: 400 seeds × 300 events | Reproduction on 2026-11-23 (UTC) of `fuzz_invariants.py`; the 2026-10-28 historical stdout was never committed. Zero violations on the checks that run with `max_hold` unset. The success banner names I6, which this configuration does not execute | `fuzz_invariants_400x300.log` |
 | Topology T2/C4 orchestrator, contract net, group chat, write gating, OCC+undo | Original campaign, not rerun; the public preregistration already records this outcome and is not a prospective registration of it | existing `prototype/` JSON files cited in the paper |
 | Earlier eight-agent campaign whose seed included the arm name | **Not official**; kept only as a record | older `prototype/scale8_f30_*.json` (not under `unified_seed_rerun/`) |
 
@@ -140,7 +141,47 @@ Added after the injected-fault cells and finished on 2026-11-12 (Asia/Shanghai).
 
 **Stage B (closed-loop follow-on).** Same models and temperature, no injection, lease-only then write gating, *n* = 30 each. Seeds are `natural-err-20261112-{arm}-{t}` (the arm name is in the seed; this cell does not share one injection set, because there is no injection). First-read mismatches: 0/60 on each arm (Wilson 95% CI [0.0%, 6.0%]). Lease-only: 24/30 success (Wilson 95% CI [62.7%, 90.5%]), 6/30 wrong releases, waste mean 1.00, tokens mean 6538.8. Write gating: 24/30 success (same CI), 0/30 wrong releases, waste mean 0.80, tokens mean 7671.9. Failures were plan slips or omitted outer writes, not extract mismatches.
 
-Do not cite official log TPR/FPR from this cell as detection rates. `instance_from_snapshot` rebuilds the checkout note from ledger bore and wall only, so `Instance.outer` is always `bore+2*wall`; after a partial or wrong outer write, the note displays a geometrically consistent outer, not the live ledger outer. The paper therefore reports only the Stage A 0/100 rate, does not estimate gate true- or false-positive rates on spontaneous errors (none occurred under this setup), and does not report a closed-loop follow-on for that reason. Logs are kept for reproducibility: `prototype/natural_error_runs/stage_b_leaseonly.json`, `stage_b_gate.json`, and `stage_b_run.log`. The runner's `summary.txt` prints those official-log TPR/FPR figures; they must not be cited.
+Do not cite official log TPR/FPR from this cell as detection rates. `instance_from_snapshot` rebuilds the checkout note from ledger bore and wall only, so `Instance.outer` is always `bore+2*wall`; after a partial or wrong outer write, the note displays a geometrically consistent outer, not the live ledger outer. The paper reports the Stage A 0/100 primary-mismatch rate and the closed-loop first-read mismatches, 0/60 per arm and 0/120 combined. It withholds gate true-positive and false-positive rates because of the renderer artefact above. Logs are kept for reproducibility: `prototype/natural_error_runs/stage_b_leaseonly.json`, `stage_b_gate.json`, and `stage_b_run.log`. The runner's `summary.txt` prints those official-log TPR/FPR figures; they must not be cited.
+
+## Randomized invariant checks (reproduction, 2026-11-23)
+
+Commit `a12e01e` (2026-10-28) says the invariant fuzzer found zero violations on 400 seeds × 300 events. The runner is `prototype/fuzz_invariants.py` (blob `9940290cf3b54ee2692179efcb8456f168ffbec7`, unchanged since that commit). The commit added the script and no result log. No stdout from that historical run is in a later commit, in leftover files on this checkout, or in GitHub Actions artifacts. The repository has no workflow runs.
+
+The script default is `--seeds 200`. The reproduction passes `--seeds 400`. `--events` stays at its default of 300. `--max-hold` stays unset, so `Arbiter.max_hold` is `None`. In `check_invariants`, the I6 `hold_total` comparison runs only when `max_hold` is not `None`. The success line printed by the script still names I6. This transcript does not establish the max-hold bound.
+
+This run used the script as it stands on `00928f4ea2adf50cf7873f8083f263ca13cdf203`. It is a new execution. It is not the original 2026-10-28 run.
+
+- Command, from `prototype/`: `python3 fuzz_invariants.py --seeds 400 --events 300`
+- Date: 2026-11-23T07:30:44Z through 2026-11-23T07:30:49Z
+- Interpreter: Python 3.12.3
+- Seeds: `range(400)` (0 through 399), 300 events each. Each seed is executed a second time for invariant I7.
+- Exit code: 0. Stderr was empty.
+- Outcome: the script reported no violation. The raw stdout is `prototype/fuzz_invariants_400x300.log`.
+
+## Hang trials: infinite lease versus finite lease
+
+The draft describes an infinite lease deadlocking in 10 of 10 hang trials and a finite lease being reclaimed in 10 of 10. No transcript of that paired contrast was recovered from git history, from leftover files, or from CI artifacts. This environment has no `QWEN_API_KEY`, no `DEEPSEEK_API_KEY`, and no `prototype/api_keys.json`. The live runners were not started, and no hang log was added.
+
+The infinite-lease runner is `prototype/run_e4.py`. `--baseline pessim` uses `PessimisticLockAgent`, which sets `ttl_override` to `10**9`. `--cond C3` leaves agent A stuck after the grant. A 10-trial rerun calls Qwen-plus and DeepSeek-chat:
+
+```bash
+cd prototype
+python run_e4.py --baseline pessim --task T1 --cond C3 --trials 10 --out <new-file>.json
+```
+
+The same command with `--task T2` is the other published pessim cell. Keys go in `prototype/api_keys.json` (gitignored) or in `QWEN_API_KEY` and `DEEPSEEK_API_KEY`.
+
+The pessim files already in the tree are five trials each. `e4_pessim_T1_C3.json` and `e4_pessim_T2_C3.json` each record deadlock on 5/5 trials and success on 0/5. Console copies are `e4_run1.log` and `e4_run2.log`. Commit `e3dd99f` summarizes those runs as “pessimistic lock deadlocks 10/10”. The saved JSON files are the two *n* = 5 cells. They are not a 10-trial arm paired with a finite-TTL arm.
+
+The finite-TTL hang runner is `prototype/run_e1_full.py` with `--conds C3`. It also calls both models. A 10-trial rerun is:
+
+```bash
+python run_e1_full.py --task T1 --conds C3 --trials 10 --out <new-file>.json
+```
+
+Existing finite-TTL C3 logs already record one lease expiry on every trial: `e1_T1_C3_n30.json` (30/30), `e1_T2_C3_n10.json` (10/10), `e1_T3_C3_n10.json` (10/10), and `e1_T4_C3_n10.json` (10/10). Those files are the earlier PRAP C3 campaign. They are not paired with an infinite-lease arm on the same 10 trials.
+
+`prototype/run_e1.py` checks one scripted finite-TTL hang (scenario 1) and has no infinite-lease arm. A fresh run on 2026-11-23 exited 0 (31/31 assertions, including scenario 1). That console log is the single-trial scripted check. It is not the draft's 10-of-10 contrast, and it is not added here. `prototype/run_llm_smoke.py --stuck` is one live finite-TTL hang and also needs the two API keys.
 
 ## How to check a trial
 
